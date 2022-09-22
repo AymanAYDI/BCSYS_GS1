@@ -1,0 +1,34 @@
+{
+    "al.backgroundCodeAnalysis": true,
+    "al.codeAnalyzers": [
+        "${CodeCop}",
+        "${UICop}"
+    ],
+    "al.enableCodeActions": true,
+    "al.enableCodeAnalysis": true,
+    "al.packageCachePath": "./.alpackages",
+    "al.ruleSetPath": "./codeanalysis/BCSYS.ruleset.json",
+    "al.useLegacyRuntime": false,
+    "al-xml-doc.CheckObjectDocumentationInformationLevel": "Disabled",
+    "al-xml-doc.CheckProcedureDocumentationInformationLevel": "Disabled",
+    "CRS.AlSubFolderName": "src",
+    "CRS.DisableCRSSnippets": true,
+    "CRS.ExtensionObjectNamePattern": "<Prefix><BaseNameShort>",
+    "CRS.FileNamePattern": "<ObjectTypeShort><ObjectId>.<ObjectNameShort>.al",
+    "CRS.FileNamePatternExtensions": "<ObjectTypeShort><BaseId>-Ext<ObjectId>.<ObjectNameShort>.al",
+    "CRS.FileNamePatternPageCustomizations": "<ObjectTypeShort>Cust<BaseId>.<ObjectNameShort>.al",
+    "CRS.ObjectNamePrefix": "BC6_",
+    "CRS.OnSaveAlFileAction": "Rename",
+    "CRS.RemovePrefixFromFilename": true,
+    "CRS.RemoveUnderscoreFromFilename": true,
+    "objectIdNinja.showEventLogNotifications": true,
+    "objectIdNinja.showRangeWarnings": true,
+    "objectIdNinja.useVerboseOutputLogging": true,
+    "todo-tree.general.tags": [
+        "BUG",
+        "HACK",
+        "FIXME",
+        "TODO",
+        "XXX"
+    ],
+}

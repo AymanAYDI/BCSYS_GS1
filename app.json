@@ -1,0 +1,38 @@
+{
+  "id": "020be7f3-bf65-46d2-b650-e17846f0e43e",
+  "name": "Groupe INTRA",
+  "publisher": "BCSYS",
+  "version": "20.0.0.0",
+  "brief": "",
+  "description": "",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "./resource/logo/GS1-France.jpg",
+  "dependencies": [],
+  "screenshots": [],
+  "platform": "1.0.0.0",
+  "application": "20.0.0.0",
+  "idRanges": [
+    {
+      "from": 50000,
+      "to": 99999
+    }
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": false,
+    "includeSourceInSymbolFile": false
+  },
+  "runtime": "9.0",
+  "contextSensitiveHelpUrl": "https://gs1.com/help/",
+  "features": [
+    "TranslationFile"
+  ],
+  "supportedLocales": [
+    "en-US",
+    "fr-FR"
+  ],
+  "target": "Cloud"
+}
