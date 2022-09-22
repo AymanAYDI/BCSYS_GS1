@@ -19,7 +19,7 @@ table 8073297 "BC6_Language Template Mail"
         {
             Caption = 'Template mail';
         }
-        field(50000; "Object"; Text[250])
+        field(50000; Object; Text[250])
         {
             Caption = 'Object';
         }
@@ -41,14 +41,14 @@ table 8073297 "BC6_Language Template Mail"
         CstG009: Label 'Do you want to replace the existing template %1 %2?';
         CstG010: Label 'Do you want to delete the template %1?';
 
-    [Scope('Internal')]
+
     procedure Fct_SetHtmlTemplate() TxtRRecupients: Text[1024]
     var
-        RecLSalesReceivablesSetup: Record "Sales & Receivables Setup";
         RBAutoMgt: Codeunit "File Management";
-        // BLOBRef: Record "99008535"; //TODO: table tempBlob removed
-        BLOBRef: Codeunit "Temp Blob";
+        BLOBRef: Record "99008535"; //TODO: table tempBlob removed
+        //BLOBRef: Codeunit "Temp Blob";
         BooLTemplateExists: Boolean;
+
     begin
         CALCFIELDS("Template mail");
         IF "Template mail".HASVALUE THEN
@@ -56,18 +56,15 @@ table 8073297 "BC6_Language Template Mail"
         IF RBAutoMgt.BLOBImport(BLOBRef, '*.html') = '' THEN
             EXIT;
         "Template mail" := BLOBRef.Blob;
+
         IF BooLTemplateExists THEN
             IF NOT CONFIRM(CstG009, FALSE, FIELDCAPTION("Template mail")) THEN
                 EXIT;
         MODIFY;
     end;
 
-    [Scope('Internal')]
+
     procedure Fct_DeleteHtmlTemplate() TxtRRecupients: Text[1024]
-    var
-        RecLSalesReceivablesSetup: Record "Sales & Receivables Setup";
-        RBAutoMgt: Codeunit "File Management";
-    // BLOBRef: Record "99008535"; TODO: table tempBlob removed
     begin
         CALCFIELDS("Template mail");
         IF "Template mail".HASVALUE THEN BEGIN
@@ -78,13 +75,11 @@ table 8073297 "BC6_Language Template Mail"
         END;
     end;
 
-    [Scope('Internal')]
+
     procedure Fct_ExportHtmlTemplate() TxtRRecupients: Text[1024]
     var
-        RecLSalesReceivablesSetup: Record "Sales & Receivables Setup";
         RBAutoMgt: Codeunit "File Management";
-        // BLOBRef: Record "99008535";TODO: table tempBlob removed
-        BooLTemplateExists: Boolean;
+        BLOBRef: Codeunit "Temp Blob";
     begin
         CALCFIELDS("Template mail");
         IF "Template mail".HASVALUE THEN BEGIN

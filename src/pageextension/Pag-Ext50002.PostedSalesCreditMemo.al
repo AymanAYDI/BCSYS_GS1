@@ -1,11 +1,10 @@
-pageextension 50000 "Customer Card.PageExt" extends "Customer Card"
+pageextension 50002 "BC6_PostedSalesCreditMemo" extends "Posted Sales Credit Memo"
 {
-
     actions
     {
         addlast(navigation)
         {
-            action(SendManually)
+            action(BC6_SendManually)
             {
                 Caption = 'Send manually';
                 Ellipsis = true;
@@ -15,12 +14,10 @@ pageextension 50000 "Customer Card.PageExt" extends "Customer Card"
                 var
                     GS1DMSManagment: Codeunit "BC6_GS1 : DMS Managment";
                 begin
-                    GS1DMSManagment.SelectModelAndSendlEmail(RECORDID);
+                    GS1DMSManagment.SelectModelAndSendlEmail(Rec.RECORDID);
                 end;
             }
 
         }
     }
-
-
 }
