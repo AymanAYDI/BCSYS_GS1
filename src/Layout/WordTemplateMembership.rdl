@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
   <DataSources>
     <DataSource Name="DataSource">
@@ -59,4 +59,77 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="Today_Date">
+          <DataField>Today_Date</DataField>
+        </Field>
+        <Field Name="Customer_GTIN">
+          <DataField>Customer_GTIN</DataField>
+        </Field>
+        <Field Name="Customer_GLN">
+          <DataField>Customer_GLN</DataField>
+        </Field>
+        <Field Name="Customer_Name">
+          <DataField>Customer_Name</DataField>
+        </Field>
+        <Field Name="Customer_VATRegistrationNo">
+          <DataField>Customer_VATRegistrationNo</DataField>
+        </Field>
+        <Field Name="Customer_Address">
+          <DataField>Customer_Address</DataField>
+        </Field>
+        <Field Name="Customer_Address2">
+          <DataField>Customer_Address2</DataField>
+        </Field>
+        <Field Name="Customer_PostCode">
+          <DataField>Customer_PostCode</DataField>
+        </Field>
+        <Field Name="Customer_City">
+          <DataField>Customer_City</DataField>
+        </Field>
+        <Field Name="Contact_Name">
+          <DataField>Contact_Name</DataField>
+        </Field>
+        <Field Name="Contact_Address">
+          <DataField>Contact_Address</DataField>
+        </Field>
+        <Field Name="Contact_Address2">
+          <DataField>Contact_Address2</DataField>
+        </Field>
+        <Field Name="Contact_PostCode">
+          <DataField>Contact_PostCode</DataField>
+        </Field>
+        <Field Name="Contact_City">
+          <DataField>Contact_City</DataField>
+        </Field>
+        <Field Name="Contact_Country">
+          <DataField>Contact_Country</DataField>
+        </Field>
+        <Field Name="CompanyInformation_Name">
+          <DataField>CompanyInformation_Name</DataField>
+        </Field>
+        <Field Name="CompanyInformation_Address">
+          <DataField>CompanyInformation_Address</DataField>
+        </Field>
+        <Field Name="CompanyInformation_Address2">
+          <DataField>CompanyInformation_Address2</DataField>
+        </Field>
+        <Field Name="CompanyInformation_PostCode">
+          <DataField>CompanyInformation_PostCode</DataField>
+        </Field>
+        <Field Name="CompanyInformation_City">
+          <DataField>CompanyInformation_City</DataField>
+        </Field>
+        <Field Name="CompanyInformation_Country">
+          <DataField>CompanyInformation_Country</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

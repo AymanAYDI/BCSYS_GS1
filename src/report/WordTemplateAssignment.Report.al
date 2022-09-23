@@ -186,7 +186,7 @@ report 50057 "BC6_Word Template - Assignment"
                     //>>INC-09435-Y8J9N4
                     "Sales Invoice Line".SETRANGE(Type, "Sales Invoice Line".Type::Item);
                     "Sales Invoice Line".SETFILTER("Line No.", '>=10000');
-                    "Sales Invoice Line".FINDFIRST;
+                    "Sales Invoice Line".FINDFIRST();
                     //<<INC-09435-Y8J9N4
                 end;
             }
@@ -248,14 +248,14 @@ report 50057 "BC6_Word Template - Assignment"
 
     var
         CountryRegion: Record "Country/Region";
-        Contact_Country: Text;
         CompanyInformation_Country: Text;
-        SalesInvoiceHeader_Country: Text;
+        Contact_Country: Text;
         Customer_Country: Text;
-        GS1BarCode_Prefix_StartCode_pvar: Text;
+        GS1BarCode_Item_Code: Text;
         GS1BarCode_Prefix_EndCode_pvar: Text;
         GS1BarCode_Prefix_Price: Text;
+        GS1BarCode_Prefix_StartCode_pvar: Text;
         GS1BarCode_Prefix_Wight: Text;
-        GS1BarCode_Item_Code: Text;
+        SalesInvoiceHeader_Country: Text;
 }
 

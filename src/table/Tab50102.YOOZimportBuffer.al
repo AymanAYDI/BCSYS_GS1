@@ -1,4 +1,4 @@
-table 50065 "BC6_YOOZ import Buffer"
+table 50102 "BC6_YOOZ import Buffer"
 {
     Caption = 'YOOZ import Buffer';
     DataClassification = ToBeClassified;
@@ -240,7 +240,7 @@ table 50065 "BC6_YOOZ import Buffer"
     }
     trigger OnDelete()
     begin
-        DeleteErrorLine;
+        DeleteErrorLine();
     end;
 
     procedure DeleteErrorLine()
@@ -248,6 +248,6 @@ table 50065 "BC6_YOOZ import Buffer"
         ErrorLine: Record "BC6_YOOZ Error Log";
     begin
         ErrorLine.SETRANGE("Entry No.", "Entry No.");
-        ErrorLine.DELETEALL;
+        ErrorLine.DELETEALL();
     end;
 }

@@ -18,12 +18,12 @@ report 50100 "BC6_Trans. YOOZ Gen. Jnl."
                 ELSE
                     GenJnlLine.SETRANGE("Journal Batch Name", '');
 
-                GenJnlLine.LOCKTABLE;
+                GenJnlLine.LOCKTABLE();
                 IF GenJnlLine.COUNT <> 0 THEN
                     IF NOT CONFIRM(CstTxtG001, FALSE, GenJnlLine."Journal Template Name", GenJnlLine."Journal Batch Name") THEN
                         ERROR(CstTxtG002);
 
-                IF GenJnlLine.FINDLAST THEN;
+                IF GenJnlLine.FINDLAST() THEN;
 
                 Window.OPEN(CstTxtG003 + '@1@@@@@@@@@@@@@@@@@@@@@@@@@');
                 TotalRecNo := COUNT;
@@ -45,8 +45,8 @@ report 50100 "BC6_Trans. YOOZ Gen. Jnl."
 
             trigger OnPostDataItem()
             begin
-                YOOZManagement.UpdateAllStatus;
-                Window.CLOSE;
+                YOOZManagement.UpdateAllStatus();
+                Window.CLOSE();
 
                 GenJnlManagement.TemplateSelectionFromBatch(GenJnlBatch);
             end;
@@ -75,22 +75,18 @@ report 50100 "BC6_Trans. YOOZ Gen. Jnl."
     trigger OnInitReport()
     begin
         //YOOZManagement.CheckAllData;
-        YOOZManagement.CheckStatus;
+        YOOZManagement.CheckStatus();
     end;
 
     var
-        GenJnlTemplate: Record "Gen. Journal Template";
         GenJnlBatch: Record "Gen. Journal Batch";
         GenJnlLine: Record "Gen. Journal Line";
+        GenJnlTemplate: Record "Gen. Journal Template";
         YOOZManagement: Codeunit "BC6_YOOZ Management";
         GenJnlManagement: Codeunit GenJnlManagement;
-        IdDimension: Integer;
-        GlobalDim1Value: Code[20];
-        GlobalDim2Value: Code[20];
         Window: Dialog;
-        TotalRecNo: Integer;
         RecNo: Integer;
-        CstTxtG000: Label '%1 doit être renseigné.';
+        TotalRecNo: Integer;
         CstTxtG001: Label 'Il existe des lignes dans la feuille %1 %2. Voulez-vous continuer?';
         CstTxtG002: Label 'La mise à jour a été interrompue pour respecter l''alerte.';
         CstTxtG003: Label 'Traitement des données...\\';

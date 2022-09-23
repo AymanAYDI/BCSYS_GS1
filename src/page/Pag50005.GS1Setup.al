@@ -48,36 +48,36 @@ page 50005 "BC6_GS1 Setup"
         {
             group("F&unctions")
             {
-                action("Test Azure Endpoint connection")
-                {
-                    Promoted = true;
-                    PromotedCategory = Process;
-                    ApplicationArea = All;
-                    Caption = 'Test Azure Endpoint connection';
-                    Image = ValidateEmailLoggingSetup;
-                    trigger OnAction()
-                    var
-                        // CduLAzure: Codeunit "Azure Web Req. Mgt.";
-                        Token: Text;
-                    begin
-                        // Token := CduLAzure.GetOAuthToken(Rec);
-                        // IF Token <> '' THEN
-                        //     MESSAGE(STRSUBSTNO(CstLSuccess, Token))
-                        // ELSE
-                        //     MESSAGE(STRSUBSTNO(CstLError, GETLASTERRORTEXT));
+                // action("Test Azure Endpoint connection")
+                // {
+                //     Promoted = true;
+                //     PromotedCategory = Process;
+                //     ApplicationArea = All;
+                //     Caption = 'Test Azure Endpoint connection';
+                //     Image = ValidateEmailLoggingSetup;
+                //     trigger OnAction()
+                //     var
+                //         // CduLAzure: Codeunit "Azure Web Req. Mgt.";
+                //         Token: Text;
+                //     begin
+                //         // Token := CduLAzure.GetOAuthToken(Rec);
+                //         // IF Token <> '' THEN
+                //         //     MESSAGE(STRSUBSTNO(CstLSuccess, Token))
+                //         // ELSE
+                //         //     MESSAGE(STRSUBSTNO(CstLError, GETLASTERRORTEXT));
 
-                    end;
-                }
+                //     end;
+                // }
             }
         }
     }
 
     trigger OnOpenPage()
     begin
-        Rec.RESET;
-        IF NOT Rec.GET THEN BEGIN
-            Rec.INIT;
-            Rec.INSERT;
+        Rec.RESET();
+        IF NOT Rec.GET() THEN BEGIN
+            Rec.INIT();
+            Rec.INSERT();
         END;
     end;
 }

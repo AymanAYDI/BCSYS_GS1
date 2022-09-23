@@ -1,4 +1,4 @@
-table 50066 "BC6_YOOZ Error Log"
+table 50101 "BC6_YOOZ Error Log"
 {
     Caption = 'YOOZ Error Log';
     DataClassification = ToBeClassified;
@@ -30,7 +30,7 @@ table 50066 "BC6_YOOZ Error Log"
             Caption = 'Field';
             DataClassification = ToBeClassified;
         }
-        field(12; "Value"; Text[250])
+        field(12; Value; Text[250])
         {
             Caption = 'Value';
             DataClassification = ToBeClassified;
@@ -67,15 +67,16 @@ table 50066 "BC6_YOOZ Error Log"
         SETRANGE("Entry No.", IntPEntryNo);
         IF Rec.FINDLAST() THEN
             IntLineNumber := Rec."Line No." + 10000
+
         ELSE
             IntLineNumber := 10000;
 
-        Rec.INIT;
+        Rec.INIT();
         Rec."Entry No." := IntPEntryNo;
         Rec."Line No." := IntLineNumber;
 
         Rec.User := USERID;
-        Rec."Import Date" := WORKDATE;
+        Rec."Import Date" := WORKDATE();
         Rec."Import Time" := TIME;
 
         Rec."Error Description" := TxtPErrorDescription;

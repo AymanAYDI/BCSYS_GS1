@@ -1,4 +1,4 @@
-table 50006 "BC6_GS1 Setup"
+table 50100 "BC6_GS1 Setup"
 {
     Caption = 'GS1 Setup';
     DataClassification = ToBeClassified;

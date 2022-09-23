@@ -1,4 +1,4 @@
-tableextension 50001 Language extends Language
+tableextension 50001 "BC6_Language" extends Language
 {
 
 
@@ -8,7 +8,7 @@ tableextension 50001 Language extends Language
     begin
         CLEAR(Rec);
         SETRANGE("Windows Language ID", GLOBALLANGUAGE);
-        IF FINDFIRST THEN;
+        IF FINDFIRST() THEN;
         SETRANGE("Windows Language ID");
         EXIT(Code);
     end;

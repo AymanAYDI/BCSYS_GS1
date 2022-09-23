@@ -18,7 +18,7 @@ table 50008 "BC6_GS1 Bar Code"
 
             trigger OnValidate()
             begin
-                UpdateGLN;
+                UpdateGLN();
             end;
         }
         field(3; "Item No."; Code[20])
@@ -190,15 +190,15 @@ table 50008 "BC6_GS1 Bar Code"
     trigger OnInsert()
     begin
         IF "Entry No." = 0 THEN
-            "Entry No." := GetNextEntryNo;
+            "Entry No." := GetNextEntryNo();
     end;
 
     local procedure GetNextEntryNo(): BigInteger
     var
         RecLGS1BarCode: Record "BC6_GS1 Bar Code";
     begin
-        RecLGS1BarCode.LOCKTABLE;
-        IF RecLGS1BarCode.FINDLAST THEN
+        RecLGS1BarCode.LOCKTABLE();
+        IF RecLGS1BarCode.FINDLAST() THEN
             EXIT(RecLGS1BarCode."Entry No." + 1)
         ELSE
             EXIT(1);

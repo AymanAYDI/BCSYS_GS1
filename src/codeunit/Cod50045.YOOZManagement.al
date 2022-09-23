@@ -3,76 +3,52 @@ codeunit 50045 "BC6_YOOZ Management"
 
     procedure ImportData()
     var
-        IStream: InStream;
-        ServerFileName: Text;
-        ClientFileName: Text;
-        FileNameFilter: Text;
-        ClientFileName2: Text;
-        FileManagement: Codeunit "File Management";
         TempBlob: Codeunit "Temp Blob";
-        DataText: Text;
+        IStream: InStream;
         Excel2007FileType: Label 'Excel Files (*.xlsx;*.xls)|*.csv;*.csv', Comment = '{Split=r''\|''}{Locked=s''1''}';
+        ClientFileName: Text;
+        ClientFileName2: Text[250];
         DataArray: ARRAY[50] OF Text;
+        DataText: Text;
     begin
-        // FileNameFilter := FileManagement.CombinePath('', '*.csv');
-        //ClientFileName := FileManagement.OpenFileDialog(CstTxt006, FileNameFilter, '');
         ClientFileName := FileManagement.BLOBImportWithFilter(TempBlob, CstTxt006, '', Excel2007FileType, 'csv');
 
         IF ClientFileName = '' THEN
             EXIT;
-
         // Check exist Line
         ClientFileName2 := FileManagement.GetFileNameWithoutExtension(ClientFileName);
         GFileName := ClientFileName2;
-        YOOZBuffer.RESET;
+        YOOZBuffer.RESET();
         YOOZBuffer.SETRANGE("Import File Name", ClientFileName2);
         IF NOT YOOZBuffer.ISEMPTY THEN
             ERROR(CstTxt009, ClientFileName2);
-
-        //TODO   ServerFileName := FileManagement.UploadFileSilent(ClientFileName);
-        GS1Setup.GET;
+        GS1Setup.GET();
         GS1Setup.TESTFIELD("YOOZ Journ. Batch Name");
         GS1Setup.TESTFIELD("YOOZ Journ. Temp. Name");
         GS1Setup.TESTFIELD("YOOZ Source Code");
-
-        //Gestion de l'import dans la table tampon par Instream
-        //chargement du fichier dans un blob temporaire
-        //UPLOADINTOSTREAM('Fichier à importer','','|*.csv',ServerFileName,IStream);
-        //TODO  FileManagement.BLOBImportFromServerFile(TempBlob, ServerFileName);
         TempBlob.CREATEINSTREAM(IStream, TEXTENCODING::UTF8);
-        //TODO TempBlob.CALCFIELDS(Blob);
-
-        //si le fichier contient une entete , réactiver ces lignes de codes.
-        //IF NOT IStream.EOS THEN
-        //  IStream.READTEXT(DataText);
-
         WHILE NOT IStream.EOS DO BEGIN
             IStream.READTEXT(DataText);
             ExtractCSVData(DataText, ';', DataArray);
             InitYoozBuffer(DataArray, ClientFileName2);
         END;
 
-        //MajYoozDescription;
-
-        //suppresion du fichier du serveur
-        // ERASE(ServerFileName);
-
-        // Check Data
-        CheckAllData;
+        CheckAllData();
     end;
 
     procedure CheckAllData()
     var
         ImportYOOZBuffer: Record "BC6_YOOZ import Buffer";
-        TotalRecNo: Integer;
         RecNo: Integer;
+        TotalRecNo: Integer;
     begin
-        GLSetup.GET;
+        GLSetup.GET();
 
-        ImportYOOZBuffer.RESET;
+        ImportYOOZBuffer.RESET();
         ImportYOOZBuffer.SETRANGE("Import Type", ImportYOOZBuffer."Import Type"::YOOZ);
         //ImportYOOZBuffer.SETRANGE("Import File Name",GFileName);
-        ImportYOOZBuffer.SETFILTER(Status, '<>%1', ImportYOOZBuffer.Status::Post);
+        // ImportYOOZBuffer.SETFILTER(Status, '<>%1', ImportYOOZBuffer.Status::Post);
+        ImportYOOZBuffer.SETFILTER("Entry No.", '<%1', 0);
         IF ImportYOOZBuffer.ISEMPTY THEN
             EXIT;
 
@@ -81,36 +57,28 @@ codeunit 50045 "BC6_YOOZ Management"
 
         TotalRecNo := ImportYOOZBuffer.COUNT;
 
-        ImportYOOZBuffer.FINDSET;
+        ImportYOOZBuffer.FINDSET();
         REPEAT
             RecNo += 1;
             Window.UPDATE(1, ROUND(RecNo / TotalRecNo * 10000, 1));
 
             IF ImportYOOZBuffer.Status = ImportYOOZBuffer.Status::Error THEN
-                ImportYOOZBuffer.DeleteErrorLine;
+                ImportYOOZBuffer.DeleteErrorLine();
 
             CheckData(ImportYOOZBuffer);
-        UNTIL ImportYOOZBuffer.NEXT = 0;
+        UNTIL ImportYOOZBuffer.NEXT() = 0;
 
-        CheckTransaction;
+        CheckTransaction();
 
     end;
 
     local procedure CheckData(ImportBuffer: Record "BC6_YOOZ import Buffer")
     var
-        SourceCode: Record "Source Code";
-        Cust: Record Customer;
+        ErrorLog: Record "BC6_YOOZ Error Log";
         GLAcc: Record "G/L Account";
-        Currency: Record Currency;
-        PaymentMethod: Record "Payment Method";
-        DimValue: Record "Dimension Value";
-        CalcDateF: Date;
-        CalcDecimal: Decimal;
-        SenseAmt: Integer;
-        CalcInteger: Integer;
         GenJournalTemplate: Record "Gen. Journal Template";
         Vendor: Record Vendor;
-        ErrorLog: Record "BC6_YOOZ Error Log";
+        CalcDateF: Date;
     begin
         ImportBuffer.Status := ImportBuffer.Status::"On Hold";
 
@@ -234,7 +202,7 @@ codeunit 50045 "BC6_YOOZ Management"
                     END;
                 END;
             END ELSE
-                IF ImportBuffer."Account Type" = ImportBuffer."Account Type"::Vendor THEN BEGIN
+                IF ImportBuffer."Account Type" = ImportBuffer."Account Type"::Vendor THEN
                     IF NOT Vendor.GET(ImportBuffer."G/L Account No.") THEN BEGIN
                         ErrorLog.InsertLogEntry(ImportBuffer."Entry No.",
                         STRSUBSTNO(CstTxt002, ImportBuffer.FIELDCAPTION("G/L Account No."), Vendor.TABLECAPTION),
@@ -242,7 +210,7 @@ codeunit 50045 "BC6_YOOZ Management"
                         ImportBuffer.FIELDCAPTION("G/L Account No."),
                         ImportBuffer."G/L Account No.");
                         ImportBuffer.Status := ImportBuffer.Status::Error;
-                    END ELSE BEGIN
+                    END ELSE
                         IF (Vendor.Blocked = Vendor.Blocked::All) THEN BEGIN
                             ErrorLog.InsertLogEntry(ImportBuffer."Entry No.",
                               STRSUBSTNO(CstTxt003, ImportBuffer.FIELDCAPTION("G/L Account No."), GLAcc.FIELDCAPTION(Blocked), GLAcc.Blocked),
@@ -251,8 +219,8 @@ codeunit 50045 "BC6_YOOZ Management"
                               ImportBuffer."G/L Account No.");
                             ImportBuffer.Status := ImportBuffer.Status::Error;
                         END;
-                    END;
-                END;
+
+
 
         // Verif Description
         IF ImportBuffer.Description = '' THEN BEGIN
@@ -335,18 +303,18 @@ codeunit 50045 "BC6_YOOZ Management"
         END;
         IF ImportBuffer.Status = ImportBuffer.Status::"On Hold" THEN
             ImportBuffer.Status := ImportBuffer.Status::Check;
-        ImportBuffer.MODIFY;
+        ImportBuffer.MODIFY();
     end;
 
     local procedure CheckTransaction()
     var
-        ImportYOOZBuffer: Record "BC6_YOOZ import Buffer";
-        ImportBufferTransaction: Record "BC6_YOOZ import Buffer";
-        TotalRecNo: Integer;
-        RecNo: Integer;
         ErrorLog: Record "BC6_YOOZ Error Log";
+        ImportBufferTransaction: Record "BC6_YOOZ import Buffer";
+        ImportYOOZBuffer: Record "BC6_YOOZ import Buffer";
+        RecNo: Integer;
+        TotalRecNo: Integer;
     begin
-        ImportYOOZBuffer.RESET;
+        ImportYOOZBuffer.RESET();
         ImportYOOZBuffer.SETRANGE("Import Type", ImportYOOZBuffer."Import Type"::YOOZ);
         ImportYOOZBuffer.SETFILTER(Status, '<>%1', ImportYOOZBuffer.Status::Post);
         IF ImportYOOZBuffer.ISEMPTY THEN
@@ -354,7 +322,7 @@ codeunit 50045 "BC6_YOOZ Management"
 
         TotalRecNo := ImportYOOZBuffer.COUNT;
 
-        ImportYOOZBuffer.FINDSET;
+        ImportYOOZBuffer.FINDSET();
         REPEAT
             RecNo += 1;
             Window.UPDATE(2, ROUND(RecNo / TotalRecNo * 10000, 1));
@@ -372,9 +340,9 @@ codeunit 50045 "BC6_YOOZ Management"
                 ImportBufferTransaction.MODIFYALL(Status, ImportBufferTransaction.Status::Error);
             END;
 
-        UNTIL ImportYOOZBuffer.NEXT = 0;
+        UNTIL ImportYOOZBuffer.NEXT() = 0;
 
-        Window.CLOSE;
+        Window.CLOSE();
     end;
 
     procedure CheckStatus()
@@ -384,20 +352,20 @@ codeunit 50045 "BC6_YOOZ Management"
         IF NOT YOOZBuffer.ISEMPTY THEN
             ERROR(CstTxt008);
     end;
-
-    local procedure EvaluateDecimal(TxtDecimal: Text; VAR CalculatedDecimal: Decimal): Boolean
-    begin
-        IF NOT EVALUATE(CalculatedDecimal, TxtDecimal) THEN BEGIN
-            IF STRPOS(TxtDecimal, '.') <> 0 THEN BEGIN
-                TxtDecimal := CONVERTSTR(TxtDecimal, '.', ',');
-            END ELSE
-                IF STRPOS(TxtDecimal, ',') <> 0 THEN
-                    TxtDecimal := CONVERTSTR(TxtDecimal, ',', '.');
-            IF NOT EVALUATE(CalculatedDecimal, TxtDecimal) THEN
-                EXIT(FALSE);
-            EXIT(TRUE);
-        END;
-    end;
+    //Not Used
+    // local procedure EvaluateDecimal(TxtDecimal: Text; VAR CalculatedDecimal: Decimal): Boolean
+    // begin
+    //     IF NOT EVALUATE(CalculatedDecimal, TxtDecimal) THEN BEGIN
+    //         IF STRPOS(TxtDecimal, '.') <> 0 THEN
+    //             TxtDecimal := CONVERTSTR(TxtDecimal, '.', ',')
+    //         ELSE
+    //             IF STRPOS(TxtDecimal, ',') <> 0 THEN
+    //                 TxtDecimal := CONVERTSTR(TxtDecimal, ',', '.');
+    //         IF NOT EVALUATE(CalculatedDecimal, TxtDecimal) THEN
+    //             EXIT(FALSE);
+    //         EXIT(TRUE);
+    //     END;
+    // end;
 
     procedure InitGenLineData(RecPGenJnlTemplate: Record "Gen. Journal Template"; RecPGenJnlBatch: Record "Gen. Journal Batch"; IntPLastLineNo: Integer)
     begin
@@ -411,7 +379,7 @@ codeunit 50045 "BC6_YOOZ Management"
         VATPostingSetup: Record "VAT Posting Setup";
     begin
         IntGLineNo += 10000;
-        RecGGenJournalLine.INIT;
+        RecGGenJournalLine.INIT();
         RecGGenJournalLine."Line No." := IntGLineNo;
         RecGGenJournalLine.VALIDATE("Journal Template Name", RecGGenJnlBatch."Journal Template Name");
         RecGGenJournalLine.VALIDATE("Journal Batch Name", RecGGenJnlBatch.Name);
@@ -441,9 +409,9 @@ codeunit 50045 "BC6_YOOZ Management"
         RecGGenJournalLine.ValidateShortcutDimCode(4, RecPImportBuffer."Dimension Value 4");
 
         IF RecPImportBuffer."VAT Identifier" <> '' THEN BEGIN
-            VATPostingSetup.RESET;
+            VATPostingSetup.RESET();
             VATPostingSetup.SETRANGE("VAT Identifier", RecPImportBuffer."VAT Identifier");
-            IF VATPostingSetup.FINDFIRST THEN BEGIN
+            IF VATPostingSetup.FINDFIRST() THEN BEGIN
                 RecGGenJournalLine.VALIDATE("VAT Prod. Posting Group", VATPostingSetup."VAT Prod. Posting Group");
                 RecGGenJournalLine.VALIDATE("VAT Bus. Posting Group", VATPostingSetup."VAT Bus. Posting Group");
             END;
@@ -455,7 +423,7 @@ codeunit 50045 "BC6_YOOZ Management"
 
     procedure UpdateAllStatus()
     begin
-        YOOZBuffer.RESET;
+        YOOZBuffer.RESET();
         YOOZBuffer.SETRANGE("Import Type", YOOZBuffer."Import Type"::YOOZ);
         YOOZBuffer.SETRANGE(Status, YOOZBuffer.Status::Check);
         YOOZBuffer.MODIFYALL(Status, YOOZBuffer.Status::Post);
@@ -463,9 +431,8 @@ codeunit 50045 "BC6_YOOZ Management"
 
     procedure RemoveStatus(VAR P_YOOZBuffer: Record "BC6_YOOZ import Buffer")
     var
-        YOOZBuffer: Record "BC6_YOOZ import Buffer";
-        GenJnlCheckLine: Codeunit "Gen. Jnl.-Check Line";
         OldCustLedgEntry: Record "Cust. Ledger Entry";
+
     Begin
         IF NOT CONFIRM(CstTxt010, FALSE, P_YOOZBuffer."Import File Name") THEN
             ERROR(CstTxt011);
@@ -475,17 +442,17 @@ codeunit 50045 "BC6_YOOZ Management"
         IF YOOZBuffer.ISEMPTY THEN
             EXIT;
 
-        YOOZBuffer.FINDSET;
+        YOOZBuffer.FINDSET();
         REPEAT
             OldCustLedgEntry.SETRANGE("Document No.", YOOZBuffer."Document No.");
             OldCustLedgEntry.SETRANGE("Document Type", YOOZBuffer."Document Type");
             IF NOT OldCustLedgEntry.ISEMPTY THEN
                 ERROR(CstTxt012, YOOZBuffer."Document Type", YOOZBuffer."Document No.");
-        UNTIL YOOZBuffer.NEXT = 0;
+        UNTIL YOOZBuffer.NEXT() = 0;
 
         YOOZBuffer.MODIFYALL(Status, YOOZBuffer.Status::"On Hold");
 
-        CheckAllData;
+        CheckAllData();
     End;
 
     procedure DeleteImportLine(P_YOOZBuffer: Record "BC6_YOOZ import Buffer")
@@ -504,8 +471,8 @@ codeunit 50045 "BC6_YOOZ Management"
 
     procedure ExtractCSVData(DataText: Text; CSVFieldSeparator: Text[1]; VAR DataArray: ARRAY[50] OF Text)
     var
-        Pos: Integer;
         Index: Integer;
+        Pos: Integer;
         Separator: Text;
     begin
         CLEAR(DataArray);
@@ -526,11 +493,18 @@ codeunit 50045 "BC6_YOOZ Management"
         END;
     end;
 
-    procedure InitYoozBuffer(VAR DataArray: ARRAY[50] OF Text; FileName: Text)
+    procedure InitYoozBuffer(VAR DataArray: ARRAY[50] OF Text; FileName: Text[250])
     var
         YOOZimportBuffer: Record "BC6_YOOZ import Buffer";
+        YOOZimportBufferLast: Record "BC6_YOOZ import Buffer";
+        EntryNo: Integer;
     begin
-        YOOZimportBuffer.INIT;
+        IF YOOZimportBufferLast.FindLast() then
+            EntryNo := YOOZimportBufferLast."Entry No." + 1
+        Else
+            EntryNo := 1;
+        YOOZimportBuffer.INIT();
+        YOOZimportBuffer."Entry No." := EntryNo;
         YOOZimportBuffer."Import File Name" := FileName;
         YOOZimportBuffer."User ID" := USERID;
         YOOZimportBuffer."Import DateTime" := CURRENTDATETIME;
@@ -573,7 +547,7 @@ codeunit 50045 "BC6_YOOZ Management"
         YOOZimportBuffer."Dimension Value 3" := DataArray[23];
         YOOZimportBuffer."Dimension Value 4" := DataArray[24];
 
-        YOOZimportBuffer.INSERT;
+        YOOZimportBuffer.INSERT();
     end;
 
     procedure MajYoozDescription()
@@ -581,34 +555,33 @@ codeunit 50045 "BC6_YOOZ Management"
         YOOZimportBuffer: Record "BC6_YOOZ import Buffer";
         YOOZimportBuffer2: Record "BC6_YOOZ import Buffer";
     begin
-        YOOZimportBuffer.RESET;
+        YOOZimportBuffer.RESET();
         YOOZimportBuffer.SETRANGE("Import Type", YOOZimportBuffer."Import Type"::YOOZ);
         YOOZimportBuffer.SETRANGE("Account Type", YOOZimportBuffer."Account Type"::Vendor);
         YOOZimportBuffer.SETFILTER(Status, '<>%1', YOOZimportBuffer.Status::Post);
         IF YOOZimportBuffer.ISEMPTY THEN
             EXIT;
 
-        YOOZimportBuffer.FINDSET;
+        YOOZimportBuffer.FINDSET();
         REPEAT
             YOOZimportBuffer.Description := YOOZimportBuffer.Description + '_' + YOOZimportBuffer."G/L Account No.";
-            YOOZimportBuffer.MODIFY;
-            YOOZimportBuffer2.RESET;
+            YOOZimportBuffer.MODIFY();
+            YOOZimportBuffer2.RESET();
             YOOZimportBuffer2.SETRANGE("Import Type", YOOZimportBuffer2."Import Type"::YOOZ);
             YOOZimportBuffer2.SETFILTER(Status, '<>%1', YOOZimportBuffer2.Status::Post);
             YOOZimportBuffer2.SETFILTER("Account Type", '<>%1', YOOZimportBuffer2."Account Type"::Vendor);
             YOOZimportBuffer2.SETRANGE("Document No.", YOOZimportBuffer."Document No.");
-            IF YOOZimportBuffer2.FINDFIRST THEN
+            IF YOOZimportBuffer2.FINDFIRST() THEN
                 REPEAT
                     YOOZimportBuffer2.Description := YOOZimportBuffer.Description;
-                    YOOZimportBuffer2.MODIFY;
-                UNTIL YOOZimportBuffer2.NEXT = 0;
-        UNTIL YOOZimportBuffer.NEXT = 0;
+                    YOOZimportBuffer2.MODIFY();
+                UNTIL YOOZimportBuffer2.NEXT() = 0;
+        UNTIL YOOZimportBuffer.NEXT() = 0;
     end;
 
     procedure CToDate(Value: Text; FormatName: Text): Date
     var
         TypeHelper: Codeunit "Type Helper";
-        DataArray: Integer;
         DateVariant: Variant;
     begin
         IF Value = '' THEN EXIT(0D);
@@ -619,7 +592,6 @@ codeunit 50045 "BC6_YOOZ Management"
 
     procedure CToDecimal(Value: Text; CultureName: Text): Decimal
     var
-        Dec: Decimal;
         TypeHelper: Codeunit "Type Helper";
         DecimalVariant: Variant;
     begin
@@ -658,24 +630,15 @@ codeunit 50045 "BC6_YOOZ Management"
     end;
 
     var
-
+        GS1Setup: Record "BC6_GS1 Setup";
         YOOZBuffer: Record "BC6_YOOZ import Buffer";
-        GLSetup: Record "General Ledger Setup";
+        RecGGenJnlBatch: Record "Gen. Journal Batch";
         RecGGenJournalLine: Record "Gen. Journal Line";
         RecGGenJnlTemplate: Record "Gen. Journal Template";
-        RecGGenJnlBatch: Record "Gen. Journal Batch";
+        GLSetup: Record "General Ledger Setup";
         FileManagement: Codeunit "File Management";
-        IntGLineNo: Integer;
         Window: Dialog;
-        RecGTempDimIDBuff: Record "Dimension ID Buffer";
-        RecGDimValue: Record "Dimension Value";
-        DimMgt: Codeunit "DimensionManagement";
-        IdDimension: Integer;
-        GlobalDim1Value: Code[20];
-        GlobalDim2Value: Code[20];
-        GFileName: Text;
-        NumAccount: Code[1];
-        GS1Setup: Record "BC6_GS1 Setup";
+        IntGLineNo: Integer;
 
         CstTxt000: Label '%1 est obligatoire.';
         CstTxt001: Label '%1 n''est pas une donnée valide.';
@@ -691,5 +654,6 @@ codeunit 50045 "BC6_YOOZ Management"
         CstTxt011: Label 'La mise à jour a été interrompue pour respecter l''alerte.';
         CstTxt012: Label 'Le document %1 vente %2 a fait l''objet d''une validation.La mise à jour a été interrompue pour respecter l''alerte.';
         CstTxt013: Label 'Voulez-vous vraiment supprimer le fichier %1 dans la table d''import?';
+        GFileName: Text;
 
 }

@@ -138,7 +138,7 @@ report 50056 "BC6_Word Template - Membership"
 
     var
         CountryRegion: Record "Country/Region";
-        Contact_Country: Text;
         CompanyInformation_Country: Text;
+        Contact_Country: Text;
 }
 
