@@ -49,11 +49,10 @@ table 50008 "BC6_GS1 Bar Code"
             var
                 RecLCodeType: Record "Bc6_Code Type";
             begin
-                IF RecLCodeType.GET(IDTypeCodes) THEN BEGIN
-                    "Is Editable" := RecLCodeType."Is Editable";
-                END ELSE BEGIN
+                IF RecLCodeType.GET(IDTypeCodes) THEN
+                    "Is Editable" := RecLCodeType."Is Editable"
+                ELSE
                     "Is Editable" := FALSE;
-                END;
             end;
         }
         field(10; LIB_Description; Text[50])

@@ -7,7 +7,7 @@ codeunit 50045 "BC6_YOOZ Management"
         IStream: InStream;
         Excel2007FileType: Label 'Excel Files (*.xlsx;*.xls)|*.csv;*.csv', Comment = '{Split=r''\|''}{Locked=s''1''}';
         ClientFileName: Text;
-        ClientFileName2: Text[250];
+        ClientFileName2: Text;
         DataArray: ARRAY[50] OF Text;
         DataText: Text;
     begin

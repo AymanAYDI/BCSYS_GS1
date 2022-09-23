@@ -46,7 +46,7 @@ table 50029 "BC6_Email Model"
         }
         field(50003; "No. Translations"; Integer)
         {
-            // CalcFormula = Count("Language Template Mail" WHERE("Parameter String" = FIELD(Code))); TODO: Table "Language Template Mail" is missing
+            CalcFormula = Count("BC6_Language Template Mail" WHERE("Parameter String" = FIELD(Code)));
             Caption = 'Nbre de traductions';
             Description = 'CAS-240334-H4X0L4';
             Editable = false;

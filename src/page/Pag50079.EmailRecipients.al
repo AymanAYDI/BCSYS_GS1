@@ -10,23 +10,23 @@ page 50079 "BC6_Email Recipients"
         {
             repeater(Group)
             {
-                field("Email Setup Code"; "Email Setup Code")
+                field("Email Setup Code"; Rec."Email Setup Code")
                 {
                     Visible = false;
                 }
-                field("Email Type"; "Email Type")
+                field("Email Type"; Rec."Email Type")
                 {
                 }
-                field("Recipient Type"; "Recipient Type")
+                field("Recipient Type"; Rec."Recipient Type")
                 {
                 }
-                field("Recipient Type Code"; "Recipient Type Code")
+                field("Recipient Type Code"; Rec."Recipient Type Code")
                 {
-                    Enabled = "Recipient Type" = "Recipient Type"::Contact;
+                    Enabled = Rec."Recipient Type" = Rec."Recipient Type"::Contact;
                 }
-                field(Email; Email)
+                field(Email; Rec.Email)
                 {
-                    Enabled = "Recipient Type" = "Recipient Type"::Email;
+                    Enabled = Rec."Recipient Type" = Rec."Recipient Type"::Email;
                 }
             }
         }

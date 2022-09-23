@@ -56,9 +56,6 @@ page 50005 "BC6_GS1 Setup"
                 //     Caption = 'Test Azure Endpoint connection';
                 //     Image = ValidateEmailLoggingSetup;
                 //     trigger OnAction()
-                //     var
-                //         // CduLAzure: Codeunit "Azure Web Req. Mgt.";
-                //         Token: Text;
                 //     begin
                 //         // Token := CduLAzure.GetOAuthToken(Rec);
                 //         // IF Token <> '' THEN
@@ -66,7 +63,8 @@ page 50005 "BC6_GS1 Setup"
                 //         // ELSE
                 //         //     MESSAGE(STRSUBSTNO(CstLError, GETLASTERRORTEXT));
 
-                //     end;
+                //         //     end;
+                //         // }
                 // }
             }
         }
