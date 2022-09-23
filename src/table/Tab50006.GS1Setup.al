@@ -43,6 +43,12 @@ table 50006 "BC6_GS1 Setup"
             Editable = true;
 
         }
+        field(50012; "Default Model Code Untitl. Inv"; Code[20])
+        {
+            DataClassification = ToBeClassified;
+            Description = 'CAS-240334-H4X0L4';
+            TableRelation = "BC6_Email Model"
+        }
     }
     keys
     {

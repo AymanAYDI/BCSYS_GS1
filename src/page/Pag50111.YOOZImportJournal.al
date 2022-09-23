@@ -169,7 +169,7 @@ page 50111 "BC6_YOOZ Import Journal"
                     Image = Import;
                     trigger OnAction()
                     begin
-                        YOOZMgt.ImportData;
+                        YOOZMgt.ImportData();
                     end;
                 }
                 action("Check Data")
@@ -181,7 +181,7 @@ page 50111 "BC6_YOOZ Import Journal"
                     Image = CheckRulesSyntax;
                     trigger OnAction()
                     begin
-                        YOOZMgt.CheckAllData;
+                        YOOZMgt.CheckAllData();
                     end;
                 }
                 action("Transfer to General Journal")

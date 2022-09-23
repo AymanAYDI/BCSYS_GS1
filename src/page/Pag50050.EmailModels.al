@@ -10,26 +10,26 @@ page 50050 "BC6_Email Models"
         {
             repeater(Group)
             {
-                field(Code; Code)
+                field("Code"; Rec.Code)
                 {
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                     Visible = false;
                 }
-                field(Inactive; Inactive)
+                field(Inactive; Rec.Inactive)
                 {
                 }
-                field("Document Title"; "Document Title")
+                field("Document Title"; Rec."Document Title")
                 {
                 }
-                field("No. Translations"; "No. Translations")
+                field("No. Translations"; Rec."No. Translations")
                 {
                 }
-                field("No. Attachments"; "No. Attachments")
+                field("No. Attachments"; Rec."No. Attachments")
                 {
                 }
-                field("No. Recipients"; "No. Recipients")
+                field("No. Recipients"; Rec."No. Recipients")
                 {
                 }
             }
@@ -52,7 +52,7 @@ page 50050 "BC6_Email Models"
                 RunPageLink = "Email Model Code" = field("Code");
                 RunPageMode = View;
             }
-            /*
+
             action(Translations)
             {
                 Caption = 'Translations';
@@ -64,20 +64,21 @@ page 50050 "BC6_Email Models"
 
                 trigger OnAction()
                 var
-                    // TODO: Table DSM LanguageTemplateMail: Record "8073297";
+                    LanguageTemplateMail: Record "BC6_Language Template Mail";
                     Language: Record Language;
                 begin
-                    LanguageTemplateMail.SETRANGE("Parameter String", Code);
+                    LanguageTemplateMail.SETRANGE("Parameter String", Rec.Code);
                     IF LanguageTemplateMail.ISEMPTY THEN BEGIN
-                        LanguageTemplateMail.INIT;
-                        LanguageTemplateMail."Parameter String" := Code;
+                        LanguageTemplateMail.INIT();
+                        LanguageTemplateMail."Parameter String" := Rec.Code;
                         LanguageTemplateMail."Language Code" := Language.GetUserLanguage();
-                        LanguageTemplateMail.INSERT;
-                        COMMIT;
+                        LanguageTemplateMail.INSERT();
+                        COMMIT();
                     END;
-                    PAGE.RUNMODAL(PAGE::"Language Template Mail", LanguageTemplateMail);
+                    PAGE.RUNMODAL(PAGE::"BC6_Language Template Mail", LanguageTemplateMail);
                 end;
-            }*/
+            }
+            // ****
             action(Recipients)
             {
                 Caption = 'Recipients';
@@ -114,4 +115,5 @@ page 50050 "BC6_Email Models"
     var
         ConstLookupModeCaption: Label 'Selecting an email template';
 }
+
 

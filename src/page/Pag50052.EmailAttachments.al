@@ -11,14 +11,14 @@ page 50052 "BC6_Email Attachments"
         {
             repeater(Group)
             {
-                field("Email Setup Code"; "Email Setup Code")
+                field("Email Setup Code"; Rec."Email Setup Code")
                 {
                     Visible = false;
                 }
-                field("Attachment Type Code"; "Attachment Type Code")
+                field("Attachment Type Code"; Rec."Attachment Type Code")
                 {
                 }
-                field("Attachment Description"; "Attachment Description")
+                field("Attachment Description"; Rec."Attachment Description")
                 {
                 }
             }

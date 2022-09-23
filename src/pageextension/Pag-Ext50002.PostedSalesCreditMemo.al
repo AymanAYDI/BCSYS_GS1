@@ -6,15 +6,20 @@ pageextension 50002 "BC6_PostedSalesCreditMemo" extends "Posted Sales Credit Mem
         {
             action(BC6_SendManually)
             {
-                Caption = 'Send manually';
+                ApplicationArea = Basic, Suite;
+                Caption = 'Send Manually';
                 Ellipsis = true;
                 Image = SendElectronicDocument;
+                Promoted = true;
+                PromotedCategory = Category4;
+                PromotedIsBig = true;
+                PromotedOnly = true;
 
                 trigger OnAction()
                 var
                     GS1DMSManagment: Codeunit "BC6_GS1 : DMS Managment";
                 begin
-                    GS1DMSManagment.SelectModelAndSendlEmail(Rec.RECORDID);
+                    GS1DMSManagment.Send(Rec.RECORDID, '');
                 end;
             }
 

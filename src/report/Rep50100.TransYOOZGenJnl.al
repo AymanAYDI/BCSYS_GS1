@@ -18,12 +18,12 @@ report 50100 "BC6_Trans. YOOZ Gen. Jnl."
                 ELSE
                     GenJnlLine.SETRANGE("Journal Batch Name", '');
 
-                GenJnlLine.LOCKTABLE;
+                GenJnlLine.LOCKTABLE();
                 IF GenJnlLine.COUNT <> 0 THEN
                     IF NOT CONFIRM(CstTxtG001, FALSE, GenJnlLine."Journal Template Name", GenJnlLine."Journal Batch Name") THEN
                         ERROR(CstTxtG002);
 
-                IF GenJnlLine.FINDLAST THEN;
+                IF GenJnlLine.FINDLAST() THEN;
 
                 Window.OPEN(CstTxtG003 + '@1@@@@@@@@@@@@@@@@@@@@@@@@@');
                 TotalRecNo := COUNT;
@@ -45,8 +45,8 @@ report 50100 "BC6_Trans. YOOZ Gen. Jnl."
 
             trigger OnPostDataItem()
             begin
-                YOOZManagement.UpdateAllStatus;
-                Window.CLOSE;
+                YOOZManagement.UpdateAllStatus();
+                Window.CLOSE();
 
                 GenJnlManagement.TemplateSelectionFromBatch(GenJnlBatch);
             end;
@@ -75,7 +75,7 @@ report 50100 "BC6_Trans. YOOZ Gen. Jnl."
     trigger OnInitReport()
     begin
         //YOOZManagement.CheckAllData;
-        YOOZManagement.CheckStatus;
+        YOOZManagement.CheckStatus();
     end;
 
     var

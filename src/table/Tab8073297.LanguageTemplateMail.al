@@ -45,8 +45,8 @@ table 8073297 "BC6_Language Template Mail"
     procedure Fct_SetHtmlTemplate() TxtRRecupients: Text[1024]
     var
         RBAutoMgt: Codeunit "File Management";
-        BLOBRef: Record "99008535"; //TODO: table tempBlob removed
-        //BLOBRef: Codeunit "Temp Blob";
+        BLOBRef: Codeunit "Temp Blob";
+        RecRef: RecordRef;
         BooLTemplateExists: Boolean;
 
     begin
@@ -55,24 +55,25 @@ table 8073297 "BC6_Language Template Mail"
             BooLTemplateExists := TRUE;
         IF RBAutoMgt.BLOBImport(BLOBRef, '*.html') = '' THEN
             EXIT;
-        "Template mail" := BLOBRef.Blob;
+        RecRef.GetTable(Rec);
+        BLOBRef.ToRecordRef(RecRef, FieldNo("Template mail"));
+        RecRef.SetTable(Rec);
 
         IF BooLTemplateExists THEN
             IF NOT CONFIRM(CstG009, FALSE, FIELDCAPTION("Template mail")) THEN
                 EXIT;
-        MODIFY;
+        MODIFY();
     end;
 
 
     procedure Fct_DeleteHtmlTemplate() TxtRRecupients: Text[1024]
     begin
         CALCFIELDS("Template mail");
-        IF "Template mail".HASVALUE THEN BEGIN
-            IF CONFIRM(CstG010, FALSE, FIELDCAPTION("Template mail")) THEN BEGIN
+        IF "Template mail".HASVALUE THEN
+            IF CONFIRM(CstG010, FALSE, FIELDCAPTION("Template mail")) THEN begin
                 CLEAR("Template mail");
-                MODIFY;
-            END;
-        END;
+                MODIFY();
+            end;
     end;
 
 
@@ -83,7 +84,7 @@ table 8073297 "BC6_Language Template Mail"
     begin
         CALCFIELDS("Template mail");
         IF "Template mail".HASVALUE THEN BEGIN
-            BLOBRef.Blob := "Template mail";
+            BLOBRef.FromRecord(Rec, FieldNo("Template mail"));
             RBAutoMgt.BLOBExport(BLOBRef, '*.html', TRUE);
         END;
     end;

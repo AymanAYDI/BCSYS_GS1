@@ -1,3 +1,4 @@
+#pragma implicitwith disable
 page 50053 "BC6_mail Attachments Type"
 {
 
@@ -11,22 +12,22 @@ page 50053 "BC6_mail Attachments Type"
         {
             repeater(Group)
             {
-                field(Code; Code)
+                field("Code"; Rec.Code)
                 {
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                 }
-                field("Output Format"; "Output Format")
+                field("Output Format"; Rec."Output Format")
                 {
                 }
-                field("File Naming"; "File Naming")
+                field("File Naming"; Rec."File Naming")
                 {
                 }
-                field("WebApi Type"; "WebApi Type")
+                field("WebApi Type"; Rec."WebApi Type")
                 {
                 }
-                field("WebApi Sub Type"; "WebApi Sub Type")
+                field("WebApi Sub Type"; Rec."WebApi Sub Type")
                 {
                 }
             }
@@ -50,4 +51,6 @@ page 50053 "BC6_mail Attachments Type"
         }
     }
 }
+
+#pragma implicitwith restore
 

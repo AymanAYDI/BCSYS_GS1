@@ -186,7 +186,7 @@ report 50057 "BC6_Word Template - Assignment"
                     //>>INC-09435-Y8J9N4
                     "Sales Invoice Line".SETRANGE(Type, "Sales Invoice Line".Type::Item);
                     "Sales Invoice Line".SETFILTER("Line No.", '>=10000');
-                    "Sales Invoice Line".FINDFIRST;
+                    "Sales Invoice Line".FINDFIRST();
                     //<<INC-09435-Y8J9N4
                 end;
             }

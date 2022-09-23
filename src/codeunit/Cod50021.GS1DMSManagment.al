@@ -9,9 +9,9 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
     end;
 
     var
+        _RecordID: RecordID;
         ConstNoContactInvoice: Label 'they are no email in Contact for the bill to customer %1 for Sales Invoice %2';
         ConstNoContactCrMemo: Label 'they are no email in Contact for the bill to customer %1 for Sales Credit Memo %2';
-        _RecordID: RecordID;
         ConstNoContactCustomer: Label 'they are no email in Contact for the bill to customer %1 for Sales Credit Memo %2';
         ConstEmailModelBlocked: Label 'Le modèle email %1 est bloqué';
         _EmailModelCode: Code[20];
@@ -26,20 +26,20 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
 
     procedure Send(RecordIdentifier: RecordID; EmailModelCode: Code[20])
     var
-        GS1DMSManagment: Codeunit "BC6_GS1 : DMS Managment";
         SalesInvoiceHeader: Record "Sales Invoice Header";
+        GS1DMSManagment: Codeunit "BC6_GS1 : DMS Managment";
     begin
-        CLEARLASTERROR;
+        CLEARLASTERROR();
         GS1DMSManagment.SetGlobalParameters(RecordIdentifier, EmailModelCode);
         IF GS1DMSManagment.RUN() THEN BEGIN
-            GS1DMSManagment.UpdateStatus(RecordIdentifier, SalesInvoiceHeader."Send Status"::Sent);
-            GS1DMSManagment.InsertLog(GS1DMSManagment.GetLastEmailModelCode, RecordIdentifier, 0, ConstSendSuccess);
+            GS1DMSManagment.UpdateStatus(RecordIdentifier, SalesInvoiceHeader."BC6_Send Status"::Sent);
+            GS1DMSManagment.InsertLog(GS1DMSManagment.GetLastEmailModelCode(), RecordIdentifier, 0, ConstSendSuccess);
             IF GUIALLOWED THEN
                 MESSAGE(ConstSendSuccess);
         END ELSE BEGIN
             IF GETLASTERRORTEXT <> ConstSendCanceled THEN BEGIN
-                GS1DMSManagment.UpdateStatus(RecordIdentifier, SalesInvoiceHeader."Send Status"::"Not Sent");
-                GS1DMSManagment.InsertLog(GS1DMSManagment.GetLastEmailModelCode, RecordIdentifier, 1, GETLASTERRORTEXT);
+                GS1DMSManagment.UpdateStatus(RecordIdentifier, SalesInvoiceHeader."BC6_Send Status"::"Not Sent");
+                GS1DMSManagment.InsertLog(GS1DMSManagment.GetLastEmailModelCode(), RecordIdentifier, 1, GETLASTERRORTEXT);
             END;
             IF GUIALLOWED THEN
                 ERROR(GETLASTERRORTEXT);
@@ -48,32 +48,29 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
 
     local procedure SendDocument(RecID: RecordID; EmailModelCode: Code[20])
     var
-        // TODO: "Codeunit GS1 : Email Management" GS1EmailManagement: Codeunit "50022";
-        GS1DMSManagment: Codeunit "BC6_GS1 : DMS Managment";
-        // TDOD: "Codeunit Web Api Documents Mgt." WebApiDocumentsMgt: Codeunit "50042";
-        FileManagement: Codeunit "File Management";
         EmailModel: Record "BC6_Email Model";
         SalesInvoiceHeader: Record "Sales Invoice Header";
         SalesCrMemoHeader: Record "Sales Cr.Memo Header";
         Language: Record Language;
         Customer: Record Customer;
         Contact: Record Contact;
-        // TODO: "record templBlob" TempBlob: Record "99008535";
         LanguageTemplateMail: Record "BC6_Language Template Mail";
         CompanyInformation: Record "Company Information";
         EmailAttachment: Record "BC6_Email Attachment";
         TempEmailAttachmentType: Record "BC6_Email Attachment Type" temporary;
+        GS1EmailManagement: Codeunit "BC6_GS1 : Email Management";
+        GS1DMSManagment: Codeunit "BC6_GS1 : DMS Managment";
+        // TDOD: "Codeunit Web Api Documents Mgt." WebApiDocumentsMgt: Codeunit "50042";
+        FileManagement: Codeunit "File Management";
+        TempBlob: Codeunit "Temp Blob";
         RecRef: RecordRef;
         LanguageCode: Code[20];
         CustomerNo: Code[20];
         DocumentNo: Code[20];
         EmailBodyText: Text;
-        SendTo: Text;
-        SendCC: Text;
         FilePath: Text;
         ErrorTextNoContact: Text;
         Recipients: array[4] of Text;
-        OutStream: OutStream;
         SendStatus: Integer;
     begin
         IF NOT RecRef.GET(RecID) THEN
@@ -138,14 +135,14 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
             ERROR(ConstNoCustGLN, CustomerNo);
 
         IF LanguageCode = '' THEN
-            LanguageCode := Language.GetUserLanguage;
+            LanguageCode := Language.GetUserLanguage();
 
         GetEmailRecipients(EmailModel.Code, Customer.GetContact(), Recipients);
 
         IF STRPOS(Recipients[1], '@') = 0 THEN
             ERROR(ErrorTextNoContact);
 
-        CompanyInformation.GET;
+        CompanyInformation.GET();
         IF Recipients[4] = '' THEN
             Recipients[4] := CompanyInformation."E-Mail";
 
@@ -159,21 +156,21 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
         GS1EmailManagement.FctCreateMailMessage(CompanyInformation.Name, Recipients[4], Recipients[1], Recipients[2], Recipients[3], LanguageTemplateMail.Object, EmailBodyText, TRUE);
 
         EmailAttachment.SETRANGE("Email Setup Code", EmailModel.Code);
-        IF EmailAttachment.FINDSET THEN
+        IF EmailAttachment.FINDSET() THEN
             REPEAT
                 FilePath := GenerateAttachment(EmailAttachment."Attachment Type Code", LanguageCode, RecRef.RECORDID, DocumentNo, CustomerNo, TempEmailAttachmentType);
                 GS1EmailManagement.FctAddMailAttachment(FilePath, FileManagement.GetFileName(FilePath));
-            UNTIL EmailAttachment.NEXT = 0;
+            UNTIL EmailAttachment.NEXT() = 0;
 
         GS1EmailManagement.FctSendMail(TRUE);
 
-        WITH TempEmailAttachmentType DO BEGIN
-            IF FINDSET THEN
+        WITH TempEmailAttachmentType DO
+            IF FINDSET() THEN
                 REPEAT
                     WebApiDocumentsMgt.SaveDocument(Customer."No.", Customer.GLN, Customer."Company ID", Customer."SIREN/SIRET", 'Dynamics NAV', "File Path", TRUE, FileManagement.GetFileName("File Path"), '', "WebApi Type", "WebApi Sub Type", DocumentNo);
                     FileManagement.DeleteServerFile("File Path");
                 UNTIL NEXT = 0;
-        END;
+
     end;
 
     local procedure GetEmailRecipients(EmailModelCode: Code[20]; ContactCompanyNo: Code[20]; var Recipients: array[4] of Text)
@@ -281,7 +278,7 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
     local procedure GetEmailModelCode(TableNo: Integer; DocumentTitle: Code[10]): Code[20]
     var
         EmailModel: Record "BC6_Email Model";
-        // TODO: GS1Setup: Record "50006";
+        GS1Setup: Record "BC6_GS1 Setup";
         StandardText: Record "Standard Text";
         EmailModelCode: Code[20];
     begin
@@ -310,7 +307,7 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
     local procedure ReportSaveAs(ReportID: Integer; ExportFormat: ReportFormat; ServerFilePath: Text; RecRef: RecordRef; CustomReportLayoutCode: Code[20]) Success: Boolean
     var
         FileManagement: Codeunit "File Management";
-        // TODO: TempBlob: Record "99008535" temporary;
+        TempBlob: Codeunit "Temp Blob" temporary;
         ReportLayoutSelection: Record "Report Layout Selection";
         OutStr: OutStream;
     begin
@@ -356,7 +353,7 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
         EmailLog: Record "BC6_Email Log";
     begin
         WITH EmailLog DO BEGIN
-            INIT;
+            INIT();
             "Email Model Code" := EmailModelCode;
             "Record Identifier" := RecordIdentifier;
             "Search Record ID" := FORMAT("Record Identifier");
@@ -364,7 +361,7 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
             Message := COPYSTR(MessageText, 1, 250);
             INSERT(TRUE);
         END;
-        COMMIT;
+        COMMIT();
     end;
 
 
@@ -376,10 +373,7 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
 
     procedure ViewLog(RecordIdentifier: RecordID)
     var
-        SalesInvoiceHeader: Record "Sales Invoice Header";
-        SalesCrMemoHeader: Record "Sales Cr.Memo Header";
         EmailLog: Record "BC6_Email Log";
-        RecRef: RecordRef;
     begin
         EmailLog.SETRANGE("Record Identifier", RecordIdentifier);
         PAGE.RUNMODAL(PAGE::"BC6_Email Log", EmailLog);
@@ -389,11 +383,11 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
     procedure SelectModelAndSendlEmail(RecordIdentifier: RecordID): Code[20]
     var
         EmailModel: Record "BC6_Email Model";
-    // TODO: "GS1 Setup" GS1Setup: Record "50006";
+        GS1Setup: Record "BC6_GS1 Setup";
     begin
         EmailModel.FILTERGROUP(2);
         IF RecordIdentifier.TABLENO = 18 THEN BEGIN
-            GS1Setup.GET;
+            GS1Setup.GET();
             EmailModel.SETFILTER(Code, '<>%1', GS1Setup."Default Model Code Untitl. Inv");
             EmailModel.SETRANGE("Document Title", '');
         END ELSE
@@ -410,7 +404,7 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
     var
         FileManagement: Codeunit "File Management";
         EmailModel: Record "BC6_Email Model";
-        //TODO: TempBlob: Record "99008535";
+        TempBlob: Codeunit "Temp Blob";
         [RunOnClient]
         WordApplication: DotNet ApplicationClass;
         [RunOnClient]

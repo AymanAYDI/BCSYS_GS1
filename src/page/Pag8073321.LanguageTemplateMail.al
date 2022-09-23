@@ -45,7 +45,7 @@ page 8073321 "BC6_Language Template Mail"
 
                 trigger OnAction()
                 begin
-                    Fct_SetHtmlTemplate();
+                    Rec.Fct_SetHtmlTemplate();
                 end;
             }
             action("<Action1100267018>")
@@ -58,7 +58,7 @@ page 8073321 "BC6_Language Template Mail"
 
                 trigger OnAction()
                 begin
-                    Fct_ExportHtmlTemplate();
+                    Rec.Fct_ExportHtmlTemplate();
                 end;
             }
             action("<Action1100267019>")
@@ -71,7 +71,7 @@ page 8073321 "BC6_Language Template Mail"
 
                 trigger OnAction()
                 begin
-                    Fct_DeleteHtmlTemplate();
+                    Rec.Fct_DeleteHtmlTemplate();
                 end;
             }
             action(UpdateModel)
@@ -99,9 +99,9 @@ page 8073321 "BC6_Language Template Mail"
         InsLInStream: InStream;
     begin
         CLEAR(InsLInStream);
-        CALCFIELDS("Template mail");
-        "Template mail".CREATEINSTREAM(InsLInStream);
-        CurrPage.MessageDetail.PAGE.FctInitAddin(InsLInStream, "Parameter String" + ' ' + "Language Code");
+        Rec.CALCFIELDS("Template mail");
+        Rec."Template mail".CREATEINSTREAM(InsLInStream);
+        //CurrPage.MessageDetail.PAGE.FctInitAddin(InsLInStream, Rec."Parameter String" + ' ' + Rec."Language Code"); TODO: => TDOD ligne 26
     end;
 }
 
