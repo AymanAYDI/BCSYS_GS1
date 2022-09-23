@@ -1,3 +1,4 @@
+#pragma implicitwith disable
 page 50072 "BC6_Email Attach Type Transl."
 {
     Caption = 'Email Translation Attachment Type';
@@ -10,25 +11,25 @@ page 50072 "BC6_Email Attach Type Transl."
         {
             repeater(Group)
             {
-                field("Attachment Type Code"; "Attachment Type Code")
+                field("Attachment Type Code"; Rec."Attachment Type Code")
                 {
                 }
-                field("Language Code"; "Language Code")
+                field("Language Code"; Rec."Language Code")
                 {
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                 }
-                field("Report ID"; "Report ID")
+                field("Report ID"; Rec."Report ID")
                 {
                 }
-                field("Report Name"; "Report Name")
+                field("Report Name"; Rec."Report Name")
                 {
                 }
-                field("Custom Report Layout Code"; "Custom Report Layout Code")
+                field("Custom Report Layout Code"; Rec."Custom Report Layout Code")
                 {
                 }
-                field("Custom Report Layout Name"; "Custom Report Layout Name")
+                field("Custom Report Layout Name"; Rec."Custom Report Layout Name")
                 {
                 }
             }
@@ -39,4 +40,6 @@ page 50072 "BC6_Email Attach Type Transl."
     {
     }
 }
+
+#pragma implicitwith restore
 

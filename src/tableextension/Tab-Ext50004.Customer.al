@@ -1,5 +1,19 @@
 tableextension 50004 "BC6_Customer" extends Customer
 {
+    fields
+    {
+        field(50017; "BC6_Company ID"; Code[20])
+        {
+            DataClassification = ToBeClassified;
+            Description = 'GS110.00';
+        }
+        field(8034656; "BC6_SIREN/SIRET"; Text[50])
+        {
+            Caption = 'SIREN/SIRET';
+            DataClassification = ToBeClassified;
+        }
+
+    }
     procedure GetContact(): Code[20]
     var
         RecLContBusRel: Record "Contact Business Relation";

@@ -47,7 +47,7 @@ table 50006 "BC6_GS1 Setup"
         {
             DataClassification = ToBeClassified;
             Description = 'CAS-240334-H4X0L4';
-            TableRelation = "BC6_Email Model"
+            TableRelation = "BC6_Email Model";
         }
     }
     keys

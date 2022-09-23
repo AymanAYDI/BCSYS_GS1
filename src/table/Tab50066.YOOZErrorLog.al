@@ -30,7 +30,7 @@ table 50066 "BC6_YOOZ Error Log"
             Caption = 'Field';
             DataClassification = ToBeClassified;
         }
-        field(12; "Value"; Text[250])
+        field(12; Value; Text[250])
         {
             Caption = 'Value';
             DataClassification = ToBeClassified;
@@ -70,12 +70,12 @@ table 50066 "BC6_YOOZ Error Log"
         ELSE
             IntLineNumber := 10000;
 
-        Rec.INIT;
+        Rec.INIT();
         Rec."Entry No." := IntPEntryNo;
         Rec."Line No." := IntLineNumber;
 
-        Rec.User := USERID;
-        Rec."Import Date" := WORKDATE;
+        Rec.User := CopyStr(USERID, 1, MaxStrLen(Rec.User));
+        Rec."Import Date" := WORKDATE();
         Rec."Import Time" := TIME;
 
         Rec."Error Description" := TxtPErrorDescription;

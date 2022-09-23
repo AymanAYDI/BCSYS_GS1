@@ -32,13 +32,13 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
         CLEARLASTERROR();
         GS1DMSManagment.SetGlobalParameters(RecordIdentifier, EmailModelCode);
         IF GS1DMSManagment.RUN() THEN BEGIN
-            GS1DMSManagment.UpdateStatus(RecordIdentifier, SalesInvoiceHeader."BC6_Send Status"::Sent);
+            GS1DMSManagment.UpdateStatus(RecordIdentifier, SalesInvoiceHeader."BC6_Send Status"::Sent.AsInteger());
             GS1DMSManagment.InsertLog(GS1DMSManagment.GetLastEmailModelCode(), RecordIdentifier, 0, ConstSendSuccess);
             IF GUIALLOWED THEN
                 MESSAGE(ConstSendSuccess);
         END ELSE BEGIN
             IF GETLASTERRORTEXT <> ConstSendCanceled THEN BEGIN
-                GS1DMSManagment.UpdateStatus(RecordIdentifier, SalesInvoiceHeader."BC6_Send Status"::"Not Sent");
+                GS1DMSManagment.UpdateStatus(RecordIdentifier, SalesInvoiceHeader."BC6_Send Status"::"Not Sent".AsInteger());
                 GS1DMSManagment.InsertLog(GS1DMSManagment.GetLastEmailModelCode(), RecordIdentifier, 1, GETLASTERRORTEXT);
             END;
             IF GUIALLOWED THEN
@@ -53,13 +53,11 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
         SalesCrMemoHeader: Record "Sales Cr.Memo Header";
         Language: Record Language;
         Customer: Record Customer;
-        Contact: Record Contact;
         LanguageTemplateMail: Record "BC6_Language Template Mail";
         CompanyInformation: Record "Company Information";
         EmailAttachment: Record "BC6_Email Attachment";
         TempEmailAttachmentType: Record "BC6_Email Attachment Type" temporary;
         GS1EmailManagement: Codeunit "BC6_GS1 : Email Management";
-        GS1DMSManagment: Codeunit "BC6_GS1 : DMS Managment";
         // TDOD: "Codeunit Web Api Documents Mgt." WebApiDocumentsMgt: Codeunit "50042";
         FileManagement: Codeunit "File Management";
         TempBlob: Codeunit "Temp Blob";
@@ -94,9 +92,9 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
                 BEGIN
                     RecRef.SETTABLE(SalesInvoiceHeader);
                     IF EmailModelCode = '' THEN
-                        EmailModelCode := GetEmailModelCode(RecRef.NUMBER, SalesInvoiceHeader."BC6_Invoice Title");
+                        EmailModelCode := GetEmailModelCode(RecRef.NUMBER, CopyStr(SalesInvoiceHeader."BC6_Invoice Title", 1, 10));
 
-                    SendStatus := SalesInvoiceHeader."BC6_Send Status";
+                    SendStatus := SalesInvoiceHeader."BC6_Send Status".AsInteger();
                     DocumentNo := SalesInvoiceHeader."No.";
                     CustomerNo := SalesInvoiceHeader."Bill-to Customer No.";
                     LanguageCode := SalesInvoiceHeader."Language Code";
@@ -108,7 +106,7 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
                     IF EmailModelCode = '' THEN
                         EmailModelCode := GetEmailModelCode(RecRef.NUMBER, '');
 
-                    SendStatus := SalesInvoiceHeader."BC6_Send Status";
+                    SendStatus := SalesInvoiceHeader."BC6_Send Status".AsInteger();
                     DocumentNo := SalesCrMemoHeader."No.";
                     CustomerNo := SalesCrMemoHeader."Bill-to Customer No.";
                     LanguageCode := SalesCrMemoHeader."Language Code";
@@ -118,7 +116,7 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
 
         _LastEmailModelCode := EmailModelCode;
 
-        IF GUIALLOWED AND (SendStatus = SalesInvoiceHeader."BC6_Send Status"::Sent) THEN
+        IF GUIALLOWED AND (SendStatus = SalesInvoiceHeader."BC6_Send Status"::Sent.AsInteger()) THEN
             IF NOT CONFIRM(ConstAlreadySent) THEN
                 ERROR(ConstSendCanceled);
 
@@ -146,7 +144,7 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
         IF Recipients[4] = '' THEN
             Recipients[4] := CompanyInformation."E-Mail";
 
-        GS1EmailManagement.FctGetTemplateWithLanguage(EmailModel.Code, LanguageCode, TempBlob);
+        GS1EmailManagement.FctGetTemplateWithLanguage(EmailModel.Code, CopyStr(LanguageCode, 1, 10), TempBlob);
         GS1EmailManagement.FctLoadMailBody(RecRef, TempBlob, '', '', EmailBodyText);
         //EmailBodyText := TempBlob.ReadTextLine();
 
@@ -158,18 +156,17 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
         EmailAttachment.SETRANGE("Email Setup Code", EmailModel.Code);
         IF EmailAttachment.FINDSET() THEN
             REPEAT
-                FilePath := GenerateAttachment(EmailAttachment."Attachment Type Code", LanguageCode, RecRef.RECORDID, DocumentNo, CustomerNo, TempEmailAttachmentType);
+                FilePath := GenerateAttachment(EmailAttachment."Attachment Type Code", CopyStr(LanguageCode, 1, 10), RecRef.RECORDID, DocumentNo, CustomerNo, TempEmailAttachmentType);
                 GS1EmailManagement.FctAddMailAttachment(FilePath, FileManagement.GetFileName(FilePath));
             UNTIL EmailAttachment.NEXT() = 0;
 
         GS1EmailManagement.FctSendMail(TRUE);
 
-        WITH TempEmailAttachmentType DO
-            IF FINDSET() THEN
-                REPEAT
-                    WebApiDocumentsMgt.SaveDocument(Customer."No.", Customer.GLN, Customer."Company ID", Customer."SIREN/SIRET", 'Dynamics NAV', "File Path", TRUE, FileManagement.GetFileName("File Path"), '', "WebApi Type", "WebApi Sub Type", DocumentNo);
-                    FileManagement.DeleteServerFile("File Path");
-                UNTIL NEXT = 0;
+        IF TempEmailAttachmentType.FINDSET() THEN
+            REPEAT
+                WebApiDocumentsMgt.SaveDocument(Customer."No.", Customer.GLN, Customer."BC6_Company ID", Customer."BC6_SIREN/SIRET", 'Dynamics NAV', TempEmailAttachmentType."File Path", TRUE, FileManagement.GetFileName(TempEmailAttachmentType."File Path"), '', TempEmailAttachmentType."WebApi Type", TempEmailAttachmentType."WebApi Sub Type", DocumentNo);
+                FileManagement.DeleteServerFile(TempEmailAttachmentType."File Path");
+            UNTIL TempEmailAttachmentType.NEXT() = 0;
 
     end;
 
@@ -181,97 +178,91 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
         EmailAddress: Text;
     begin
         CLEAR(Recipients);
-        WITH EmailRecipient DO BEGIN
-            SETRANGE("Email Setup Code", EmailModelCode);
-            IF FINDSET THEN BEGIN
-                REPEAT
-                    IF "Recipient Type" = "Recipient Type"::Contact THEN BEGIN
-                        IF "Recipient Type Code" <> '' THEN BEGIN
-                            Contact.SETRANGE("Company No.", ContactCompanyNo);
-                            Contact.SETRANGE("Organizational Level Code", "Recipient Type Code");
-                            IF Contact.FINDSET THEN BEGIN
-                                EmailAddress := '';
-                                REPEAT
-                                    IF EmailAddress <> '' THEN EmailAddress += ';';
-                                    EmailAddress += Contact."E-Mail";
-                                UNTIL Contact.NEXT = 0;
-                            END;
-                        END ELSE BEGIN
-                            Contact.GET(ContactCompanyNo);
-                            EmailAddress := Contact."E-Mail";
+        EmailRecipient.SETRANGE("Email Setup Code", EmailModelCode);
+        IF EmailRecipient.FINDSET() THEN
+            REPEAT
+                IF EmailRecipient."Recipient Type" = EmailRecipient."Recipient Type"::Contact THEN BEGIN
+                    IF EmailRecipient."Recipient Type Code" <> '' THEN BEGIN
+                        Contact.SETRANGE("Company No.", ContactCompanyNo);
+                        Contact.SETRANGE("Organizational Level Code", EmailRecipient."Recipient Type Code");
+                        IF Contact.FINDSET() THEN BEGIN
+                            EmailAddress := '';
+                            REPEAT
+                                IF EmailAddress <> '' THEN EmailAddress += ';';
+                                EmailAddress += Contact."E-Mail";
+                            UNTIL Contact.NEXT() = 0;
                         END;
-                    END ELSE
-                        EmailAddress := Email;
-
-                    EmailAddress := DELCHR(EmailAddress, '<>');
-                    IF (EmailAddress <> '') THEN BEGIN
-                        IF Recipients[EmailRecipient."Email Type" + 1] <> '' THEN
-                            Recipients[EmailRecipient."Email Type" + 1] += ';';
-
-                        Recipients[EmailRecipient."Email Type" + 1] += EmailAddress;
+                    END ELSE BEGIN
+                        Contact.GET(ContactCompanyNo);
+                        EmailAddress := Contact."E-Mail";
                     END;
-                UNTIL NEXT = 0;
-            END;
-        END;
+                END ELSE
+                    EmailAddress := EmailRecipient.Email;
+
+                EmailAddress := DELCHR(EmailAddress, '<>');
+                IF (EmailAddress <> '') THEN BEGIN
+                    IF Recipients[EmailRecipient."Email Type".AsInteger() + 1] <> '' THEN
+                        Recipients[EmailRecipient."Email Type".AsInteger() + 1] += ';';
+
+                    Recipients[EmailRecipient."Email Type".AsInteger() + 1] += EmailAddress;
+                END;
+            UNTIL EmailRecipient.NEXT() = 0;
     end;
 
-    local procedure GenerateAttachment(AttachmentTypeCode: Code[20]; LanguageCode: Code[10]; RecID: RecordID; DocumentNo: Code[20]; CustomerNo: Code[20]; var TempEmailAttachmentType: Record "50032" temporary): Text
+    local procedure GenerateAttachment(AttachmentTypeCode: Code[20]; LanguageCode: Code[10]; RecID: RecordID; DocumentNo: Code[20]; CustomerNo: Code[20]; var TempEmailAttachmentType: Record "BC6_Email Attachment Type" temporary): Text
     var
-        FileManagement: Codeunit "File Management";
+
         EmailAttachmentType: Record "BC6_Email Attachment Type";
         EmailAttachTypeTranslation: Record "BC6_Email Attach. Type Trans.";
-        Attachment: Record Attachment;
         SalesInvoiceHeader: Record "Sales Invoice Header";
         SalesCrMemoHeader: Record "Sales Cr.Memo Header";
+        FileManagement: Codeunit "File Management";
         RecRef: RecordRef;
         ServerTempFilePath: Text;
         ServerFilePath: Text;
         FileExtension: Text;
         ExportFormat: ReportFormat;
     begin
-        WITH EmailAttachmentType DO BEGIN
-            GET(AttachmentTypeCode);
-            EmailAttachTypeTranslation.GET(Code, LanguageCode);
+        EmailAttachmentType.GET(AttachmentTypeCode);
+        EmailAttachTypeTranslation.GET(EmailAttachmentType.Code, LanguageCode);
 
-            RecRef.GET(RecID);
+        RecRef.GET(RecID);
 
-            IF "Output Format" = "Output Format"::Word THEN BEGIN
-                FileExtension := 'docx';
-                ExportFormat := REPORTFORMAT::Word;
-            END ELSE BEGIN
-                FileExtension := 'pdf';
-                ExportFormat := REPORTFORMAT::Pdf;
-            END;
-
-            ServerTempFilePath := FileManagement.ServerTempFileName(FileExtension);
-            IF ReportSaveAs(EmailAttachTypeTranslation."Report ID", ExportFormat, ServerTempFilePath, RecRef, EmailAttachTypeTranslation."Custom Report Layout Code") THEN BEGIN
-                CASE "File Naming" OF
-                    "File Naming"::Invoice:
-                        BEGIN
-                            RecRef.SETTABLE(SalesInvoiceHeader);
-                            ServerFilePath := FileManagement.CombinePath(FileManagement.GetDirectoryName(ServerTempFilePath),
-                                STRSUBSTNO('GS1_%1_%2.%3', FORMAT(SalesInvoiceHeader."Posting Date", 0, '<Day,2>-<Month,2>-<Year4>'), SalesInvoiceHeader."No.", FileExtension));
-                        END;
-                    "File Naming"::"Credit Memo":
-                        BEGIN
-                            RecRef.SETTABLE(SalesCrMemoHeader);
-                            ServerFilePath := FileManagement.CombinePath(FileManagement.GetDirectoryName(ServerTempFilePath),
-                                STRSUBSTNO('GS1_%1_%2.%3', FORMAT(SalesCrMemoHeader."Posting Date", 0, '<Day,2>-<Month,2>-<Year4>'), SalesCrMemoHeader."No.", FileExtension));
-                        END;
-                    "File Naming"::Customer:
-                        ServerFilePath := FileManagement.CombinePath(FileManagement.GetDirectoryName(ServerTempFilePath), STRSUBSTNO('%1 - %2.%3', EmailAttachTypeTranslation.Description, CustomerNo, FileExtension));
-                    ELSE
-                        ServerFilePath := FileManagement.CombinePath(FileManagement.GetDirectoryName(ServerTempFilePath), STRSUBSTNO('%1 - %2.%3', EmailAttachTypeTranslation.Description, DocumentNo, FileExtension));
-                END;
-                FileManagement.CopyServerFile(ServerTempFilePath, ServerFilePath, TRUE);
-                FileManagement.DeleteServerFile(ServerTempFilePath);
-                TempEmailAttachmentType := EmailAttachmentType;
-                TempEmailAttachmentType."File Path" := ServerFilePath;
-                TempEmailAttachmentType.INSERT;
-            END ELSE BEGIN
-                ERROR(GETLASTERRORTEXT);
-            END;
+        IF EmailAttachmentType."Output Format" = EmailAttachmentType."Output Format"::Word THEN BEGIN
+            FileExtension := 'docx';
+            ExportFormat := REPORTFORMAT::Word;
+        END ELSE BEGIN
+            FileExtension := 'pdf';
+            ExportFormat := REPORTFORMAT::Pdf;
         END;
+
+        ServerTempFilePath := FileManagement.ServerTempFileName(FileExtension);
+        IF ReportSaveAs(EmailAttachTypeTranslation."Report ID", ExportFormat, ServerTempFilePath, RecRef, EmailAttachTypeTranslation."Custom Report Layout Code") THEN BEGIN
+            CASE EmailAttachmentType."File Naming" OF
+                EmailAttachmentType."File Naming"::Invoice:
+                    BEGIN
+                        RecRef.SETTABLE(SalesInvoiceHeader);
+                        ServerFilePath := FileManagement.CombinePath(FileManagement.GetDirectoryName(ServerTempFilePath),
+                            STRSUBSTNO('GS1_%1_%2.%3', FORMAT(SalesInvoiceHeader."Posting Date", 0, '<Day,2>-<Month,2>-<Year4>'), SalesInvoiceHeader."No.", FileExtension));
+                    END;
+                EmailAttachmentType."File Naming"::"Credit Memo":
+                    BEGIN
+                        RecRef.SETTABLE(SalesCrMemoHeader);
+                        ServerFilePath := FileManagement.CombinePath(FileManagement.GetDirectoryName(ServerTempFilePath),
+                            STRSUBSTNO('GS1_%1_%2.%3', FORMAT(SalesCrMemoHeader."Posting Date", 0, '<Day,2>-<Month,2>-<Year4>'), SalesCrMemoHeader."No.", FileExtension));
+                    END;
+                EmailAttachmentType."File Naming"::Customer:
+                    ServerFilePath := FileManagement.CombinePath(FileManagement.GetDirectoryName(ServerTempFilePath), STRSUBSTNO('%1 - %2.%3', EmailAttachTypeTranslation.Description, CustomerNo, FileExtension));
+                ELSE
+                    ServerFilePath := FileManagement.CombinePath(FileManagement.GetDirectoryName(ServerTempFilePath), STRSUBSTNO('%1 - %2.%3', EmailAttachTypeTranslation.Description, DocumentNo, FileExtension));
+            END;
+            FileManagement.CopyServerFile(ServerTempFilePath, ServerFilePath, TRUE);
+            FileManagement.DeleteServerFile(ServerTempFilePath);
+            TempEmailAttachmentType := EmailAttachmentType;
+            TempEmailAttachmentType."File Path" := CopyStr(ServerFilePath, 1, MaxStrLen(TempEmailAttachmentType."File Path"));
+            TempEmailAttachmentType.INSERT();
+        END ELSE
+            ERROR(GETLASTERRORTEXT);
         EXIT(ServerFilePath);
     end;
 
@@ -279,41 +270,40 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
     var
         EmailModel: Record "BC6_Email Model";
         GS1Setup: Record "BC6_GS1 Setup";
-        StandardText: Record "Standard Text";
         EmailModelCode: Code[20];
     begin
-        GS1Setup.GET;
+        GS1Setup.GET();
         CASE TableNo OF
             112:
-                BEGIN
-                    IF DocumentTitle = '' THEN BEGIN
-                        GS1Setup.TESTFIELD("Default Model Code Untitl. Inv");
-                        EmailModelCode := GS1Setup."Default Model Code Untitl. Inv";
-                    END ELSE BEGIN
-                        EmailModel.SETCURRENTKEY("Document Title");
-                        EmailModel.SETRANGE("Document Title", DocumentTitle);
-                        IF EmailModel.FINDFIRST THEN
-                            EmailModelCode := EmailModel.Code;
-                    END;
+
+                IF DocumentTitle = '' THEN BEGIN
+                    GS1Setup.TESTFIELD("Default Model Code Untitl. Inv");
+                    EmailModelCode := GS1Setup."Default Model Code Untitl. Inv";
+                END ELSE BEGIN
+                    EmailModel.SETCURRENTKEY("Document Title");
+                    EmailModel.SETRANGE("Document Title", DocumentTitle);
+                    IF EmailModel.FINDFIRST() THEN
+                        EmailModelCode := EmailModel.Code;
                 END;
+
             114:
-                BEGIN
-                    EmailModelCode := GS1Setup."Sales Credit Memo Model Code";
-                END;
+
+                EmailModelCode := GS1Setup."Sales Credit Memo Model Code";
+
         END;
         EXIT(EmailModelCode);
     end;
 
     local procedure ReportSaveAs(ReportID: Integer; ExportFormat: ReportFormat; ServerFilePath: Text; RecRef: RecordRef; CustomReportLayoutCode: Code[20]) Success: Boolean
     var
-        FileManagement: Codeunit "File Management";
-        TempBlob: Codeunit "Temp Blob" temporary;
         ReportLayoutSelection: Record "Report Layout Selection";
+        FileManagement: Codeunit "File Management";
+        TempBlob: Codeunit "Temp Blob";
         OutStr: OutStream;
     begin
         FileManagement.DeleteServerFile(ServerFilePath);
-        TempBlob.Blob.CREATEOUTSTREAM(OutStr);
-        RecRef.SETRECFILTER;
+        TempBlob.CreateOutStream(OutStr);
+        RecRef.SETRECFILTER();
 
         ReportLayoutSelection.SetTempLayoutSelected(CustomReportLayoutCode);
         Success := REPORT.SAVEAS(ReportID, '', ExportFormat, OutStr, RecRef);
@@ -331,7 +321,6 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
 
     procedure UpdateStatus(RecordIdentifier: RecordID; NewStatus: Integer)
     var
-        SalesInvoiceHeader: Record "Sales Invoice Header";
         RecRef: RecordRef;
         FldRef: FieldRef;
     begin
@@ -343,8 +332,8 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
 
         FldRef := RecRef.FIELD(50001);
         FldRef.VALUE(NewStatus);
-        RecRef.MODIFY;
-        COMMIT;
+        RecRef.MODIFY();
+        COMMIT();
     end;
 
 
@@ -352,15 +341,13 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
     var
         EmailLog: Record "BC6_Email Log";
     begin
-        WITH EmailLog DO BEGIN
-            INIT();
-            "Email Model Code" := EmailModelCode;
-            "Record Identifier" := RecordIdentifier;
-            "Search Record ID" := FORMAT("Record Identifier");
-            "Message Status" := MessageStatus;
-            Message := COPYSTR(MessageText, 1, 250);
-            INSERT(TRUE);
-        END;
+        EmailLog.INIT();
+        EmailLog."Email Model Code" := EmailModelCode;
+        EmailLog."Record Identifier" := RecordIdentifier;
+        EmailLog."Search Record ID" := FORMAT(EmailLog."Record Identifier");
+        EmailLog."Message Status" := MessageStatus;
+        EmailLog.Message := COPYSTR(MessageText, 1, 250);
+        EmailLog.INSERT(TRUE);
         COMMIT();
     end;
 
@@ -402,9 +389,10 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
 
     procedure OpenWordDocument(LanguageTemplateMail: Record "BC6_Language Template Mail")
     var
-        FileManagement: Codeunit "File Management";
         EmailModel: Record "BC6_Email Model";
+        FileManagement: Codeunit "File Management";
         TempBlob: Codeunit "Temp Blob";
+        RecRef: RecordRef;
         [RunOnClient]
         WordApplication: DotNet ApplicationClass;
         [RunOnClient]
@@ -420,7 +408,6 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
         ErrorMessage: Text;
         FilePath: Text;
         NewFilePath: Text;
-        HtmlFilePath: Text;
     begin
         EmailModel.GET(LanguageTemplateMail."Parameter String");
 
@@ -430,8 +417,12 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
 
         LanguageTemplateMail.CALCFIELDS("Template mail");
         IF LanguageTemplateMail."Template mail".HASVALUE THEN BEGIN
-            TempBlob.INIT;
-            TempBlob.Blob := LanguageTemplateMail."Template mail";
+
+            /*TempBlob.INIT;
+            TempBlob.Blob := LanguageTemplateMail."Template mail";*/
+
+            TempBlob.FromRecord(LanguageTemplateMail, LanguageTemplateMail.FieldNo("Template mail"));
+
             FilePath := FileManagement.BLOBExport(TempBlob, 'Temp.htm', FALSE);
         END ELSE BEGIN
             FilePath := FileManagement.ClientTempFileName('htm');
@@ -459,8 +450,13 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
 
         IF CONFIRM(ConstLoadDocQuestion) THEN BEGIN
             FileManagement.BLOBImport(TempBlob, NewFilePath);
-            LanguageTemplateMail."Template mail" := TempBlob.Blob;
-            LanguageTemplateMail.MODIFY;
+
+            // LanguageTemplateMail."Template mail" := TempBlob.Blob;
+            RecRef.GetTable(LanguageTemplateMail);
+            TempBlob.ToRecordRef(RecRef, LanguageTemplateMail.FieldNo("Template mail"));
+            RecRef.SetTable(LanguageTemplateMail);
+
+            LanguageTemplateMail.MODIFY();
         END;
 
         FileManagement.DeleteClientFile(FilePath);

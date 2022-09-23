@@ -84,13 +84,9 @@ report 50100 "BC6_Trans. YOOZ Gen. Jnl."
         GenJnlLine: Record "Gen. Journal Line";
         YOOZManagement: Codeunit "BC6_YOOZ Management";
         GenJnlManagement: Codeunit GenJnlManagement;
-        IdDimension: Integer;
-        GlobalDim1Value: Code[20];
-        GlobalDim2Value: Code[20];
         Window: Dialog;
         TotalRecNo: Integer;
         RecNo: Integer;
-        CstTxtG000: Label '%1 doit être renseigné.';
         CstTxtG001: Label 'Il existe des lignes dans la feuille %1 %2. Voulez-vous continuer?';
         CstTxtG002: Label 'La mise à jour a été interrompue pour respecter l''alerte.';
         CstTxtG003: Label 'Traitement des données...\\';

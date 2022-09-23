@@ -105,8 +105,6 @@ page 50050 "BC6_Email Models"
     }
 
     trigger OnOpenPage()
-    var
-        SelectMode: Boolean;
     begin
         IF CurrPage.LOOKUPMODE THEN
             CurrPage.CAPTION(ConstLookupModeCaption);

@@ -1,53 +1,44 @@
 codeunit 50022 "BC6_GS1 : Email Management"
 {
-    // +----------------------------------------------------------------------------------------------------------------+
-    // | ProdWare - GS1                                                                                                 |
-    // | http://www.prodware.fr                                                                                         |
-    // |                                                                                                                |
-    // +----------------------------------------------------------------------------------------------------------------+
-    //     - FDD_GS1 : Document de conception fonctionnelle des personnalisation
-    // 
-    // +----------------------------------------------------------------------------------------------------------------+
-
     Permissions = TableData 99008535 = rimd;
 
 
     var
-        CstGText001: Label 'Automatic batch doesn''t exist.';
-        CstGText002: Label 'Order Tracking - %1 - %2';
-        IntGLanguage: Integer;
+        // CstGText001: Label 'Automatic batch doesn''t exist.';
+        // CstGText002: Label 'Order Tracking - %1 - %2';
+        // IntGLanguage: Integer;
         Mail: Codeunit Mail;
         BooGAutoSend: Boolean;
-        CumuledAdresse: Text;
-        CstGText003: Label 'No Reply';
-        CstGText004: Label 'There is no attachment for this task.';
-        CstGText005: Label 'All documents are received.';
-        CstGHtmlTableBegin: Label '<table style="border: 1px solid #ddd;border-collapse: collapse;width: auto"><tr style="background-color: #528094;color: white;padding: 8px;"><th style="text-align: left;padding: 8px;">%1</th><th style="background-color: #528094;color: white;text-align: left;padding: 8px;">%2</th></tr>';
-        CstGHtmlTableAddLine: Label '<tr style="text-align: left;padding: 8px;"><td>%1</td><td>%2</td></tr>';
-        CstGHtmlTableEnd: Label '</table>';
+        // CumuledAdresse: Text;
+        // CstGText003: Label 'No Reply';
+        // CstGText004: Label 'There is no attachment for this task.';
+        // CstGText005: Label 'All documents are received.';
+        // CstGHtmlTableBegin: Label '<table style="border: 1px solid #ddd;border-collapse: collapse;width: auto"><tr style="background-color: #528094;color: white;padding: 8px;"><th style="text-align: left;padding: 8px;">%1</th><th style="background-color: #528094;color: white;text-align: left;padding: 8px;">%2</th></tr>';
+        // CstGHtmlTableAddLine: Label '<tr style="text-align: left;padding: 8px;"><td>%1</td><td>%2</td></tr>';
+        // CstGHtmlTableEnd: Label '</table>';
         TxtGHtmlTable: Text;
-        CstGText0006: Label 'Document';
-        CstGHtmlTableHeader: Label '<table style="border: 1px solid #ddd;border-collapse: collapse;width: auto" border="1"><tr style="background-color: #528094;color: white;padding: 8px;"><th style="text-align: left;padding: 8px;">%1</th><th style="background-color: #528094;color: white;text-align: left;padding: 8px;">%2</th><th style="background-color: #528094;color: white;text-align: left;padding: 8px;">%3</th><th style="background-color: #528094;color: white;text-align: left;padding: 8px;">%4</th><th style="background-color: #528094;color: white;text-align: left;padding: 8px;">%5</th><th style="background-color: #528094;color: white;text-align: left;padding: 8px;">%6</th><th style="background-color: #528094;color: white;text-align: left;padding: 8px;">%7</th></tr>';
-        CstGHtmlTableLine: Label '<tr style="text-align: left;padding: 8px;"><td>%1</td><td>%2</td><td>%3</td><td>%4</td><td>%5</td><td>%6</td><td style="text-align: right;">%7</td></tr>';
-        CstGHtmlTableTotLine: Label '<tr style="text-align: left;padding: 8px;"><td colspan="6">Total société %1 %2</td><td style="text-align: right;">%3</td></tr>';
-        CstGText006: Label 'Order No.';
-        CstGText007: Label 'Place';
-        CstGText008: Label 'Make';
-        CstGText009: Label 'Registration';
-        CstGText010: Label 'Entry Date';
-        CstGText011: Label 'Recorded Value';
+        // CstGText0006: Label 'Document';
+        // CstGHtmlTableHeader: Label '<table style="border: 1px solid #ddd;border-collapse: collapse;width: auto" border="1"><tr style="background-color: #528094;color: white;padding: 8px;"><th style="text-align: left;padding: 8px;">%1</th><th style="background-color: #528094;color: white;text-align: left;padding: 8px;">%2</th><th style="background-color: #528094;color: white;text-align: left;padding: 8px;">%3</th><th style="background-color: #528094;color: white;text-align: left;padding: 8px;">%4</th><th style="background-color: #528094;color: white;text-align: left;padding: 8px;">%5</th><th style="background-color: #528094;color: white;text-align: left;padding: 8px;">%6</th><th style="background-color: #528094;color: white;text-align: left;padding: 8px;">%7</th></tr>';
+        // CstGHtmlTableLine: Label '<tr style="text-align: left;padding: 8px;"><td>%1</td><td>%2</td><td>%3</td><td>%4</td><td>%5</td><td>%6</td><td style="text-align: right;">%7</td></tr>';
+        // CstGHtmlTableTotLine: Label '<tr style="text-align: left;padding: 8px;"><td colspan="6">Total société %1 %2</td><td style="text-align: right;">%3</td></tr>';
+        // CstGText006: Label 'Order No.';
+        // CstGText007: Label 'Place';
+        // CstGText008: Label 'Make';
+        // CstGText009: Label 'Registration';
+        // CstGText010: Label 'Entry Date';
+        // CstGText011: Label 'Recorded Value';
         TxtGHtmlTableOutVeh: Text;
-        CstGText012: Label 'Serial No.';
-        CstGText013: Label 'Véhicules à sortir de plus de %1 jours de %2';
-        CstGText014: Label 'First Release Date';
-        CstGText015: Label 'Age';
-        CstGText016: Label 'Véhicules périmés de plus de %1 ans de %2';
-        CstGHtmlTableABSVehHeader: Label '<table style="border: 1px solid #ddd;border-collapse: collapse;width: auto" border="1"><tr style="background-color: #F78181;color: white;padding: 8px;"><th style="text-align: left;padding: 8px;">%1</th><th style="background-color: #F78181;color: white;text-align: left;padding: 8px;">%2</th><th style="background-color: #F78181;color: white;text-align: left;padding: 8px;">%3</th><th style="background-color: #F78181;color: white;text-align: left;padding: 8px;">%4</th><th style="background-color: #F78181;color: white;text-align: left;padding: 8px;">%5</th><th style="background-color: #F78181;color: white;text-align: left;padding: 8px;">%6</th><th style="background-color: #F78181;color: white;text-align: left;padding: 8px;">%7</th><th style="background-color: #F78181;color: white;text-align: left;padding: 8px;">%8</th></tr>';
-        CstGHtmlTableABSVehLine: Label '<tr style="text-align: left;padding: 8px;"><td>%1</td><td>%2</td><td>%3</td><td>%4</td><td>%5</td><td>%6</td><td style="text-align: right;">%7</td><td>%8</td></tr>';
-        CstGHtmlTableABSVehTotLine: Label '<tr style="text-align: left;padding: 8px;"><td colspan="7">Total société %1 %2</td><td style="text-align: right;">%3</td></tr>';
+        // CstGText012: Label 'Serial No.';
+        // CstGText013: Label 'Véhicules à sortir de plus de %1 jours de %2';
+        // CstGText014: Label 'First Release Date';
+        // CstGText015: Label 'Age';
+        // CstGText016: Label 'Véhicules périmés de plus de %1 ans de %2';
+        // CstGHtmlTableABSVehHeader: Label '<table style="border: 1px solid #ddd;border-collapse: collapse;width: auto" border="1"><tr style="background-color: #F78181;color: white;padding: 8px;"><th style="text-align: left;padding: 8px;">%1</th><th style="background-color: #F78181;color: white;text-align: left;padding: 8px;">%2</th><th style="background-color: #F78181;color: white;text-align: left;padding: 8px;">%3</th><th style="background-color: #F78181;color: white;text-align: left;padding: 8px;">%4</th><th style="background-color: #F78181;color: white;text-align: left;padding: 8px;">%5</th><th style="background-color: #F78181;color: white;text-align: left;padding: 8px;">%6</th><th style="background-color: #F78181;color: white;text-align: left;padding: 8px;">%7</th><th style="background-color: #F78181;color: white;text-align: left;padding: 8px;">%8</th></tr>';
+        // CstGHtmlTableABSVehLine: Label '<tr style="text-align: left;padding: 8px;"><td>%1</td><td>%2</td><td>%3</td><td>%4</td><td>%5</td><td>%6</td><td style="text-align: right;">%7</td><td>%8</td></tr>';
+        // CstGHtmlTableABSVehTotLine: Label '<tr style="text-align: left;padding: 8px;"><td colspan="7">Total société %1 %2</td><td style="text-align: right;">%3</td></tr>';
         TxtGPeriod: Text;
-        MyFilterPageBuilder: FilterPageBuilder;
-        CstGText017: Label 'Discount Type';
+        // MyFilterPageBuilder: FilterPageBuilder;
+        // CstGText017: Label 'Discount Type';
         TxtGCreditorName: Text[50];
         CduGSMTPMail: Codeunit "400";
 
@@ -56,9 +47,9 @@ codeunit 50022 "BC6_GS1 : Email Management"
     var
         MailSent: Boolean;
     begin
-        IF BooGAutoSend THEN BEGIN
-            CduGSMTPMail.Send;
-        END ELSE
+        IF BooGAutoSend THEN
+            CduGSMTPMail.Send
+        ELSE
             MailSent := Mail.Send;
     end;
 
@@ -80,7 +71,6 @@ codeunit 50022 "BC6_GS1 : Email Management"
         BooLStop: Boolean;
         y: Integer;
         InStreamTemplate: InStream;
-        TxtLTempPath: Text[1024];
         InSReadChar: Text[1];
         Body: Text;
         CharNo: Text[30];
@@ -120,7 +110,7 @@ codeunit 50022 "BC6_GS1 : Email Management"
 
                         WHILE (NOT BooLSkip) DO BEGIN
                             Body := '';
-                            FOR y := 1 TO STRLEN(TxtLRepeatLine) DO BEGIN
+                            FOR y := 1 TO STRLEN(TxtLRepeatLine) DO
                                 IF TxtLRepeatLine[y] = '%' THEN BEGIN
                                     Body += '%';
 
@@ -140,13 +130,13 @@ codeunit 50022 "BC6_GS1 : Email Management"
 
                                     END ELSE
                                         Body += FORMAT(TxtLRepeatLine[y]);
-                                END ELSE BEGIN
+                                END ELSE
                                     Body += FORMAT(TxtLRepeatLine[y]);
-                                END;
-                            END;
+
+
                             TxtPEmailBodyText += (CONVERTSTR(Body, '|', '%'));
                             Body := '';
-                            BooLSkip := RefPRecordRef.NEXT = 0;
+                            BooLSkip := RefPRecordRef.NEXT() = 0;
                         END;
                     END ELSE BEGIN
                         IF (InSReadChar >= '0') AND (InSReadChar <= '9') THEN BEGIN
@@ -155,7 +145,7 @@ codeunit 50022 "BC6_GS1 : Email Management"
                             WHILE (InSReadChar >= '0') AND (InSReadChar <= '9') DO BEGIN
                                 IF InStreamTemplate.READ(InSReadChar, 1) <> 0 THEN;
                                 IF (InSReadChar >= '0') AND (InSReadChar <= '9') THEN
-                                    CharNo := CharNo + InSReadChar;
+                                    CharNo := CopyStr(CharNo + InSReadChar, 1, MaxStrLen(CharNo));
                             END;
                         END ELSE
                             Body := Body + InSReadChar;
@@ -178,10 +168,10 @@ codeunit 50022 "BC6_GS1 : Email Management"
 
             IF (STRLEN(Body) > 0) THEN BEGIN
                 BooWrongEnd := TRUE;
-                FOR z := 0 TO 5 DO BEGIN
+                FOR z := 0 TO 5 DO
                     IF Body[STRLEN(Body) - z] = '>' THEN
                         BooWrongEnd := FALSE;
-                END;
+
                 IF BooWrongEnd THEN
                     Body := Body + '>';
             END;
@@ -197,13 +187,9 @@ codeunit 50022 "BC6_GS1 : Email Management"
         FldLRef2: FieldRef;
         IntLFieldNumber: Integer;
         IntLFieldNumber2: Integer;
-        IntLOptionValue: Integer;
-        i: Integer;
-        TxtLOptionString: Text[1024];
-        TxtLMySelectedOptionString: Text[1024];
         DecLValue1: Decimal;
         DecLValue2: Decimal;
-        RecLActiveSession: Record "Active Session";
+    // RecLActiveSession: Record "Active Session"; TODO: unused
     begin
         IF TextNo = '' THEN
             EXIT;
@@ -226,27 +212,25 @@ codeunit 50022 "BC6_GS1 : Email Management"
                     Body := STRSUBSTNO(Body, FORMAT(TxtGCreditorName));
                 200000001:
                     BEGIN
-                        RecLActiveSession.SETRANGE("Server Instance ID", SERVICEINSTANCEID);
-                        RecLActiveSession.SETRANGE("Session ID", SESSIONID);
+                        RecLActiveSession.SETRANGE("Server Instance ID", SERVICEINSTANCEID());
+                        RecLActiveSession.SETRANGE("Session ID", SESSIONID());
                         RecLActiveSession.FINDFIRST();
                         Body := STRSUBSTNO(Body, FctConvertStr(RecLActiveSession."Server Computer Name"));
                     END;
                 200000002:
                     BEGIN
-                        RecLActiveSession.SETRANGE("Server Instance ID", SERVICEINSTANCEID);
-                        RecLActiveSession.SETRANGE("Session ID", SESSIONID);
+                        RecLActiveSession.SETRANGE("Server Instance ID", SERVICEINSTANCEID());
+                        RecLActiveSession.SETRANGE("Session ID", SESSIONID());
                         RecLActiveSession.FINDFIRST;
                         Body := STRSUBSTNO(Body, FctConvertStr(RecLActiveSession."Database Name"));
                     END;
                 200000003:
-                    BEGIN
-                        Body := STRSUBSTNO(Body, FctConvertStr(COMPANYNAME));
-                    END;
+                    Body := STRSUBSTNO(Body, FctConvertStr(CopyStr(COMPANYNAME, 1, 1024)));
 
                 ELSE BEGIN
                     FldLRef := Header.FIELD(IntLFieldNumber);
                     IF FORMAT(FldLRef.CLASS) = 'FlowField' THEN
-                        FldLRef.CALCFIELD;
+                        FldLRef.CALCFIELD();
                     CASE FORMAT(FldLRef.TYPE) OF
                         /*
                         'Option':BEGIN
@@ -274,11 +258,11 @@ codeunit 50022 "BC6_GS1 : Email Management"
             EVALUATE(IntLFieldNumber2, COPYSTR(TextNo, STRPOS(TextNo, '/') + 1, STRLEN(TextNo)));
             FldLRef := Header.FIELD(IntLFieldNumber);
             IF FORMAT(FldLRef.CLASS) = 'FlowField' THEN
-                FldLRef.CALCFIELD;
+                FldLRef.CALCFIELD();
 
             FldLRef2 := Header.FIELD(IntLFieldNumber2);
             IF FORMAT(FldLRef2.CLASS) = 'FlowField' THEN
-                FldLRef2.CALCFIELD;
+                FldLRef2.CALCFIELD();
 
             EVALUATE(DecLValue1, FORMAT(FldLRef.VALUE));
             EVALUATE(DecLValue2, FORMAT(FldLRef2.VALUE));
@@ -325,30 +309,30 @@ codeunit 50022 "BC6_GS1 : Email Management"
 
             CduGSMTPMail.CreateMessage(TxtLFromName, TxtLFromAddress, '', TxtPSubject, TxtPBodyText, TRUE);
             //TO
-            IF TxtPSendTo <> '' THEN BEGIN
+            IF TxtPSendTo <> '' THEN
                 IF STRPOS(TxtPSendTo, ';') > 1 THEN
                     CduGSMTPMail.FctAddTo(TxtPSendTo)
                 ELSE
                     CduGSMTPMail.AddRecipients(TxtPSendTo);
-            END;
+
             //CC
-            IF TxtPCC <> '' THEN BEGIN
+            IF TxtPCC <> '' THEN
                 IF STRPOS(TxtPCC, ';') > 1 THEN
                     CduGSMTPMail.FctAddCC(TxtPCC)
                 ELSE
                     CduGSMTPMail.AddCC(TxtPCC);
-            END;
+
             //BCC
-            IF TxtPBCC <> '' THEN BEGIN
+            IF TxtPBCC <> '' THEN
                 IF STRPOS(TxtPBCC, ';') > 1 THEN
                     CduGSMTPMail.FctAddBCC(TxtPBCC)
                 ELSE
                     CduGSMTPMail.AddBCC(TxtPBCC);
-            END;
-        END ELSE BEGIN
+
+        END ELSE
             IF Mail.TryInitializeOutlook THEN
                 Mail.CreateMessage(TxtPSendTo, TxtPCC, TxtPBCC, TxtPSubject, TxtPBodyText, TRUE, FALSE);
-        END;
+
         BooGAutoSend := BooPAutoSend;
     end;
 
