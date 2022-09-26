@@ -617,20 +617,20 @@ codeunit 50045 "BC6_YOOZ Management"
         Window: Dialog;
         IntGLineNo: Integer;
 
-        CstTxt000: Label '%1 est obligatoire.';
-        CstTxt001: Label '%1 n''est pas une donnée valide.';
-        CstTxt002: Label '%1 n''existe pas dans %2.';
-        CstTxt003: Label '%1 ne doit pas être %2 %3.';
-        CstTxt004: Label 'La transaction n''est pas équilibré.';
-        CstTxt005: Label 'Contrôle des données...\\';
-        CstTxt006: Label 'Fichier à importer';
-        CstTxt007: Label 'Analyse des montants...\\';
-        CstTxt008: Label 'Il existe au moins une ligne en erreur.';
-        CstTxt009: Label 'Le fichier %1  a déjà été importé.';
-        CstTxt010: Label 'Voulez-vous vraiment rebasculer le fichier %1 dans la table tampon?';
-        CstTxt011: Label 'La mise à jour a été interrompue pour respecter l''alerte.';
-        CstTxt012: Label 'Le document %1 vente %2 a fait l''objet d''une validation.La mise à jour a été interrompue pour respecter l''alerte.';
-        CstTxt013: Label 'Voulez-vous vraiment supprimer le fichier %1 dans la table d''import?';
+        CstTxt000: Label '%1 is Mandatory', Comment = 'FRA="%1 est obligatoire."';
+        CstTxt001: Label '%1 is not correct data.', Comment = 'FRA="%1 n''est pas une donnée valide."';
+        CstTxt002: Label '%1 does not exist in%2.', Comment = 'FRA="%1 n''existe pas dans %2."';
+        CstTxt003: Label '%1 should not be%2 %3.', Comment = 'FRA="%1 ne doit pas être %2 %3."';
+        CstTxt004: Label 'The transaction is not balanced', Comment = 'FRA="La transaction n''est pas équilibré."';
+        CstTxt005: Label 'Checking Data...\\', Comment = 'FRA="Contrôle des données...\\"';
+        CstTxt006: Label 'Select file to import', Comment = 'FRA="Fichier à importer"';
+        CstTxt007: Label 'Analyzing Amount Data...\\', Comment = 'FRA="Analyse des montants...\\"';
+        CstTxt008: Label 'Almost One line is on Error.', Comment = 'FRA="Il existe au moins une ligne en erreur."';
+        CstTxt009: Label 'File %1 has already been imported.', Comment = 'FRA="Le fichier %1  a déjà été importé."';
+        CstTxt010: Label 'Are you sure you want to roll back File %1 on buffer table?', Comment = 'FRA="Voulez-vous vraiment rebasculer le fichier %1 dans la table tampon?"';
+        CstTxt011: Label 'The update has been interrupted to respect the warning.', Comment = 'FRA="La mise à jour a été interrompue pour respecter l''alerte."';
+        CstTxt012: Label 'Sales %1 %2 already exists.The update has been interrupted to respect the warning.', Comment = 'FRA="Le document %1 vente %2 a fait l''objet d''une validation.La mise à jour a été interrompue pour respecter l''alerte."';
+        CstTxt013: Label 'Are you sure you want to delete File %1 on import table?', Comment = 'FRA="Voulez-vous vraiment supprimer le fichier %1 dans la table d''import?"';
         GFileName: Text;
 
 }

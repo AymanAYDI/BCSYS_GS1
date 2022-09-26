@@ -1,1441 +1,1372 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
-  <file datatype="xml" source-language="en-US" target-language="en-US" original="Groupe INTRA">
+  <file datatype="xml" source-language="en-US" target-language="fr-FR" original="GS1">
     <body>
       <group id="body">
         <trans-unit id="Table 171048423 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Code Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Code Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 171048423 - Field 3543129988 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bloqué</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Code Type - Field Blocked - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 171048423 - Field 1790512604 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Code Type ID</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Code Type - Field Code Type ID - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 171048423 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Description</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Code Type - Field Description - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 171048423 - Field 2243268650 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Facturation au renouvellement</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Code Type - Field Invoice On Renewal - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 171048423 - Field 2528408635 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Invoice Title</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Code Type - Field Invoice Title - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 171048423 - Field 1736455332 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Invoicing Proportion</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Code Type - Field Invoicing Proportion - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 171048423 - Field 1570317152 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Editable</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Code Type - Field Is Editable - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 171048423 - Field 568743302 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Item No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Code Type - Field Item No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 171048423 - Field 7443795 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prefix Required</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Code Type - Field Prefix Required - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 171048423 - Field 862053812 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Product Count</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Code Type - Field Product Count - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 171048423 - Field 862053812 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
           <source> ,1,10,100,1 000,10 000,100 000,1 000 000</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Code Type - Field Product Count - Property OptionCaption</note>
         </trans-unit>
         <trans-unit id="Table 171048423 - Field 737630729 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Quantity Alert</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Code Type - Field Quantity Alert On Existing - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 171048423 - Field 2825306894 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Quantity Alert On Line</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Code Type - Field Quantity Alert On Line - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 171048423 - Field 1080137410 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Quantity Factor</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Code Type - Field Quantity Factor - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 171048423 - Field 1996078238 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>To Invoice</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Code Type - Field To Invoice - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 171048423 - Field 4049289910 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>UPC Code Required</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Code Type - Field UPC Code Required - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2222146255 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Email Attach. Type Translation</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Attach. Type Trans. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2222146255 - Field 2089741720 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Attachment Type Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Attach. Type Trans. - Field Attachment Type Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2222146255 - Field 2563105438 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Custom Report Layout Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Attach. Type Trans. - Field Custom Report Layout Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2222146255 - Field 3381810852 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Custom Report Layout Name</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Attach. Type Trans. - Field Custom Report Layout Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2222146255 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Description</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Attach. Type Trans. - Field Description - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2222146255 - Field 2273653569 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Language Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Attach. Type Trans. - Field Language Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2222146255 - Field 1272245069 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Report ID</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Attach. Type Trans. - Field Report ID - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2222146255 - Field 4101026147 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Report Name</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Attach. Type Trans. - Field Report Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2271888375 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Email Attachment</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Attachment - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2271888375 - Field 2496422137 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Attachment Description</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Attachment - Field Attachment Description - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2271888375 - Field 2089741720 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Attachment Type Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Attachment - Field Attachment Type Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2271888375 - Field 3985660466 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Email Setup Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Attachment - Field Email Setup Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3076950415 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Email Attachment Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Attachment Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3076950415 - Field 3004954119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Attachment Type - Field Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3076950415 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Description</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Attachment Type - Field Description - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3076950415 - Field 3724314464 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>File Naming</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Attachment Type - Field File Naming - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3076950415 - Field 689635933 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>File Path</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Attachment Type - Field File Path - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3076950415 - Field 3740851728 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Output Format</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Attachment Type - Field Output Format - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3076950415 - Field 3113016088 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>WebApi Sub Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Attachment Type - Field WebApi Sub Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3076950415 - Field 3803286324 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>WebApi Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Attachment Type - Field WebApi Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4018106244 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Email Log</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Log - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4018106244 - Field 2154449076 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create Date-Time</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Log - Field Create Date-Time - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4018106244 - Field 1199625561 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Created by User ID</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Log - Field Created by User ID - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4018106244 - Field 3773326730 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Email Model Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Log - Field Email Model Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4018106244 - Field 883711285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Entry No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Log - Field Entry No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4018106244 - Field 3080618677 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Message</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Log - Field Message - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4018106244 - Field 3696383513 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Message Status</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Log - Field Message Status - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4018106244 - Field 2416180794 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Record Identifier</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Log - Field Record Identifier - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4018106244 - Field 2558330154 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Search Record ID</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Log - Field Search Record ID - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3127024141 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Email model</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Model - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3127024141 - Field 3004954119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Model - Field Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3127024141 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Object</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Model - Field Description - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3127024141 - Field 3213676553 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Document Titel</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Model - Field Document Title - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3127024141 - Field 525852245 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Inactive</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Model - Field Inactive - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3127024141 - Field 3567422935 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Nbre de pièces jointes</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Model - Field No. Attachments - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3127024141 - Field 2762414937 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Nbre de destinataires</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Model - Field No. Recipients - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3127024141 - Field 261196041 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Nbre de traductions</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Model - Field No. Translations - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3127024141 - Field 8886546 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Not Show Empty Lines</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Model - Field Not Show Empty Lines - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3206619409 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Email Recipient</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Recipient - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3206619409 - Field 1285973296 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Email</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Recipient - Field Email - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3206619409 - Field 3985660466 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Email Setup Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Recipient - Field Email Setup Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3206619409 - Field 2937173312 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Email Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Recipient - Field Email Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3206619409 - Field 3490560541 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Recipient Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Recipient - Field Recipient Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3206619409 - Field 960490002 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Recipient Type Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Recipient - Field Recipient Type Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>GS1 Bar Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 4241120113 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Blocked</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field BFlagSanté - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 2239447483 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Main Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field B_CnufPrincipal - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 3648826722 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Inactive</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field B_Inactive - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 613153186 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Buyer</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field B_Payant - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 2790486453 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Comment</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field Comment - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field Customer No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 2316472364 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Last Invoice Date</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field Date_Payant - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 2536083372 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Last Date Modified</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field DAT_CODES - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 2258118348 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Inactive Date</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field DAT_Inactif - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 883711285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Entry No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field Entry No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 389645823 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>GLN</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field GLN - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 4018206005 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>ID Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field IDCodes - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 2572674830 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>ID Document</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field IDDocument - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 641132604 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>ID Entreprise</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field IDEntreprise - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 3040415741 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>ID Type Codes</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field IDTypeCodes - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 1570317152 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Editable</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field Is Editable - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 568743302 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Item No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field Item No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 613046242 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Description</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field LIB_Description - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 2119552768 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Start Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field Num_Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 3490011366 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>End Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field Num_Code F - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 2857886333 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Quantity</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field NUM_NBCodes - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 4258326409 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Request Code Entry No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field Request Code Entry No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 90423963 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sélectionné</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field Selected - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 761192430 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>N° ligne abonnement</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field Subscription Line No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 3142330800 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>N° abonnement</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field Subscription No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 4170536669 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Transfer-From Entry No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field Transfer-From Entry No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 1008965730 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Transfer-To Entry No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field Transfer-To Entry No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1963206222 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>GS1 Setup</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Setup - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1963206222 - Field 1663593181 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Primary Key</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Setup - Field Primary Key - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1963206222 - Field 462663913 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>YOOZ File Archive</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Setup - Field YOOZ File Archive - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1963206222 - Field 1697781844 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>YOOZ File Import</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Setup - Field YOOZ File Import - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1963206222 - Field 1362516430 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>YOOZ Journ. Batch Name</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Setup - Field YOOZ Journ. Batch Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1963206222 - Field 146496760 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>YOOZ Journ. Temp. Name</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Setup - Field YOOZ Journ. Temp. Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1963206222 - Field 3102024453 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>YOOZ Source Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Setup - Field YOOZ Source Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1126179625 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>YOOZ Error Log</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ Error Log - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1126179625 - Field 883711285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Entry No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ Error Log - Field Entry No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1126179625 - Field 1805468730 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Error Description</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ Error Log - Field Error Description - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1126179625 - Field 1884737638 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Field</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ Error Log - Field Field - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1126179625 - Field 3492791163 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Import Date</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ Error Log - Field Import Date - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1126179625 - Field 1987872552 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Import File Name</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ Error Log - Field Import File Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1126179625 - Field 2957781644 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Import Time</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ Error Log - Field Import Time - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1126179625 - Field 3320823955 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Line No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ Error Log - Field Line No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1126179625 - Field 1814464443 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>User</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ Error Log - Field User - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1126179625 - Field 1131619133 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Value</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ Error Log - Field Value - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>YOOZ import Buffer</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 3699788827 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Account Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field Account Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 592951229 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Amount (LCY)</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field Amount (LCY) - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 2404404416 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Comment Zone 1</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field Comment Zone 1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 3954648951 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Company Currency Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field Company Currency Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 2556136339 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Credit Amount</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field Credit Amount - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 4198939294 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Currency Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field Currency Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 2796346326 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Debit Amount</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field Debit Amount - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Description</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field Description - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 2623957639 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Dimension Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field Dimension Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 3997037974 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Dimension Value 1</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field Dimension Value 1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 2083948123 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Dimension Value 2</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field Dimension Value 2 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 2721644740 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Dimension Value 3</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field Dimension Value 3 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 808554889 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Dimension Value 4</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field Dimension Value 4 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 486908828 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Document No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field Document No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 2363328873 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Document Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field Document Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 4085727052 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Due Date</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field Due Date - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 2127507152 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Employe Identifier</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field Employe Identifier - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 883711285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Entry No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field Entry No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 3852983238 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>G/L Account No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field G/L Account No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 1435567824 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Import Account Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field Import Account Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 2322913187 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Import Amount</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field Import Amount - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 2564293170 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Import Amount (LCY)</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field Import Amount (LCY) - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 804796200 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Import DateTime</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field Import DateTime - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 3719924530 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Import Document Date</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field Import Document Date - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 1891772366 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Import Document Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field Import Document Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 3000667503 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Import Due Date</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field Import Due Date - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 1987872552 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Import File Name</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field Import File Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 1400314134 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Import Journ Batch Name</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field Import Journ Batch Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 1400201564 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Import Journ. Template Name</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field Import Journ. Template Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 2430164628 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Import Payment Method</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field Import Payment Method - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 1503348271 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Import Source Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field Import Source Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 172710223 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Import Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field Import Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 3320823955 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Line No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field Line No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 3074992944 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Part Number</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field Part Number - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 3855271124 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment Method Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field Payment Method Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 2696717843 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Position Dimension</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field Position Dimension - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 1665520253 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sense of Amount</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field Sense of Amount - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 2720485332 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Source Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field Source Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 312545736 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Source Line No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field Source Line No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 513339096 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Status</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field Status - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 3319631365 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Transaction No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field Transaction No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 2708250016 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>User ID</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field User ID - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 2534656220 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Identifier</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field VAT Identifier - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 2887542304 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>YOOZ No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field YOOZ No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 454196762 - Field 1345412009 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>YOOZ Posting Date</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field YOOZ Posting Date - Property Caption</note>
         </trans-unit>
         <trans-unit id="Codeunit 3316220004 - NamedType 276951208" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 est obligatoire.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_YOOZ Management - NamedType CstTxt000</note>
         </trans-unit>
         <trans-unit id="Codeunit 3316220004 - NamedType 3934221887" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 n'est pas une donnée valide.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_YOOZ Management - NamedType CstTxt001</note>
         </trans-unit>
         <trans-unit id="Codeunit 3316220004 - NamedType 1552344442" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 n'existe pas dans %2.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_YOOZ Management - NamedType CstTxt002</note>
         </trans-unit>
         <trans-unit id="Codeunit 3316220004 - NamedType 914647825" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 ne doit pas être %2 %3.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_YOOZ Management - NamedType CstTxt003</note>
         </trans-unit>
         <trans-unit id="Codeunit 3316220004 - NamedType 2827737676" size-unit="char" translate="yes" xml:space="preserve">
           <source>La transaction n'est pas équilibré.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_YOOZ Management - NamedType CstTxt004</note>
         </trans-unit>
         <trans-unit id="Codeunit 3316220004 - NamedType 2190041059" size-unit="char" translate="yes" xml:space="preserve">
           <source>Contrôle des données...\\</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_YOOZ Management - NamedType CstTxt005</note>
         </trans-unit>
         <trans-unit id="Codeunit 3316220004 - NamedType 4103130910" size-unit="char" translate="yes" xml:space="preserve">
           <source>Fichier à importer</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_YOOZ Management - NamedType CstTxt006</note>
         </trans-unit>
         <trans-unit id="Codeunit 3316220004 - NamedType 3465434293" size-unit="char" translate="yes" xml:space="preserve">
           <source>Analyse des montants...\\</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_YOOZ Management - NamedType CstTxt007</note>
         </trans-unit>
         <trans-unit id="Codeunit 3316220004 - NamedType 1083556848" size-unit="char" translate="yes" xml:space="preserve">
           <source>Il existe au moins une ligne en erreur.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_YOOZ Management - NamedType CstTxt008</note>
         </trans-unit>
         <trans-unit id="Codeunit 3316220004 - NamedType 445860231" size-unit="char" translate="yes" xml:space="preserve">
           <source>Le fichier %1  a déjà été importé.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_YOOZ Management - NamedType CstTxt009</note>
         </trans-unit>
         <trans-unit id="Codeunit 3316220004 - NamedType 21207287" size-unit="char" translate="yes" xml:space="preserve">
           <source>Voulez-vous vraiment rebasculer le fichier %1 dans la table tampon?</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_YOOZ Management - NamedType CstTxt010</note>
         </trans-unit>
         <trans-unit id="Codeunit 3316220004 - NamedType 658903904" size-unit="char" translate="yes" xml:space="preserve">
           <source>La mise à jour a été interrompue pour respecter l'alerte.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_YOOZ Management - NamedType CstTxt011</note>
         </trans-unit>
         <trans-unit id="Codeunit 3316220004 - NamedType 1296600521" size-unit="char" translate="yes" xml:space="preserve">
           <source>Le document %1 vente %2 a fait l'objet d'une validation.La mise à jour a été interrompue pour respecter l'alerte.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_YOOZ Management - NamedType CstTxt012</note>
         </trans-unit>
         <trans-unit id="Codeunit 3316220004 - NamedType 1934297138" size-unit="char" translate="yes" xml:space="preserve">
           <source>Voulez-vous vraiment supprimer le fichier %1 dans la table d'import?</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_YOOZ Management - NamedType CstTxt013</note>
         </trans-unit>
         <trans-unit id="Codeunit 3316220004 - Method 15074807 - NamedType 3556479000" size-unit="char" translate="yes" xml:space="preserve">
           <source>Excel Files (*.xlsx;*.xls)|*.csv;*.csv</source>
           <note from="Developer" annotates="general" priority="2">{Split=r'\|'}{Locked=s'1'}</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_YOOZ Management - Method ImportData - NamedType Excel2007FileType</note>
+          <target>r'\|'}{Locked</target>
         </trans-unit>
         <trans-unit id="Page 3807267633 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Email Translation Attachment Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_Email Attach Type Transl. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1474032130 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Pièces jointes email</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_Email Attachments - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3611355848 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Destinataires email</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_Email Recipients - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1963206222 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>GS1 Setup</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_GS1 Setup - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1963206222 - Control 462663913 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the YOOZ File Archive field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_GS1 Setup - Control YOOZ File Archive - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1963206222 - Control 1697781844 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the YOOZ File Import field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_GS1 Setup - Control YOOZ File Import - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1963206222 - Control 1362516430 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the YOOZ Journ. Batch Name field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_GS1 Setup - Control YOOZ Journ. Batch Name - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1963206222 - Control 146496760 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the YOOZ Journ. Temp. Name field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_GS1 Setup - Control YOOZ Journ. Temp. Name - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1963206222 - Control 3102024453 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the YOOZ Source Code field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_GS1 Setup - Control YOOZ Source Code - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3240552765 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Type pièces jointes email</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_mail Attachments Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1126179625 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>YOOZ Error Log</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Error Log - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1126179625 - Control 1805468730 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Error Description field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Error Log - Control Error Description - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1126179625 - Control 1131619133 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Value field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Error Log - Control Value - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3036521896 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>YOOZ Import Archive</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Archive - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3036521896 - Control 3699788827 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Account Type field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Archive - Control Account Type - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3036521896 - Control 2556136339 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Credit Amount field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Archive - Control Credit Amount - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3036521896 - Control 2796346326 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Debit Amount field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Archive - Control Debit Amount - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3036521896 - Control 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Description field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Archive - Control Description - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3036521896 - Control 3997037974 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Dimension Value 1 field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Archive - Control Dimension Value 1 - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3036521896 - Control 2083948123 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Dimension Value 2 field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Archive - Control Dimension Value 2 - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3036521896 - Control 2721644740 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Dimension Value 3 field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Archive - Control Dimension Value 3 - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3036521896 - Control 808554889 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Dimension Value 4 field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Archive - Control Dimension Value 4 - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3036521896 - Control 486908828 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Document No. field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Archive - Control Document No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3036521896 - Control 2363328873 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Document Type field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Archive - Control Document Type - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3036521896 - Control 883711285 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Entry No. field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Archive - Control Entry No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3036521896 - Control 3852983238 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the G/L Account No. field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Archive - Control G/L Account No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3036521896 - Control 1435567824 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Import Account Type field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Archive - Control Import Account Type - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3036521896 - Control 804796200 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Import DateTime field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Archive - Control Import DateTime - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3036521896 - Control 3719924530 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Import Document Date field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Archive - Control Import Document Date - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3036521896 - Control 1891772366 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Import Document Type field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Archive - Control Import Document Type - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3036521896 - Control 1987872552 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Import File Name field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Archive - Control Import File Name - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3036521896 - Control 1400314134 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Import Journ Batch Name field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Archive - Control Import Journ Batch Name - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3036521896 - Control 1400201564 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Import Journ. Template Name field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Archive - Control Import Journ. Template Name - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3036521896 - Control 172710223 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Import Type field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Archive - Control Import Type - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3036521896 - Control 3320823955 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Line No. field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Archive - Control Line No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3036521896 - Control 2720485332 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Source Code field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Archive - Control Source Code - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3036521896 - Control 513339096 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Status field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Archive - Control Status - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3036521896 - Control 2708250016 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the User ID field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Archive - Control User ID - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3036521896 - Control 2887542304 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the YOOZ No. field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Archive - Control YOOZ No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3036521896 - Control 1345412009 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the YOOZ Posting Date field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Archive - Control YOOZ Posting Date - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3036521896 - Action 3415983525 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Cancel</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Archive - Action Annuler archivage - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2844358225 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>YOOZ Import Journal</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Journal - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2844358225 - Control 3699788827 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Account Type field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Journal - Control Account Type - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2844358225 - Control 2556136339 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Credit Amount field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Journal - Control Credit Amount - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2844358225 - Control 2796346326 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Debit Amount field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Journal - Control Debit Amount - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2844358225 - Control 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Description field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Journal - Control Description - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2844358225 - Control 3997037974 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Dimension Value 1 field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Journal - Control Dimension Value 1 - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2844358225 - Control 2083948123 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Dimension Value 2 field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Journal - Control Dimension Value 2 - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2844358225 - Control 2721644740 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Dimension Value 3 field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Journal - Control Dimension Value 3 - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2844358225 - Control 808554889 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Dimension Value 4 field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Journal - Control Dimension Value 4 - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2844358225 - Control 486908828 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Document No. field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Journal - Control Document No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2844358225 - Control 2363328873 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Document Type field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Journal - Control Document Type - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2844358225 - Control 883711285 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Entry No. field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Journal - Control Entry No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2844358225 - Control 3852983238 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the G/L Account No. field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Journal - Control G/L Account No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2844358225 - Control 1435567824 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Import Account Type field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Journal - Control Import Account Type - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2844358225 - Control 804796200 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Import DateTime field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Journal - Control Import DateTime - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2844358225 - Control 3719924530 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Import Document Date field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Journal - Control Import Document Date - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2844358225 - Control 1891772366 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Import Document Type field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Journal - Control Import Document Type - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2844358225 - Control 1987872552 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Import File Name field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Journal - Control Import File Name - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2844358225 - Control 1400314134 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Import Journ Batch Name field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Journal - Control Import Journ Batch Name - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2844358225 - Control 1400201564 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Import Journ. Template Name field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Journal - Control Import Journ. Template Name - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2844358225 - Control 172710223 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Import Type field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Journal - Control Import Type - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2844358225 - Control 3320823955 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Line No. field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Journal - Control Line No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2844358225 - Control 2720485332 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Source Code field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Journal - Control Source Code - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2844358225 - Control 513339096 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Status field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Journal - Control Status - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2844358225 - Control 2708250016 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the User ID field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Journal - Control User ID - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2844358225 - Control 2887542304 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the YOOZ No. field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Journal - Control YOOZ No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2844358225 - Control 1345412009 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the YOOZ Posting Date field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Journal - Control YOOZ Posting Date - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2844358225 - Action 1210969018 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Check Data</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Journal - Action Check Data - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2844358225 - Action 3593153960 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Delete import</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Journal - Action Delete import - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2844358225 - Action 2583272393 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>General Journal</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Journal - Action General Journal - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2844358225 - Action 103845458 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Import YOOZ</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Journal - Action Import YOOZ - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2844358225 - Action 2304435209 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Transfer to General Journal</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Journal - Action Transfer to General Journal - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1194642737 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>YOOZ Error Log</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page YOOZ Error Log - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 309882037 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Trans. YOOZ Gen. Jnl.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report BC6_Trans. YOOZ Gen. Jnl. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 309882037 - NamedType 1364900030" size-unit="char" translate="yes" xml:space="preserve">
           <source>Il existe des lignes dans la feuille %1 %2. Voulez-vous continuer?</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report BC6_Trans. YOOZ Gen. Jnl. - NamedType CstTxtG001</note>
         </trans-unit>
         <trans-unit id="Report 309882037 - NamedType 3746777475" size-unit="char" translate="yes" xml:space="preserve">
           <source>La mise à jour a été interrompue pour respecter l'alerte.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report BC6_Trans. YOOZ Gen. Jnl. - NamedType CstTxtG002</note>
         </trans-unit>
         <trans-unit id="Report 309882037 - NamedType 89506796" size-unit="char" translate="yes" xml:space="preserve">
           <source>Traitement des données...\\</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report BC6_Trans. YOOZ Gen. Jnl. - NamedType CstTxtG003</note>
         </trans-unit>
         <trans-unit id="Report 4021206852 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Modèle Word - Attribution de code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report BC6_Word Template - Assignment - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 3437519155 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Modèle Word - Adhésion</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report BC6_Word Template - Membership - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 276466838 - Field 300792892 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 552782286">
           <source>Send Status</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension BC6_Sales Cr.Memo Header - Field BC6_Send Status - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 4060892402 - Field 2563521347 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
           <source>BC6_Invoice Title</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension BC6_Sales Invoice Header - Field BC6_Invoice Title - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 4060892402 - Field 300792892 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
           <source>Send Status</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension BC6_Sales Invoice Header - Field BC6_Send Status - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 3473588906 - Field 4265508897 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 337631938">
           <source>Allow Yooz Import</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension BC6_UserSetup - Field BC6_Allow Yooz Import - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3470327827 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Account Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Account Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3470327827 - EnumValue 1994964448 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Account Type - EnumValue Customer - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3470327827 - EnumValue 881177948 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Dimension</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Account Type - EnumValue Dimension - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3470327827 - EnumValue 4274826855 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>G/L Account</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Account Type - EnumValue G/L Account - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3470327827 - EnumValue 1936001480 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Vendor</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Account Type - EnumValue Vendor - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 1604678641 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Document Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Document Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 1604678641 - EnumValue 1371923692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>None</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Document Type - EnumValue   - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 1604678641 - EnumValue 2004364593 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Credit Memo</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Document Type - EnumValue Credit Memo - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 1604678641 - EnumValue 821689635 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Invoice</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Document Type - EnumValue Invoice - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 1604678641 - EnumValue 3346365350 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Document Type - EnumValue Payment - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3860901911 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Import Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Import Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3860901911 - EnumValue 1377949133 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>YOOZ</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Import Type - EnumValue YOOZ - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3358074112 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Status</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Status - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3358074112 - EnumValue 1417232546 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Check</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Status - EnumValue Check - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3358074112 - EnumValue 2248886284 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Error</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Status - EnumValue Error - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3358074112 - EnumValue 926489874 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>On Hold</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Status - EnumValue On Hold - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3358074112 - EnumValue 2282416948 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Post</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Status - EnumValue Post - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 2937173312 - EnumValue 2676895894 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Bcc</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Cci"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum Email Type - EnumValue Bcc - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 2937173312 - EnumValue 2848067100 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Cc</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Cc"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum Email Type - EnumValue Cc - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 2937173312 - EnumValue 1958180954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>From</source>
-          <note from="Developer" annotates="general" priority="2">FRA="De"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum Email Type - EnumValue From - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 2937173312 - EnumValue 3483619077 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>To</source>
-          <note from="Developer" annotates="general" priority="2">FRA="A"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum Email Type - EnumValue To - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 3724314464 - EnumValue 2004364593 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Credit Memo</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Avoir"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum File Naming - EnumValue Credit Memo - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 3724314464 - EnumValue 1994964448 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Customer</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Client"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum File Naming - EnumValue Customer - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 3724314464 - EnumValue 821689635 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Invoice</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Facture"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum File Naming - EnumValue Invoice - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 3724314464 - EnumValue 2672704373 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Standard</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Standard"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum File Naming - EnumValue Standard - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 4289254430 - EnumValue 2248886284 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Error</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Erreur"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum Message Status.Enum - EnumValue Error - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 4289254430 - EnumValue 419426744 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Information</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Information"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum Message Status.Enum - EnumValue Information - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 4289254430 - EnumValue 3878926381 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Success</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Succès"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum Message Status.Enum - EnumValue Success - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 4289254430 - EnumValue 3955473374 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Warning</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Attention"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum Message Status.Enum - EnumValue Warning - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3601744651 - EnumValue 3731179934 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>PDF</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Output Format.Enum - EnumValue PDF - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3601744651 - EnumValue 2013594130 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Word</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Output Format.Enum - EnumValue Word - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 3490560541 - EnumValue 3993128796 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Contact</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Contact"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum Recipient Type - EnumValue Contact - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 3490560541 - EnumValue 1285973296 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Email</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Mél"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum Recipient Type - EnumValue Email - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3652547908 - EnumValue 1371923692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source> </source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Send Status - EnumValue   - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3652547908 - EnumValue 3923323563 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Not Sent</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Send Status - EnumValue Not Sent - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3652547908 - EnumValue 2561328176 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sent</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Send Status - EnumValue Sent - Property Caption</note>
         </trans-unit>
       </group>

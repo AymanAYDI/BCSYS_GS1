@@ -1,6 +1,6 @@
 page 50111 "BC6_YOOZ Import Journal"
 {
-    Caption = 'YOOZ Import Journal';
+    Caption = 'YOOZ Import Journal', Comment = 'FRA="Journal d''import YOOZ"';
     PageType = Worksheet;
     SourceTable = "BC6_YOOZ import Buffer";
     SourceTableView = WHERE("Import Type" = CONST(YOOZ), Status = FILTER(< Post));
@@ -165,7 +165,7 @@ page 50111 "BC6_YOOZ Import Journal"
                     Promoted = true;
                     PromotedCategory = Process;
                     ApplicationArea = All;
-                    Caption = 'Import YOOZ';
+                    Caption = 'Import YOOZ', Comment = 'FRA="Import YOOZ"';
                     PromotedOnly = true;
                     Image = Import;
                     trigger OnAction()
@@ -178,7 +178,7 @@ page 50111 "BC6_YOOZ Import Journal"
                     Promoted = true;
                     PromotedCategory = Process;
                     ApplicationArea = All;
-                    Caption = 'Check Data';
+                    Caption = 'Check Data', Comment = 'FRA="Controle des données"';
                     Image = CheckRulesSyntax;
                     trigger OnAction()
                     begin
@@ -190,7 +190,7 @@ page 50111 "BC6_YOOZ Import Journal"
                     Promoted = true;
                     PromotedCategory = Process;
                     ApplicationArea = All;
-                    Caption = 'Transfer to General Journal';
+                    Caption = 'Transfer to General Journal', Comment = 'FRA="Transférer en feuille compta"';
                     Image = TransferToLines;
                     RunObject = report "BC6_Trans. YOOZ Gen. Jnl.";
 
@@ -200,7 +200,7 @@ page 50111 "BC6_YOOZ Import Journal"
                     Promoted = true;
                     PromotedCategory = Process;
                     ApplicationArea = All;
-                    Caption = 'General Journal';
+                    Caption = 'General Journal', Comment = 'FRA="Feuille Compta"';
                     Image = Journal;
                     RunObject = page "General Journal";
                     RunPageView = WHERE("Journal Template Name" = CONST('ACH-YOOZ'), "Journal Batch Name" = CONST('YOOZ'));
@@ -212,7 +212,7 @@ page 50111 "BC6_YOOZ Import Journal"
                     Promoted = true;
                     PromotedCategory = Process;
                     ApplicationArea = All;
-                    Caption = 'Delete import';
+                    Caption = 'Delete import', Comment = 'FRA="Supprimer import"';
                     Image = Delete;
                     trigger OnAction()
                     begin

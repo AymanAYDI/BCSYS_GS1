@@ -4,7 +4,7 @@ tableextension 50003 "BC6_UserSetup" extends "User Setup"
     {
         field(50003; "BC6_Allow Yooz Import"; Boolean)
         {
-            Caption = 'Allow Yooz Import';
+            Caption = 'Allow Yooz Import', Comment = 'FRA="Autoriser l''import Yooz"';
             DataClassification = ToBeClassified;
         }
     }
