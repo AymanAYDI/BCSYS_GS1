@@ -53,7 +53,7 @@ table 50101 "BC6_YOOZ Error Log"
     }
     keys
     {
-        key(PK; "Entry No.")
+        key(PK; "Entry No.", "Line No.")
         {
             Clustered = true;
         }
