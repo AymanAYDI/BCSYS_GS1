@@ -38,6 +38,17 @@ page 50005 "BC6_GS1 Setup"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the YOOZ Source Code field.';
                 }
+
+            }
+            group("General Ledger")
+            {
+                Caption = 'General Ledger', Comment = 'FRA="Comptabilité"';
+                group(Payroll)
+                {
+                    Caption = 'Payroll', Comment = 'FRA="Paie"';
+
+
+                }
             }
         }
     }
