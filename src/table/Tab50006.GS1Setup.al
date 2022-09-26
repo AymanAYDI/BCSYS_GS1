@@ -11,6 +11,18 @@ table 50006 "BC6_GS1 Setup"
             DataClassification = ToBeClassified;
 
         }
+        field(21; "Expense Journal Template Name"; Code[10])
+        {
+            Caption = 'Expense Journal Template Name', Comment = 'FRA="Nom modèle feuille note de frais"';
+            DataClassification = ToBeClassified;
+
+        }
+        field(31; "Expense Journal Batch Name"; Code[10])
+        {
+            Caption = 'Expense Journal Batch Name', Comment = 'FRA="Nom feuille note de frais"';
+            DataClassification = ToBeClassified;
+
+        }
         field(41; "Payroll Journal Template Name"; Code[10])
         {
             Caption = 'Payroll Journal Template Name', Comment = 'FRA="Nom modèle feuille paie"';
@@ -23,6 +35,27 @@ table 50006 "BC6_GS1 Setup"
             DataClassification = ToBeClassified;
 
         }
+        field(61; "Expense Shortcut Dim. 1 Code"; Code[20])
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'Expense Shortcut Dim. 1 Code', Comment = 'FRA="Code raccourci axe 1 note de frais"';
+        }
+        field(71; "Expense Shortcut Dim. 2 Code"; Code[20])
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'Expense Shortcut Dim. 2 Code', Comment = 'FRA="Code raccourci axe 2 note de frais"';
+        }
+        field(72; "Expense Shortcut Dim. 3 Code"; Code[20])
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'Expense Shortcut Dim. 3 Code', Comment = 'FRA="Code raccourci axe 3 note de frais"';
+        }
+        field(73; "Expense Shortcut Dim. 4 Code"; Code[20])
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'Expense Shortcut Dim. 4 Code', Comment = 'FRA="Code raccourci axe 4 note de frais"';
+        }
+
         field(74; "Payroll Shortcut Dim. 1 Code"; Code[20])
         {
             Caption = 'Payroll Journal Template Name', Comment = 'FRA="Code raccourci axe 1 paie"';
@@ -79,6 +112,7 @@ table 50006 "BC6_GS1 Setup"
             Editable = true;
 
         }
+
         field(50012; "Default Model Code Untitl. Inv"; Code[20])
         {
             Caption = 'Default code for untitled invoices', Comment = 'FRA="Code modèle par défaut pour facture sans titre"';
