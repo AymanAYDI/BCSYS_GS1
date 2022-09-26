@@ -46,9 +46,7 @@ codeunit 50045 "BC6_YOOZ Management"
 
         ImportYOOZBuffer.RESET();
         ImportYOOZBuffer.SETRANGE("Import Type", ImportYOOZBuffer."Import Type"::YOOZ);
-        //ImportYOOZBuffer.SETRANGE("Import File Name",GFileName);
-        // ImportYOOZBuffer.SETFILTER(Status, '<>%1', ImportYOOZBuffer.Status::Post);
-        ImportYOOZBuffer.SETFILTER("Entry No.", '<%1', 0);
+        ImportYOOZBuffer.SETFILTER(Status, '<>%1', ImportYOOZBuffer.Status::Post);
         IF ImportYOOZBuffer.ISEMPTY THEN
             EXIT;
 
@@ -352,20 +350,6 @@ codeunit 50045 "BC6_YOOZ Management"
         IF NOT YOOZBuffer.ISEMPTY THEN
             ERROR(CstTxt008);
     end;
-    //Not Used
-    // local procedure EvaluateDecimal(TxtDecimal: Text; VAR CalculatedDecimal: Decimal): Boolean
-    // begin
-    //     IF NOT EVALUATE(CalculatedDecimal, TxtDecimal) THEN BEGIN
-    //         IF STRPOS(TxtDecimal, '.') <> 0 THEN
-    //             TxtDecimal := CONVERTSTR(TxtDecimal, '.', ',')
-    //         ELSE
-    //             IF STRPOS(TxtDecimal, ',') <> 0 THEN
-    //                 TxtDecimal := CONVERTSTR(TxtDecimal, ',', '.');
-    //         IF NOT EVALUATE(CalculatedDecimal, TxtDecimal) THEN
-    //             EXIT(FALSE);
-    //         EXIT(TRUE);
-    //     END;
-    // end;
 
     procedure InitGenLineData(RecPGenJnlTemplate: Record "Gen. Journal Template"; RecPGenJnlBatch: Record "Gen. Journal Batch"; IntPLastLineNo: Integer)
     begin
@@ -496,15 +480,8 @@ codeunit 50045 "BC6_YOOZ Management"
     procedure InitYoozBuffer(VAR DataArray: ARRAY[50] OF Text; FileName: Text[250])
     var
         YOOZimportBuffer: Record "BC6_YOOZ import Buffer";
-        YOOZimportBufferLast: Record "BC6_YOOZ import Buffer";
-        EntryNo: Integer;
     begin
-        IF YOOZimportBufferLast.FindLast() then
-            EntryNo := YOOZimportBufferLast."Entry No." + 1
-        Else
-            EntryNo := 1;
         YOOZimportBuffer.INIT();
-        YOOZimportBuffer."Entry No." := EntryNo;
         YOOZimportBuffer."Import File Name" := FileName;
         YOOZimportBuffer."User ID" := USERID;
         YOOZimportBuffer."Import DateTime" := CURRENTDATETIME;

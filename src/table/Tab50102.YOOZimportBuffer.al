@@ -8,6 +8,7 @@ table 50102 "BC6_YOOZ import Buffer"
         field(1; "Entry No."; Integer)
         {
             Caption = 'Entry No.';
+            AutoIncrement = true;
             DataClassification = ToBeClassified;
         }
         field(2; "Transaction No."; Integer)
