@@ -1,6 +1,6 @@
 page 50005 "BC6_GS1 Setup"
 {
-    Caption = 'GS1 Setup';
+    Caption = 'GS1 Setup', Comment = 'FRA="Paramètres GS1"';
     PageType = Card;
     SourceTable = "BC6_GS1 Setup";
     ApplicationArea = all;

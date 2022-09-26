@@ -1,53 +1,53 @@
-table 50101 "BC6_YOOZ Error Log"
+table 50066 "BC6_YOOZ Error Log"
 {
-    Caption = 'YOOZ Error Log';
+    Caption = 'YOOZ Error Log', Comment = 'FRA="Journal d''erreur YOOZ"';
     DataClassification = ToBeClassified;
 
     fields
     {
         field(1; "Entry No."; Integer)
         {
-            Caption = 'Entry No.';
+            Caption = 'Entry No.', Comment = 'FRA="N° séquence"';
             DataClassification = ToBeClassified;
         }
         field(2; "Line No."; Integer)
         {
-            Caption = 'Line No.';
+            Caption = 'Line No.', Comment = 'FRA="N° ligne"';
             DataClassification = ToBeClassified;
         }
         field(9; "Error Description"; Text[250])
         {
-            Caption = 'Error Description';
+            Caption = 'Error Description', Comment = 'FRA="Désignation erreur"';
             DataClassification = ToBeClassified;
         }
         field(10; "Import File Name"; Text[250])
         {
-            Caption = 'Import File Name';
+            Caption = 'Import File Name', Comment = 'FRA="Nom fichier d''import"';
             DataClassification = ToBeClassified;
         }
         field(11; "Field"; Text[250])
         {
-            Caption = 'Field';
+            Caption = 'Field', Comment = 'FRA="Champ"';
             DataClassification = ToBeClassified;
         }
         field(12; Value; Text[250])
         {
-            Caption = 'Value';
+            Caption = 'Value', Comment = 'FRA="Valeur"';
             DataClassification = ToBeClassified;
         }
         field(20; User; Code[50])
         {
-            Caption = 'User';
+            Caption = 'User', Comment = 'FRA="User"';
             DataClassification = ToBeClassified;
         }
         field(21; "Import Date"; Date)
         {
-            Caption = 'Import Date';
+            Caption = 'Import Date', Comment = 'FRA="Date import"';
             DataClassification = ToBeClassified;
         }
         field(22; "Import Time"; Time)
         {
-            Caption = 'Import Time';
+            Caption = 'Import Time', Comment = 'FRA="Heure import"';
             DataClassification = ToBeClassified;
         }
     }

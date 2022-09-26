@@ -1,6 +1,6 @@
 page 50112 "BC6_YOOZ Import Archive"
 {
-    Caption = 'YOOZ Import Archive';
+    Caption = 'YOOZ Import Archive', Comment = 'FRA="Archives des imports YOOZ"';
     PageType = List;
     SourceTable = "BC6_YOOZ import Buffer";
     SourceTableView = WHERE("Import Type" = CONST(YOOZ), Status = CONST(Post));
@@ -158,7 +158,7 @@ page 50112 "BC6_YOOZ Import Archive"
                     Promoted = true;
                     PromotedCategory = Process;
                     ApplicationArea = All;
-                    Caption = 'Cancel';
+                    Caption = 'Cancel', Comment = 'FRA="Annuler archivage"';
                     Image = ChangeStatus;
                     trigger OnAction()
                     begin

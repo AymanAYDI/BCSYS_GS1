@@ -1,6 +1,6 @@
 report 50100 "BC6_Trans. YOOZ Gen. Jnl."
 {
-    Caption = 'Trans. YOOZ Gen. Jnl.';
+    Caption = 'Trans. YOOZ Gen. Jnl.', Comment = 'FRA="Trans. import YOOZ -> Feuille Compta"';
     ProcessingOnly = true;
     dataset
     {
@@ -87,7 +87,7 @@ report 50100 "BC6_Trans. YOOZ Gen. Jnl."
         Window: Dialog;
         RecNo: Integer;
         TotalRecNo: Integer;
-        CstTxtG001: Label 'Il existe des lignes dans la feuille %1 %2. Voulez-vous continuer?';
-        CstTxtG002: Label 'La mise à jour a été interrompue pour respecter l''alerte.';
-        CstTxtG003: Label 'Traitement des données...\\';
+        CstTxtG001: Label 'Journal %1 %2 has some line. Do you want to continue?', Comment = 'FRA="Il existe des lignes dans la feuille %1 %2. Voulez-vous continuer?"';
+        CstTxtG002: Label 'The update has been interrupted to respect the warning', Comment = 'FRA="La mise à jour a été interrompue pour respecter l''alerte."';
+        CstTxtG003: Label 'Processing Data...\\', Comment = 'FRA="Traitement des données...\\"';
 }
