@@ -43,38 +43,40 @@ page 50005 "BC6_GS1 Setup"
             group("General Ledger")
             {
                 Caption = 'General Ledger', Comment = 'FRA="Comptabilité"';
-                group("Note de frais")
-                {
-                    Caption = 'Expense', Comment = 'FRA="Note de frais"';
-                    field("Expense Journal Template Name"; Rec."Expense Journal Template Name")
-                    {
-                        ApplicationArea = all;
-                    }
-                    field("Expense Journal Batch Name"; Rec."Expense Journal Template Name")
-                    {
-                        ApplicationArea = all;
-                    }
-                    field("Expense Shortcut Dim. 1 Code"; Rec."Expense Shortcut Dim. 1 Code")
-                    {
-                        ApplicationArea = all;
-                    }
-                    field("Expense Shortcut Dim. 2 Code"; Rec."Expense Shortcut Dim. 2 Code")
-                    {
-                        ApplicationArea = all;
-                    }
-                    field("Expense Shortcut Dim. 3 Code"; Rec."Expense Shortcut Dim. 3 Code")
-                    {
-                        ApplicationArea = all;
-                    }
-                    field("Expense Shortcut Dim. 4 Code"; Rec."Expense Shortcut Dim. 4 Code")
-                    {
-                        ApplicationArea = all;
-                    }
-                }
                 group(Payroll)
                 {
                     Caption = 'Payroll', Comment = 'FRA="Paie"';
+                    field("Payroll Journal Template Name"; Rec."Payroll Journal Template Name")
+                    {
+                        ApplicationArea = All;
+                        ToolTip = 'Specifies the value of the Payroll Journal Template Name field.', Comment = 'FRA="Nom modèle feuille paie"';
+                    }
+                    field("Payroll Journal Batch Name"; Rec."Payroll Journal Batch Name")
+                    {
+                        ApplicationArea = All;
+                        ToolTip = 'Specifies the value of the Payroll Journal Template Name field.', Comment = 'FRA="Nom feuille paie"';
+                    }
+                    field("Payroll Shortcut Dim. 1 Code"; Rec."Payroll Shortcut Dim. 1 Code")
+                    {
+                        ApplicationArea = All;
+                        ToolTip = 'Specifies the value of the Payroll Journal Template Name field.', Comment = 'FRA="Code raccourci axe 1 paie"';
+                    }
 
+                    field("Payroll Shortcut Dim. 2 Code"; Rec."Payroll Shortcut Dim. 2 Code")
+                    {
+                        ApplicationArea = All;
+                        ToolTip = 'Specifies the value of the Payroll Journal Template Name field.', Comment = 'FRA="Code raccourci axe 2 paie"';
+                    }
+                    field("Payroll Shortcut Dim. 3 Code"; Rec."Payroll Shortcut Dim. 3 Code")
+                    {
+                        ApplicationArea = All;
+                        ToolTip = 'Specifies the value of the Payroll Journal Template Name field.', Comment = 'FRA="Code raccourci axe 3 paie"';
+                    }
+                    field("Payroll Shortcut Dim. 4 Code"; Rec."Payroll Shortcut Dim. 4 Code")
+                    {
+                        ApplicationArea = All;
+                        ToolTip = 'Specifies the value of the Payroll Journal Template Name field.', Comment = 'FRA="Code raccourci axe 4 paie"';
+                    }
 
                 }
             }

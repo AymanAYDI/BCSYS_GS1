@@ -4,6 +4,7 @@ codeunit 50022 "BC6_GS1 : Email Management"
 
 
     var
+        CduGSMTPMail: Codeunit "400";
         // CstGText001: Label 'Automatic batch doesn''t exist.';
         // CstGText002: Label 'Order Tracking - %1 - %2';
         // IntGLanguage: Integer;
@@ -40,7 +41,6 @@ codeunit 50022 "BC6_GS1 : Email Management"
         // MyFilterPageBuilder: FilterPageBuilder;
         // CstGText017: Label 'Discount Type';
         TxtGCreditorName: Text[50];
-        CduGSMTPMail: Codeunit "400";
 
 
     procedure FctSendMail(BooPHideSmtpError: Boolean)
@@ -67,17 +67,17 @@ codeunit 50022 "BC6_GS1 : Email Management"
 
     procedure FctLoadMailBody(var RefPRecordRef: RecordRef; var RecPBLOBRef: Codeunit "Temp Blob"; TxtPSpecialText1: Text; TxtPSpecialText2: Text; var TxtPEmailBodyText: Text) Error: Text[1024]
     var
-        TxtLRepeatLine: Text[1024];
-        BooLStop: Boolean;
-        y: Integer;
-        InStreamTemplate: InStream;
-        InSReadChar: Text[1];
-        Body: Text;
-        CharNo: Text[30];
-        I: Integer;
         BooLSkip: Boolean;
+        BooLStop: Boolean;
         BooWrongEnd: Boolean;
+        InStreamTemplate: InStream;
+        I: Integer;
+        y: Integer;
         z: Integer;
+        Body: Text;
+        InSReadChar: Text[1];
+        CharNo: Text[30];
+        TxtLRepeatLine: Text[1024];
     begin
         IF NOT RefPRecordRef.ISEMPTY THEN BEGIN
             // TxtLTempPath := TEMPORARYPATH + 'TempTemplate.HTM';
@@ -185,10 +185,10 @@ codeunit 50022 "BC6_GS1 : Email Management"
     var
         FldLRef: FieldRef;
         FldLRef2: FieldRef;
-        IntLFieldNumber: Integer;
-        IntLFieldNumber2: Integer;
         DecLValue1: Decimal;
         DecLValue2: Decimal;
+        IntLFieldNumber: Integer;
+        IntLFieldNumber2: Integer;
     // RecLActiveSession: Record "Active Session"; TODO: unused
     begin
         IF TextNo = '' THEN
@@ -300,8 +300,8 @@ codeunit 50022 "BC6_GS1 : Email Management"
 
     procedure FctCreateMailMessage(TxtPFromName: Text[100]; TxtPFromAddress: Text[250]; TxtPSendTo: Text[250]; TxtPCC: Text[250]; TxtPBCC: Text[250]; TxtPSubject: Text[250]; TxtPBodyText: Text; BooPAutoSend: Boolean)
     var
-        TxtLFromName: Text;
         TxtLFromAddress: Text;
+        TxtLFromName: Text;
     begin
         IF BooPAutoSend THEN BEGIN
             TxtLFromName := TxtPFromName;

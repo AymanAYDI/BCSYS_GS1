@@ -10,18 +10,18 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
 
     var
         _RecordID: RecordID;
-        ConstNoContactInvoice: Label 'they are no email in Contact for the bill to customer %1 for Sales Invoice %2';
+        _EmailModelCode: Code[20];
+        _LastEmailModelCode: Code[20];
+        ConstAlreadySent: Label 'Sent already.';
+        ConstEmailModelBlocked: Label 'Le modèle email %1 est bloqué';
+        ConstLoadDocQuestion: Label 'The document has been edited in Word.\\Do you want to import the changes?';
         ConstNoContactCrMemo: Label 'they are no email in Contact for the bill to customer %1 for Sales Credit Memo %2';
         ConstNoContactCustomer: Label 'they are no email in Contact for the bill to customer %1 for Sales Credit Memo %2';
-        ConstEmailModelBlocked: Label 'Le modèle email %1 est bloqué';
-        _EmailModelCode: Code[20];
-        ConstAlreadySent: Label 'Sent already.';
+        ConstNoContactInvoice: Label 'they are no email in Contact for the bill to customer %1 for Sales Invoice %2';
+        ConstNoCustGLN: Label 'Customer %1 haven''t GLN.';
         ConstNoEmailModelCode: Label 'Aucun code modèle email n''est défini.';
         ConstSendCanceled: Label 'Send canceled';
-        _LastEmailModelCode: Code[20];
-        ConstNoCustGLN: Label 'Customer %1 haven''t GLN.';
         ConstSendSuccess: Label 'Sending successful';
-        ConstLoadDocQuestion: Label 'The document has been edited in Word.\\Do you want to import the changes?';
 
 
     procedure Send(RecordIdentifier: RecordID; EmailModelCode: Code[20])
@@ -48,28 +48,28 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
 
     local procedure SendDocument(RecID: RecordID; EmailModelCode: Code[20])
     var
-        EmailModel: Record "BC6_Email Model";
-        SalesInvoiceHeader: Record "Sales Invoice Header";
-        SalesCrMemoHeader: Record "Sales Cr.Memo Header";
-        Language: Record Language;
-        Customer: Record Customer;
-        LanguageTemplateMail: Record "BC6_Language Template Mail";
-        CompanyInformation: Record "Company Information";
         EmailAttachment: Record "BC6_Email Attachment";
         TempEmailAttachmentType: Record "BC6_Email Attachment Type" temporary;
+        EmailModel: Record "BC6_Email Model";
+        LanguageTemplateMail: Record "BC6_Language Template Mail";
+        CompanyInformation: Record "Company Information";
+        Customer: Record Customer;
+        Language: Record Language;
+        SalesCrMemoHeader: Record "Sales Cr.Memo Header";
+        SalesInvoiceHeader: Record "Sales Invoice Header";
         GS1EmailManagement: Codeunit "BC6_GS1 : Email Management";
         // TDOD: "Codeunit Web Api Documents Mgt." WebApiDocumentsMgt: Codeunit "50042";
         FileManagement: Codeunit "File Management";
         TempBlob: Codeunit "Temp Blob";
         RecRef: RecordRef;
-        LanguageCode: Code[20];
         CustomerNo: Code[20];
         DocumentNo: Code[20];
-        EmailBodyText: Text;
-        FilePath: Text;
-        ErrorTextNoContact: Text;
-        Recipients: array[4] of Text;
+        LanguageCode: Code[20];
         SendStatus: Integer;
+        EmailBodyText: Text;
+        ErrorTextNoContact: Text;
+        FilePath: Text;
+        Recipients: array[4] of Text;
     begin
         IF NOT RecRef.GET(RecID) THEN
             EXIT;
@@ -212,16 +212,16 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
     local procedure GenerateAttachment(AttachmentTypeCode: Code[20]; LanguageCode: Code[10]; RecID: RecordID; DocumentNo: Code[20]; CustomerNo: Code[20]; var TempEmailAttachmentType: Record "BC6_Email Attachment Type" temporary): Text
     var
 
-        EmailAttachmentType: Record "BC6_Email Attachment Type";
         EmailAttachTypeTranslation: Record "BC6_Email Attach. Type Trans.";
-        SalesInvoiceHeader: Record "Sales Invoice Header";
+        EmailAttachmentType: Record "BC6_Email Attachment Type";
         SalesCrMemoHeader: Record "Sales Cr.Memo Header";
+        SalesInvoiceHeader: Record "Sales Invoice Header";
+        ExportFormat: ReportFormat;
         FileManagement: Codeunit "File Management";
         RecRef: RecordRef;
-        ServerTempFilePath: Text;
-        ServerFilePath: Text;
         FileExtension: Text;
-        ExportFormat: ReportFormat;
+        ServerFilePath: Text;
+        ServerTempFilePath: Text;
     begin
         EmailAttachmentType.GET(AttachmentTypeCode);
         EmailAttachTypeTranslation.GET(EmailAttachmentType.Code, LanguageCode);
@@ -398,13 +398,13 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
         [RunOnClient]
         WordDocument: DotNet Document;
         [RunOnClient]
-        WdWindowState: DotNet WdWindowState;
-        [RunOnClient]
         WdSaveFormat: DotNet WdSaveFormat;
         [RunOnClient]
-        WordHelper: DotNet WordHelper;
+        WdWindowState: DotNet WdWindowState;
         [RunOnClient]
         WordHandler: DotNet WordHandler;
+        [RunOnClient]
+        WordHelper: DotNet WordHelper;
         ErrorMessage: Text;
         FilePath: Text;
         NewFilePath: Text;
