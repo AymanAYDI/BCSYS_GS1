@@ -40,7 +40,7 @@ codeunit 50022 "BC6_GS1 : Email Management"
         // MyFilterPageBuilder: FilterPageBuilder;
         // CstGText017: Label 'Discount Type';
         TxtGCreditorName: Text[50];
-        CduGSMTPMail: Codeunit "400";
+        CduGSMTPMail: Codeunit "Email Message";
 
 
     procedure FctSendMail(BooPHideSmtpError: Boolean)

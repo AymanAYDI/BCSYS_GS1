@@ -49,6 +49,12 @@ table 50100 "BC6_GS1 Setup"
             Description = 'CAS-240334-H4X0L4';
             TableRelation = "BC6_Email Model";
         }
+        field(50015; "Sales Credit Memo Model Code"; Code[20])
+        {
+            Caption = 'Code avoir client';
+            DataClassification = ToBeClassified;
+            TableRelation = "BC6_Email Model";
+        }
     }
     keys
     {

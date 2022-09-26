@@ -173,6 +173,7 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
     local procedure GetEmailRecipients(EmailModelCode: Code[20]; ContactCompanyNo: Code[20]; var Recipients: array[4] of Text)
     var
         // TODO: SMTPMail: Codeunit "400";
+        SMTPMail: Codeunit "Email Message";
         EmailRecipient: Record "BC6_Email Recipient";
         Contact: Record Contact;
         EmailAddress: Text;
@@ -417,10 +418,6 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
 
         LanguageTemplateMail.CALCFIELDS("Template mail");
         IF LanguageTemplateMail."Template mail".HASVALUE THEN BEGIN
-
-            /*TempBlob.INIT;
-            TempBlob.Blob := LanguageTemplateMail."Template mail";*/
-
             TempBlob.FromRecord(LanguageTemplateMail, LanguageTemplateMail.FieldNo("Template mail"));
 
             FilePath := FileManagement.BLOBExport(TempBlob, 'Temp.htm', FALSE);
