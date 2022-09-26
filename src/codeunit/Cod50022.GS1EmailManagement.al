@@ -4,7 +4,6 @@ codeunit 50022 "BC6_GS1 : Email Management"
 
 
     var
-        CduGSMTPMail: Codeunit "400";
         // CstGText001: Label 'Automatic batch doesn''t exist.';
         // CstGText002: Label 'Order Tracking - %1 - %2';
         // IntGLanguage: Integer;
@@ -41,6 +40,7 @@ codeunit 50022 "BC6_GS1 : Email Management"
         // MyFilterPageBuilder: FilterPageBuilder;
         // CstGText017: Label 'Discount Type';
         TxtGCreditorName: Text[50];
+        CduGSMTPMail: Codeunit "Email Message";
 
 
     procedure FctSendMail(BooPHideSmtpError: Boolean)
