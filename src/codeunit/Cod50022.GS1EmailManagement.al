@@ -7,7 +7,7 @@ codeunit 50022 "BC6_GS1 : Email Management"
         // CstGText001: Label 'Automatic batch doesn''t exist.';
         // CstGText002: Label 'Order Tracking - %1 - %2';
         // IntGLanguage: Integer;
-        Mail: Codeunit Mail;
+        Mail: Codeunit Email;
         BooGAutoSend: Boolean;
         // CumuledAdresse: Text;
         // CstGText003: Label 'No Reply';
@@ -48,9 +48,9 @@ codeunit 50022 "BC6_GS1 : Email Management"
         MailSent: Boolean;
     begin
         IF BooGAutoSend THEN
-            CduGSMTPMail.Send
-        ELSE
-            MailSent := Mail.Send;
+            // CduGSMTPMail.Send TODO
+            // ELSE
+            MailSent := Mail.Send(CduGSMTPMail, Enum::"Email Scenario"::Default);
     end;
 
 
@@ -189,7 +189,7 @@ codeunit 50022 "BC6_GS1 : Email Management"
         DecLValue2: Decimal;
         IntLFieldNumber: Integer;
         IntLFieldNumber2: Integer;
-    // RecLActiveSession: Record "Active Session"; TODO: unused
+        RecLActiveSession: Record "Active Session";
     begin
         IF TextNo = '' THEN
             EXIT;
@@ -300,38 +300,43 @@ codeunit 50022 "BC6_GS1 : Email Management"
 
     procedure FctCreateMailMessage(TxtPFromName: Text[100]; TxtPFromAddress: Text[250]; TxtPSendTo: Text[250]; TxtPCC: Text[250]; TxtPBCC: Text[250]; TxtPSubject: Text[250]; TxtPBodyText: Text; BooPAutoSend: Boolean)
     var
-        TxtLFromAddress: Text;
-        TxtLFromName: Text;
+        TxtPSendToList: List of [Text];
+        TxtPCCList: List of [Text];
+        TxtPBCCList: List of [Text];
     begin
         IF BooPAutoSend THEN BEGIN
-            TxtLFromName := TxtPFromName;
-            TxtLFromAddress := TxtPFromAddress;
+            // CduGSMTPMail.CreateMessage(TxtLFromName, TxtLFromAddress, '', TxtPSubject, TxtPBodyText, TRUE); Check
+            CduGSMTPMail.Create(TxtPSendTo, TxtPSubject, TxtPBodyText, TRUE);
+            // //TO
+            // IF TxtPSendTo <> '' THEN
+            //     IF STRPOS(TxtPSendTo, ';') > 1 THEN
+            //         CduGSMTPMail.FctAddTo(TxtPSendTo)
+            //     ELSE
+            //         CduGSMTPMail.AddRecipient(TxtPSendTo);
 
-            CduGSMTPMail.CreateMessage(TxtLFromName, TxtLFromAddress, '', TxtPSubject, TxtPBodyText, TRUE);
-            //TO
-            IF TxtPSendTo <> '' THEN
-                IF STRPOS(TxtPSendTo, ';') > 1 THEN
-                    CduGSMTPMail.FctAddTo(TxtPSendTo)
-                ELSE
-                    CduGSMTPMail.AddRecipients(TxtPSendTo);
 
-            //CC
-            IF TxtPCC <> '' THEN
-                IF STRPOS(TxtPCC, ';') > 1 THEN
-                    CduGSMTPMail.FctAddCC(TxtPCC)
-                ELSE
-                    CduGSMTPMail.AddCC(TxtPCC);
+            // //CC
+            // IF TxtPCC <> '' THEN
+            //     IF STRPOS(TxtPCC, ';') > 1 THEN
+            //         CduGSMTPMail.FctAddCC(TxtPCC)
+            //     ELSE
+            //         CduGSMTPMail.AddCC(TxtPCC);
 
-            //BCC
-            IF TxtPBCC <> '' THEN
-                IF STRPOS(TxtPBCC, ';') > 1 THEN
-                    CduGSMTPMail.FctAddBCC(TxtPBCC)
-                ELSE
-                    CduGSMTPMail.AddBCC(TxtPBCC);
+            // //BCC
+            // IF TxtPBCC <> '' THEN
+            //     IF STRPOS(TxtPBCC, ';') > 1 THEN
+            //         CduGSMTPMail.FctAddBCC(TxtPBCC)
+            //     ELSE
+            //         CduGSMTPMail.AddBCC(TxtPBCC);
+
+            TxtPSendToList := MyProcedure(TxtPSendTo);
+            TxtPCCList := MyProcedure(TxtPCC);
+            TxtPBCCList := MyProcedure(TxtPBCC);
 
         END ELSE
-            IF Mail.TryInitializeOutlook THEN
-                Mail.CreateMessage(TxtPSendTo, TxtPCC, TxtPBCC, TxtPSubject, TxtPBodyText, TRUE, FALSE);
+            // IF Mail.TryInitializeOutlook THEN
+            //     Mail.CreateMessage(TxtPSendTo, TxtPCC, TxtPBCC, TxtPSubject, TxtPBodyText, TRUE, FALSE);
+            CduGSMTPMail.Create(TxtPSendToList, TxtPSubject, TxtPBodyText, TRUE, TxtPCCList, TxtPBCCList);
 
         BooGAutoSend := BooPAutoSend;
     end;
@@ -339,13 +344,32 @@ codeunit 50022 "BC6_GS1 : Email Management"
 
     procedure FctAddMailAttachment(AttachmentFilePath: Text; AttachmentFileName: Text)
     var
+        tempBlob: Codeunit "Temp Blob";
+        InStr: InStream;
     begin
         IF AttachmentFilePath = '' THEN
             EXIT;
-        IF BooGAutoSend THEN
-            CduGSMTPMail.AddAttachment(AttachmentFilePath, AttachmentFileName)
-        ELSE
-            Mail.AttachFile(AttachmentFilePath);
+        IF BooGAutoSend THEN begin
+            tempBlob.CreateInStream(InStr);
+            // CduGSMTPMail.AddAttachment(AttachmentFilePath, AttachmentFileName)
+            CduGSMTPMail.AddAttachment(AttachmentFileName, 'SendMail', InStr);
+        end
+        // ELSE
+        // Mail.AttachFile(AttachmentFilePath); TODO
+
+    end;
+
+
+    /***************************/
+    procedure MyProcedure(mail: Text) RecipientsList: List of [Text]
+    var
+        textList: List of [Text];
+    begin
+        WHILE STRPOS(mail, ';') > 1 DO BEGIN
+            textList.Add(COPYSTR(mail, 1, STRPOS(mail, ';') - 1));
+            mail := COPYSTR(mail, STRPOS(mail, ';') + 1);
+            RecipientsList := textList;
+        end;
     end;
 }
 

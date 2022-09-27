@@ -210,7 +210,7 @@ xmlport 50001 "BC6_Payroll Import"
     trigger OnPreXmlPort()
     begin
         //>>FE002.001
-        TxtGFilename := DotGPath.GetFileName(currXMLport.FILENAME);
+        // TxtGFilename := DotGPath.GetFileName(currXMLport.FILENAME);
 
         IF NOT CONFIRM(STRSUBSTNO(CstG001, TxtGFilename)) THEN
             ERROR(CstG002);
@@ -259,7 +259,7 @@ xmlport 50001 "BC6_Payroll Import"
         RecGGeneralLedgerSetup: Record "General Ledger Setup";
         DatGPostingDate: Date;
         DecGAmount: Decimal;
-        DotGPath: DotNet Path;
+        // DotGPath: DotNet Path;
         // CduGNoSeriesManagement: Codeunit "396";
         IntGLineNo: Integer;
         CstG001: Label 'Import file %1 ?';
@@ -273,7 +273,7 @@ xmlport 50001 "BC6_Payroll Import"
     local procedure InsertGenJournalLine()
     var
         RecLSourceCode: Record "Source Code";
-        CduLAnsiAscii: Codeunit "8069133";
+    // CduLAnsiAscii: Codeunit "8069133";
     begin
         //>>FE002.001
         IntGLineNo := IntGLineNo + 10000;
@@ -325,7 +325,7 @@ xmlport 50001 "BC6_Payroll Import"
             RecGGenJournalLine.VALIDATE("Currency Code", CurrencyCode);
 
 
-        RecGGenJournalLine.VALIDATE(Description, CduLAnsiAscii.Ansi2Ascii(COPYSTR(EntryDescription, 1, 50)));
+        // RecGGenJournalLine.VALIDATE(Description, CduLAnsiAscii.Ansi2Ascii(COPYSTR(EntryDescription, 1, 50)));
         //RecGGenJournalLine.VALIDATE("External Document No.",COPYSTR(ExternalDocumentNo,1,35));
 
         RecGGenJournalLine.MODIFY(TRUE);

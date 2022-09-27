@@ -131,7 +131,7 @@ xmlport 50000 "BC6_Expense Import"
     trigger OnPreXmlPort()
     begin
         //>>FE001.001
-        TxtGFilename := DotGPath.GetFileName(currXMLport.FILENAME);
+        // TxtGFilename := DotGPath.GetFileName(currXMLport.FILENAME);
 
         IF NOT CONFIRM(STRSUBSTNO(CstG001, TxtGFilename)) THEN
             ERROR(CstG002);
@@ -179,7 +179,7 @@ xmlport 50000 "BC6_Expense Import"
         RecGGLSetup: Record "General Ledger Setup";
         CduGNoSeriesManagement: Codeunit NoSeriesManagement;
         TxtGFilename: Text;
-        DotGPath: DotNet Path;
+        // DotGPath: DotNet Path;
         CstG001: Label 'Import file %1 ?';
         CstG002: Label 'Operation canceled.';
         //CstG003: Label '%1 %2 %3 %4 contains unposted lines.';
