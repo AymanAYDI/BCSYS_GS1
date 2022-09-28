@@ -128,6 +128,29 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Attach. Type Trans. - Field Report Name - Property Caption</note>
         </trans-unit>
+<<<<<<< HEAD
+=======
+        <trans-unit id="Table 2271888375 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Email Attachment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Attachment - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2271888375 - Field 2496422137 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Attachment Description</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Désignation pièce jointe"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Attachment - Field Attachment Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2271888375 - Field 2089741720 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Attachment Type Code</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Code type pièce jointe"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Attachment - Field Attachment Type Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2271888375 - Field 3985660466 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Email Setup Code</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Code paramètre email"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Attachment - Field Email Setup Code - Property Caption</note>
+        </trans-unit>
+>>>>>>> db4c9d39e018a128cb59186bfc12926a941500e2
         <trans-unit id="Table 3076950415 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Email Attachment Type</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -168,6 +191,129 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Attachment Type - Field WebApi Type - Property Caption</note>
         </trans-unit>
+<<<<<<< HEAD
+=======
+        <trans-unit id="Table 4018106244 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Email Log</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Log - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4018106244 - Field 2154449076 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create Date-Time</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Date/heure création"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Log - Field Create Date-Time - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4018106244 - Field 1199625561 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Created by User ID</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Créé par Code utilisateur"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Log - Field Created by User ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4018106244 - Field 3773326730 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Email Model Code</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Code modèle email"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Log - Field Email Model Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4018106244 - Field 883711285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Entry No.</source>
+          <note from="Developer" annotates="general" priority="2">FRA="N° de séquence"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Log - Field Entry No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4018106244 - Field 3080618677 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Message</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Méssage"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Log - Field Message - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4018106244 - Field 3696383513 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Message Status</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Log - Field Message Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4018106244 - Field 2416180794 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Record Identifier</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Identifiant enregistrement"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Log - Field Record Identifier - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4018106244 - Field 2558330154 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Search Record ID</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Rechercher l'ID d'enregistrement"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Log - Field Search Record ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3127024141 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Email model</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Model - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3127024141 - Field 3004954119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Code</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Code"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Model - Field Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3127024141 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Object</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Désignation"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Model - Field Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3127024141 - Field 3213676553 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document Titel</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Titre document"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Model - Field Document Title - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3127024141 - Field 525852245 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Inactive</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Inactif"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Model - Field Inactive - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3127024141 - Field 3567422935 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Nbre de pièces jointes</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Nbre de pièces jointes"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Model - Field No. Attachments - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3127024141 - Field 2762414937 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Nbre de destinataires</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Nbre de destinataires"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Model - Field No. Recipients - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3127024141 - Field 261196041 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Nbre de traductions</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Nbre de traductions"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Model - Field No. Translations - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3127024141 - Field 8886546 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Not Show Empty Lines</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Ne pas afficher les lignes vides"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Model - Field Not Show Empty Lines - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3206619409 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Email Recipient</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Recipient - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3206619409 - Field 1285973296 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Email</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Recipient - Field Email - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3206619409 - Field 3985660466 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Email Setup Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Recipient - Field Email Setup Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3206619409 - Field 2937173312 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Email Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Recipient - Field Email Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3206619409 - Field 3490560541 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Recipient Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Recipient - Field Recipient Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3206619409 - Field 960490002 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Recipient Type Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Recipient - Field Recipient Type Code - Property Caption</note>
+        </trans-unit>
+>>>>>>> db4c9d39e018a128cb59186bfc12926a941500e2
         <trans-unit id="Table 563271971 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>GS1 Bar Code</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -313,6 +459,14 @@
           <note from="Developer" annotates="general" priority="2">FRA="Paramètres GS1"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Setup - Property Caption</note>
         </trans-unit>
+<<<<<<< HEAD
+=======
+        <trans-unit id="Table 1963206222 - Field 3636090716 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Default code for untitled invoices</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Code modèle par défaut pour facture sans titre"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Setup - Field Default Model Code Untitl. Inv - Property Caption</note>
+        </trans-unit>
+>>>>>>> db4c9d39e018a128cb59186bfc12926a941500e2
         <trans-unit id="Table 1963206222 - Field 2425770478 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Expense Journal Batch Name</source>
           <note from="Developer" annotates="general" priority="2">FRA="Nom feuille note de frais"</note>
@@ -344,7 +498,11 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Setup - Field Expense Shortcut Dim. 4 Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1963206222 - Field 3660179873 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+<<<<<<< HEAD
           <source>Payroll Journal Batch Name</source>
+=======
+          <source>Payroll Journal Template Name</source>
+>>>>>>> db4c9d39e018a128cb59186bfc12926a941500e2
           <note from="Developer" annotates="general" priority="2">FRA="Nom feuille paie"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Setup - Field Payroll Journal Batch Name - Property Caption</note>
         </trans-unit>
@@ -354,22 +512,38 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Setup - Field Payroll Journal Template Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1963206222 - Field 2782675849 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+<<<<<<< HEAD
           <source>Payroll Shortcut Dim. 1 Code</source>
+=======
+          <source>Payroll Journal Template Name</source>
+>>>>>>> db4c9d39e018a128cb59186bfc12926a941500e2
           <note from="Developer" annotates="general" priority="2">FRA="Code raccourci axe 1 paie"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Setup - Field Payroll Shortcut Dim. 1 Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1963206222 - Field 653563112 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+<<<<<<< HEAD
           <source>Payroll Shortcut Dim. 2 Code</source>
+=======
+          <source>Payroll Journal Template Name</source>
+>>>>>>> db4c9d39e018a128cb59186bfc12926a941500e2
           <note from="Developer" annotates="general" priority="2">FRA="Code raccourci axe 2 paie"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Setup - Field Payroll Shortcut Dim. 2 Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1963206222 - Field 4097975879 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+<<<<<<< HEAD
           <source>Payroll Shortcut Dim. 3 Code</source>
+=======
+          <source>Payroll Journal Template Name</source>
+>>>>>>> db4c9d39e018a128cb59186bfc12926a941500e2
           <note from="Developer" annotates="general" priority="2">FRA="Code raccourci axe 3 paie"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Setup - Field Payroll Shortcut Dim. 3 Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1963206222 - Field 2541612142 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+<<<<<<< HEAD
           <source>Payroll Shortcut Dim. 4 Code</source>
+=======
+          <source>Payroll Journal Template Name</source>
+>>>>>>> db4c9d39e018a128cb59186bfc12926a941500e2
           <note from="Developer" annotates="general" priority="2">FRA="Code raccourci axe 4 paie"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Setup - Field Payroll Shortcut Dim. 4 Code - Property Caption</note>
         </trans-unit>
@@ -378,6 +552,14 @@
           <note from="Developer" annotates="general" priority="2">FRA="Clé primaire"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Setup - Field Primary Key - Property Caption</note>
         </trans-unit>
+<<<<<<< HEAD
+=======
+        <trans-unit id="Table 1963206222 - Field 2771869399 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Credit Memo Model Code</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Code avoir client"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Setup - Field Sales Credit Memo Model Code - Property Caption</note>
+        </trans-unit>
+>>>>>>> db4c9d39e018a128cb59186bfc12926a941500e2
         <trans-unit id="Table 1963206222 - Field 462663913 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>YOOZ File Archive</source>
           <note from="Developer" annotates="general" priority="2">FRA="Chemin d'archive YOOZ"</note>
@@ -403,6 +585,44 @@
           <note from="Developer" annotates="general" priority="2">FRA="Code Journal YOOZ"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Setup - Field YOOZ Source Code - Property Caption</note>
         </trans-unit>
+<<<<<<< HEAD
+=======
+        <trans-unit id="Table 3760374709 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Language Template Mail</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Language Template Mail - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3760374709 - NamedType 314276614" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to replace the existing template %1 %2?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Language Template Mail - NamedType CstG009</note>
+        </trans-unit>
+        <trans-unit id="Table 3760374709 - NamedType 2352140838" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to delete the template %1?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Language Template Mail - NamedType CstG010</note>
+        </trans-unit>
+        <trans-unit id="Table 3760374709 - Field 2273653569 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Language Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Language Template Mail - Field Language Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3760374709 - Field 2123958759 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Object</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Language Template Mail - Field Object - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3760374709 - Field 3246938056 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Template Mail Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Language Template Mail - Field Parameter String - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3760374709 - Field 205509747 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Template mail</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Language Template Mail - Field Template mail - Property Caption</note>
+        </trans-unit>
+>>>>>>> db4c9d39e018a128cb59186bfc12926a941500e2
         <trans-unit id="Table 1126179625 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>YOOZ Error Log</source>
           <note from="Developer" annotates="general" priority="2">FRA="Journal d'erreur YOOZ"</note>
@@ -798,6 +1018,59 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_Email Attach Type Transl. - Property Caption</note>
         </trans-unit>
+<<<<<<< HEAD
+=======
+        <trans-unit id="Page 1474032130 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Pièces jointes email</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BC6_Email Attachments - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4018106244 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Email log</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BC6_Email Log - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4018106244 - Action 2734486071 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clear Log</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BC6_Email Log - Action ClearLog - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 856354628 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Email models</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BC6_Email Models - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 856354628 - NamedType 2915562870" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Selecting an email template</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BC6_Email Models - NamedType ConstLookupModeCaption</note>
+        </trans-unit>
+        <trans-unit id="Page 856354628 - Action 1225782422 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Pièces jointes</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BC6_Email Models - Action Attachments - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 856354628 - Action 892537660 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Recipients</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BC6_Email Models - Action Recipients - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 856354628 - Action 2653012956 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Translations</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BC6_Email Models - Action Translations - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 856354628 - Action 4000661843 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View Log</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BC6_Email Models - Action ViewLog - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3611355848 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Destinataires email</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BC6_Email Recipients - Property Caption</note>
+        </trans-unit>
+>>>>>>> db4c9d39e018a128cb59186bfc12926a941500e2
         <trans-unit id="Page 1963206222 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>GS1 Setup</source>
           <note from="Developer" annotates="general" priority="2">FRA="Paramètres GS1"</note>
@@ -808,6 +1081,7 @@
           <note from="Developer" annotates="general" priority="2">FRA="Comptabilité"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_GS1 Setup - Control General Ledger - Property Caption</note>
         </trans-unit>
+<<<<<<< HEAD
         <trans-unit id="Page 1963206222 - Control 3794360524 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Expense</source>
           <note from="Developer" annotates="general" priority="2">FRA="Note de frais"</note>
@@ -843,6 +1117,8 @@
           <note from="Developer" annotates="general" priority="2">FRA="Code raccourci axe 4 note de frais"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_GS1 Setup - Control Expense Shortcut Dim. 4 Code - Property ToolTip</note>
         </trans-unit>
+=======
+>>>>>>> db4c9d39e018a128cb59186bfc12926a941500e2
         <trans-unit id="Page 1963206222 - Control 3324647799 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payroll</source>
           <note from="Developer" annotates="general" priority="2">FRA="Paie"</note>
@@ -903,6 +1179,34 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_GS1 Setup - Control YOOZ Source Code - Property ToolTip</note>
         </trans-unit>
+<<<<<<< HEAD
+=======
+        <trans-unit id="Page 3760374709 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Language Template Mail</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BC6_Language Template Mail - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3760374709 - Action 3075637091 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import template</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BC6_Language Template Mail - Action &lt;Action1100267017&gt; - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3760374709 - Action 1320855434 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Export template</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BC6_Language Template Mail - Action &lt;Action1100267018&gt; - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3760374709 - Action 3746867529 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delete template</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BC6_Language Template Mail - Action &lt;Action1100267019&gt; - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3760374709 - Action 302709042 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Modifier modèle</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BC6_Language Template Mail - Action UpdateModel - Property Caption</note>
+        </trans-unit>
+>>>>>>> db4c9d39e018a128cb59186bfc12926a941500e2
         <trans-unit id="Page 3240552765 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Type pièces jointes email</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1213,11 +1517,14 @@
           <note from="Developer" annotates="general" priority="2">FRA="Feuille Compta"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Journal - Action General Journal - Property Caption</note>
         </trans-unit>
+<<<<<<< HEAD
         <trans-unit id="Page 2844358225 - Action 1615450340 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Import Paie</source>
           <note from="Developer" annotates="general" priority="2">FRA="Import Paie"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Journal - Action Import Paie - Property Caption</note>
         </trans-unit>
+=======
+>>>>>>> db4c9d39e018a128cb59186bfc12926a941500e2
         <trans-unit id="Page 2844358225 - Action 103845458 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Import YOOZ</source>
           <note from="Developer" annotates="general" priority="2">FRA="Import YOOZ"</note>
@@ -1228,6 +1535,54 @@
           <note from="Developer" annotates="general" priority="2">FRA="Transférer en feuille compta"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Journal - Action Transfer to General Journal - Property Caption</note>
         </trans-unit>
+<<<<<<< HEAD
+=======
+        <trans-unit id="Report 593787460 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ECF Sage Export</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report BC6_Financial Statement Export - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 593787460 - NamedType 2879474017" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cancelled Operation !</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report BC6_Financial Statement Export - NamedType CstGCancelledOp</note>
+        </trans-unit>
+        <trans-unit id="Report 593787460 - NamedType 3331668" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Default</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report BC6_Financial Statement Export - NamedType CstGDefault</note>
+        </trans-unit>
+        <trans-unit id="Report 593787460 - NamedType 2139210681" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Export to Txt File</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report BC6_Financial Statement Export - NamedType CstGExport</note>
+        </trans-unit>
+        <trans-unit id="Report 593787460 - NamedType 2630006367" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Txt File created successfully.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report BC6_Financial Statement Export - NamedType CstGFileCreated</note>
+        </trans-unit>
+        <trans-unit id="Report 593787460 - NamedType 2213339906" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to launch the ECF Sage export ?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report BC6_Financial Statement Export - NamedType CstGLaunch</note>
+        </trans-unit>
+        <trans-unit id="Report 593787460 - NamedType 501880638" size-unit="char" translate="yes" xml:space="preserve">
+          <source>XML Files (*.xml)|*.xml|All Files (*.*)|*.*</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report BC6_Financial Statement Export - NamedType CstGXML</note>
+        </trans-unit>
+        <trans-unit id="Report 593787460 - Control 254928307 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Starting Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report BC6_Financial Statement Export - Control DatGDateD_ - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 593787460 - Control 1184105493 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ending Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report BC6_Financial Statement Export - Control DatGDateF_ - Property Caption</note>
+        </trans-unit>
+>>>>>>> db4c9d39e018a128cb59186bfc12926a941500e2
         <trans-unit id="Report 309882037 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Trans. YOOZ Gen. Jnl.</source>
           <note from="Developer" annotates="general" priority="2">FRA="Trans. import YOOZ -&gt; Feuille Compta"</note>
@@ -1260,74 +1615,138 @@
         </trans-unit>
         <trans-unit id="XmlPort 3078357183 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Expense Import</source>
+<<<<<<< HEAD
           <note from="Developer" annotates="general" priority="2">FRA="Import note de frais"</note>
+=======
+          <note from="Developer" annotates="general" priority="2"></note>
+>>>>>>> db4c9d39e018a128cb59186bfc12926a941500e2
           <note from="Xliff Generator" annotates="general" priority="3">XmlPort BC6_Expense Import - Property Caption</note>
         </trans-unit>
         <trans-unit id="XmlPort 3078357183 - NamedType 3802638270" size-unit="char" translate="yes" xml:space="preserve">
           <source>Import file %1 ?</source>
+<<<<<<< HEAD
           <note from="Developer" annotates="general" priority="2">FRA="Importer le fichier %1 ?"</note>
+=======
+          <note from="Developer" annotates="general" priority="2"></note>
+>>>>>>> db4c9d39e018a128cb59186bfc12926a941500e2
           <note from="Xliff Generator" annotates="general" priority="3">XmlPort BC6_Expense Import - NamedType CstG001</note>
         </trans-unit>
         <trans-unit id="XmlPort 3078357183 - NamedType 1889548419" size-unit="char" translate="yes" xml:space="preserve">
           <source>Operation canceled.</source>
+<<<<<<< HEAD
           <note from="Developer" annotates="general" priority="2">FRA="Opération annulée."</note>
+=======
+          <note from="Developer" annotates="general" priority="2"></note>
+>>>>>>> db4c9d39e018a128cb59186bfc12926a941500e2
           <note from="Xliff Generator" annotates="general" priority="3">XmlPort BC6_Expense Import - NamedType CstG002</note>
         </trans-unit>
         <trans-unit id="XmlPort 3078357183 - NamedType 614155185" size-unit="char" translate="yes" xml:space="preserve">
           <source>Open %1 %2 %3 %4 ?</source>
+<<<<<<< HEAD
           <note from="Developer" annotates="general" priority="2">FRA="Ouvrir %1 %2 %3 %4 ?"</note>
+=======
+          <note from="Developer" annotates="general" priority="2"></note>
+>>>>>>> db4c9d39e018a128cb59186bfc12926a941500e2
           <note from="Xliff Generator" annotates="general" priority="3">XmlPort BC6_Expense Import - NamedType CstG004</note>
         </trans-unit>
         <trans-unit id="XmlPort 3078357183 - NamedType 1251851802" size-unit="char" translate="yes" xml:space="preserve">
           <source>Operation completed.</source>
+<<<<<<< HEAD
           <note from="Developer" annotates="general" priority="2">FRA="Opération terminée."</note>
+=======
+          <note from="Developer" annotates="general" priority="2"></note>
+>>>>>>> db4c9d39e018a128cb59186bfc12926a941500e2
           <note from="Xliff Generator" annotates="general" priority="3">XmlPort BC6_Expense Import - NamedType CstG005</note>
         </trans-unit>
         <trans-unit id="XmlPort 3078357183 - NamedType 3633729247" size-unit="char" translate="yes" xml:space="preserve">
           <source>No lines have been integrated.</source>
+<<<<<<< HEAD
           <note from="Developer" annotates="general" priority="2">FRA="Aucune ligne n'a été intégrée."</note>
           <note from="Xliff Generator" annotates="general" priority="3">XmlPort BC6_Expense Import - NamedType CstG006</note>
         </trans-unit>
         <trans-unit id="XmlPort 3078357183 - NamedType 4271425864" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 %2 %3 %4 contains unposted lines.</source>
           <note from="Developer" annotates="general" priority="2">FRA="%1 %2 %3 %4 contient des lignes non validées. Voulez-vous les supprimer ?"</note>
+=======
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort BC6_Expense Import - NamedType CstG006</note>
+        </trans-unit>
+        <trans-unit id="XmlPort 3078357183 - NamedType 4271425864" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 %2 %3 %4 contient des lignes non validées. Voulez-vous les supprimer ?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+>>>>>>> db4c9d39e018a128cb59186bfc12926a941500e2
           <note from="Xliff Generator" annotates="general" priority="3">XmlPort BC6_Expense Import - NamedType CstG007</note>
         </trans-unit>
         <trans-unit id="XmlPort 1700283788 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payroll Import</source>
+<<<<<<< HEAD
           <note from="Developer" annotates="general" priority="2">FRA="Import paie"</note>
+=======
+          <note from="Developer" annotates="general" priority="2"></note>
+>>>>>>> db4c9d39e018a128cb59186bfc12926a941500e2
           <note from="Xliff Generator" annotates="general" priority="3">XmlPort BC6_Payroll Import - Property Caption</note>
         </trans-unit>
         <trans-unit id="XmlPort 1700283788 - NamedType 3802638270" size-unit="char" translate="yes" xml:space="preserve">
           <source>Import file %1 ?</source>
+<<<<<<< HEAD
           <note from="Developer" annotates="general" priority="2">FRA="Importer le fichier %1 ?"</note>
+=======
+          <note from="Developer" annotates="general" priority="2"></note>
+>>>>>>> db4c9d39e018a128cb59186bfc12926a941500e2
           <note from="Xliff Generator" annotates="general" priority="3">XmlPort BC6_Payroll Import - NamedType CstG001</note>
         </trans-unit>
         <trans-unit id="XmlPort 1700283788 - NamedType 1889548419" size-unit="char" translate="yes" xml:space="preserve">
           <source>Operation canceled.</source>
+<<<<<<< HEAD
           <note from="Developer" annotates="general" priority="2">FRA="Opération annulée."</note>
+=======
+          <note from="Developer" annotates="general" priority="2"></note>
+>>>>>>> db4c9d39e018a128cb59186bfc12926a941500e2
           <note from="Xliff Generator" annotates="general" priority="3">XmlPort BC6_Payroll Import - NamedType CstG002</note>
         </trans-unit>
         <trans-unit id="XmlPort 1700283788 - NamedType 614155185" size-unit="char" translate="yes" xml:space="preserve">
           <source>Open %1 %2 %3 %4 ?</source>
+<<<<<<< HEAD
           <note from="Developer" annotates="general" priority="2">FRA="Ouvrir %1 %2 %3 %4 ?"</note>
+=======
+          <note from="Developer" annotates="general" priority="2"></note>
+>>>>>>> db4c9d39e018a128cb59186bfc12926a941500e2
           <note from="Xliff Generator" annotates="general" priority="3">XmlPort BC6_Payroll Import - NamedType CstG004</note>
         </trans-unit>
         <trans-unit id="XmlPort 1700283788 - NamedType 1251851802" size-unit="char" translate="yes" xml:space="preserve">
           <source>Operation completed.</source>
+<<<<<<< HEAD
           <note from="Developer" annotates="general" priority="2">FRA="Opération terminée."</note>
+=======
+          <note from="Developer" annotates="general" priority="2"></note>
+>>>>>>> db4c9d39e018a128cb59186bfc12926a941500e2
           <note from="Xliff Generator" annotates="general" priority="3">XmlPort BC6_Payroll Import - NamedType CstG005</note>
         </trans-unit>
         <trans-unit id="XmlPort 1700283788 - NamedType 3633729247" size-unit="char" translate="yes" xml:space="preserve">
           <source>No lines have been integrated.</source>
+<<<<<<< HEAD
           <note from="Developer" annotates="general" priority="2">FRA="Aucune ligne n'a été intégrée."</note>
+=======
+          <note from="Developer" annotates="general" priority="2"></note>
+>>>>>>> db4c9d39e018a128cb59186bfc12926a941500e2
           <note from="Xliff Generator" annotates="general" priority="3">XmlPort BC6_Payroll Import - NamedType CstG006</note>
         </trans-unit>
         <trans-unit id="XmlPort 1700283788 - NamedType 4271425864" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 %2 %3 %4 contains unposted lines.</source>
+<<<<<<< HEAD
           <note from="Developer" annotates="general" priority="2">FRA="%1 %2 %3 %4 contient des lignes non validées.Voulez-vous les supprimer ?"</note>
           <note from="Xliff Generator" annotates="general" priority="3">XmlPort BC6_Payroll Import - NamedType CstG007</note>
         </trans-unit>
+=======
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort BC6_Payroll Import - NamedType CstG007</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3039493938 - Action 2764080013 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2716593954">
+          <source>Send Manually</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BC6_PostedSalesCreditMemo - Action BC6_SendManually - Property Caption</note>
+        </trans-unit>
+>>>>>>> db4c9d39e018a128cb59186bfc12926a941500e2
         <trans-unit id="TableExtension 834818472 - Field 3586972606 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
           <source>BC6_Company ID</source>
           <note from="Developer" annotates="general" priority="2"></note>

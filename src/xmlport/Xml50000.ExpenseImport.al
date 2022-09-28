@@ -178,7 +178,7 @@ xmlport 50000 "BC6_Expense Import"
         RecGGLSetup: Record "General Ledger Setup";
         FileManagement: Codeunit "File Management";
         CduGNoSeriesManagement: Codeunit NoSeriesManagement;
-        //CstG003: Label '%1 %2 %3 %4 contains unposted lines.';
+        TxtGFilename: Text;
         CodGDocumentNo: Code[20];
         DatGPostingDate: Date;
         DecGAmount: Decimal;
@@ -189,7 +189,6 @@ xmlport 50000 "BC6_Expense Import"
         CstG005: Label 'Operation completed.', Comment = 'FRA="Opération terminée."';
         CstG006: Label 'No lines have been integrated.', Comment = 'FRA="Aucune ligne n''a été intégrée."';
         CstG007: Label '%1 %2 %3 %4 contains unposted lines.', Comment = 'FRA="%1 %2 %3 %4 contient des lignes non validées. Voulez-vous les supprimer ?"';
-        TxtGFilename: Text;
 
     local procedure InsertGenJournalLine()
     var

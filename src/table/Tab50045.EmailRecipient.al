@@ -7,7 +7,7 @@ table 50045 "BC6_Email Recipient"
     {
         field(1; "Email Setup Code"; Code[20])
         {
-            Caption = 'Email Setup Code';
+            Caption = 'Email Setup Code', Comment = 'FRA="Code paramètre email"';
             DataClassification = CustomerContent;
             TableRelation = "BC6_Email Model";
         }
@@ -23,12 +23,12 @@ table 50045 "BC6_Email Recipient"
         }
         field(4; Email; Text[80])
         {
-            Caption = 'Email';
+            Caption = 'Email', Comment = 'FRA="Mél"';
             DataClassification = CustomerContent;
         }
         field(5; "Recipient Type Code"; Code[10])
         {
-            Caption = 'Recipient Type Code';
+            Caption = 'Recipient Type Code', Comment = 'FRA="Code type destinataire"';
             DataClassification = CustomerContent;
             TableRelation = IF ("Recipient Type" = CONST(Contact)) "Organizational Level".Code;
         }

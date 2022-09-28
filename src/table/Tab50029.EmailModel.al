@@ -9,46 +9,43 @@ table 50029 "BC6_Email Model"
     {
         field(1; "Code"; Code[20])
         {
-            Caption = 'Code';
+            Caption = 'Code', Comment = 'FRA="Code"';
         }
         field(10; Description; Text[250])
         {
-            Caption = 'Object';
+            Caption = 'Object', Comment = 'FRA="Désignation"';
         }
         field(22; Inactive; Boolean)
         {
-            Caption = 'Inactive';
+            Caption = 'Inactive', Comment = 'FRA="Inactif"';
         }
         field(24; "Document Title"; Code[20])
         {
-            Caption = 'Document Titel';
+            Caption = 'Document Titel', Comment = 'FRA="Titre document"';
             TableRelation = "Standard Text";
         }
         field(50000; "Not Show Empty Lines"; Boolean)
         {
-            Caption = 'Not Show Empty Lines';
+            Caption = 'Not Show Empty Lines', Comment = 'FRA="Ne pas afficher les lignes vides"';
         }
         field(50001; "No. Attachments"; Integer)
         {
             CalcFormula = Count("BC6_Email Attachment" WHERE("Email Setup Code" = FIELD(Code)));
-            Caption = 'Nbre de pièces jointes';
-            Description = 'CAS-240334-H4X0L4';
+            Caption = 'Nbre de pièces jointes', Comment = 'FRA="Nbre de pièces jointes"';
             Editable = false;
             FieldClass = FlowField;
         }
         field(50002; "No. Recipients"; Integer)
         {
             CalcFormula = Count("BC6_Email Recipient" WHERE("Email Setup Code" = FIELD(Code)));
-            Caption = 'Nbre de destinataires';
-            Description = 'CAS-240334-H4X0L4';
+            Caption = 'Nbre de destinataires', Comment = 'FRA="Nbre de destinataires"';
             Editable = false;
             FieldClass = FlowField;
         }
         field(50003; "No. Translations"; Integer)
         {
             CalcFormula = Count("BC6_Language Template Mail" WHERE("Parameter String" = FIELD(Code)));
-            Caption = 'Nbre de traductions';
-            Description = 'CAS-240334-H4X0L4';
+            Caption = 'Nbre de traductions', Comment = 'FRA="Nbre de traductions"';
             Editable = false;
             FieldClass = FlowField;
         }

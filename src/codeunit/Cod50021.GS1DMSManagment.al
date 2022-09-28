@@ -463,5 +463,6 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
         WordHandler.Dispose;
         CLEAR(WordHandler);
     end;
+
 }
 

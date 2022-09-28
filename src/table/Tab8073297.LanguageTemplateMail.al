@@ -7,21 +7,20 @@ table 8073297 "BC6_Language Template Mail"
     {
         field(1; "Parameter String"; Text[50])
         {
-            Caption = 'Template Mail Code';
-            Description = 'GS110.00-FED-14';
+            Caption = 'Template Mail Code', Comment = 'FRA="Code Modèle de Mail"';
         }
         field(2; "Language Code"; Code[10])
         {
-            Caption = 'Language Code';
+            Caption = 'Language Code', Comment = 'FRA="Code langue"';
             TableRelation = Language;
         }
         field(10; "Template mail"; BLOB)
         {
-            Caption = 'Template mail';
+            Caption = 'Template mail', Comment = 'FRA="Modèle Email"';
         }
         field(50000; Object; Text[250])
         {
-            Caption = 'Object';
+            Caption = 'Object', Comment = 'FRA="Objet"';
         }
     }
 

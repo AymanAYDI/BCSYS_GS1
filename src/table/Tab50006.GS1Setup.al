@@ -125,12 +125,18 @@ table 50006 "BC6_GS1 Setup"
 
         }
 
-        // field(50012; "Default Model Code Untitl. Inv"; Code[20])
-        // {
-        //     Caption = 'Default code for untitled invoices', Comment = 'FRA="Code modèle par défaut pour facture sans titre"';
-        //     DataClassification = ToBeClassified;
-        //     TableRelation = "BC6_Email Model";
-        // }
+        field(50012; "Default Model Code Untitl. Inv"; Code[20])
+        {
+            Caption = 'Default code for untitled invoices', Comment = 'FRA="Code modèle par défaut pour facture sans titre"';
+            DataClassification = ToBeClassified;
+            TableRelation = "BC6_Email Model";
+        }
+        field(50015; "Sales Credit Memo Model Code"; Code[20])
+        {
+            Caption = 'Sales Credit Memo Model Code', Comment = 'FRA="Code avoir client"';
+            DataClassification = ToBeClassified;
+            TableRelation = "BC6_Email Model";
+        }
 
     }
     keys

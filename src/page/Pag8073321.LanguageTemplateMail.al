@@ -86,9 +86,9 @@ page 8073321 "BC6_Language Template Mail"
 
                 trigger OnAction()
                 var
-                    GS1DMSManagment: Codeunit "BC6_GS1 : DMS Managment";
+                //GS1DMSManagment: Codeunit "BC6_GS1 : DMS Managment"; TODO: comment
                 begin
-                    GS1DMSManagment.OpenWordDocument(Rec);
+                    //GS1DMSManagment.OpenWordDocument(Rec);
                 end;
             }
         }
