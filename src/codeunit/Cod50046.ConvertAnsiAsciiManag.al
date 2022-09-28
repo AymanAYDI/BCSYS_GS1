@@ -1,4 +1,4 @@
-codeunit 8069133 "BC6_Convert Ansi-Ascii Manag"
+codeunit 50046 "BC6_Convert Ansi-Ascii Manag"
 {
     trigger OnRun()
     begin

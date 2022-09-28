@@ -14,69 +14,81 @@ table 50006 "BC6_GS1 Setup"
         field(21; "Expense Journal Template Name"; Code[10])
         {
             Caption = 'Expense Journal Template Name', Comment = 'FRA="Nom modèle feuille note de frais"';
+            TableRelation = "Gen. Journal Template";
             DataClassification = ToBeClassified;
 
         }
         field(31; "Expense Journal Batch Name"; Code[10])
         {
             Caption = 'Expense Journal Batch Name', Comment = 'FRA="Nom feuille note de frais"';
+            TableRelation = "Gen. Journal Batch".Name WHERE("Journal Template Name" = FIELD("Expense Journal Template Name"));
             DataClassification = ToBeClassified;
 
         }
         field(41; "Payroll Journal Template Name"; Code[10])
         {
             Caption = 'Payroll Journal Template Name', Comment = 'FRA="Nom modèle feuille paie"';
+            TableRelation = "Gen. Journal Template";
             DataClassification = ToBeClassified;
 
         }
         field(51; "Payroll Journal Batch Name"; Code[10])
         {
-            Caption = 'Payroll Journal Template Name', Comment = 'FRA="Nom feuille paie"';
+            Caption = 'Payroll Journal Batch Name', Comment = 'FRA="Nom feuille paie"';
+            TableRelation = "Gen. Journal Batch".Name WHERE("Journal Template Name" = FIELD("Payroll Journal Template Name"));
             DataClassification = ToBeClassified;
 
         }
         field(61; "Expense Shortcut Dim. 1 Code"; Code[20])
         {
             DataClassification = ToBeClassified;
+            TableRelation = Dimension;
             Caption = 'Expense Shortcut Dim. 1 Code', Comment = 'FRA="Code raccourci axe 1 note de frais"';
         }
         field(71; "Expense Shortcut Dim. 2 Code"; Code[20])
         {
             DataClassification = ToBeClassified;
+            TableRelation = Dimension;
             Caption = 'Expense Shortcut Dim. 2 Code', Comment = 'FRA="Code raccourci axe 2 note de frais"';
         }
         field(72; "Expense Shortcut Dim. 3 Code"; Code[20])
         {
             DataClassification = ToBeClassified;
+            TableRelation = Dimension;
             Caption = 'Expense Shortcut Dim. 3 Code', Comment = 'FRA="Code raccourci axe 3 note de frais"';
         }
         field(73; "Expense Shortcut Dim. 4 Code"; Code[20])
         {
             DataClassification = ToBeClassified;
+            TableRelation = Dimension;
             Caption = 'Expense Shortcut Dim. 4 Code', Comment = 'FRA="Code raccourci axe 4 note de frais"';
         }
 
         field(74; "Payroll Shortcut Dim. 1 Code"; Code[20])
         {
-            Caption = 'Payroll Journal Template Name', Comment = 'FRA="Code raccourci axe 1 paie"';
+            Caption = 'Payroll Shortcut Dim. 1 Code', Comment = 'FRA="Code raccourci axe 1 paie"';
+            TableRelation = Dimension;
             DataClassification = ToBeClassified;
 
         }
         field(75; "Payroll Shortcut Dim. 2 Code"; Code[20])
         {
-            Caption = 'Payroll Journal Template Name', Comment = 'FRA="Code raccourci axe 2 paie"';
+            Caption = 'Payroll Shortcut Dim. 2 Code', Comment = 'FRA="Code raccourci axe 2 paie"';
+            TableRelation = Dimension;
             DataClassification = ToBeClassified;
 
         }
         field(76; "Payroll Shortcut Dim. 3 Code"; Code[20])
         {
-            Caption = 'Payroll Journal Template Name', Comment = 'FRA="Code raccourci axe 3 paie"';
+            Caption = 'Payroll Shortcut Dim. 3 Code', Comment = 'FRA="Code raccourci axe 3 paie"';
+            TableRelation = Dimension;
             DataClassification = ToBeClassified;
 
         }
         field(77; "Payroll Shortcut Dim. 4 Code"; Code[20])
         {
-            Caption = 'Payroll Journal Template Name', Comment = 'FRA="Code raccourci axe 4 paie"';
+            Caption = 'Payroll Shortcut Dim. 4 Code', Comment = 'FRA="Code raccourci axe 4 paie"';
+            TableRelation = Dimension;
             DataClassification = ToBeClassified;
 
         }
@@ -113,12 +125,12 @@ table 50006 "BC6_GS1 Setup"
 
         }
 
-        field(50012; "Default Model Code Untitl. Inv"; Code[20])
-        {
-            Caption = 'Default code for untitled invoices', Comment = 'FRA="Code modèle par défaut pour facture sans titre"';
-            DataClassification = ToBeClassified;
-            TableRelation = "BC6_Email Model";
-        }
+        // field(50012; "Default Model Code Untitl. Inv"; Code[20])
+        // {
+        //     Caption = 'Default code for untitled invoices', Comment = 'FRA="Code modèle par défaut pour facture sans titre"';
+        //     DataClassification = ToBeClassified;
+        //     TableRelation = "BC6_Email Model";
+        // }
 
     }
     keys

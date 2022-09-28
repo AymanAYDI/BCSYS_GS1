@@ -10,12 +10,11 @@ xmlport 50000 "BC6_Expense Import"
     // 
     // +----------------------------------------------------------------------------------------------------------------+
 
-    Caption = 'Expense Import';
+    Caption = 'Expense Import', Comment = 'FRA="Import note de frais"';
     Direction = Import;
     FieldDelimiter = '<None>';
     FieldSeparator = '<TAB>';
     Format = VariableText;
-
     schema
     {
         textelement(root)
@@ -131,7 +130,7 @@ xmlport 50000 "BC6_Expense Import"
     trigger OnPreXmlPort()
     begin
         //>>FE001.001
-        TxtGFilename := DotGPath.GetFileName(currXMLport.FILENAME);
+        TxtGFilename := FileManagement.GetFileName(currXMLport.FILENAME);
 
         IF NOT CONFIRM(STRSUBSTNO(CstG001, TxtGFilename)) THEN
             ERROR(CstG002);
@@ -173,30 +172,32 @@ xmlport 50000 "BC6_Expense Import"
 
     var
         RecGGS1Setup: Record "BC6_GS1 Setup";
-        RecGGenJournalTemplate: Record "Gen. Journal Template";
         RecGGenJournalBatch: Record "Gen. Journal Batch";
         RecGGenJournalLine: Record "Gen. Journal Line";
+        RecGGenJournalTemplate: Record "Gen. Journal Template";
         RecGGLSetup: Record "General Ledger Setup";
+        FileManagement: Codeunit "File Management";
         CduGNoSeriesManagement: Codeunit NoSeriesManagement;
-        TxtGFilename: Text;
-        DotGPath: DotNet Path;
-        CstG001: Label 'Import file %1 ?';
-        CstG002: Label 'Operation canceled.';
         //CstG003: Label '%1 %2 %3 %4 contains unposted lines.';
         CodGDocumentNo: Code[20];
-        IntGLineNo: Integer;
         DatGPostingDate: Date;
         DecGAmount: Decimal;
-        CstG004: Label 'Open %1 %2 %3 %4 ?';
-        CstG005: Label 'Operation completed.';
-        CstG006: Label 'No lines have been integrated.';
-        CstG007: Label '%1 %2 %3 %4 contient des lignes non validées. Voulez-vous les supprimer ?';
+        IntGLineNo: Integer;
+        CstG001: Label 'Import file %1 ?', Comment = 'FRA="Importer le fichier %1 ?"';
+        CstG002: Label 'Operation canceled.', Comment = 'FRA="Opération annulée."';
+        CstG004: Label 'Open %1 %2 %3 %4 ?', Comment = 'FRA="Ouvrir %1 %2 %3 %4 ?"';
+        CstG005: Label 'Operation completed.', Comment = 'FRA="Opération terminée."';
+        CstG006: Label 'No lines have been integrated.', Comment = 'FRA="Aucune ligne n''a été intégrée."';
+        CstG007: Label '%1 %2 %3 %4 contains unposted lines.', Comment = 'FRA="%1 %2 %3 %4 contient des lignes non validées. Voulez-vous les supprimer ?"';
+        TxtGFilename: Text;
 
     local procedure InsertGenJournalLine()
     var
-        RecLSourceCode: Record "Source Code";
-        RecLGLAccount: Record "G/L Account";
         RecLBankAccount: Record "Bank Account";
+        RecLGLAccount: Record "G/L Account";
+        RecLSourceCode: Record "Source Code";
+        CduLAnsiAscii: Codeunit "BC6_Convert Ansi-Ascii Manag";
+
     begin
         //>>FE001.001
         IntGLineNo := IntGLineNo + 10000;
@@ -232,7 +233,7 @@ xmlport 50000 "BC6_Expense Import"
                 RecGGenJournalLine.VALIDATE("Debit Amount", DecGAmount);
         END;
 
-        RecGGenJournalLine.VALIDATE(Description, COPYSTR(PostingDescription, 1, 50));
+        RecGGenJournalLine.VALIDATE(Description, CduLAnsiAscii.Ansi2Ascii(COPYSTR(PostingDescription, 1, 50)));
         RecGGenJournalLine.VALIDATE("External Document No.", COPYSTR(ExternalDocumentNo, 1, 35));
         RecGGenJournalLine.MODIFY(TRUE);
         //<<FE001.001
@@ -241,8 +242,8 @@ xmlport 50000 "BC6_Expense Import"
     local procedure ModifyGenJournalLine()
     var
         DimMgt: Codeunit DimensionManagement;
-        IntLDimNo: Integer;
         CodLDimValue: Code[20];
+        IntLDimNo: Integer;
     begin
         //>>FE001.001
         IntLDimNo := 0;
@@ -293,8 +294,8 @@ xmlport 50000 "BC6_Expense Import"
 
     local procedure GetDimValueCorresp(CodPDim: Code[20]; CodPDimValue: Code[20]): Code[20]
     var
-        RecLCorresp: Record "File Import Dimension Corresp.";
         RecLDimValue: Record "Dimension Value";
+        RecLCorresp: Record "File Import Dimension Corresp.";
     begin
         RecLCorresp.RESET();
         RecLCorresp.SETRANGE("Import Type", RecLCorresp."Import Type"::Expense);

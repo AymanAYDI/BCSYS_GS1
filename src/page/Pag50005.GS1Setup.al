@@ -79,6 +79,35 @@ page 50005 "BC6_GS1 Setup"
                     }
 
                 }
+                group(Expense)
+                {
+                    Caption = 'Expense', Comment = 'FRA="Note de frais"';
+                    field("Expense Journal Template Name"; Rec."Expense Journal Template Name")
+                    {
+                        ToolTip = 'Specifies the value of the Expense Journal Template Name field.', Comment = 'FRA="Nom modèle feuille note de frais"';
+                    }
+                    field("Expense Journal Batch Name"; Rec."Expense Journal Batch Name")
+                    {
+                        ToolTip = 'Specifies the value of the Expense Journal Batch Name field.', Comment = 'FRA="Nom feuille note de frais"';
+                    }
+                    field("Expense Shortcut Dim. 1 Code"; Rec."Expense Shortcut Dim. 1 Code")
+                    {
+                        ToolTip = 'Specifies the value of the Expense Shortcut Dim. 1 Code field.', Comment = 'FRA="Code raccourci axe 1 note de frais"';
+                    }
+                    field("Expense Shortcut Dim. 2 Code"; Rec."Expense Shortcut Dim. 2 Code")
+                    {
+                        ToolTip = 'Specifies the value of the Expense Shortcut Dim. 2 Code field.', Comment = 'FRA="Code raccourci axe 2 note de frais"';
+                    }
+                    field("Expense Shortcut Dim. 3 Code"; Rec."Expense Shortcut Dim. 3 Code")
+                    {
+                        ToolTip = 'Specifies the value of the Expense Shortcut Dim. 3 Code field.', Comment = 'FRA="Code raccourci axe 3 note de frais"';
+                    }
+                    field("Expense Shortcut Dim. 4 Code"; Rec."Expense Shortcut Dim. 4 Code")
+                    {
+                        ToolTip = 'Specifies the value of the Expense Shortcut Dim. 4 Code field.', Comment = 'FRA="Code raccourci axe 4 note de frais"';
+                    }
+
+                }
             }
         }
     }

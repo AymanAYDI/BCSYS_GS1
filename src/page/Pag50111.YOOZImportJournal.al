@@ -219,9 +219,6 @@ page 50111 "BC6_YOOZ Import Journal"
                         YOOZMgt.DeleteImportLine(Rec);
                     end;
                 }
-
-
-
             }
         }
     }

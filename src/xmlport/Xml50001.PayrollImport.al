@@ -10,13 +10,10 @@ xmlport 50001 "BC6_Payroll Import"
     // 
     // +----------------------------------------------------------------------------------------------------------------+
 
-    Caption = 'Payroll Import';
+    Caption = 'Payroll Import', Comment = 'FRA="Import paie"';
     Direction = Import;
-    //FieldDelimiter =;
-    // FieldSeparator = '<TAB>';
     Format = FixedText;
     UseRequestPage = false;
-
     schema
     {
         textelement(root)
@@ -208,9 +205,10 @@ xmlport 50001 "BC6_Payroll Import"
     end;
 
     trigger OnPreXmlPort()
+
     begin
         //>>FE002.001
-        TxtGFilename := DotGPath.GetFileName(currXMLport.FILENAME);
+        TxtGFilename := FileManagement.GetFileName(currXMLport.FILENAME);
 
         IF NOT CONFIRM(STRSUBSTNO(CstG001, TxtGFilename)) THEN
             ERROR(CstG002);
@@ -257,23 +255,22 @@ xmlport 50001 "BC6_Payroll Import"
         RecGGenJournalLine: Record "Gen. Journal Line";
         RecGGenJournalTemplate: Record "Gen. Journal Template";
         RecGGeneralLedgerSetup: Record "General Ledger Setup";
+        FileManagement: Codeunit "File Management";
         DatGPostingDate: Date;
         DecGAmount: Decimal;
-        DotGPath: DotNet Path;
-        // CduGNoSeriesManagement: Codeunit "396";
         IntGLineNo: Integer;
-        CstG001: Label 'Import file %1 ?';
-        CstG002: Label 'Operation canceled.';
-        CstG004: Label 'Open %1 %2 %3 %4 ?';
-        CstG005: Label 'Operation completed.';
-        CstG006: Label 'No lines have been integrated.';
-        CstG007: Label '%1 %2 %3 %4 contains unposted lines.';
+        CstG001: Label 'Import file %1 ?', Comment = 'FRA="Importer le fichier %1 ?"';
+        CstG002: Label 'Operation canceled.', Comment = 'FRA="Opération annulée."';
+        CstG004: Label 'Open %1 %2 %3 %4 ?', Comment = 'FRA="Ouvrir %1 %2 %3 %4 ?"';
+        CstG005: Label 'Operation completed.', Comment = 'FRA="Opération terminée."';
+        CstG006: Label 'No lines have been integrated.', Comment = 'FRA="Aucune ligne n''a été intégrée."';
+        CstG007: Label '%1 %2 %3 %4 contains unposted lines.', Comment = 'FRA="%1 %2 %3 %4 contient des lignes non validées.Voulez-vous les supprimer ?"';
         TxtGFilename: Text;
 
     local procedure InsertGenJournalLine()
     var
         RecLSourceCode: Record "Source Code";
-        CduLAnsiAscii: Codeunit "8069133";
+        CduLAnsiAscii: Codeunit "BC6_Convert Ansi-Ascii Manag";
     begin
         //>>FE002.001
         IntGLineNo := IntGLineNo + 10000;
@@ -387,8 +384,8 @@ xmlport 50001 "BC6_Payroll Import"
 
     local procedure GetDimValueCorresp(CodPDim: Code[20]; CodPDimValue: Code[20]): Code[20]
     var
-        RecLCorresp: Record "File Import Dimension Corresp.";
         RecLDimValue: Record "Dimension Value";
+        RecLCorresp: Record "File Import Dimension Corresp.";
     begin
         RecLCorresp.RESET();
         RecLCorresp.SETRANGE("Import Type", RecLCorresp."Import Type"::Payroll);
