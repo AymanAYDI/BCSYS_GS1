@@ -1,4 +1,4 @@
-report 8069153 "BC6_Financial Statement Export"
+report 50068 "BC6_Financial Statement Export"
 {
     Caption = 'ECF Sage Export';
     ProcessingOnly = true;

@@ -1,7 +1,7 @@
-table 8073297 "BC6_Language Template Mail"
+table 50067 "BC6_Language Template Mail"
 {
     Caption = 'Language Template Mail';
-    LookupPageID = 8073321;
+    LookupPageID = "BC6_Language Template Mail";
 
     fields
     {

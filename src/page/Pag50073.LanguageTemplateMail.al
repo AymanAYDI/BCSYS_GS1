@@ -1,4 +1,4 @@
-page 8073321 "BC6_Language Template Mail"
+page 50073 "BC6_Language Template Mail"
 {
     Caption = 'Language Template Mail';
     PageType = List;
