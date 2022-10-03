@@ -57,22 +57,28 @@ page 50051 "BC6_Email Log"
 
                 trigger OnAction()
                 var
+                    GS1DMSManagment: Codeunit "BC6_GS1 : DMS Managment";
                     RecID: RecordID;
+                    ConstErasureLog: Label 'Erasure Log';
+                    EmailSetupCode: Code[50];
                 begin
-                    IF Rec.ISEMPTY THEN
+                    IF Rec.ISEMPTY() THEN
                         EXIT;
 
                     IF Rec.GETFILTER("Email Model Code") <> '' THEN
-                        IF Rec.GETFILTER("Record Identifier") <> '' THEN
-                            RecID := Rec."Record Identifier";
+                        EmailSetupCode := Rec."Email Model Code";
+
+                    IF Rec.GETFILTER("Record Identifier") <> '' THEN
+                        RecID := Rec."Record Identifier";
 
                     Rec.DELETEALL(TRUE);
 
-                    //                     // GS1DMSManagment.InsertLog(EmailSetupCode, RecID, "Message Status"::Information, ConstErasureLog); TODO: The application object or method 'InsertLog' has scope 'Internal' and cannot be used for 'Extension' development.
+                    GS1DMSManagment.InsertLog(EmailSetupCode, RecID, Rec."Message Status"::Information, ConstErasureLog);
                 end;
             }
         }
     }
 }
+
 
 

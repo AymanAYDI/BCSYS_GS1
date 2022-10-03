@@ -41,7 +41,7 @@ table 50047 "BC6_Email Attach. Type Trans."
             DataClassification = CustomerContent;
             TableRelation = "Custom Report Layout".Code WHERE("Report ID" = FIELD("Report ID"), Code = FIELD("Custom Report Layout Code"));
         }
-        field(7; "Custom Report Layout Name"; Text[50])
+        field(7; "Custom Report Layout Name"; Text[250])
         {
             Caption = 'Custom Report Layout Name', Comment = 'FRA="Nom présentation état personnalisé"';
             FieldClass = FlowField;

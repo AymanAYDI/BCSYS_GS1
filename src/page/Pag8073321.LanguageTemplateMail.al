@@ -23,10 +23,10 @@ page 8073321 "BC6_Language Template Mail"
         }
         area(factboxes)
         {
-            // TODO : Page "Language Template Mail Detail" part(MessageDetail; 8073322) 
+            // part(MessageDetail; 8073322) TODO: "Language Template Mail Detail" page 
             // {
-            //     SubPageLink = Parameter String=FIELD(Parameter String),
-            //                   Language Code=FIELD(Language Code);
+            //     SubPageLink = "Parameter String"=FIELD("Parameter String"),
+            //                   "Language Code"=FIELD("Language Code");
             // }
         }
     }
@@ -86,9 +86,9 @@ page 8073321 "BC6_Language Template Mail"
 
                 trigger OnAction()
                 var
-                //GS1DMSManagment: Codeunit "BC6_GS1 : DMS Managment"; TODO: comment
+                    GS1DMSManagment: Codeunit "BC6_GS1 : DMS Managment";
                 begin
-                    //GS1DMSManagment.OpenWordDocument(Rec);
+                    GS1DMSManagment.OpenWordDocument(Rec);
                 end;
             }
         }

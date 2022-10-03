@@ -1,4 +1,3 @@
-#pragma implicitwith disable
 page 50053 "BC6_mail Attachments Type"
 {
 
@@ -52,5 +51,4 @@ page 50053 "BC6_mail Attachments Type"
     }
 }
 
-#pragma implicitwith restore
 

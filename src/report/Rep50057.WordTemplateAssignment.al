@@ -75,9 +75,9 @@ report 50057 "BC6_Word Template - Assignment"
             dataitem(Customer; Customer)
             {
                 DataItemLink = "No." = FIELD("Sell-to Customer No.");
-                // column(Customer_SIREN_SIRET; Customer."SIREN/SIRET") //TODO: champe DSM
-                // {
-                // }
+                column(Customer_SIREN_SIRET; Customer."BC6_SIREN/SIRET")
+                {
+                }
                 column(Customer_GTIN; COPYSTR(Customer.GLN, 1, 9))
                 {
                 }

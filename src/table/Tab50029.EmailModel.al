@@ -2,8 +2,8 @@ table 50029 "BC6_Email Model"
 {
 
     Caption = 'Email model';
-    //TODO: DrillDownPageID = 50050;
-    //TODO:  LookupPageID = 50050;
+    DrillDownPageID = "BC6_Email Models";
+    LookupPageID = "BC6_Email Models";
 
     fields
     {
@@ -66,25 +66,25 @@ table 50029 "BC6_Email Model"
     {
     }
 
-    // trigger OnRename()  TODO: Table "8073297" is missing
-    // var
-    //     LanguageTemplateMail: Record "8073297"; 
-    // begin
-    //     IF xRec.Code = '' THEN EXIT;
-    //     LanguageTemplateMail.SETRANGE("Parameter String", xRec.Code);
-    //     IF LanguageTemplateMail.FINDSET THEN
-    //         REPEAT
-    //             LanguageTemplateMail.RENAME(Code, LanguageTemplateMail."Language Code");
-    //         UNTIL LanguageTemplateMail.NEXT = 0;
-    // end;
-
-    local procedure FctCorrectAndValidateEmailList(var EmailAddresses: Text[250])
+    trigger OnRename()
     var
-        MailManagement: Codeunit "Mail Management";
+        LanguageTemplateMail: Record "BC6_Language Template Mail";
     begin
-        EmailAddresses := CONVERTSTR(EmailAddresses, ',', ';');
-        EmailAddresses := DELCHR(EmailAddresses, '<>');
-        MailManagement.CheckValidEmailAddresses(EmailAddresses);
+        IF xRec.Code = '' THEN EXIT;
+        LanguageTemplateMail.SETRANGE("Parameter String", xRec.Code);
+        IF LanguageTemplateMail.FINDSET() THEN
+            REPEAT
+                LanguageTemplateMail.RENAME(Code, LanguageTemplateMail."Language Code");
+            UNTIL LanguageTemplateMail.NEXT() = 0;
     end;
+
+    // local procedure FctCorrectAndValidateEmailList(var EmailAddresses: Text[250]) TODO: never used
+    // var
+    //     MailManagement: Codeunit "Mail Management";
+    // begin
+    //     EmailAddresses := CONVERTSTR(EmailAddresses, ',', ';');
+    //     EmailAddresses := DELCHR(EmailAddresses, '<>');
+    //     MailManagement.CheckValidEmailAddresses(EmailAddresses);
+    // end;
 }
 

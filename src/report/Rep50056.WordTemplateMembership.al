@@ -13,9 +13,9 @@ report 50056 "BC6_Word Template - Membership"
             column(Today_Date; FORMAT(TODAY))
             {
             }
-            // column(Customer_SIREN_SIRET; Customer."SIREN/SIRET")//TODO: champe DSM
-            // {
-            // }
+            column(Customer_SIREN_SIRET; Customer."BC6_SIREN/SIRET")
+            {
+            }
             column(Customer_GTIN; COPYSTR(Customer.GLN, 1, 9))
             {
             }
@@ -73,21 +73,21 @@ report 50056 "BC6_Word Template - Membership"
 
                 trigger OnPreDataItem()
                 begin
-                    //Contact.SETRANGE("Company No.", Customer.FctGetContact(Customer."No.")); TODO: Record Customer does not contain a definition for 'FctGetContact'
+                    Contact.SETRANGE("Company No.", Customer.FctGetContact(Customer."No."));
                 end;
             }
-            /*    dataitem(GS1BarCode; Table50008) //TODO: table n'est existe pas
+            dataitem(GS1BarCode; "BC6_GS1 Bar Code")
+            {
+                DataItemLink = "Customer No." = FIELD("No.");
+                DataItemTableView = SORTING("Entry No.")
+                                        WHERE(B_CnufPrincipal = CONST(true));
+                column(GS1BarCode_Prefix_StartCode; GS1BarCode.Num_Code)
                 {
-                    DataItemLink = "Customer No." = FIELD("No.");
-                    DataItemTableView = SORTING("Entry No.")
-                                        WHERE("B_CnufPrincipal" = CONST(Yes));
-                    column(GS1BarCode_Prefix_StartCode; GS1BarCode.Num_Code)
-                    {
-                    }
-                    column(GS1BarCode_Prefix_EndCode; GS1BarCode."Num_Code F")
-                    {
-                    }
-                }*/
+                }
+                column(GS1BarCode_Prefix_EndCode; GS1BarCode."Num_Code F")
+                {
+                }
+            }
             dataitem(CompanyInformation; "Company Information")
             {
                 column(CompanyInformation_Name; CompanyInformation.Name)

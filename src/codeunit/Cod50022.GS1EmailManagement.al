@@ -305,39 +305,11 @@ codeunit 50022 "BC6_GS1 : Email Management"
         TxtPBCCList: List of [Text];
     begin
         IF BooPAutoSend THEN BEGIN
-            // CduGSMTPMail.CreateMessage(TxtLFromName, TxtLFromAddress, '', TxtPSubject, TxtPBodyText, TRUE); Check
-            CduGSMTPMail.Create(TxtPSendTo, TxtPSubject, TxtPBodyText, TRUE);
-            // //TO
-            // IF TxtPSendTo <> '' THEN
-            //     IF STRPOS(TxtPSendTo, ';') > 1 THEN
-            //         CduGSMTPMail.FctAddTo(TxtPSendTo)
-            //     ELSE
-            //         CduGSMTPMail.AddRecipient(TxtPSendTo);
-
-
-            // //CC
-            // IF TxtPCC <> '' THEN
-            //     IF STRPOS(TxtPCC, ';') > 1 THEN
-            //         CduGSMTPMail.FctAddCC(TxtPCC)
-            //     ELSE
-            //         CduGSMTPMail.AddCC(TxtPCC);
-
-            // //BCC
-            // IF TxtPBCC <> '' THEN
-            //     IF STRPOS(TxtPBCC, ';') > 1 THEN
-            //         CduGSMTPMail.FctAddBCC(TxtPBCC)
-            //     ELSE
-            //         CduGSMTPMail.AddBCC(TxtPBCC);
-
-            TxtPSendToList := MyProcedure(TxtPSendTo);
-            TxtPCCList := MyProcedure(TxtPCC);
-            TxtPBCCList := MyProcedure(TxtPBCC);
-
-        END ELSE
-            // IF Mail.TryInitializeOutlook THEN
-            //     Mail.CreateMessage(TxtPSendTo, TxtPCC, TxtPBCC, TxtPSubject, TxtPBodyText, TRUE, FALSE);
+            TxtPSendToList := AddMailList(TxtPSendTo);
+            TxtPCCList := AddMailList(TxtPCC);
+            TxtPBCCList := AddMailList(TxtPBCC);
             CduGSMTPMail.Create(TxtPSendToList, TxtPSubject, TxtPBodyText, TRUE, TxtPCCList, TxtPBCCList);
-
+        end;
         BooGAutoSend := BooPAutoSend;
     end;
 
@@ -351,7 +323,6 @@ codeunit 50022 "BC6_GS1 : Email Management"
             EXIT;
         IF BooGAutoSend THEN begin
             tempBlob.CreateInStream(InStr);
-            // CduGSMTPMail.AddAttachment(AttachmentFilePath, AttachmentFileName)
             CduGSMTPMail.AddAttachment(AttachmentFileName, 'SendMail', InStr);
         end
         // ELSE
@@ -359,17 +330,17 @@ codeunit 50022 "BC6_GS1 : Email Management"
 
     end;
 
-
-    /***************************/
-    procedure MyProcedure(mail: Text) RecipientsList: List of [Text]
+    procedure AddMailList(mail: Text) RecipientsList: List of [Text]
     var
         textList: List of [Text];
     begin
+        mail += ';';
         WHILE STRPOS(mail, ';') > 1 DO BEGIN
             textList.Add(COPYSTR(mail, 1, STRPOS(mail, ';') - 1));
             mail := COPYSTR(mail, STRPOS(mail, ';') + 1);
-            RecipientsList := textList;
         end;
+        RecipientsList := textList;
+
     end;
 }
 
