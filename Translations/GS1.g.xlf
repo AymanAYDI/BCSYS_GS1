@@ -1288,6 +1288,51 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_GS1 Setup - Control YOOZ Source Code - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 1568630877 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import/Export GS1</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Import/Export GS1"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BC6_Import/Export GS1 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1568630877 - NamedType 1877187315" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Interface YOOZ...</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Interface YOOZ"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BC6_Import/Export GS1 - NamedType PageLbl</note>
+        </trans-unit>
+        <trans-unit id="Page 1568630877 - NamedType 1687279216" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ECF Sage Export...</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Export vers ECF Sage"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BC6_Import/Export GS1 - NamedType ReportLbl</note>
+        </trans-unit>
+        <trans-unit id="Page 1568630877 - NamedType 1445998421" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Expense Import...</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Import note de frais"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BC6_Import/Export GS1 - NamedType XmlPort1Lbl</note>
+        </trans-unit>
+        <trans-unit id="Page 1568630877 - NamedType 2455746228" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Payroll Import...</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Import paie"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BC6_Import/Export GS1 - NamedType XmlPort2Lbl</note>
+        </trans-unit>
+        <trans-unit id="Page 1568630877 - Control 3680002584 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ECF Sage Export</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Export vers ECF Sage"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BC6_Import/Export GS1 - Control ECF Sage Export - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1568630877 - Control 3412538119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Expense Import</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Import note de frais"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BC6_Import/Export GS1 - Control Expense Import - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1568630877 - Control 397773802 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Interface YOOZ</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Interface YOOZ"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BC6_Import/Export GS1 - Control Interface YOOZ - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1568630877 - Control 1320927412 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Payroll Import</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Import paie"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BC6_Import/Export GS1 - Control Payroll Import - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3760374709 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Language Template Mail</source>
           <note from="Developer" annotates="general" priority="2"></note>
