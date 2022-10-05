@@ -62,11 +62,15 @@ report 50100 "BC6_Trans. YOOZ Gen. Jnl."
                 {
                     field("Journal Template Name"; GenJnlLine."Journal Template Name")
                     {
+                        Caption = 'Gen. Journal Template', Comment = 'FRA="Modèle feuille comptabilité"';
                         TableRelation = "Gen. Journal Template" WHERE(Name = CONST('NDF'));
+                        NotBlank = true;
                     }
                     field("Journal Batch Name"; GenJnlLine."Journal Batch Name")
                     {
+                        Caption = 'Gen. Journal Batch', Comment = 'FRA="Nom feuille comptabilité"';
                         ApplicationArea = Basic, Suite;
+                        NotBlank = True;
                     }
                 }
             }

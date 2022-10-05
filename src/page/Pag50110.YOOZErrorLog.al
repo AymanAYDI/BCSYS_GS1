@@ -3,6 +3,8 @@ page 50110 "BC6_YOOZ Error Log"
     Caption = 'YOOZ Error Log', Comment = 'FRA="Erreur YOOZ"';
     PageType = ListPart;
     SourceTable = "BC6_YOOZ Error Log";
+    ApplicationArea = all;
+    UsageCategory = Lists;
 
     layout
     {

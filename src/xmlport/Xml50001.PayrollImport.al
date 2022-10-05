@@ -322,7 +322,7 @@ xmlport 50001 "BC6_Payroll Import"
             RecGGenJournalLine.VALIDATE("Currency Code", CurrencyCode);
 
 
-        // RecGGenJournalLine.VALIDATE(Description, CduLAnsiAscii.Ansi2Ascii(COPYSTR(EntryDescription, 1, 50)));
+        RecGGenJournalLine.VALIDATE(Description, CduLAnsiAscii.Ansi2Ascii(COPYSTR(EntryDescription, 1, 50)));
         //RecGGenJournalLine.VALIDATE("External Document No.",COPYSTR(ExternalDocumentNo,1,35));
 
         RecGGenJournalLine.MODIFY(TRUE);
