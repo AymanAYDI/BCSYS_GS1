@@ -1,15 +1,5 @@
 xmlport 50001 "BC6_Payroll Import"
 {
-    // +----------------------------------------------------------------------------------------------------------------+
-    // | ProdWare - GS1                                                                                                 |
-    // | http://www.prodware.fr                                                                                         |
-    // |                                                                                                                |
-    // +----------------------------------------------------------------------------------------------------------------+
-    // 
-    //       - FED-02: Import de la paie
-    // 
-    // +----------------------------------------------------------------------------------------------------------------+
-
     Caption = 'Payroll Import', Comment = 'FRA="Import paie"';
     Direction = Import;
     Format = FixedText;
@@ -130,17 +120,16 @@ xmlport 50001 "BC6_Payroll Import"
                 trigger OnAfterInsertRecord()
                 begin
                     //>>FE002.001
-                    CASE UPPERCASE(AccountType) OF
+                    case UPPERCASE(AccountType) of
                         'X':
                             InsertGenJournalLine();
                         'A':
 
-                            IF Dimension = '01' THEN
+                            if Dimension = '01' then
                                 InsertGenJournalLine()
-                            ELSE
+                            else
                                 ModifyGenJournalLine();
-
-                    END;
+                    end;
                     //<<FE002.001
                 end;
             }
@@ -149,7 +138,6 @@ xmlport 50001 "BC6_Payroll Import"
 
     requestpage
     {
-
         layout
         {
         }
@@ -159,94 +147,57 @@ xmlport 50001 "BC6_Payroll Import"
         }
     }
 
-    trigger OnInitXmlPort()
-    begin
-        //Format du fichier
-        //-----------------------------------------------------------------------------------------------------------------------------
-        //|  POSILINE   |   LENGTH   |                              Description                                                       |
-        //|      1      |      3     |  Code journal Source code                                                                      |
-        //|      4      |      6     |  Date de pièce (JJMMAA) Posting Date                                                           |
-        //|     10      |      2     |  Nature de pièce : OD non utilisé                                                              |
-        //|     12      |     13     |  Code compte général Account No.                                                               |
-        //|     25      |      1     |  Type compte complémentaire*** (X : auxiliaire, A : Analytique, blanc : aucun)                 |
-        //|     26      |     13     |  Code compte auxiliaire ou analytique Comportement de la zone                                  |
-        //|     39      |     13     |  Référence Cncaténatioon des 2 champs dans le champ Description                                |
-        //|     52      |     25     |  Libellé                                                                                       |
-        //|     77      |      1     |  Mode de paiement (C : chèque, O : espèces, T : traite, S : sans paiement)                     |
-        //|     78      |      6     |  Date d'échéance Due Date                                                                      |
-        //|     84      |      1     |  Débit (D) ou Crédit (C) permet de savoir si le montant est inséré au crédit ou au débit       |
-        //|     85      |     20     |  Montant                                                                                       |
-        //|    105      |      1     |  Type d'écriture (N : Normal, S : Simulation)                                                  |
-        //|    106      |     33     |  Zone réservée non utilisé                                                                     |
-        //|    139      |      3     |  Code ISO de la monnaie de tenue de Paie. Currency Code                                        |
-        //-----------------------------------------------------------------------------------------------------------------------------
-    end;
-
     trigger OnPostXmlPort()
     begin
-        //>>FE002.001
-        IF (RecGGenJournalLine.COUNT > 0) THEN BEGIN
-            IF NOT CONFIRM(
+        if (RecGGenJournalLine.COUNT > 0) then begin
+            if not CONFIRM(
               STRSUBSTNO(
                 CstG004,
                   RecGGenJournalLine.FIELDCAPTION("Journal Template Name"),
                   RecGGS1Setup."Payroll Journal Template Name",
                   RecGGenJournalLine.FIELDCAPTION("Journal Batch Name"),
                   RecGGS1Setup."Payroll Journal Batch Name"))
-            THEN
+            then
                 MESSAGE(CstG005)
-            ELSE
+            else
                 PAGE.RUN(RecGGenJournalTemplate."Page ID", RecGGenJournalLine);
 
-        END ELSE
+        end else
             MESSAGE(CstG006);
 
-        //<<FE002.001
     end;
 
     trigger OnPreXmlPort()
 
     begin
-        //>>FE002.001
         TxtGFilename := FileManagement.GetFileName(currXMLport.FILENAME);
 
-        IF NOT CONFIRM(STRSUBSTNO(CstG001, TxtGFilename)) THEN
+        if not CONFIRM(STRSUBSTNO(CstG001, TxtGFilename)) then
             ERROR(CstG002);
-
 
         RecGGS1Setup.GET();
         RecGGS1Setup.TESTFIELD("Payroll Journal Template Name");
         RecGGS1Setup.TESTFIELD("Payroll Journal Batch Name");
-
         RecGGenJournalTemplate.GET(RecGGS1Setup."Payroll Journal Template Name");
         RecGGenJournalTemplate.TESTFIELD("Page ID");
-        //RecGGenJournalTemplate.TESTFIELD("Source Code");
-
         RecGGenJournalBatch.GET(RecGGS1Setup."Payroll Journal Template Name", RecGGS1Setup."Payroll Journal Batch Name");
-        //RecGGenJournalBatch.TESTFIELD("No. Series");
-        //RecGGenJournalBatch.TESTFIELD("Posting No. Series");
-
         RecGGenJournalLine.SETRANGE("Journal Template Name", RecGGS1Setup."Payroll Journal Template Name");
         RecGGenJournalLine.SETRANGE("Journal Batch Name", RecGGS1Setup."Payroll Journal Batch Name");
-        IF NOT RecGGenJournalLine.ISEMPTY THEN BEGIN
-            IF NOT CONFIRM(STRSUBSTNO(
+        if not RecGGenJournalLine.ISEMPTY then begin
+            if not CONFIRM(STRSUBSTNO(
                 CstG007,
                 RecGGenJournalLine.FIELDCAPTION("Journal Template Name"),
                 RecGGS1Setup."Payroll Journal Template Name",
                 RecGGenJournalLine.FIELDCAPTION("Journal Batch Name"),
-                RecGGS1Setup."Payroll Journal Batch Name")) THEN
+                RecGGS1Setup."Payroll Journal Batch Name")) then
                 ERROR('');
             RecGGenJournalLine.DELETEALL();
-        END;
+        end;
 
         RecGGeneralLedgerSetup.GET();
         RecGGeneralLedgerSetup.TESTFIELD("LCY Code");
-
         COMMIT();
-
-        //CodGDocumentNo := CduGNoSeriesManagement.TryGetNextNo(RecGGenJournalBatch."No. Series",WORKDATE);
         CLEAR(IntGLineNo);
-        //<<FE002.001
     end;
 
     var
@@ -255,121 +206,92 @@ xmlport 50001 "BC6_Payroll Import"
         RecGGenJournalLine: Record "Gen. Journal Line";
         RecGGenJournalTemplate: Record "Gen. Journal Template";
         RecGGeneralLedgerSetup: Record "General Ledger Setup";
-        FileManagement: Codeunit "File Management";
+        FileManagement: codeunit "File Management";
         DatGPostingDate: Date;
         DecGAmount: Decimal;
         IntGLineNo: Integer;
-        CstG001: Label 'Import file %1 ?', Comment = 'FRA="Importer le fichier %1 ?"';
-        CstG002: Label 'Operation canceled.', Comment = 'FRA="Opération annulée."';
-        CstG004: Label 'Open %1 %2 %3 %4 ?', Comment = 'FRA="Ouvrir %1 %2 %3 %4 ?"';
-        CstG005: Label 'Operation completed.', Comment = 'FRA="Opération terminée."';
-        CstG006: Label 'No lines have been integrated.', Comment = 'FRA="Aucune ligne n''a été intégrée."';
-        CstG007: Label '%1 %2 %3 %4 contains unposted lines.', Comment = 'FRA="%1 %2 %3 %4 contient des lignes non validées.Voulez-vous les supprimer ?"';
+        CstG001: label 'Import file %1 ?', Comment = 'FRA="Importer le fichier %1 ?"';
+        CstG002: label 'Operation canceled.', Comment = 'FRA="Opération annulée."';
+        CstG004: label 'Open %1 %2 %3 %4 ?', Comment = 'FRA="Ouvrir %1 %2 %3 %4 ?"';
+        CstG005: label 'Operation completed.', Comment = 'FRA="Opération terminée."';
+        CstG006: label 'No lines have been integrated.', Comment = 'FRA="Aucune ligne n''a été intégrée."';
+        CstG007: label '%1 %2 %3 %4 contains unposted lines.', Comment = 'FRA="%1 %2 %3 %4 contient des lignes non validées.Voulez-vous les supprimer ?"';
         TxtGFilename: Text;
 
     local procedure InsertGenJournalLine()
     var
         RecLSourceCode: Record "Source Code";
-        CduLAnsiAscii: Codeunit "BC6_Convert Ansi-Ascii Manag";
     begin
-        //>>FE002.001
         IntGLineNo := IntGLineNo + 10000;
 
         RecGGenJournalLine.INIT();
         RecGGenJournalLine.VALIDATE("Journal Template Name", RecGGS1Setup."Payroll Journal Template Name");
         RecGGenJournalLine.VALIDATE("Journal Batch Name", RecGGS1Setup."Payroll Journal Batch Name");
         RecGGenJournalLine.VALIDATE("Line No.", IntGLineNo);
-        RecGGenJournalLine.INSERT(TRUE);
-
-        IF NOT RecLSourceCode.GET(SourceCode) THEN
+        RecGGenJournalLine.INSERT(true);
+        if not RecLSourceCode.GET(SourceCode) then
             currXMLport.SKIP();
-
         RecGGenJournalLine.VALIDATE("Source Code", SourceCode);
-
-        /*
-        IF (STRLEN(TxtGColumn2) = 1) THEN BEGIN
-          TxtGColumn2 := '0' + TxtGColumn2;
-        END;
-        
-        IF (STRLEN(TxtGColumn3) = 1) THEN BEGIN
-          TxtGColumn3 := '0' + TxtGColumn3;
-        END;
-        
-        IF (STRLEN(TxtGColumn4) = 1) THEN BEGIN
-          TxtGColumn4 := '0' + TxtGColumn4;
-        END;
-        */
-
-        IF NOT EVALUATE(DatGPostingDate, PostingDate) THEN
+        if not EVALUATE(DatGPostingDate, PostingDate) then
             currXMLport.SKIP();
         RecGGenJournalLine.VALIDATE("Posting Date", DatGPostingDate);
-
         RecGGenJournalLine.VALIDATE("Document No.", DocumentNo);
         RecGGenJournalLine.VALIDATE("Account Type", RecGGenJournalLine."Account Type"::"G/L Account");
         RecGGenJournalLine.VALIDATE("Account No.", AccountNo);
-
         EVALUATE(DecGAmount, Amount);
-        CASE UPPERCASE(AmountDirection) OF
+        case UPPERCASE(AmountDirection) of
             'C':
                 RecGGenJournalLine.VALIDATE("Credit Amount", DecGAmount);
             'D':
                 RecGGenJournalLine.VALIDATE("Debit Amount", DecGAmount);
-        END;
+        end;
 
         RecGGenJournalLine.VALIDATE(Description, EntryDescription);
-
-        IF (CurrencyCode <> '') AND (UPPERCASE(CurrencyCode) <> RecGGeneralLedgerSetup."LCY Code") THEN
+        if (CurrencyCode <> '') and (UPPERCASE(CurrencyCode) <> RecGGeneralLedgerSetup."LCY Code") then
             RecGGenJournalLine.VALIDATE("Currency Code", CurrencyCode);
-
-
-        RecGGenJournalLine.VALIDATE(Description, CduLAnsiAscii.Ansi2Ascii(COPYSTR(EntryDescription, 1, 50)));
-        //RecGGenJournalLine.VALIDATE("External Document No.",COPYSTR(ExternalDocumentNo,1,35));
-
-        RecGGenJournalLine.MODIFY(TRUE);
-        //<<FE002.001
-
-        IF AccountType = 'A' THEN
+        RecGGenJournalLine.VALIDATE(Description, (COPYSTR(EntryDescription, 1, 50)));
+        RecGGenJournalLine.MODIFY(true);
+        if AccountType = 'A' then
             ModifyGenJournalLine();
-
     end;
 
     local procedure ModifyGenJournalLine()
     var
-        DimMgt: Codeunit DimensionManagement;
+        DimMgt: codeunit DimensionManagement;
         CodLDimValue: Code[20];
         IntLDimNo: Integer;
     begin
         IntLDimNo := 0;
         CodLDimValue := '';
 
-        CASE UPPERCASE(Dimension) OF
+        case UPPERCASE(Dimension) of
             '01':
-                BEGIN
+                begin
                     IntLDimNo := GetGLDimensionNo(RecGGS1Setup."Payroll Shortcut Dim. 1 Code");
                     CodLDimValue := GetDimValueCorresp(RecGGS1Setup."Payroll Shortcut Dim. 1 Code", DimensionValue);
-                END;
+                end;
             '02':
-                BEGIN
+                begin
                     IntLDimNo := GetGLDimensionNo(RecGGS1Setup."Payroll Shortcut Dim. 2 Code");
                     CodLDimValue := GetDimValueCorresp(RecGGS1Setup."Payroll Shortcut Dim. 2 Code", DimensionValue);
-                END;
+                end;
             '03':
-                BEGIN
+                begin
                     IntLDimNo := GetGLDimensionNo(RecGGS1Setup."Payroll Shortcut Dim. 3 Code");
                     CodLDimValue := GetDimValueCorresp(RecGGS1Setup."Payroll Shortcut Dim. 3 Code", DimensionValue);
-                END;
+                end;
             '04':
-                BEGIN
+                begin
                     IntLDimNo := GetGLDimensionNo(RecGGS1Setup."Payroll Shortcut Dim. 4 Code");
                     CodLDimValue := GetDimValueCorresp(RecGGS1Setup."Payroll Shortcut Dim. 4 Code", DimensionValue);
-                END;
-        END;
+                end;
+        end;
 
-        IF (IntLDimNo <> 0) AND (CodLDimValue <> '') THEN BEGIN
+        if (IntLDimNo <> 0) and (CodLDimValue <> '') then begin
             DimMgt.ValidateShortcutDimValues(IntLDimNo, CodLDimValue, RecGGenJournalLine."Dimension Set ID");
             DimMgt.UpdateGenJnlLineDim(RecGGenJournalLine, RecGGenJournalLine."Dimension Set ID");
-            RecGGenJournalLine.MODIFY(TRUE);
-        END;
+            RecGGenJournalLine.MODIFY(true);
+        end;
     end;
 
     local procedure GetGLDimensionNo(CodPDim: Code[20]): Integer
@@ -377,28 +299,27 @@ xmlport 50001 "BC6_Payroll Import"
         RecLDimValue: Record "Dimension Value";
     begin
         RecLDimValue.SETRANGE("Dimension Code", CodPDim);
-        IF RecLDimValue.FINDFIRST() THEN
-            EXIT(RecLDimValue."Global Dimension No.");
-        EXIT(0);
+        if RecLDimValue.FINDFIRST() then
+            exit(RecLDimValue."Global Dimension No.");
+        exit(0);
     end;
 
     local procedure GetDimValueCorresp(CodPDim: Code[20]; CodPDimValue: Code[20]): Code[20]
     var
+        RecLCorresp: Record "BC6_File Import Dim. Corresp.";
         RecLDimValue: Record "Dimension Value";
-        RecLCorresp: Record "File Import Dimension Corresp.";
     begin
         RecLCorresp.RESET();
         RecLCorresp.SETRANGE("Import Type", RecLCorresp."Import Type"::Payroll);
         RecLCorresp.SETRANGE("Dimension Code", CodPDim);
         RecLCorresp.SETRANGE("File Value Code", CodPDimValue);
-        IF RecLCorresp.FINDFIRST() THEN
-            IF RecLDimValue.GET(CodPDim, RecLCorresp."NAV Value Code") THEN
-                EXIT(RecLCorresp."NAV Value Code");
+        if RecLCorresp.FINDFIRST() then
+            if RecLDimValue.GET(CodPDim, RecLCorresp."NAV Value Code") then
+                exit(RecLCorresp."NAV Value Code");
 
-        IF RecLDimValue.GET(CodPDim, CodPDimValue) THEN
-            EXIT(CodPDimValue);
+        if RecLDimValue.GET(CodPDim, CodPDimValue) then
+            exit(CodPDimValue);
 
-        EXIT('');
+        exit('');
     end;
 }
-

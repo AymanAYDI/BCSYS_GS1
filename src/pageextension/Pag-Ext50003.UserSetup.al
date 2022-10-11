@@ -4,10 +4,10 @@ pageextension 50003 "BC6_UserSetup" extends "User Setup"
     {
         addafter("User ID")
         {
-            field("BC6_Allow Yooz Import"; Rec."BC6_Allow Yooz Import") { }
-
+            field("BC6_Allow Yooz Import"; Rec."BC6_Allow Yooz Import")
+            {
+                ApplicationArea = All;
+            }
         }
-
-
     }
 }

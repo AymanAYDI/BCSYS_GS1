@@ -1,4 +1,4 @@
-page 80054 "BC6_Import/Export GS1"
+page 50115 "BC6_Import/Export GS1"
 {
     ApplicationArea = All;
     Caption = 'Import/Export GS1', Comment = 'FRA="Import/Export GS1"';
@@ -22,19 +22,6 @@ page 80054 "BC6_Import/Export GS1"
                     group("Group Caption")
                     {
                         ShowCaption = false;
-                        field("Interface YOOZ"; PageLbl)
-                        {
-                            Caption = 'Interface YOOZ', Comment = 'FRA="Interface YOOZ"';
-                            ApplicationArea = All;
-                            Editable = false;
-                            ShowCaption = false;
-                            Style = StrongAccent;
-                            StyleExpr = true;
-                            trigger OnDrillDown()
-                            begin
-                                Page.Run(50111);
-                            end;
-                        }
                         field("Expense Import"; XmlPort1Lbl)
                         {
                             Caption = 'Expense Import', Comment = 'FRA="Import note de frais"';
@@ -44,8 +31,11 @@ page 80054 "BC6_Import/Export GS1"
                             Style = StrongAccent;
                             StyleExpr = true;
                             trigger OnDrillDown()
+                            var
+                                ExpenseImport: xmlport "BC6_Expense Import";
                             begin
-                                Xmlport.Run(50000, true, True);
+                                ExpenseImport.TextEncoding := TextEncoding::Windows;
+                                ExpenseImport.Run();
                             end;
                         }
                         field("Payroll Import"; XmlPort2Lbl)
@@ -57,8 +47,11 @@ page 80054 "BC6_Import/Export GS1"
                             Style = StrongAccent;
                             StyleExpr = true;
                             trigger OnDrillDown()
+                            var
+                                PayrollImport: xmlport "BC6_Payroll Import";
                             begin
-                                Xmlport.Run(50001, false, true);
+                                PayrollImport.TextEncoding := TextEncoding::Windows;
+                                PayrollImport.Run();
                             end;
                         }
                         field("ECF Sage Export"; ReportLbl)
@@ -80,10 +73,9 @@ page 80054 "BC6_Import/Export GS1"
         }
     }
 
-    VAR
+    var
 
-        PageLbl: Label 'Interface YOOZ...', Comment = 'FRA="Interface YOOZ"';
-        XmlPort1Lbl: Label 'Expense Import...', Comment = 'FRA="Import note de frais"';
-        XmlPort2Lbl: Label 'Payroll Import...', Comment = 'FRA="Import paie"';
-        ReportLbl: Label 'ECF Sage Export...', Comment = 'FRA="Export vers ECF Sage"';
+        XmlPort1Lbl: label 'Expense Import...', Comment = 'FRA="Import note de frais"';
+        XmlPort2Lbl: label 'Payroll Import...', Comment = 'FRA="Import paie"';
+        ReportLbl: label 'ECF Sage Export...', Comment = 'FRA="Export vers ECF Sage"';
 }

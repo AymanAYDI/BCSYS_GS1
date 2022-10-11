@@ -9,5 +9,4 @@ enum 50009 "BC6_Account Type"
 
     value(2; "Vendor") { Caption = 'Vendor'; }
     value(3; "Dimension") { Caption = 'Dimension'; }
-
 }

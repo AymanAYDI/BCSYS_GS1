@@ -3,9 +3,9 @@ page 50111 "BC6_YOOZ Import Journal"
     Caption = 'YOOZ Import Journal', Comment = 'FRA="Journal d''import YOOZ"';
     PageType = Worksheet;
     SourceTable = "BC6_YOOZ import Buffer";
-    SourceTableView = WHERE("Import Type" = CONST(YOOZ), Status = FILTER(< Post));
+    SourceTableView = where("Import Type" = const(YOOZ), Status = filter(< Post));
     ApplicationArea = all;
-    UsageCategory = Lists;
+    UsageCategory = Tasks;
 
     layout
     {
@@ -150,7 +150,7 @@ page 50111 "BC6_YOOZ Import Journal"
             part(YOOZ; "BC6_YOOZ Error Log")
             {
                 ApplicationArea = All;
-                SubPageLink = "Entry No." = FIELD("Entry No.");
+                SubPageLink = "Entry No." = field("Entry No.");
             }
         }
     }
@@ -193,7 +193,6 @@ page 50111 "BC6_YOOZ Import Journal"
                     Caption = 'Transfer to General Journal', Comment = 'FRA="Transférer en feuille compta"';
                     Image = TransferToLines;
                     RunObject = report "BC6_Trans. YOOZ Gen. Jnl.";
-
                 }
                 action("General Journal")
                 {
@@ -203,10 +202,8 @@ page 50111 "BC6_YOOZ Import Journal"
                     Caption = 'General Journal', Comment = 'FRA="Feuille Compta"';
                     Image = Journal;
                     RunObject = page "General Journal";
-                    RunPageView = WHERE("Journal Template Name" = CONST('ACH-YOOZ'), "Journal Batch Name" = CONST('YOOZ'));
-
+                    RunPageView = where("Journal Template Name" = const('ACH-YOOZ'), "Journal Batch Name" = const('YOOZ'));
                 }
-
                 action("Delete import")
                 {
                     Promoted = true;
@@ -223,15 +220,13 @@ page 50111 "BC6_YOOZ Import Journal"
         }
     }
 
-
     trigger OnOpenPage()
     begin
         UserSetup.GET(USERID);
         UserSetup.TESTFIELD("BC6_Allow Yooz Import");
     end;
 
-
     var
         UserSetup: Record "User Setup";
-        YOOZMgt: Codeunit "BC6_YOOZ Management";
+        YOOZMgt: codeunit "BC6_YOOZ Management";
 }

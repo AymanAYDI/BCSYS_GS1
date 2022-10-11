@@ -3,7 +3,7 @@ page 50112 "BC6_YOOZ Import Archive"
     Caption = 'YOOZ Import Archive', Comment = 'FRA="Archives des imports YOOZ"';
     PageType = List;
     SourceTable = "BC6_YOOZ import Buffer";
-    SourceTableView = WHERE("Import Type" = CONST(YOOZ), Status = CONST(Post));
+    SourceTableView = where("Import Type" = const(YOOZ), Status = const(Post));
     ApplicationArea = all;
     UsageCategory = Lists;
 
@@ -157,6 +157,7 @@ page 50112 "BC6_YOOZ Import Archive"
                 {
                     Promoted = true;
                     PromotedCategory = Process;
+                    PromotedOnly = true;
                     ApplicationArea = All;
                     Caption = 'Cancel', Comment = 'FRA="Annuler archivage"';
                     Image = ChangeStatus;
@@ -176,5 +177,5 @@ page 50112 "BC6_YOOZ Import Archive"
 
     var
         UserSetup: Record "User Setup";
-        YOOZMgt: Codeunit "BC6_YOOZ Management";
+        YOOZMgt: codeunit "BC6_YOOZ Management";
 }

@@ -164,8 +164,8 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
 
         IF TempEmailAttachmentType.FINDSET() THEN
             REPEAT
-                WebApiDocumentsMgt.SaveDocument(Customer."No.", Customer.GLN, Customer."BC6_Company ID", Customer."BC6_SIREN/SIRET", 'Dynamics NAV', TempEmailAttachmentType."File Path", TRUE, FileManagement.GetFileName(TempEmailAttachmentType."File Path"), '', TempEmailAttachmentType."WebApi Type", TempEmailAttachmentType."WebApi Sub Type", DocumentNo);
-                FileManagement.DeleteServerFile(TempEmailAttachmentType."File Path");
+            // WebApiDocumentsMgt.SaveDocument(Customer."No.", Customer.GLN, Customer."BC6_Company ID", Customer."BC6_SIREN/SIRET", 'Dynamics NAV', TempEmailAttachmentType."File Path", TRUE, FileManagement.GetFileName(TempEmailAttachmentType."File Path"), '', TempEmailAttachmentType."WebApi Type", TempEmailAttachmentType."WebApi Sub Type", DocumentNo);
+            // FileManagement.DeleteServerFile(TempEmailAttachmentType."File Path");
             UNTIL TempEmailAttachmentType.NEXT() = 0;
 
     end;
@@ -237,34 +237,34 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
             ExportFormat := REPORTFORMAT::Pdf;
         END;
 
-        ServerTempFilePath := FileManagement.ServerTempFileName(FileExtension);
-        IF ReportSaveAs(EmailAttachTypeTranslation."Report ID", ExportFormat, ServerTempFilePath, RecRef, EmailAttachTypeTranslation."Custom Report Layout Code") THEN BEGIN
-            CASE EmailAttachmentType."File Naming" OF
-                EmailAttachmentType."File Naming"::Invoice:
-                    BEGIN
-                        RecRef.SETTABLE(SalesInvoiceHeader);
-                        ServerFilePath := FileManagement.CombinePath(FileManagement.GetDirectoryName(ServerTempFilePath),
-                            STRSUBSTNO('GS1_%1_%2.%3', FORMAT(SalesInvoiceHeader."Posting Date", 0, '<Day,2>-<Month,2>-<Year4>'), SalesInvoiceHeader."No.", FileExtension));
-                    END;
-                EmailAttachmentType."File Naming"::"Credit Memo":
-                    BEGIN
-                        RecRef.SETTABLE(SalesCrMemoHeader);
-                        ServerFilePath := FileManagement.CombinePath(FileManagement.GetDirectoryName(ServerTempFilePath),
-                            STRSUBSTNO('GS1_%1_%2.%3', FORMAT(SalesCrMemoHeader."Posting Date", 0, '<Day,2>-<Month,2>-<Year4>'), SalesCrMemoHeader."No.", FileExtension));
-                    END;
-                EmailAttachmentType."File Naming"::Customer:
-                    ServerFilePath := FileManagement.CombinePath(FileManagement.GetDirectoryName(ServerTempFilePath), STRSUBSTNO('%1 - %2.%3', EmailAttachTypeTranslation.Description, CustomerNo, FileExtension));
-                ELSE
-                    ServerFilePath := FileManagement.CombinePath(FileManagement.GetDirectoryName(ServerTempFilePath), STRSUBSTNO('%1 - %2.%3', EmailAttachTypeTranslation.Description, DocumentNo, FileExtension));
-            END;
-            FileManagement.CopyServerFile(ServerTempFilePath, ServerFilePath, TRUE);
-            FileManagement.DeleteServerFile(ServerTempFilePath);
-            TempEmailAttachmentType := EmailAttachmentType;
-            TempEmailAttachmentType."File Path" := CopyStr(ServerFilePath, 1, MaxStrLen(TempEmailAttachmentType."File Path"));
-            TempEmailAttachmentType.INSERT();
-        END ELSE
-            ERROR(GETLASTERRORTEXT);
-        EXIT(ServerFilePath);
+        // ServerTempFilePath := FileManagement.ServerTempFileName(FileExtension);
+        // IF ReportSaveAs(EmailAttachTypeTranslation."Report ID", ExportFormat, ServerTempFilePath, RecRef, EmailAttachTypeTranslation."Custom Report Layout Code") THEN BEGIN
+        //     CASE EmailAttachmentType."File Naming" OF
+        //         EmailAttachmentType."File Naming"::Invoice:
+        //             BEGIN
+        //                 RecRef.SETTABLE(SalesInvoiceHeader);
+        //                 ServerFilePath := FileManagement.CombinePath(FileManagement.GetDirectoryName(ServerTempFilePath),
+        //                     STRSUBSTNO('GS1_%1_%2.%3', FORMAT(SalesInvoiceHeader."Posting Date", 0, '<Day,2>-<Month,2>-<Year4>'), SalesInvoiceHeader."No.", FileExtension));
+        //             END;
+        //         EmailAttachmentType."File Naming"::"Credit Memo":
+        //             BEGIN
+        //                 RecRef.SETTABLE(SalesCrMemoHeader);
+        //                 ServerFilePath := FileManagement.CombinePath(FileManagement.GetDirectoryName(ServerTempFilePath),
+        //                     STRSUBSTNO('GS1_%1_%2.%3', FORMAT(SalesCrMemoHeader."Posting Date", 0, '<Day,2>-<Month,2>-<Year4>'), SalesCrMemoHeader."No.", FileExtension));
+        //             END;
+        //         EmailAttachmentType."File Naming"::Customer:
+        //             ServerFilePath := FileManagement.CombinePath(FileManagement.GetDirectoryName(ServerTempFilePath), STRSUBSTNO('%1 - %2.%3', EmailAttachTypeTranslation.Description, CustomerNo, FileExtension));
+        //         ELSE
+        //             ServerFilePath := FileManagement.CombinePath(FileManagement.GetDirectoryName(ServerTempFilePath), STRSUBSTNO('%1 - %2.%3', EmailAttachTypeTranslation.Description, DocumentNo, FileExtension));
+        //     END;
+        //     FileManagement.CopyServerFile(ServerTempFilePath, ServerFilePath, TRUE);
+        //     FileManagement.DeleteServerFile(ServerTempFilePath);
+        //     TempEmailAttachmentType := EmailAttachmentType;
+        //     TempEmailAttachmentType."File Path" := CopyStr(ServerFilePath, 1, MaxStrLen(TempEmailAttachmentType."File Path"));
+        //     TempEmailAttachmentType.INSERT();
+        // END ELSE
+        //     ERROR(GETLASTERRORTEXT);
+        // EXIT(ServerFilePath);
     end;
 
     local procedure GetEmailModelCode(TableNo: Integer; DocumentTitle: Code[10]): Code[20]
@@ -302,7 +302,7 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
         TempBlob: Codeunit "Temp Blob";
         OutStr: OutStream;
     begin
-        FileManagement.DeleteServerFile(ServerFilePath);
+        // FileManagement.DeleteServerFile(ServerFilePath);
         TempBlob.CreateOutStream(OutStr);
         RecRef.SETRECFILTER();
 
@@ -310,7 +310,7 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
         Success := REPORT.SAVEAS(ReportID, '', ExportFormat, OutStr, RecRef);
         ReportLayoutSelection.SetTempLayoutSelected('');
 
-        FileManagement.BLOBExportToServerFile(TempBlob, ServerFilePath);
+        // FileManagement.BLOBExportToServerFile(TempBlob, ServerFilePath);
     end;
 
     procedure SetGlobalParameters(RecID: RecordID; EmailModelCode: Code[20])
@@ -394,74 +394,74 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
         FileManagement: Codeunit "File Management";
         TempBlob: Codeunit "Temp Blob";
         RecRef: RecordRef;
-        [RunOnClient]
-        WordApplication: DotNet ApplicationClass;
-        [RunOnClient]
-        WordDocument: DotNet Document;
-        [RunOnClient]
-        WdSaveFormat: DotNet WdSaveFormat;
-        [RunOnClient]
-        WdWindowState: DotNet WdWindowState;
-        [RunOnClient]
-        WordHandler: DotNet WordHandler;
-        [RunOnClient]
-        WordHelper: DotNet WordHelper;
+        // [RunOnClient]
+        // WordApplication: DotNet ApplicationClass;
+        // [RunOnClient]
+        // WordDocument: DotNet Document;
+        // [RunOnClient]
+        // WdSaveFormat: DotNet WdSaveFormat;
+        // [RunOnClient]
+        // WdWindowState: DotNet WdWindowState;
+        // [RunOnClient]
+        // WordHandler: DotNet WordHandler;
+        // [RunOnClient]
+        // WordHelper: DotNet WordHelper;
         ErrorMessage: Text;
         FilePath: Text;
         NewFilePath: Text;
     begin
-        EmailModel.GET(LanguageTemplateMail."Parameter String");
+        // EmailModel.GET(LanguageTemplateMail."Parameter String");
 
-        WordApplication := WordHelper.GetApplication(ErrorMessage);
-        IF ISNULL(WordApplication) THEN
-            ERROR(ErrorMessage);
+        // // WordApplication := WordHelper.GetApplication(ErrorMessage);
+        // // IF ISNULL(WordApplication) THEN
+        // //     ERROR(ErrorMessage);
 
-        LanguageTemplateMail.CALCFIELDS("Template mail");
-        IF LanguageTemplateMail."Template mail".HASVALUE THEN BEGIN
-            TempBlob.FromRecord(LanguageTemplateMail, LanguageTemplateMail.FieldNo("Template mail"));
+        // LanguageTemplateMail.CALCFIELDS("Template mail");
+        // IF LanguageTemplateMail."Template mail".HASVALUE THEN BEGIN
+        //     TempBlob.FromRecord(LanguageTemplateMail, LanguageTemplateMail.FieldNo("Template mail"));
 
-            FilePath := FileManagement.BLOBExport(TempBlob, 'Temp.htm', FALSE);
-        END ELSE BEGIN
-            FilePath := FileManagement.ClientTempFileName('htm');
-            WordDocument := WordHelper.AddDocument(WordApplication);
-            WordHelper.CallSaveAsFormat(WordDocument, FilePath, WdSaveFormat.wdFormatFilteredHTML);
-        END;
+        //     FilePath := FileManagement.BLOBExport(TempBlob, 'Temp.htm', FALSE);
+        // END ELSE BEGIN
+        //     FilePath := FileManagement.ClientTempFileName('htm');
+        //     WordDocument := WordHelper.AddDocument(WordApplication);
+        //     WordHelper.CallSaveAsFormat(WordDocument, FilePath, WdSaveFormat.wdFormatFilteredHTML);
+        // END;
 
-        // Open word and wait for the document to be closed
-        WordHandler := WordHandler.WordHandler;
-        WordDocument := WordHelper.CallOpen(WordApplication, FilePath, FALSE, FALSE);
-        WordDocument.ActiveWindow.Caption := EmailModel.Description;
-        WordDocument.Application.Visible := TRUE; // Visible before WindowState KB176866 - http://support.microsoft.com/kb/176866
-        WordDocument.ActiveWindow.WindowState := WdWindowState.wdWindowStateNormal;
+        // // Open word and wait for the document to be closed
+        // WordHandler := WordHandler.WordHandler;
+        // WordDocument := WordHelper.CallOpen(WordApplication, FilePath, FALSE, FALSE);
+        // WordDocument.ActiveWindow.Caption := EmailModel.Description;
+        // WordDocument.Application.Visible := TRUE; // Visible before WindowState KB176866 - http://support.microsoft.com/kb/176866
+        // WordDocument.ActiveWindow.WindowState := WdWindowState.wdWindowStateNormal;
 
-        // Push the word app to foreground
-        WordApplication.WindowState := WdWindowState.wdWindowStateMinimize;
-        WordApplication.Visible := TRUE;
-        WordApplication.Activate;
-        WordApplication.WindowState := WdWindowState.wdWindowStateNormal;
-        WordDocument.Saved := TRUE;
-        WordDocument.Application.Activate;
+        // // Push the word app to foreground
+        // WordApplication.WindowState := WdWindowState.wdWindowStateMinimize;
+        // WordApplication.Visible := TRUE;
+        // WordApplication.Activate;
+        // WordApplication.WindowState := WdWindowState.wdWindowStateNormal;
+        // WordDocument.Saved := TRUE;
+        // WordDocument.Application.Activate;
 
-        NewFilePath := WordHandler.WaitForDocument(WordDocument);
-        CLEAR(WordApplication);
+        // NewFilePath := WordHandler.WaitForDocument(WordDocument);
+        // CLEAR(WordApplication);
 
-        IF CONFIRM(ConstLoadDocQuestion) THEN BEGIN
-            FileManagement.BLOBImport(TempBlob, NewFilePath);
+        // IF CONFIRM(ConstLoadDocQuestion) THEN BEGIN
+        //     FileManagement.BLOBImport(TempBlob, NewFilePath);
 
-            // LanguageTemplateMail."Template mail" := TempBlob.Blob;
-            RecRef.GetTable(LanguageTemplateMail);
-            TempBlob.ToRecordRef(RecRef, LanguageTemplateMail.FieldNo("Template mail"));
-            RecRef.SetTable(LanguageTemplateMail);
+        //     // LanguageTemplateMail."Template mail" := TempBlob.Blob;
+        //     RecRef.GetTable(LanguageTemplateMail);
+        //     TempBlob.ToRecordRef(RecRef, LanguageTemplateMail.FieldNo("Template mail"));
+        //     RecRef.SetTable(LanguageTemplateMail);
 
-            LanguageTemplateMail.MODIFY();
-        END;
+        //     LanguageTemplateMail.MODIFY();
+        // END;
 
-        FileManagement.DeleteClientFile(FilePath);
-        IF FilePath <> NewFilePath THEN
-            FileManagement.DeleteClientFile(NewFilePath);
+        // FileManagement.DeleteClientFile(FilePath);
+        // IF FilePath <> NewFilePath THEN
+        //     FileManagement.DeleteClientFile(NewFilePath);
 
-        WordHandler.Dispose;
-        CLEAR(WordHandler);
+        // WordHandler.Dispose;
+        // CLEAR(WordHandler);
     end;
 
 }

@@ -4,5 +4,4 @@ enum 50008 "BC6_Import Type"
     Caption = 'Import Type';
 
     value(0; "YOOZ") { Caption = 'YOOZ'; }
-
 }

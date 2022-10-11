@@ -1,20 +1,11 @@
 xmlport 50000 "BC6_Expense Import"
 {
-    // +----------------------------------------------------------------------------------------------------------------+
-    // | ProdWare - GS1                                                                                                 |
-    // | http://www.prodware.fr                                                                                         |
-    // |                                                                                                                |
-    // +----------------------------------------------------------------------------------------------------------------+
-    // 
-    //       - FED-01: Import NDF
-    // 
-    // +----------------------------------------------------------------------------------------------------------------+
-
     Caption = 'Expense Import', Comment = 'FRA="Import note de frais"';
     Direction = Import;
     FieldDelimiter = '<None>';
     FieldSeparator = '<TAB>';
     Format = VariableText;
+    UseRequestPage = true;
     schema
     {
         textelement(root)
@@ -82,57 +73,40 @@ xmlport 50000 "BC6_Expense Import"
 
                 trigger OnAfterInsertRecord()
                 begin
-                    //>>FE001.001
-                    CASE UPPERCASE(PostingType) OF
+                    case UPPERCASE(PostingType) of
                         'G':
                             InsertGenJournalLine();
                         'A':
                             ModifyGenJournalLine();
-                    END;
-                    //<<FE001.001
+                    end;
                 end;
             }
         }
     }
 
-    requestpage
-    {
-
-        layout
-        {
-        }
-
-        actions
-        {
-        }
-    }
-
     trigger OnPostXmlPort()
     begin
-        //>>FE001.001
-        IF (RecGGenJournalLine.COUNT > 0) THEN BEGIN
-            IF NOT CONFIRM(
+        if (RecGGenJournalLine.COUNT > 0) then begin
+            if not CONFIRM(
               STRSUBSTNO(
                 CstG004,
                   RecGGenJournalLine.FIELDCAPTION("Journal Template Name"),
                   RecGGS1Setup."Expense Journal Template Name",
                   RecGGenJournalLine.FIELDCAPTION("Journal Batch Name"),
                   RecGGS1Setup."Expense Journal Batch Name"))
-            THEN
+            then
                 MESSAGE(CstG005)
-            ELSE
+            else
                 PAGE.RUN(RecGGenJournalTemplate."Page ID", RecGGenJournalLine);
-        END ELSE
+        end else
             MESSAGE(CstG006);
-        //<<FE001.001
     end;
 
     trigger OnPreXmlPort()
     begin
-        //>>FE001.001
         TxtGFilename := FileManagement.GetFileName(currXMLport.FILENAME);
 
-        IF NOT CONFIRM(STRSUBSTNO(CstG001, TxtGFilename)) THEN
+        if not CONFIRM(STRSUBSTNO(CstG001, TxtGFilename)) then
             ERROR(CstG002);
 
         RecGGLSetup.GET();
@@ -145,29 +119,24 @@ xmlport 50000 "BC6_Expense Import"
 
         RecGGenJournalTemplate.GET(RecGGS1Setup."Expense Journal Template Name");
         RecGGenJournalTemplate.TESTFIELD("Page ID");
-        //RecGGenJournalTemplate.TESTFIELD("Source Code");
-
         RecGGenJournalBatch.GET(RecGGS1Setup."Expense Journal Template Name", RecGGS1Setup."Expense Journal Batch Name");
         RecGGenJournalBatch.TESTFIELD("No. Series");
-        //RecGGenJournalBatch.TESTFIELD("Posting No. Series");
-
         RecGGenJournalLine.SETRANGE("Journal Template Name", RecGGS1Setup."Expense Journal Template Name");
         RecGGenJournalLine.SETRANGE("Journal Batch Name", RecGGS1Setup."Expense Journal Batch Name");
-        IF NOT RecGGenJournalLine.ISEMPTY THEN BEGIN
-            IF NOT CONFIRM(STRSUBSTNO(
+        if not RecGGenJournalLine.ISEMPTY then begin
+            if not CONFIRM(STRSUBSTNO(
                 CstG007,
                 RecGGenJournalLine.FIELDCAPTION("Journal Template Name"),
                 RecGGS1Setup."Expense Journal Template Name",
                 RecGGenJournalLine.FIELDCAPTION("Journal Batch Name"),
-                RecGGS1Setup."Expense Journal Batch Name")) THEN
+                RecGGS1Setup."Expense Journal Batch Name")) then
                 ERROR('');
             RecGGenJournalLine.DELETEALL();
-        END;
+        end;
 
         COMMIT();
         CodGDocumentNo := CduGNoSeriesManagement.TryGetNextNo(RecGGenJournalBatch."No. Series", WORKDATE());
         CLEAR(IntGLineNo);
-        //<<FE001.001
     end;
 
     var
@@ -176,36 +145,33 @@ xmlport 50000 "BC6_Expense Import"
         RecGGenJournalLine: Record "Gen. Journal Line";
         RecGGenJournalTemplate: Record "Gen. Journal Template";
         RecGGLSetup: Record "General Ledger Setup";
-        FileManagement: Codeunit "File Management";
-        CduGNoSeriesManagement: Codeunit NoSeriesManagement;
+        FileManagement: codeunit "File Management";
+        CduGNoSeriesManagement: codeunit NoSeriesManagement;
         TxtGFilename: Text;
         CodGDocumentNo: Code[20];
         DatGPostingDate: Date;
         DecGAmount: Decimal;
         IntGLineNo: Integer;
-        CstG001: Label 'Import file %1 ?', Comment = 'FRA="Importer le fichier %1 ?"';
-        CstG002: Label 'Operation canceled.', Comment = 'FRA="Opération annulée."';
-        CstG004: Label 'Open %1 %2 %3 %4 ?', Comment = 'FRA="Ouvrir %1 %2 %3 %4 ?"';
-        CstG005: Label 'Operation completed.', Comment = 'FRA="Opération terminée."';
-        CstG006: Label 'No lines have been integrated.', Comment = 'FRA="Aucune ligne n''a été intégrée."';
-        CstG007: Label '%1 %2 %3 %4 contains unposted lines.', Comment = 'FRA="%1 %2 %3 %4 contient des lignes non validées. Voulez-vous les supprimer ?"';
+        CstG001: label 'Import file %1 ?', Comment = 'FRA="Importer le fichier %1 ?"';
+        CstG002: label 'Operation canceled.', Comment = 'FRA="Opération annulée."';
+        CstG004: label 'Open %1 %2 %3 %4 ?', Comment = 'FRA="Ouvrir %1 %2 %3 %4 ?"';
+        CstG005: label 'Operation completed.', Comment = 'FRA="Opération terminée."';
+        CstG006: label 'No lines have been integrated.', Comment = 'FRA="Aucune ligne n''a été intégrée."';
+        CstG007: label '%1 %2 %3 %4 contains unposted lines.', Comment = 'FRA="%1 %2 %3 %4 contient des lignes non validées. Voulez-vous les supprimer ?"';
 
     local procedure InsertGenJournalLine()
     var
         RecLBankAccount: Record "Bank Account";
         RecLGLAccount: Record "G/L Account";
         RecLSourceCode: Record "Source Code";
-        CduLAnsiAscii: Codeunit "BC6_Convert Ansi-Ascii Manag";
-
     begin
-        //>>FE001.001
         IntGLineNo := IntGLineNo + 10000;
 
         RecGGenJournalLine.INIT();
         RecGGenJournalLine.VALIDATE("Journal Template Name", RecGGS1Setup."Expense Journal Template Name");
         RecGGenJournalLine.VALIDATE("Journal Batch Name", RecGGS1Setup."Expense Journal Batch Name");
         RecGGenJournalLine.VALIDATE("Line No.", IntGLineNo);
-        RecGGenJournalLine.INSERT(TRUE);
+        RecGGenJournalLine.INSERT(true);
 
         RecLSourceCode.GET(SourceCode);
         RecGGenJournalLine.VALIDATE("Source Code", SourceCode);
@@ -215,70 +181,65 @@ xmlport 50000 "BC6_Expense Import"
 
         RecGGenJournalLine.VALIDATE("Document No.", CodGDocumentNo);
 
-        IF COPYSTR(AccountNo, 1, 2) = '51' THEN BEGIN
+        if COPYSTR(AccountNo, 1, 2) = '51' then begin
             RecLBankAccount.GET(AccountNo);
             RecGGenJournalLine.VALIDATE("Account Type", RecGGenJournalLine."Account Type"::"Bank Account");
-        END ELSE BEGIN
+        end else begin
             RecLGLAccount.GET(AccountNo);
             RecGGenJournalLine.VALIDATE("Account Type", RecGGenJournalLine."Account Type"::"G/L Account");
-        END;
+        end;
         RecGGenJournalLine.VALIDATE("Account No.", AccountNo);
 
         EVALUATE(DecGAmount, Amount);
-        CASE UPPERCASE(AmountDirection) OF
+        case UPPERCASE(AmountDirection) of
             'C':
                 RecGGenJournalLine.VALIDATE("Credit Amount", DecGAmount);
             'D':
                 RecGGenJournalLine.VALIDATE("Debit Amount", DecGAmount);
-        END;
+        end;
 
-        RecGGenJournalLine.VALIDATE(Description, CduLAnsiAscii.Ansi2Ascii(COPYSTR(PostingDescription, 1, 50)));
+        RecGGenJournalLine.VALIDATE(Description, COPYSTR(PostingDescription, 1, 50));
         RecGGenJournalLine.VALIDATE("External Document No.", COPYSTR(ExternalDocumentNo, 1, 35));
-        RecGGenJournalLine.MODIFY(TRUE);
-        //<<FE001.001
+        RecGGenJournalLine.MODIFY(true);
     end;
 
     local procedure ModifyGenJournalLine()
     var
-        DimMgt: Codeunit DimensionManagement;
+        DimMgt: codeunit DimensionManagement;
         CodLDimValue: Code[20];
         IntLDimNo: Integer;
     begin
-        //>>FE001.001
         IntLDimNo := 0;
         CodLDimValue := '';
 
-        CASE UPPERCASE(Dimension) OF
+        case UPPERCASE(Dimension) of
             '01':
-                BEGIN
+                begin
                     IntLDimNo := GetGLDimensionNo(RecGGS1Setup."Expense Shortcut Dim. 1 Code");
                     CodLDimValue := GetDimValueCorresp(RecGGS1Setup."Expense Shortcut Dim. 1 Code", DimensionValue);
-                END;
+                end;
             '02':
-                BEGIN
+                begin
                     IntLDimNo := GetGLDimensionNo(RecGGS1Setup."Expense Shortcut Dim. 2 Code");
                     CodLDimValue := GetDimValueCorresp(RecGGS1Setup."Expense Shortcut Dim. 2 Code", DimensionValue);
-                END;
+                end;
             '03':
-                BEGIN
+                begin
                     IntLDimNo := GetGLDimensionNo(RecGGS1Setup."Expense Shortcut Dim. 3 Code");
                     CodLDimValue := GetDimValueCorresp(RecGGS1Setup."Expense Shortcut Dim. 3 Code", DimensionValue);
-                END;
+                end;
             '04':
-                BEGIN
+                begin
                     IntLDimNo := GetGLDimensionNo(RecGGS1Setup."Expense Shortcut Dim. 4 Code");
                     CodLDimValue := GetDimValueCorresp(RecGGS1Setup."Expense Shortcut Dim. 4 Code", DimensionValue);
-                END;
-        //RecGGS1Setup."Expense Shortcut Dim. 1 Code" : RecGGenJournalLine.VALIDATE("Shortcut Dimension 1 Code",DimensionValue);
-        //RecGGS1Setup."Expense Shortcut Dim. 2 Code" : RecGGenJournalLine.VALIDATE("Shortcut Dimension 2 Code",DimensionValue);
-        END;
+                end;
+        end;
 
-        IF (IntLDimNo <> 0) AND (CodLDimValue <> '') THEN BEGIN
+        if (IntLDimNo <> 0) and (CodLDimValue <> '') then begin
             DimMgt.ValidateShortcutDimValues(IntLDimNo, CodLDimValue, RecGGenJournalLine."Dimension Set ID");
             DimMgt.UpdateGenJnlLineDim(RecGGenJournalLine, RecGGenJournalLine."Dimension Set ID");
-            RecGGenJournalLine.MODIFY(TRUE);
-        END;
-        //<<FE001.001
+            RecGGenJournalLine.MODIFY(true);
+        end;
     end;
 
     local procedure GetGLDimensionNo(CodPDim: Code[20]): Integer
@@ -286,28 +247,27 @@ xmlport 50000 "BC6_Expense Import"
         RecLDimValue: Record "Dimension Value";
     begin
         RecLDimValue.SETRANGE("Dimension Code", CodPDim);
-        IF RecLDimValue.FINDFIRST() THEN
-            EXIT(RecLDimValue."Global Dimension No.");
-        EXIT(0);
+        if RecLDimValue.FINDFIRST() then
+            exit(RecLDimValue."Global Dimension No.");
+        exit(0);
     end;
 
     local procedure GetDimValueCorresp(CodPDim: Code[20]; CodPDimValue: Code[20]): Code[20]
     var
         RecLDimValue: Record "Dimension Value";
-        RecLCorresp: Record "File Import Dimension Corresp.";
+        RecLCorresp: Record "BC6_File Import Dim. Corresp.";
     begin
         RecLCorresp.RESET();
         RecLCorresp.SETRANGE("Import Type", RecLCorresp."Import Type"::Expense);
         RecLCorresp.SETRANGE("Dimension Code", CodPDim);
         RecLCorresp.SETRANGE("File Value Code", CodPDimValue);
-        IF RecLCorresp.FINDFIRST() THEN
-            IF RecLDimValue.GET(CodPDim, RecLCorresp."NAV Value Code") THEN
-                EXIT(RecLCorresp."NAV Value Code");
+        if RecLCorresp.FINDFIRST() then
+            if RecLDimValue.GET(CodPDim, RecLCorresp."NAV Value Code") then
+                exit(RecLCorresp."NAV Value Code");
 
-        IF RecLDimValue.GET(CodPDim, CodPDimValue) THEN
-            EXIT(CodPDimValue);
+        if RecLDimValue.GET(CodPDim, CodPDimValue) then
+            exit(CodPDimValue);
 
-        EXIT('');
+        exit('');
     end;
 }
-

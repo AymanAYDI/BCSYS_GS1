@@ -1,37 +1,36 @@
 codeunit 50045 "BC6_YOOZ Management"
 {
-
     procedure ImportData()
     var
-        TempBlob: Codeunit "Temp Blob";
+        TempBlob: codeunit "Temp Blob";
         IStream: InStream;
-        Excel2007FileType: Label 'Excel Files (*.xlsx;*.xls)|*.csv;*.csv', Comment = '{Split=r''\|''}{Locked=s''1''}';
+        Excel2007FileType: label 'Excel Files (*.xlsx;*.xls)|*.csv;*.csv', Comment = '{Split=r''\|''}{Locked=s''1''}';
         ClientFileName: Text;
         ClientFileName2: Text;
-        DataArray: ARRAY[50] OF Text;
+        DataArray: array[50] of Text;
         DataText: Text;
     begin
         ClientFileName := FileManagement.BLOBImportWithFilter(TempBlob, CstTxt006, '', Excel2007FileType, 'csv');
 
-        IF ClientFileName = '' THEN
-            EXIT;
+        if ClientFileName = '' then
+            exit;
         // Check exist Line
         ClientFileName2 := FileManagement.GetFileNameWithoutExtension(ClientFileName);
         GFileName := ClientFileName2;
         YOOZBuffer.RESET();
         YOOZBuffer.SETRANGE("Import File Name", ClientFileName2);
-        IF NOT YOOZBuffer.ISEMPTY THEN
+        if not YOOZBuffer.ISEMPTY then
             ERROR(CstTxt009, ClientFileName2);
         GS1Setup.GET();
         GS1Setup.TESTFIELD("YOOZ Journ. Batch Name");
         GS1Setup.TESTFIELD("YOOZ Journ. Temp. Name");
         GS1Setup.TESTFIELD("YOOZ Source Code");
         TempBlob.CREATEINSTREAM(IStream, TEXTENCODING::UTF8);
-        WHILE NOT IStream.EOS DO BEGIN
+        while not IStream.EOS do begin
             IStream.READTEXT(DataText);
             ExtractCSVData(DataText, ';', DataArray);
-            InitYoozBuffer(DataArray, ClientFileName2);
-        END;
+            InitYoozBuffer(DataArray, CopyStr(ClientFileName2, 1, 250));
+        end;
 
         CheckAllData();
     end;
@@ -47,8 +46,8 @@ codeunit 50045 "BC6_YOOZ Management"
         ImportYOOZBuffer.RESET();
         ImportYOOZBuffer.SETRANGE("Import Type", ImportYOOZBuffer."Import Type"::YOOZ);
         ImportYOOZBuffer.SETFILTER(Status, '<>%1', ImportYOOZBuffer.Status::Post);
-        IF ImportYOOZBuffer.ISEMPTY THEN
-            EXIT;
+        if ImportYOOZBuffer.ISEMPTY then
+            exit;
 
         Window.OPEN(CstTxt005 + '@1@@@@@@@@@@@@@@@@@@@@@@@@@\' +
                     CstTxt007 + '@2@@@@@@@@@@@@@@@@@@@@@@@@@\');
@@ -56,18 +55,17 @@ codeunit 50045 "BC6_YOOZ Management"
         TotalRecNo := ImportYOOZBuffer.COUNT;
 
         ImportYOOZBuffer.FINDSET();
-        REPEAT
+        repeat
             RecNo += 1;
             Window.UPDATE(1, ROUND(RecNo / TotalRecNo * 10000, 1));
 
-            IF ImportYOOZBuffer.Status = ImportYOOZBuffer.Status::Error THEN
+            if ImportYOOZBuffer.Status = ImportYOOZBuffer.Status::Error then
                 ImportYOOZBuffer.DeleteErrorLine();
 
             CheckData(ImportYOOZBuffer);
-        UNTIL ImportYOOZBuffer.NEXT() = 0;
+        until ImportYOOZBuffer.NEXT() = 0;
 
         CheckTransaction();
-
     end;
 
     local procedure CheckData(ImportBuffer: Record "BC6_YOOZ import Buffer")
@@ -81,225 +79,223 @@ codeunit 50045 "BC6_YOOZ Management"
         ImportBuffer.Status := ImportBuffer.Status::"On Hold";
 
         // Vérif date compta
-        IF ImportBuffer."YOOZ Posting Date" = 0D THEN BEGIN
+        if ImportBuffer."YOOZ Posting Date" = 0D then begin
             ErrorLog.InsertLogEntry(ImportBuffer."Entry No.",
               STRSUBSTNO(CstTxt000, ImportBuffer.FIELDCAPTION("YOOZ Posting Date")),
               ImportBuffer."Import File Name",
-              ImportBuffer.FIELDCAPTION("YOOZ Posting Date"),
+              CopyStr(ImportBuffer.FIELDCAPTION("YOOZ Posting Date"), 1, 250),
               FORMAT(ImportBuffer."YOOZ Posting Date"));
             ImportBuffer.Status := ImportBuffer.Status::Error;
-        END;
+        end;
 
         // Verif Document No
-        IF ImportBuffer."Document No." = '' THEN BEGIN
+        if ImportBuffer."Document No." = '' then begin
             ErrorLog.InsertLogEntry(ImportBuffer."Entry No.",
               STRSUBSTNO(CstTxt000, ImportBuffer.FIELDCAPTION("Document No.")),
               ImportBuffer."Import File Name",
-              ImportBuffer.FIELDCAPTION("Document No."),
+              CopyStr(ImportBuffer.FIELDCAPTION("Document No."), 1, 250),
               ImportBuffer."Document No.");
             ImportBuffer.Status := ImportBuffer.Status::Error;
-        END;
+        end;
 
         // Vérif import Document Date
-        IF ImportBuffer."Import Document Date" = '' THEN BEGIN
+        if ImportBuffer."Import Document Date" = '' then begin
             ErrorLog.InsertLogEntry(ImportBuffer."Entry No.",
               STRSUBSTNO(CstTxt000, ImportBuffer.FIELDCAPTION("Import Document Date")),
               ImportBuffer."Import File Name",
-              ImportBuffer.FIELDCAPTION("Import Document Date"),
+              CopyStr(ImportBuffer.FIELDCAPTION("Import Document Date"), 1, 250),
               ImportBuffer."Import Document Date");
             ImportBuffer.Status := ImportBuffer.Status::Error;
-        END ELSE
-            IF NOT EVALUATE(CalcDateF, ImportBuffer."Import Document Date") THEN BEGIN
+        end else
+            if not EVALUATE(CalcDateF, ImportBuffer."Import Document Date") then begin
                 ErrorLog.InsertLogEntry(ImportBuffer."Entry No.",
                   STRSUBSTNO(CstTxt001, ImportBuffer.FIELDCAPTION("Import Document Date")),
                   ImportBuffer."Import File Name",
-                  ImportBuffer.FIELDCAPTION("Import Document Date"),
+                  CopyStr(ImportBuffer.FIELDCAPTION("Import Document Date"), 1, 250),
                   ImportBuffer."Import Document Date");
                 ImportBuffer.Status := ImportBuffer.Status::Error;
-            END;
+            end;
 
         //Verif Import Journal Template Name
-        IF ImportBuffer."Import Journ. Template Name" = '' THEN BEGIN
+        if ImportBuffer."Import Journ. Template Name" = '' then begin
             ErrorLog.InsertLogEntry(ImportBuffer."Entry No.",
               STRSUBSTNO(CstTxt000, ImportBuffer.FIELDCAPTION("Import Journ. Template Name")),
               ImportBuffer."Import File Name",
-              ImportBuffer.FIELDCAPTION("Import Journ. Template Name"),
+              CopyStr(ImportBuffer.FIELDCAPTION("Import Journ. Template Name"), 1, 250),
               ImportBuffer."Import Journ. Template Name");
             ImportBuffer.Status := ImportBuffer.Status::Error;
-        END ELSE
-            IF NOT GenJournalTemplate.GET(ImportBuffer."Import Journ. Template Name") THEN BEGIN
+        end else
+            if not GenJournalTemplate.GET(ImportBuffer."Import Journ. Template Name") then begin
                 ErrorLog.InsertLogEntry(ImportBuffer."Entry No.",
                   STRSUBSTNO(CstTxt002, ImportBuffer.FIELDCAPTION("Import Journ. Template Name"), GenJournalTemplate.TABLECAPTION),
                   ImportBuffer."Import File Name",
-                  ImportBuffer.FIELDCAPTION("Import Journ. Template Name"),
+                  CopyStr(ImportBuffer.FIELDCAPTION("Import Journ. Template Name"), 1, 250),
                   ImportBuffer."Import Journ. Template Name");
                 ImportBuffer.Status := ImportBuffer.Status::Error;
-            END;
+            end;
 
-        // import Document Type 
-        IF ImportBuffer."Import Document Type" = '' THEN BEGIN
+        // import Document Type
+        if ImportBuffer."Import Document Type" = '' then begin
             ErrorLog.InsertLogEntry(ImportBuffer."Entry No.",
               STRSUBSTNO(CstTxt000, ImportBuffer.FIELDCAPTION("Import Document Type")),
               ImportBuffer."Import File Name",
               ImportBuffer.FIELDCAPTION("Import Document Type"),
               ImportBuffer."Import Document Type");
             ImportBuffer.Status := ImportBuffer.Status::Error;
-        END ELSE
-            IF (ImportBuffer."Import Document Type" <> 'FA') AND (ImportBuffer."Import Document Type" <> 'AV') THEN BEGIN
+        end else
+            if (ImportBuffer."Import Document Type" <> 'FA') and (ImportBuffer."Import Document Type" <> 'AV') then begin
                 ErrorLog.InsertLogEntry(ImportBuffer."Entry No.",
                   STRSUBSTNO(CstTxt001, ImportBuffer.FIELDCAPTION("Import Document Type")),
                   ImportBuffer."Import File Name",
                   ImportBuffer.FIELDCAPTION("Import Document Type"),
                   ImportBuffer."Import Document Type");
                 ImportBuffer.Status := ImportBuffer.Status::Error;
-            END;
+            end;
 
         // Verif import account type
-        IF ImportBuffer."Import Account Type" = '' THEN BEGIN
+        if ImportBuffer."Import Account Type" = '' then begin
             ErrorLog.InsertLogEntry(ImportBuffer."Entry No.",
               STRSUBSTNO(CstTxt000, ImportBuffer.FIELDCAPTION("Import Journ. Template Name")),
               ImportBuffer."Import File Name",
               ImportBuffer.FIELDCAPTION("Import Journ. Template Name"),
               ImportBuffer."Import Journ. Template Name");
             ImportBuffer.Status := ImportBuffer.Status::Error;
-        END;
+        end;
 
         // G/L Account No.
-        IF ImportBuffer."G/L Account No." = '' THEN BEGIN
+        if ImportBuffer."G/L Account No." = '' then begin
             ErrorLog.InsertLogEntry(ImportBuffer."Entry No.",
               STRSUBSTNO(CstTxt000, ImportBuffer.FIELDCAPTION("G/L Account No.")),
               ImportBuffer."Import File Name",
               ImportBuffer.FIELDCAPTION("G/L Account No."),
               ImportBuffer."G/L Account No.");
             ImportBuffer.Status := ImportBuffer.Status::Error;
-        END ELSE
-            IF ImportBuffer."Account Type" = ImportBuffer."Account Type"::"G/L Account" THEN BEGIN
-                IF NOT GLAcc.GET(ImportBuffer."G/L Account No.") THEN BEGIN
+        end else
+            if ImportBuffer."Account Type" = ImportBuffer."Account Type"::"G/L Account" then begin
+                if not GLAcc.GET(ImportBuffer."G/L Account No.") then begin
                     ErrorLog.InsertLogEntry(ImportBuffer."Entry No.",
                       STRSUBSTNO(CstTxt002, ImportBuffer.FIELDCAPTION("G/L Account No."), GLAcc.TABLECAPTION),
                       ImportBuffer."Import File Name",
                       ImportBuffer.FIELDCAPTION("G/L Account No."),
                       ImportBuffer."G/L Account No.");
                     ImportBuffer.Status := ImportBuffer.Status::Error;
-                END ELSE BEGIN
-                    IF NOT GLAcc."Direct Posting" THEN BEGIN
+                end else begin
+                    if not GLAcc."Direct Posting" then begin
                         ErrorLog.InsertLogEntry(ImportBuffer."Entry No.",
                           STRSUBSTNO(CstTxt003, ImportBuffer.FIELDCAPTION("G/L Account No."), GLAcc.FIELDCAPTION("Direct Posting"), GLAcc."Direct Posting"),
                           ImportBuffer."Import File Name",
                           ImportBuffer.FIELDCAPTION("G/L Account No."),
                           ImportBuffer."G/L Account No.");
                         ImportBuffer.Status := ImportBuffer.Status::Error;
-                    END;
-                    IF GLAcc.Blocked THEN BEGIN
+                    end;
+                    if GLAcc.Blocked then begin
                         ErrorLog.InsertLogEntry(ImportBuffer."Entry No.",
                           STRSUBSTNO(CstTxt003, ImportBuffer.FIELDCAPTION("G/L Account No."), GLAcc.FIELDCAPTION(Blocked), GLAcc.Blocked),
                           ImportBuffer."Import File Name",
                           ImportBuffer.FIELDCAPTION("G/L Account No."),
                           ImportBuffer."G/L Account No.");
                         ImportBuffer.Status := ImportBuffer.Status::Error;
-                    END;
-                END;
-            END ELSE
-                IF ImportBuffer."Account Type" = ImportBuffer."Account Type"::Vendor THEN
-                    IF NOT Vendor.GET(ImportBuffer."G/L Account No.") THEN BEGIN
+                    end;
+                end;
+            end else
+                if ImportBuffer."Account Type" = ImportBuffer."Account Type"::Vendor then
+                    if not Vendor.GET(ImportBuffer."G/L Account No.") then begin
                         ErrorLog.InsertLogEntry(ImportBuffer."Entry No.",
                         STRSUBSTNO(CstTxt002, ImportBuffer.FIELDCAPTION("G/L Account No."), Vendor.TABLECAPTION),
                         ImportBuffer."Import File Name",
                         ImportBuffer.FIELDCAPTION("G/L Account No."),
                         ImportBuffer."G/L Account No.");
                         ImportBuffer.Status := ImportBuffer.Status::Error;
-                    END ELSE
-                        IF (Vendor.Blocked = Vendor.Blocked::All) THEN BEGIN
+                    end else
+                        if (Vendor.Blocked = Vendor.Blocked::All) then begin
                             ErrorLog.InsertLogEntry(ImportBuffer."Entry No.",
                               STRSUBSTNO(CstTxt003, ImportBuffer.FIELDCAPTION("G/L Account No."), GLAcc.FIELDCAPTION(Blocked), GLAcc.Blocked),
                               ImportBuffer."Import File Name",
                               ImportBuffer.FIELDCAPTION("G/L Account No."),
                               ImportBuffer."G/L Account No.");
                             ImportBuffer.Status := ImportBuffer.Status::Error;
-                        END;
-
-
+                        end;
 
         // Verif Description
-        IF ImportBuffer.Description = '' THEN BEGIN
+        if ImportBuffer.Description = '' then begin
             ErrorLog.InsertLogEntry(ImportBuffer."Entry No.",
               STRSUBSTNO(CstTxt000, ImportBuffer.FIELDCAPTION(Description)),
               ImportBuffer."Import File Name",
               ImportBuffer.FIELDCAPTION(Description),
               ImportBuffer.Description);
             ImportBuffer.Status := ImportBuffer.Status::Error;
-        END;
+        end;
 
         // Verif YOOZ No
-        IF ImportBuffer."YOOZ No." = '' THEN BEGIN
+        if ImportBuffer."YOOZ No." = '' then begin
             ErrorLog.InsertLogEntry(ImportBuffer."Entry No.",
               STRSUBSTNO(CstTxt000, ImportBuffer.FIELDCAPTION("YOOZ No.")),
               ImportBuffer."Import File Name",
               ImportBuffer.FIELDCAPTION("YOOZ No."),
               ImportBuffer."YOOZ No.");
             ImportBuffer.Status := ImportBuffer.Status::Error;
-        END;
+        end;
 
         //doc type
-        IF ImportBuffer."Document Type" = ImportBuffer."Document Type"::" " THEN BEGIN
+        if ImportBuffer."Document Type" = ImportBuffer."Document Type"::" " then begin
             ErrorLog.InsertLogEntry(ImportBuffer."Entry No.",
               STRSUBSTNO(CstTxt000, ImportBuffer.FIELDCAPTION("Document Type")),
               ImportBuffer."Import File Name",
               ImportBuffer.FIELDCAPTION("Document Type"),
               FORMAT(ImportBuffer."Document Type"));
             ImportBuffer.Status := ImportBuffer.Status::Error;
-        END ELSE
-            IF (ImportBuffer."Document Type" <> ImportBuffer."Document Type"::Invoice) AND (ImportBuffer."Document Type" <> ImportBuffer."Document Type"::"Credit Memo") THEN BEGIN
+        end else
+            if (ImportBuffer."Document Type" <> ImportBuffer."Document Type"::Invoice) and (ImportBuffer."Document Type" <> ImportBuffer."Document Type"::"Credit Memo") then begin
                 ErrorLog.InsertLogEntry(ImportBuffer."Entry No.",
                   STRSUBSTNO(CstTxt001, ImportBuffer.FIELDCAPTION("Document Type")),
                   ImportBuffer."Import File Name",
                   ImportBuffer.FIELDCAPTION("Document Type"),
                   FORMAT(ImportBuffer."Document Type"));
                 ImportBuffer.Status := ImportBuffer.Status::Error;
-            END;
+            end;
 
-        IF (ImportBuffer."Account Type" = ImportBuffer."Account Type"::"G/L Account") AND (COPYSTR(ImportBuffer."G/L Account No.", 1, 1) <> '4') THEN BEGIN
+        if (ImportBuffer."Account Type" = ImportBuffer."Account Type"::"G/L Account") and (COPYSTR(ImportBuffer."G/L Account No.", 1, 1) <> '4') then begin
             // Verif Dimvalue1 mandatory
-            IF ImportBuffer."Dimension Value 1" = '' THEN BEGIN
+            if ImportBuffer."Dimension Value 1" = '' then begin
                 ErrorLog.InsertLogEntry(ImportBuffer."Entry No.",
                   STRSUBSTNO(CstTxt000, ImportBuffer.FIELDCAPTION("Dimension Value 1")),
                   ImportBuffer."Import File Name",
                   ImportBuffer.FIELDCAPTION("Dimension Value 1"),
                   ImportBuffer."Dimension Value 1");
                 ImportBuffer.Status := ImportBuffer.Status::Error;
-            END;
+            end;
 
             // Verif Dimvalue2 mandatory
-            IF ImportBuffer."Dimension Value 2" = '' THEN BEGIN
+            if ImportBuffer."Dimension Value 2" = '' then begin
                 ErrorLog.InsertLogEntry(ImportBuffer."Entry No.",
                   STRSUBSTNO(CstTxt000, ImportBuffer.FIELDCAPTION("Dimension Value 2")),
                   ImportBuffer."Import File Name",
                   ImportBuffer.FIELDCAPTION("Dimension Value 2"),
                   ImportBuffer."Dimension Value 2");
                 ImportBuffer.Status := ImportBuffer.Status::Error;
-            END;
+            end;
 
             // Verif Dimvalue3 mandatory
-            IF ImportBuffer."Dimension Value 3" = '' THEN BEGIN
+            if ImportBuffer."Dimension Value 3" = '' then begin
                 ErrorLog.InsertLogEntry(ImportBuffer."Entry No.",
                   STRSUBSTNO(CstTxt000, ImportBuffer.FIELDCAPTION("Dimension Value 3")),
                   ImportBuffer."Import File Name",
                   ImportBuffer.FIELDCAPTION("Dimension Value 3"),
                   ImportBuffer."Dimension Value 3");
                 ImportBuffer.Status := ImportBuffer.Status::Error;
-            END;
+            end;
 
             // Verif Dimvalue4 mandatory
-            IF ImportBuffer."Dimension Value 4" = '' THEN BEGIN
+            if ImportBuffer."Dimension Value 4" = '' then begin
                 ErrorLog.InsertLogEntry(ImportBuffer."Entry No.",
                   STRSUBSTNO(CstTxt000, ImportBuffer.FIELDCAPTION("Dimension Value 4")),
                   ImportBuffer."Import File Name",
                   ImportBuffer.FIELDCAPTION("Dimension Value 4"),
                   ImportBuffer."Dimension Value 4");
                 ImportBuffer.Status := ImportBuffer.Status::Error;
-            END;
-        END;
-        IF ImportBuffer.Status = ImportBuffer.Status::"On Hold" THEN
+            end;
+        end;
+        if ImportBuffer.Status = ImportBuffer.Status::"On Hold" then
             ImportBuffer.Status := ImportBuffer.Status::Check;
         ImportBuffer.MODIFY();
     end;
@@ -315,13 +311,13 @@ codeunit 50045 "BC6_YOOZ Management"
         ImportYOOZBuffer.RESET();
         ImportYOOZBuffer.SETRANGE("Import Type", ImportYOOZBuffer."Import Type"::YOOZ);
         ImportYOOZBuffer.SETFILTER(Status, '<>%1', ImportYOOZBuffer.Status::Post);
-        IF ImportYOOZBuffer.ISEMPTY THEN
-            EXIT;
+        if ImportYOOZBuffer.ISEMPTY then
+            exit;
 
         TotalRecNo := ImportYOOZBuffer.COUNT;
 
         ImportYOOZBuffer.FINDSET();
-        REPEAT
+        repeat
             RecNo += 1;
             Window.UPDATE(2, ROUND(RecNo / TotalRecNo * 10000, 1));
 
@@ -329,16 +325,15 @@ codeunit 50045 "BC6_YOOZ Management"
             ImportBufferTransaction.SETRANGE("Import File Name", ImportYOOZBuffer."Import File Name");
             ImportBufferTransaction.SETRANGE("Document No.", ImportYOOZBuffer."Document No.");
             ImportBufferTransaction.CALCSUMS("Debit Amount", "Credit Amount");
-            IF ((ImportBufferTransaction."Credit Amount" - ImportBufferTransaction."Debit Amount") <> 0) THEN BEGIN
+            if ((ImportBufferTransaction."Credit Amount" - ImportBufferTransaction."Debit Amount") <> 0) then begin
                 ErrorLog.InsertLogEntry(ImportYOOZBuffer."Entry No.",
                   CstTxt004,
                   ImportYOOZBuffer."Import File Name",
                   'Somme des Montants',
                   FORMAT(ImportBufferTransaction."Credit Amount" - ImportBufferTransaction."Debit Amount"));
                 ImportBufferTransaction.MODIFYALL(Status, ImportBufferTransaction.Status::Error);
-            END;
-
-        UNTIL ImportYOOZBuffer.NEXT() = 0;
+            end;
+        until ImportYOOZBuffer.NEXT() = 0;
 
         Window.CLOSE();
     end;
@@ -347,7 +342,7 @@ codeunit 50045 "BC6_YOOZ Management"
     begin
         YOOZBuffer.SETRANGE("Import Type", YOOZBuffer."Import Type"::YOOZ);
         YOOZBuffer.SETRANGE(Status, YOOZBuffer.Status::"On Hold", YOOZBuffer.Status::Error);
-        IF NOT YOOZBuffer.ISEMPTY THEN
+        if not YOOZBuffer.ISEMPTY then
             ERROR(CstTxt008);
     end;
 
@@ -372,7 +367,7 @@ codeunit 50045 "BC6_YOOZ Management"
         RecGGenJournalLine."Reason Code" := RecGGenJnlBatch."Reason Code";
         RecGGenJournalLine."Posting No. Series" := RecGGenJnlBatch."Posting No. Series";
 
-        RecGGenJournalLine.INSERT(TRUE);
+        RecGGenJournalLine.INSERT(true);
 
         RecGGenJournalLine.VALIDATE("Posting Date", RecPImportBuffer."YOOZ Posting Date");
         RecGGenJournalLine.VALIDATE("Document Date", CToDate(RecPImportBuffer."Import Document Date", 'dd/MM/yyyy'));
@@ -382,9 +377,9 @@ codeunit 50045 "BC6_YOOZ Management"
         RecGGenJournalLine.VALIDATE("Account Type", RecPImportBuffer."Account Type");
         RecGGenJournalLine.VALIDATE("Account No.", RecPImportBuffer."G/L Account No.");
         RecGGenJournalLine.VALIDATE(Description, RecPImportBuffer.Description);
-        IF RecPImportBuffer."Debit Amount" <> 0 THEN
+        if RecPImportBuffer."Debit Amount" <> 0 then
             RecGGenJournalLine.VALIDATE("Debit Amount", RecPImportBuffer."Debit Amount");
-        IF RecPImportBuffer."Credit Amount" <> 0 THEN
+        if RecPImportBuffer."Credit Amount" <> 0 then
             RecGGenJournalLine.VALIDATE("Credit Amount", RecPImportBuffer."Credit Amount");
 
         RecGGenJournalLine.VALIDATE("Shortcut Dimension 1 Code", RecPImportBuffer."Dimension Value 1");
@@ -392,17 +387,16 @@ codeunit 50045 "BC6_YOOZ Management"
         RecGGenJournalLine.ValidateShortcutDimCode(3, RecPImportBuffer."Dimension Value 3");
         RecGGenJournalLine.ValidateShortcutDimCode(4, RecPImportBuffer."Dimension Value 4");
 
-        IF RecPImportBuffer."VAT Identifier" <> '' THEN BEGIN
+        if RecPImportBuffer."VAT Identifier" <> '' then begin
             VATPostingSetup.RESET();
             VATPostingSetup.SETRANGE("VAT Identifier", RecPImportBuffer."VAT Identifier");
-            IF VATPostingSetup.FINDFIRST() THEN BEGIN
+            if VATPostingSetup.FINDFIRST() then begin
                 RecGGenJournalLine.VALIDATE("VAT Prod. Posting Group", VATPostingSetup."VAT Prod. Posting Group");
                 RecGGenJournalLine.VALIDATE("VAT Bus. Posting Group", VATPostingSetup."VAT Bus. Posting Group");
-            END;
-        END;
+            end;
+        end;
 
-
-        RecGGenJournalLine.MODIFY(TRUE);
+        RecGGenJournalLine.MODIFY(true);
     end;
 
     procedure UpdateAllStatus()
@@ -413,77 +407,77 @@ codeunit 50045 "BC6_YOOZ Management"
         YOOZBuffer.MODIFYALL(Status, YOOZBuffer.Status::Post);
     end;
 
-    procedure RemoveStatus(VAR P_YOOZBuffer: Record "BC6_YOOZ import Buffer")
+    procedure RemoveStatus(var P_YOOZBuffer: Record "BC6_YOOZ import Buffer")
     var
         OldCustLedgEntry: Record "Cust. Ledger Entry";
 
-    Begin
-        IF NOT CONFIRM(CstTxt010, FALSE, P_YOOZBuffer."Import File Name") THEN
+    begin
+        if not CONFIRM(CstTxt010, false, P_YOOZBuffer."Import File Name") then
             ERROR(CstTxt011);
 
         YOOZBuffer.SETRANGE("Import File Name", P_YOOZBuffer."Import File Name");
         YOOZBuffer.SETRANGE("Import Type", P_YOOZBuffer."Import Type");
-        IF YOOZBuffer.ISEMPTY THEN
-            EXIT;
+        if YOOZBuffer.ISEMPTY then
+            exit;
 
         YOOZBuffer.FINDSET();
-        REPEAT
+        repeat
             OldCustLedgEntry.SETRANGE("Document No.", YOOZBuffer."Document No.");
             OldCustLedgEntry.SETRANGE("Document Type", YOOZBuffer."Document Type");
-            IF NOT OldCustLedgEntry.ISEMPTY THEN
+            if not OldCustLedgEntry.ISEMPTY then
                 ERROR(CstTxt012, YOOZBuffer."Document Type", YOOZBuffer."Document No.");
-        UNTIL YOOZBuffer.NEXT() = 0;
+        until YOOZBuffer.NEXT() = 0;
 
         YOOZBuffer.MODIFYALL(Status, YOOZBuffer.Status::"On Hold");
 
         CheckAllData();
-    End;
+    end;
 
     procedure DeleteImportLine(P_YOOZBuffer: Record "BC6_YOOZ import Buffer")
     begin
 
-        IF NOT CONFIRM(CstTxt013, FALSE, P_YOOZBuffer."Import File Name") THEN
+        if not CONFIRM(CstTxt013, false, P_YOOZBuffer."Import File Name") then
             ERROR(CstTxt011);
 
         YOOZBuffer.SETRANGE("Import File Name", P_YOOZBuffer."Import File Name");
         YOOZBuffer.SETRANGE("Import Type", P_YOOZBuffer."Import Type");
-        IF YOOZBuffer.ISEMPTY THEN
-            EXIT;
+        if YOOZBuffer.ISEMPTY then
+            exit;
 
-        YOOZBuffer.DELETEALL(TRUE);
+        YOOZBuffer.DELETEALL(true);
     end;
 
-    procedure ExtractCSVData(DataText: Text; CSVFieldSeparator: Text[1]; VAR DataArray: ARRAY[50] OF Text)
+    procedure ExtractCSVData(DataText: Text; CSVFieldSeparator: Text[1]; var DataArray: array[50] of Text)
     var
         Index: Integer;
         Pos: Integer;
         Separator: Text;
     begin
         CLEAR(DataArray);
-        WHILE DataText <> '' DO BEGIN
+        while DataText <> '' do begin
             Index += 1;
-            IF DataText[1] = '"' THEN
+            if DataText[1] = '"' then
                 Separator := STRSUBSTNO('"%1', CSVFieldSeparator)
-            ELSE
+            else
                 Separator := CSVFieldSeparator;
 
             Pos := STRPOS(DataText, Separator);
-            IF Pos = 0 THEN BEGIN
+            if Pos = 0 then begin
                 DataArray[Index] := COPYSTR(DataText, STRLEN(Separator));
-                EXIT;
-            END;
+                exit;
+            end;
             DataArray[Index] := COPYSTR(DataText, STRLEN(Separator), Pos - STRLEN(Separator));
             DataText := COPYSTR(DataText, Pos + STRLEN(Separator));
-        END;
+        end;
     end;
 
-    procedure InitYoozBuffer(VAR DataArray: ARRAY[50] OF Text; FileName: Text[250])
+    procedure InitYoozBuffer(var DataArray: array[50] of Text; FileName: Text[250])
     var
         YOOZimportBuffer: Record "BC6_YOOZ import Buffer";
     begin
         YOOZimportBuffer.INIT();
         YOOZimportBuffer."Import File Name" := FileName;
-        YOOZimportBuffer."User ID" := USERID;
+        YOOZimportBuffer."User ID" := CopyStr(UserId, 1, MaxStrLen(YOOZimportBuffer."User ID"));
         YOOZimportBuffer."Import DateTime" := CURRENTDATETIME;
         YOOZimportBuffer."Import Type" := YOOZimportBuffer."Import Type"::YOOZ;
         YOOZimportBuffer."Line No." := CToInteger(DataArray[2]); // N° de ligne
@@ -502,21 +496,21 @@ codeunit 50045 "BC6_YOOZ Management"
         //YOOZimportBuffer.Description:='YOOZ_'+DataArray[6]+'_'+DataArray[8];
         YOOZimportBuffer.Description := DataArray[11];
         YOOZimportBuffer."VAT Identifier" := DataArray[16];
-        CASE DataArray[4] OF
+        case DataArray[4] of
             'FA':
                 YOOZimportBuffer."Document Type" := YOOZimportBuffer."Document Type"::Invoice;
             'AV':
                 YOOZimportBuffer."Document Type" := YOOZimportBuffer."Document Type"::"Credit Memo";
-        END;
+        end;
 
-        CASE COPYSTR(DataArray[9], 1, 1) OF
+        case COPYSTR(DataArray[9], 1, 1) of
             'G':
                 YOOZimportBuffer."Account Type" := YOOZimportBuffer."Account Type"::"G/L Account";
             'F':
                 YOOZimportBuffer."Account Type" := YOOZimportBuffer."Account Type"::Vendor;
-        END;
+        end;
 
-        IF COPYSTR(DataArray[10], 1, 1) = '4' THEN
+        if COPYSTR(DataArray[10], 1, 1) = '4' then
             YOOZimportBuffer."Account Type" := YOOZimportBuffer."Account Type"::"G/L Account";
 
         YOOZimportBuffer."Dimension Value 1" := DataArray[21];
@@ -536,64 +530,64 @@ codeunit 50045 "BC6_YOOZ Management"
         YOOZimportBuffer.SETRANGE("Import Type", YOOZimportBuffer."Import Type"::YOOZ);
         YOOZimportBuffer.SETRANGE("Account Type", YOOZimportBuffer."Account Type"::Vendor);
         YOOZimportBuffer.SETFILTER(Status, '<>%1', YOOZimportBuffer.Status::Post);
-        IF YOOZimportBuffer.ISEMPTY THEN
-            EXIT;
+        if YOOZimportBuffer.ISEMPTY then
+            exit;
 
         YOOZimportBuffer.FINDSET();
-        REPEAT
-            YOOZimportBuffer.Description := YOOZimportBuffer.Description + '_' + YOOZimportBuffer."G/L Account No.";
+        repeat
+            YOOZimportBuffer.Description := CopyStr(YOOZimportBuffer.Description + '_' + YOOZimportBuffer."G/L Account No.", 1, MaxStrLen(YOOZimportBuffer.Description));
             YOOZimportBuffer.MODIFY();
             YOOZimportBuffer2.RESET();
             YOOZimportBuffer2.SETRANGE("Import Type", YOOZimportBuffer2."Import Type"::YOOZ);
             YOOZimportBuffer2.SETFILTER(Status, '<>%1', YOOZimportBuffer2.Status::Post);
             YOOZimportBuffer2.SETFILTER("Account Type", '<>%1', YOOZimportBuffer2."Account Type"::Vendor);
             YOOZimportBuffer2.SETRANGE("Document No.", YOOZimportBuffer."Document No.");
-            IF YOOZimportBuffer2.FINDFIRST() THEN
-                REPEAT
+            if YOOZimportBuffer2.FINDFIRST() then
+                repeat
                     YOOZimportBuffer2.Description := YOOZimportBuffer.Description;
                     YOOZimportBuffer2.MODIFY();
-                UNTIL YOOZimportBuffer2.NEXT() = 0;
-        UNTIL YOOZimportBuffer.NEXT() = 0;
+                until YOOZimportBuffer2.NEXT() = 0;
+        until YOOZimportBuffer.NEXT() = 0;
     end;
 
     procedure CToDate(Value: Text; FormatName: Text): Date
     var
-        TypeHelper: Codeunit "Type Helper";
+        TypeHelper: codeunit "Type Helper";
         DateVariant: Variant;
     begin
-        IF Value = '' THEN EXIT(0D);
+        if Value = '' then exit(0D);
         DateVariant := 0D;
         TypeHelper.Evaluate(DateVariant, Value, FormatName, '');
-        EXIT(DateVariant);
+        exit(DateVariant);
     end;
 
     procedure CToDecimal(Value: Text; CultureName: Text): Decimal
     var
-        TypeHelper: Codeunit "Type Helper";
+        TypeHelper: codeunit "Type Helper";
         DecimalVariant: Variant;
     begin
-        IF Value = '' THEN EXIT(0);
+        if Value = '' then exit(0);
         DecimalVariant := 0.0;
         TypeHelper.Evaluate(DecimalVariant, Value, '', CultureName);
-        EXIT(DecimalVariant);
+        exit(DecimalVariant);
     end;
 
     procedure CToInteger(Value: Text): Integer
     var
         Int: Integer;
     begin
-        IF Value = '' THEN EXIT(0);
+        if Value = '' then exit(0);
         EVALUATE(Int, Value);
-        EXIT(Int);
+        exit(Int);
     end;
 
     procedure CToBoolean(Value: Text): Boolean
     var
         Bool: Boolean;
     begin
-        IF Value = '' THEN EXIT(FALSE);
+        if Value = '' then exit(false);
         EVALUATE(Bool, Value);
-        EXIT(Bool);
+        exit(Bool);
     end;
 
     procedure FormatInteger(Value: Decimal; BlankZero: Boolean): Text
@@ -601,9 +595,9 @@ codeunit 50045 "BC6_YOOZ Management"
         ValueText: Text;
     begin
         ValueText := FORMAT(Value, 0, '<Sign><Integer>');
-        IF BlankZero AND (ValueText = '0') THEN
-            EXIT('');
-        EXIT(ValueText);
+        if BlankZero and (ValueText = '0') then
+            exit('');
+        exit(ValueText);
     end;
 
     var
@@ -613,24 +607,23 @@ codeunit 50045 "BC6_YOOZ Management"
         RecGGenJournalLine: Record "Gen. Journal Line";
         RecGGenJnlTemplate: Record "Gen. Journal Template";
         GLSetup: Record "General Ledger Setup";
-        FileManagement: Codeunit "File Management";
+        FileManagement: codeunit "File Management";
         Window: Dialog;
         IntGLineNo: Integer;
 
-        CstTxt000: Label '%1 is Mandatory', Comment = 'FRA="%1 est obligatoire."';
-        CstTxt001: Label '%1 is not correct data.', Comment = 'FRA="%1 n''est pas une donnée valide."';
-        CstTxt002: Label '%1 does not exist in%2.', Comment = 'FRA="%1 n''existe pas dans %2."';
-        CstTxt003: Label '%1 should not be%2 %3.', Comment = 'FRA="%1 ne doit pas être %2 %3."';
-        CstTxt004: Label 'The transaction is not balanced', Comment = 'FRA="La transaction n''est pas équilibré."';
-        CstTxt005: Label 'Checking Data...\\', Comment = 'FRA="Contrôle des données...\\"';
-        CstTxt006: Label 'Select file to import', Comment = 'FRA="Fichier à importer"';
-        CstTxt007: Label 'Analyzing Amount Data...\\', Comment = 'FRA="Analyse des montants...\\"';
-        CstTxt008: Label 'Almost One line is on Error.', Comment = 'FRA="Il existe au moins une ligne en erreur."';
-        CstTxt009: Label 'File %1 has already been imported.', Comment = 'FRA="Le fichier %1  a déjà été importé."';
-        CstTxt010: Label 'Are you sure you want to roll back File %1 on buffer table?', Comment = 'FRA="Voulez-vous vraiment rebasculer le fichier %1 dans la table tampon?"';
-        CstTxt011: Label 'The update has been interrupted to respect the warning.', Comment = 'FRA="La mise à jour a été interrompue pour respecter l''alerte."';
-        CstTxt012: Label 'Sales %1 %2 already exists.The update has been interrupted to respect the warning.', Comment = 'FRA="Le document %1 vente %2 a fait l''objet d''une validation.La mise à jour a été interrompue pour respecter l''alerte."';
-        CstTxt013: Label 'Are you sure you want to delete File %1 on import table?', Comment = 'FRA="Voulez-vous vraiment supprimer le fichier %1 dans la table d''import?"';
+        CstTxt000: label '%1 is Mandatory', Comment = 'FRA="%1 est obligatoire."';
+        CstTxt001: label '%1 is not correct data.', Comment = 'FRA="%1 n''est pas une donnée valide."';
+        CstTxt002: label '%1 does not exist in%2.', Comment = 'FRA="%1 n''existe pas dans %2."';
+        CstTxt003: label '%1 should not be%2 %3.', Comment = 'FRA="%1 ne doit pas être %2 %3."';
+        CstTxt004: label 'The transaction is not balanced', Comment = 'FRA="La transaction n''est pas équilibré."';
+        CstTxt005: label 'Checking Data...\\', Comment = 'FRA="Contrôle des données...\\"';
+        CstTxt006: label 'Select file to import', Comment = 'FRA="Fichier à importer"';
+        CstTxt007: label 'Analyzing Amount Data...\\', Comment = 'FRA="Analyse des montants...\\"';
+        CstTxt008: label 'Almost One line is on Error.', Comment = 'FRA="Il existe au moins une ligne en erreur."';
+        CstTxt009: label 'File %1 has already been imported.', Comment = 'FRA="Le fichier %1  a déjà été importé."';
+        CstTxt010: label 'Are you sure you want to roll back File %1 on buffer table?', Comment = 'FRA="Voulez-vous vraiment rebasculer le fichier %1 dans la table tampon?"';
+        CstTxt011: label 'The update has been interrupted to respect the warning.', Comment = 'FRA="La mise à jour a été interrompue pour respecter l''alerte."';
+        CstTxt012: label 'Sales %1 %2 already exists.The update has been interrupted to respect the warning.', Comment = 'FRA="Le document %1 vente %2 a fait l''objet d''une validation.La mise à jour a été interrompue pour respecter l''alerte."';
+        CstTxt013: label 'Are you sure you want to delete File %1 on import table?', Comment = 'FRA="Voulez-vous vraiment supprimer le fichier %1 dans la table d''import?"';
         GFileName: Text;
-
 }

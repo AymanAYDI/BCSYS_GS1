@@ -6,7 +6,6 @@ page 50005 "BC6_GS1 Setup"
     ApplicationArea = all;
     UsageCategory = Lists;
 
-
     layout
     {
         area(content)
@@ -38,7 +37,6 @@ page 50005 "BC6_GS1 Setup"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the YOOZ Source Code field.';
                 }
-
             }
             group("General Ledger")
             {
@@ -61,7 +59,6 @@ page 50005 "BC6_GS1 Setup"
                         ApplicationArea = All;
                         ToolTip = 'Specifies the value of the Payroll Journal Template Name field.', Comment = 'FRA="Code raccourci axe 1 paie"';
                     }
-
                     field("Payroll Shortcut Dim. 2 Code"; Rec."Payroll Shortcut Dim. 2 Code")
                     {
                         ApplicationArea = All;
@@ -77,7 +74,6 @@ page 50005 "BC6_GS1 Setup"
                         ApplicationArea = All;
                         ToolTip = 'Specifies the value of the Payroll Journal Template Name field.', Comment = 'FRA="Code raccourci axe 4 paie"';
                     }
-
                 }
                 group(Expense)
                 {
@@ -112,7 +108,6 @@ page 50005 "BC6_GS1 Setup"
                         ToolTip = 'Specifies the value of the Expense Shortcut Dim. 4 Code field.', Comment = 'FRA="Code raccourci axe 4 note de frais"';
                         ApplicationArea = All;
                     }
-
                 }
             }
         }
@@ -149,9 +144,9 @@ page 50005 "BC6_GS1 Setup"
     trigger OnOpenPage()
     begin
         Rec.RESET();
-        IF NOT Rec.GET() THEN BEGIN
+        if not Rec.GET() then begin
             Rec.INIT();
             Rec.INSERT();
-        END;
+        end;
     end;
 }

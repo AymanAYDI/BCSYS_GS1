@@ -1,6 +1,5 @@
 enum 50007 "BC6_Status"
 {
-
     Extensible = true;
     Caption = 'Status';
 

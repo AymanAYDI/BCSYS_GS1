@@ -2,28 +2,29 @@ report 50100 "BC6_Trans. YOOZ Gen. Jnl."
 {
     Caption = 'Trans. YOOZ Gen. Jnl.', Comment = 'FRA="Trans. import YOOZ -> Feuille Compta"';
     ProcessingOnly = true;
+    UsageCategory = None;
     dataset
     {
         dataitem("YOOZ import Buffer"; "BC6_YOOZ import Buffer")
         {
-            DataItemTableView = WHERE("Import Type" = CONST(YOOZ));
+            DataItemTableView = where("Import Type" = const(YOOZ));
 
             trigger OnPreDataItem()
             begin
                 GenJnlTemplate.GET(GenJnlLine."Journal Template Name");
                 GenJnlBatch.GET(GenJnlLine."Journal Template Name", GenJnlLine."Journal Batch Name");
                 GenJnlLine.SETRANGE("Journal Template Name", GenJnlBatch."Journal Template Name");
-                IF GenJnlBatch.Name <> '' THEN
+                if GenJnlBatch.Name <> '' then
                     GenJnlLine.SETRANGE("Journal Batch Name", GenJnlBatch.Name)
-                ELSE
+                else
                     GenJnlLine.SETRANGE("Journal Batch Name", '');
 
                 GenJnlLine.LOCKTABLE();
-                IF GenJnlLine.COUNT <> 0 THEN
-                    IF NOT CONFIRM(CstTxtG001, FALSE, GenJnlLine."Journal Template Name", GenJnlLine."Journal Batch Name") THEN
+                if GenJnlLine.COUNT <> 0 then
+                    if not CONFIRM(CstTxtG001, false, GenJnlLine."Journal Template Name", GenJnlLine."Journal Batch Name") then
                         ERROR(CstTxtG002);
 
-                IF GenJnlLine.FINDLAST() THEN;
+                if GenJnlLine.FINDLAST() then;
 
                 Window.OPEN(CstTxtG003 + '@1@@@@@@@@@@@@@@@@@@@@@@@@@');
                 TotalRecNo := COUNT;
@@ -31,7 +32,6 @@ report 50100 "BC6_Trans. YOOZ Gen. Jnl."
                 YOOZManagement.InitGenLineData(GenJnlTemplate, GenJnlBatch, GenJnlLine."Line No.");
 
                 "YOOZ import Buffer".SETRANGE(Status, "YOOZ import Buffer".Status::Check);
-
             end;
 
             trigger OnAfterGetRecord()
@@ -63,14 +63,15 @@ report 50100 "BC6_Trans. YOOZ Gen. Jnl."
                     field("Journal Template Name"; GenJnlLine."Journal Template Name")
                     {
                         Caption = 'Gen. Journal Template', Comment = 'FRA="Modèle feuille comptabilité"';
-                        TableRelation = "Gen. Journal Template" WHERE(Name = CONST('NDF'));
+                        TableRelation = "Gen. Journal Template" where(Name = const('NDF'));
                         NotBlank = true;
+                        ApplicationArea = All;
                     }
                     field("Journal Batch Name"; GenJnlLine."Journal Batch Name")
                     {
                         Caption = 'Gen. Journal Batch', Comment = 'FRA="Nom feuille comptabilité"';
                         ApplicationArea = Basic, Suite;
-                        NotBlank = True;
+                        NotBlank = true;
                     }
                 }
             }
@@ -86,12 +87,12 @@ report 50100 "BC6_Trans. YOOZ Gen. Jnl."
         GenJnlBatch: Record "Gen. Journal Batch";
         GenJnlLine: Record "Gen. Journal Line";
         GenJnlTemplate: Record "Gen. Journal Template";
-        YOOZManagement: Codeunit "BC6_YOOZ Management";
-        GenJnlManagement: Codeunit GenJnlManagement;
+        YOOZManagement: codeunit "BC6_YOOZ Management";
+        GenJnlManagement: codeunit GenJnlManagement;
         Window: Dialog;
         RecNo: Integer;
         TotalRecNo: Integer;
-        CstTxtG001: Label 'Journal %1 %2 has some line. Do you want to continue?', Comment = 'FRA="Il existe des lignes dans la feuille %1 %2. Voulez-vous continuer?"';
-        CstTxtG002: Label 'The update has been interrupted to respect the warning', Comment = 'FRA="La mise à jour a été interrompue pour respecter l''alerte."';
-        CstTxtG003: Label 'Processing Data...\\', Comment = 'FRA="Traitement des données...\\"';
+        CstTxtG001: label 'Journal %1 %2 has some line. Do you want to continue?', Comment = 'FRA="Il existe des lignes dans la feuille %1 %2. Voulez-vous continuer?"';
+        CstTxtG002: label 'The update has been interrupted to respect the warning', Comment = 'FRA="La mise à jour a été interrompue pour respecter l''alerte."';
+        CstTxtG003: label 'Processing Data...\\', Comment = 'FRA="Traitement des données...\\"';
 }
