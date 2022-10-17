@@ -893,6 +893,26 @@
           <note from="Developer" annotates="general" priority="2">FRA="Date Compta YOOZ"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field YOOZ Posting Date - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Codeunit 658266025 - NamedType 60349763" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Automatic Application - Processing ...\  \</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_Automatic Application - NamedType CstGAutoAppl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 658266025 - NamedType 3485671525" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer no.        :</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_Automatic Application - NamedType CstGCustNo</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 658266025 - NamedType 123678810" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Entry No.          :</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_Automatic Application - NamedType CstGEntryNo</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 658266025 - NamedType 1590244570" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Operation finished.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_Automatic Application - NamedType CstGOpFinished</note>
+        </trans-unit>
         <trans-unit id="Codeunit 3574608501 - NamedType 4080124969" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sent already.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -902,11 +922,6 @@
           <source>Le modèle email %1 est bloqué</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_GS1 : DMS Managment - NamedType ConstEmailModelBlocked</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3574608501 - NamedType 3318425255" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The document has been edited in Word.\\Do you want to import the changes?</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_GS1 : DMS Managment - NamedType ConstLoadDocQuestion</note>
         </trans-unit>
         <trans-unit id="Codeunit 3574608501 - NamedType 931543817" size-unit="char" translate="yes" xml:space="preserve">
           <source>they are no email in Contact for the bill to customer %1 for Sales Credit Memo %2</source>
@@ -1562,6 +1577,31 @@
           <source>Transfer to General Journal</source>
           <note from="Developer" annotates="general" priority="2">FRA="Transférer en feuille compta"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_YOOZ Import Journal - Action Transfer to General Journal - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3064941833 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Automatic Application</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Application automatique"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report BC6_AutomaticApplication - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3064941833 - NamedType 2350060722" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Automatic Application - Processing ...\  \</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Application Automatique - En cours ...\  \"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report BC6_AutomaticApplication - NamedType CstAutoAppl</note>
+        </trans-unit>
+        <trans-unit id="Report 3064941833 - NamedType 2405984880" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer no.        :</source>
+          <note from="Developer" annotates="general" priority="2">FRA="N° client        "</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report BC6_AutomaticApplication - NamedType CstCustNo</note>
+        </trans-unit>
+        <trans-unit id="Report 3064941833 - NamedType 3344094275" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Entry No.          :</source>
+          <note from="Developer" annotates="general" priority="2">FRA="N° Ecriture          "</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report BC6_AutomaticApplication - NamedType CstEntryNo</note>
+        </trans-unit>
+        <trans-unit id="Report 3064941833 - NamedType 2093555435" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Operation finished.</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Opération terminée"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report BC6_AutomaticApplication - NamedType CstOpFinished</note>
         </trans-unit>
         <trans-unit id="Report 593787460 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>ECF Sage Export</source>
