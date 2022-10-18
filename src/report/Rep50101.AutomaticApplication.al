@@ -154,12 +154,17 @@ report 50101 "BC6_AutomaticApplication"
                 CustLedgEntry2.Ascending(false);
                 CLEAR(DecAmountToApply);
                 if CustLedgEntry2.FindSET() then begin
+                    if CustLedgEntry1."Remaining Amt. (LCY)" <> CustLedgEntry2."Remaining Amt. (LCY)" then begin
+                        CustLedgEntry2.SetCurrentKey("Posting Date");
+                        CustLedgEntry2.Ascending(false);
+                        CustLedgEntry2.FindSET();
+                    end;
                     repeat
                         CustLedgEntry2.CALCFIELDS("Remaining Amt. (LCY)");
                         DecAmountToApply := DecAmountToApply + CustLedgEntry2."Remaining Amt. (LCY)";
                         CustLedgEntry2."Applies-to ID" := UserId();
                         CustLedgEntry2.Modify();
-                    until (CustLedgEntry2.Next() = 0) or (DecAmountToApply >= CustLedgEntry2."Remaining Amt. (LCY)");
+                    until (CustLedgEntry2.Next() = 0) or (DecAmountToApply >= abs(CustLedgEntry1."Remaining Amt. (LCY)"));
                     CustLedgEntry1."Applies-to ID" := UserId();
                     CustLedgEntry1.Modify();
                     NewApplyUnapplyParameters."Posting Date" := WorkDate();
