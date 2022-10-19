@@ -25,7 +25,7 @@ table 50032 "BC6_Email Attachment Type"
             Caption = 'WebApi Sub Type', Comment = 'FRA="Sous Type WebApi"';
             DataClassification = CustomerContent;
         }
-        field(5; "Output Format"; enum "Output Format.Enum")
+        field(5; "Output Format"; enum "BC6_Output Format.Enum")
         {
             Caption = 'Output Format';
             DataClassification = CustomerContent;
@@ -35,7 +35,7 @@ table 50032 "BC6_Email Attachment Type"
             Caption = 'File Path', Comment = 'FRA="Chemin du fichier"';
             DataClassification = CustomerContent;
         }
-        field(7; "File Naming"; enum "File Naming")
+        field(7; "File Naming"; enum "BC6_File Naming")
         {
             Caption = 'File Naming';
             DataClassification = CustomerContent;

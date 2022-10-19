@@ -67,13 +67,13 @@ page 50050 "BC6_Email Models"
                 trigger OnAction()
                 var
                     LanguageTemplateMail: Record "BC6_Language Template Mail";
-                    Language: Record Language;
+                    Language: Codeunit Language;
                 begin
                     LanguageTemplateMail.SETRANGE("Parameter String", Rec.Code);
                     if LanguageTemplateMail.ISEMPTY then begin
                         LanguageTemplateMail.INIT();
                         LanguageTemplateMail."Parameter String" := Rec.Code;
-                        LanguageTemplateMail."Language Code" := Language.GetUserLanguage();
+                        LanguageTemplateMail."Language Code" := Language.GetUserLanguageCode();
                         LanguageTemplateMail.INSERT();
                         COMMIT();
                     end;

@@ -2,25 +2,30 @@ table 50067 "BC6_Language Template Mail"
 {
     Caption = 'Language Template Mail';
     LookupPageID = "BC6_Language Template Mail";
+    DataClassification = CustomerContent;
 
     fields
     {
         field(1; "Parameter String"; Text[50])
         {
             Caption = 'Template Mail Code', Comment = 'FRA="Code Modèle de Mail"';
+            DataClassification = CustomerContent;
         }
         field(2; "Language Code"; Code[10])
         {
             Caption = 'Language Code', Comment = 'FRA="Code langue"';
             TableRelation = Language;
+            DataClassification = CustomerContent;
         }
         field(10; "Template mail"; BLOB)
         {
             Caption = 'Template mail', Comment = 'FRA="Modèle Email"';
+            DataClassification = CustomerContent;
         }
         field(50000; Object; Text[250])
         {
             Caption = 'Object', Comment = 'FRA="Objet"';
+            DataClassification = CustomerContent;
         }
     }
 
@@ -30,10 +35,6 @@ table 50067 "BC6_Language Template Mail"
         {
             Clustered = true;
         }
-    }
-
-    fieldgroups
-    {
     }
 
     var

@@ -1,4 +1,4 @@
-enum 50002 "File Naming"
+enum 50002 "BC6_File Naming"
 {
     Extensible = true;
 

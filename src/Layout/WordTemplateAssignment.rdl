@@ -110,6 +110,9 @@ End Function
         <Field Name="Contact_Country">
           <DataField>Contact_Country</DataField>
         </Field>
+        <Field Name="Customer_SIREN_SIRET">
+          <DataField>Customer_SIREN_SIRET</DataField>
+        </Field>
         <Field Name="Customer_GTIN">
           <DataField>Customer_GTIN</DataField>
         </Field>

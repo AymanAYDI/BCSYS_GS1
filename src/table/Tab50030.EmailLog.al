@@ -29,7 +29,7 @@ table 50030 "BC6_Email Log"
             DataClassification = CustomerContent;
             Editable = false;
         }
-        field(5; "Message Status"; enum "Message Status.Enum")
+        field(5; "Message Status"; enum "BC6_Message Status.Enum")
         {
             Caption = 'Message Status';
             DataClassification = CustomerContent;

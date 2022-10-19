@@ -943,6 +943,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_GS1 : DMS Managment - NamedType ConstSendSuccess</note>
         </trans-unit>
+        <trans-unit id="Codeunit 3574608501 - Method 2898505110 - NamedType 3415447349" size-unit="char" translate="yes" xml:space="preserve">
+          <source>GS1_%1_%2.%3</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_GS1 : DMS Managment - Method GenerateAttachment - NamedType FileNameLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3574608501 - Method 2898505110 - NamedType 2289776534" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 - %2.%3</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_GS1 : DMS Managment - Method GenerateAttachment - NamedType FileNameCustLbl</note>
+        </trans-unit>
         <trans-unit id="Codeunit 3316220004 - NamedType 276951208" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 is Mandatory</source>
           <note from="Developer" annotates="general" priority="2">FRA="%1 est obligatoire."</note>
@@ -1778,20 +1788,25 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension BC6_Customer - Field BC6_SIREN/SIRET - Property Caption</note>
         </trans-unit>
-        <trans-unit id="TableExtension 4060892402 - Field 2563521347 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
-          <source>BC6_Invoice Title</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BC6_Sales Invoice Header - Field BC6_Invoice Title - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 4060892402 - Field 300792892 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
-          <source>Send Status</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BC6_Sales Invoice Header - Field BC6_Send Status - Property Caption</note>
+        <trans-unit id="TableExtension 3290521200 - Field 2563521347 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 552782286">
+          <source>Invoice Title</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Titre facture"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BC6_SalesCrMemoHeader - Field BC6_Invoice Title - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 3290521200 - Field 300792892 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 552782286">
           <source>Send Status</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Statut d'envoi"</note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension BC6_SalesCrMemoHeader - Field BC6_Send Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2448988698 - Field 2563521347 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
+          <source>Invoice Title</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Titre facture"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BC6_SalesInvoiceHeader - Field BC6_Invoice Title - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2448988698 - Field 300792892 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
+          <source>Send Status</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Statut d'envoi"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BC6_SalesInvoiceHeader - Field BC6_Send Status - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 3473588906 - Field 4265508897 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 337631938">
           <source>Allow Yooz Import</source>
@@ -1848,6 +1863,46 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Document Type - EnumValue Payment - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Enum 2413935496 - EnumValue 2676895894 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bcc</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Cci"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Email Type - EnumValue Bcc - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2413935496 - EnumValue 2848067100 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cc</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Cc"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Email Type - EnumValue Cc - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2413935496 - EnumValue 1958180954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>From</source>
+          <note from="Developer" annotates="general" priority="2">FRA="De"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Email Type - EnumValue From - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2413935496 - EnumValue 3483619077 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>To</source>
+          <note from="Developer" annotates="general" priority="2">FRA="A"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Email Type - EnumValue To - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3294859272 - EnumValue 2004364593 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Credit Memo</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Avoir"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_File Naming - EnumValue Credit Memo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3294859272 - EnumValue 1994964448 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Client"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_File Naming - EnumValue Customer - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3294859272 - EnumValue 821689635 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invoice</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Facture"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_File Naming - EnumValue Invoice - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3294859272 - EnumValue 2672704373 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Standard</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Standard"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_File Naming - EnumValue Standard - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Enum 3860901911 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Import Type</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1873,6 +1928,61 @@
           <note from="Developer" annotates="general" priority="2">"Paie"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_ImportTypeNDF/Paie - EnumValue Payroll - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Enum 2072072934 - EnumValue 2248886284 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Error</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Erreur"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Message Status.Enum - EnumValue Error - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2072072934 - EnumValue 419426744 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Information</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Information"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Message Status.Enum - EnumValue Information - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2072072934 - EnumValue 3878926381 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Success</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Succès"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Message Status.Enum - EnumValue Success - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2072072934 - EnumValue 3955473374 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Warning</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Attention"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Message Status.Enum - EnumValue Warning - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2485974003 - EnumValue 3731179934 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PDF</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Output Format.Enum - EnumValue PDF - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2485974003 - EnumValue 2013594130 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Word</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Output Format.Enum - EnumValue Word - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1693861573 - EnumValue 3993128796 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Contact</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Contact"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Recipient Type - EnumValue Contact - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1693861573 - EnumValue 1285973296 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Email</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Mél"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Recipient Type - EnumValue Email - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 300792892 - EnumValue 1371923692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source> </source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Send Status - EnumValue   - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 300792892 - EnumValue 3923323563 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Not Sent</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Send Status - EnumValue Not Sent - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 300792892 - EnumValue 2561328176 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sent</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Send Status - EnumValue Sent - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Enum 3358074112 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Status</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1897,101 +2007,6 @@
           <source>Post</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Status - EnumValue Post - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 2937173312 - EnumValue 2676895894 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Bcc</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Cci"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum Email Type - EnumValue Bcc - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 2937173312 - EnumValue 2848067100 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Cc</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Cc"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum Email Type - EnumValue Cc - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 2937173312 - EnumValue 1958180954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>From</source>
-          <note from="Developer" annotates="general" priority="2">FRA="De"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum Email Type - EnumValue From - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 2937173312 - EnumValue 3483619077 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>To</source>
-          <note from="Developer" annotates="general" priority="2">FRA="A"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum Email Type - EnumValue To - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 3724314464 - EnumValue 2004364593 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Credit Memo</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Avoir"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum File Naming - EnumValue Credit Memo - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 3724314464 - EnumValue 1994964448 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Customer</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Client"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum File Naming - EnumValue Customer - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 3724314464 - EnumValue 821689635 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Invoice</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Facture"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum File Naming - EnumValue Invoice - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 3724314464 - EnumValue 2672704373 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Standard</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Standard"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum File Naming - EnumValue Standard - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 4289254430 - EnumValue 2248886284 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Error</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Erreur"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum Message Status.Enum - EnumValue Error - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 4289254430 - EnumValue 419426744 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Information</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Information"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum Message Status.Enum - EnumValue Information - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 4289254430 - EnumValue 3878926381 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Success</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Succès"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum Message Status.Enum - EnumValue Success - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 4289254430 - EnumValue 3955473374 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Warning</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Attention"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum Message Status.Enum - EnumValue Warning - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 3601744651 - EnumValue 3731179934 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>PDF</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum Output Format.Enum - EnumValue PDF - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 3601744651 - EnumValue 2013594130 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Word</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum Output Format.Enum - EnumValue Word - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 3490560541 - EnumValue 3993128796 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Contact</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Contact"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum Recipient Type - EnumValue Contact - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 3490560541 - EnumValue 1285973296 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Email</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Mél"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum Recipient Type - EnumValue Email - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 3652547908 - EnumValue 1371923692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source> </source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum Send Status - EnumValue   - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 3652547908 - EnumValue 3923323563 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Not Sent</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum Send Status - EnumValue Not Sent - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 3652547908 - EnumValue 2561328176 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Sent</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum Send Status - EnumValue Sent - Property Caption</note>
         </trans-unit>
       </group>
     </body>

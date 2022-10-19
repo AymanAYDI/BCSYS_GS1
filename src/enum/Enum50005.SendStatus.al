@@ -1,4 +1,4 @@
-enum 50005 "Send Status"
+enum 50005 "BC6_Send Status"
 {
     Extensible = true;
 

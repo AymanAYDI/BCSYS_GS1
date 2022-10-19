@@ -73,7 +73,7 @@ report 50056 "BC6_Word Template - Membership"
 
                 trigger OnPreDataItem()
                 begin
-                    Contact.SETRANGE("Company No.", Customer.FctGetContact(Customer."No."));
+                    Contact.SETRANGE("Company No.", Customer.GetContact());
                 end;
             }
             dataitem(GS1BarCode; "BC6_GS1 Bar Code")

@@ -1,75 +1,36 @@
 codeunit 50022 "BC6_GS1 : Email Management"
 {
-    Permissions = tabledata 99008535 = rimd;
-
-
     var
-        // CstGText001: Label 'Automatic batch doesn''t exist.';
-        // CstGText002: Label 'Order Tracking - %1 - %2';
-        // IntGLanguage: Integer;
         Mail: codeunit Email;
-        BooGAutoSend: Boolean;
-        // CumuledAdresse: Text;
-        // CstGText003: Label 'No Reply';
-        // CstGText004: Label 'There is no attachment for this task.';
-        // CstGText005: Label 'All documents are received.';
-        // CstGHtmlTableBegin: Label '<table style="border: 1px solid #ddd;border-collapse: collapse;width: auto"><tr style="background-color: #528094;color: white;padding: 8px;"><th style="text-align: left;padding: 8px;">%1</th><th style="background-color: #528094;color: white;text-align: left;padding: 8px;">%2</th></tr>';
-        // CstGHtmlTableAddLine: Label '<tr style="text-align: left;padding: 8px;"><td>%1</td><td>%2</td></tr>';
-        // CstGHtmlTableEnd: Label '</table>';
+        EmailMessage: codeunit "Email Message";
         TxtGHtmlTable: Text;
-        // CstGText0006: Label 'Document';
-        // CstGHtmlTableHeader: Label '<table style="border: 1px solid #ddd;border-collapse: collapse;width: auto" border="1"><tr style="background-color: #528094;color: white;padding: 8px;"><th style="text-align: left;padding: 8px;">%1</th><th style="background-color: #528094;color: white;text-align: left;padding: 8px;">%2</th><th style="background-color: #528094;color: white;text-align: left;padding: 8px;">%3</th><th style="background-color: #528094;color: white;text-align: left;padding: 8px;">%4</th><th style="background-color: #528094;color: white;text-align: left;padding: 8px;">%5</th><th style="background-color: #528094;color: white;text-align: left;padding: 8px;">%6</th><th style="background-color: #528094;color: white;text-align: left;padding: 8px;">%7</th></tr>';
-        // CstGHtmlTableLine: Label '<tr style="text-align: left;padding: 8px;"><td>%1</td><td>%2</td><td>%3</td><td>%4</td><td>%5</td><td>%6</td><td style="text-align: right;">%7</td></tr>';
-        // CstGHtmlTableTotLine: Label '<tr style="text-align: left;padding: 8px;"><td colspan="6">Total société %1 %2</td><td style="text-align: right;">%3</td></tr>';
-        // CstGText006: Label 'Order No.';
-        // CstGText007: Label 'Place';
-        // CstGText008: Label 'Make';
-        // CstGText009: Label 'Registration';
-        // CstGText010: Label 'Entry Date';
-        // CstGText011: Label 'Recorded Value';
         TxtGHtmlTableOutVeh: Text;
-        // CstGText012: Label 'Serial No.';
-        // CstGText013: Label 'Véhicules à sortir de plus de %1 jours de %2';
-        // CstGText014: Label 'First Release Date';
-        // CstGText015: Label 'Age';
-        // CstGText016: Label 'Véhicules périmés de plus de %1 ans de %2';
-        // CstGHtmlTableABSVehHeader: Label '<table style="border: 1px solid #ddd;border-collapse: collapse;width: auto" border="1"><tr style="background-color: #F78181;color: white;padding: 8px;"><th style="text-align: left;padding: 8px;">%1</th><th style="background-color: #F78181;color: white;text-align: left;padding: 8px;">%2</th><th style="background-color: #F78181;color: white;text-align: left;padding: 8px;">%3</th><th style="background-color: #F78181;color: white;text-align: left;padding: 8px;">%4</th><th style="background-color: #F78181;color: white;text-align: left;padding: 8px;">%5</th><th style="background-color: #F78181;color: white;text-align: left;padding: 8px;">%6</th><th style="background-color: #F78181;color: white;text-align: left;padding: 8px;">%7</th><th style="background-color: #F78181;color: white;text-align: left;padding: 8px;">%8</th></tr>';
-        // CstGHtmlTableABSVehLine: Label '<tr style="text-align: left;padding: 8px;"><td>%1</td><td>%2</td><td>%3</td><td>%4</td><td>%5</td><td>%6</td><td style="text-align: right;">%7</td><td>%8</td></tr>';
-        // CstGHtmlTableABSVehTotLine: Label '<tr style="text-align: left;padding: 8px;"><td colspan="7">Total société %1 %2</td><td style="text-align: right;">%3</td></tr>';
         TxtGPeriod: Text;
-        // MyFilterPageBuilder: FilterPageBuilder;
-        // CstGText017: Label 'Discount Type';
         TxtGCreditorName: Text[50];
-        CduGSMTPMail: codeunit "Email Message";
 
 
-    procedure FctSendMail(BooPHideSmtpError: Boolean)
-    var
-        MailSent: Boolean;
+    procedure SendMail(BooPHideSmtpError: Boolean)
     begin
-        if BooGAutoSend then
-            // CduGSMTPMail.Send TODO
-            // ELSE
-            MailSent := Mail.Send(CduGSMTPMail, Enum::"Email Scenario"::Default);
+        Mail.Send(EmailMessage, Enum::"Email Scenario"::Default);
     end;
 
 
-    procedure FctGetTemplateWithLanguage(TxtPParameterString: Text[250]; CodPLanguage: Code[10]; var RecPBLOBRef: codeunit "Temp Blob")
+    procedure FctGetTemplateWithLanguage(TxtPParameterString: Text[250]; _Language: Code[10]; var _BLOBRef: codeunit "Temp Blob")
     var
-        RecLLanguageTemplateMail: Record "BC6_Language Template Mail";
+        LanguageTemplateMail: Record "BC6_Language Template Mail";
     begin
-        if not RecLLanguageTemplateMail.GET(TxtPParameterString, CodPLanguage) then
-            RecLLanguageTemplateMail.GET(TxtPParameterString, 'FRA');
-        RecLLanguageTemplateMail.CALCFIELDS("Template mail");
-        RecPBLOBRef.FromRecord(RecLLanguageTemplateMail, RecLLanguageTemplateMail.FieldNo("Template mail"));
+        if not LanguageTemplateMail.GET(TxtPParameterString, _Language) then
+            LanguageTemplateMail.GET(TxtPParameterString, 'FRA');
+        LanguageTemplateMail.CALCFIELDS("Template mail");
+        _BLOBRef.FromRecord(LanguageTemplateMail, LanguageTemplateMail.FieldNo("Template mail"));
     end;
 
 
     procedure FctLoadMailBody(var RefPRecordRef: RecordRef; var RecPBLOBRef: codeunit "Temp Blob"; TxtPSpecialText1: Text; TxtPSpecialText2: Text; var TxtPEmailBodyText: Text) Error: Text[1024]
     var
-        BooLSkip: Boolean;
-        BooLStop: Boolean;
-        BooWrongEnd: Boolean;
+        Skip: Boolean;
+        Stop: Boolean;
+        WrongEnd: Boolean;
         InStreamTemplate: InStream;
         I: Integer;
         y: Integer;
@@ -77,10 +38,9 @@ codeunit 50022 "BC6_GS1 : Email Management"
         Body: Text;
         InSReadChar: Text[1];
         CharNo: Text[30];
-        TxtLRepeatLine: Text[1024];
+        RepeatLine: Text[1024];
     begin
         if not RefPRecordRef.ISEMPTY then begin
-            // TxtLTempPath := TEMPORARYPATH + 'TempTemplate.HTM';
             RecPBLOBRef.CREATEINSTREAM(InStreamTemplate, TEXTENCODING::Windows);
             TxtPEmailBodyText := '';
 
@@ -92,51 +52,51 @@ codeunit 50022 "BC6_GS1 : Email Management"
                     if InStreamTemplate.READ(InSReadChar, 1) <> 0 then;
 
                     if InSReadChar = 'n' then begin
-                        TxtLRepeatLine := '';
-                        BooLStop := false;
+                        RepeatLine := '';
+                        Stop := false;
                         y := 1;
 
-                        while (not BooLStop) do begin
+                        while (not Stop) do begin
                             if InStreamTemplate.READ(InSReadChar, 1) <> 0 then;
-                            TxtLRepeatLine += InSReadChar;
+                            RepeatLine += InSReadChar;
 
                             if y > 1 then
-                                if (FORMAT(TxtLRepeatLine[y - 1]) + FORMAT(TxtLRepeatLine[y])) = '%n' then begin
-                                    TxtLRepeatLine := DELSTR(TxtLRepeatLine, STRPOS(TxtLRepeatLine, '%n'), 2);
-                                    BooLStop := true;
+                                if (FORMAT(RepeatLine[y - 1]) + FORMAT(RepeatLine[y])) = '%n' then begin
+                                    RepeatLine := DELSTR(RepeatLine, STRPOS(RepeatLine, '%n'), 2);
+                                    Stop := true;
                                 end;
                             y += 1;
                         end;
 
-                        while (not BooLSkip) do begin
+                        while (not Skip) do begin
                             Body := '';
-                            for y := 1 to STRLEN(TxtLRepeatLine) do
-                                if TxtLRepeatLine[y] = '%' then begin
+                            for y := 1 to STRLEN(RepeatLine) do
+                                if RepeatLine[y] = '%' then begin
                                     Body += '%';
 
                                     y += 1;
-                                    if (TxtLRepeatLine[y] >= '0') and (TxtLRepeatLine[y] <= '9') then begin
+                                    if (RepeatLine[y] >= '0') and (RepeatLine[y] <= '9') then begin
                                         Body := Body + '1';
-                                        CharNo := FORMAT(TxtLRepeatLine[y]);
+                                        CharNo := FORMAT(RepeatLine[y]);
                                         y += 1;
-                                        while ((TxtLRepeatLine[y] >= '0') and (TxtLRepeatLine[y] <= '9')) or (TxtLRepeatLine[y] = '/') do begin
-                                            CharNo := CharNo + FORMAT(TxtLRepeatLine[y]);
+                                        while ((RepeatLine[y] >= '0') and (RepeatLine[y] <= '9')) or (RepeatLine[y] = '/') do begin
+                                            CharNo := CharNo + FORMAT(RepeatLine[y]);
                                             y += 1;
                                         end;
-                                        Body += FORMAT(TxtLRepeatLine[y]);
+                                        Body += FORMAT(RepeatLine[y]);
                                         FctFillTemplate(Body, CharNo, RefPRecordRef, TxtPSpecialText1, TxtPSpecialText2);
                                         TxtPEmailBodyText += (CONVERTSTR(Body, '|', '%'));
                                         Body := '';
 
                                     end else
-                                        Body += FORMAT(TxtLRepeatLine[y]);
+                                        Body += FORMAT(RepeatLine[y]);
                                 end else
-                                    Body += FORMAT(TxtLRepeatLine[y]);
+                                    Body += FORMAT(RepeatLine[y]);
 
 
                             TxtPEmailBodyText += (CONVERTSTR(Body, '|', '%'));
                             Body := '';
-                            BooLSkip := RefPRecordRef.NEXT() = 0;
+                            Skip := RefPRecordRef.NEXT() = 0;
                         end;
                     end else begin
                         if (InSReadChar >= '0') and (InSReadChar <= '9') then begin
@@ -167,12 +127,12 @@ codeunit 50022 "BC6_GS1 : Email Management"
 
 
             if (STRLEN(Body) > 0) then begin
-                BooWrongEnd := true;
+                WrongEnd := true;
                 for z := 0 to 5 do
                     if Body[STRLEN(Body) - z] = '>' then
-                        BooWrongEnd := false;
+                        WrongEnd := false;
 
-                if BooWrongEnd then
+                if WrongEnd then
                     Body := Body + '>';
             end;
 
@@ -180,16 +140,15 @@ codeunit 50022 "BC6_GS1 : Email Management"
         end;
     end;
 
-
     procedure FctFillTemplate(var Body: Text[1024]; TextNo: Text[30]; var Header: RecordRef; TxtPSpecialText1: Text; TxtPSpecialText2: Text)
     var
+        RecLActiveSession: Record "Active Session";
         FldLRef: FieldRef;
         FldLRef2: FieldRef;
         DecLValue1: Decimal;
         DecLValue2: Decimal;
         IntLFieldNumber: Integer;
         IntLFieldNumber2: Integer;
-        RecLActiveSession: Record "Active Session";
     begin
         if TextNo = '' then
             exit;
@@ -275,7 +234,6 @@ codeunit 50022 "BC6_GS1 : Email Management"
 
     end;
 
-
     procedure FctConvertStr(TxtPStringToConvert: Text[1024]) TxtRStringToConvert: Text[1024]
     var
         BooLFirst: Boolean;
@@ -297,50 +255,36 @@ codeunit 50022 "BC6_GS1 : Email Management"
             TxtRStringToConvert := TxtPStringToConvert;
     end;
 
-
-    procedure FctCreateMailMessage(TxtPFromName: Text[100]; TxtPFromAddress: Text[250]; TxtPSendTo: Text[250]; TxtPCC: Text[250]; TxtPBCC: Text[250]; TxtPSubject: Text[250]; TxtPBodyText: Text; BooPAutoSend: Boolean)
+    procedure CreateMailMessage(_SendTo: Text[250]; _CC: Text[250]; _BCC: Text[250]; _Subject: Text[250]; _BodyText: Text)
     var
-        TxtPSendToList: List of [Text];
-        TxtPCCList: List of [Text];
-        TxtPBCCList: List of [Text];
+        BCCList: List of [Text];
+        CCList: List of [Text];
+        SendToList: List of [Text];
     begin
-        if BooPAutoSend then begin
-            TxtPSendToList := AddMailList(TxtPSendTo);
-            TxtPCCList := AddMailList(TxtPCC);
-            TxtPBCCList := AddMailList(TxtPBCC);
-            CduGSMTPMail.Create(TxtPSendToList, TxtPSubject, TxtPBodyText, true, TxtPCCList, TxtPBCCList);
-        end;
-        BooGAutoSend := BooPAutoSend;
+        SendToList := AddMailList(_SendTo);
+        CCList := AddMailList(_CC);
+        BCCList := AddMailList(_BCC);
+        EmailMessage.Create(SendToList, _Subject, _BodyText, true, CCList, BCCList);
     end;
 
-
-    procedure FctAddMailAttachment(AttachmentFilePath: Text; AttachmentFileName: Text)
+    procedure AddMailAttachment(var TempBlob: codeunit "Temp Blob"; AttachmentFileName: Text[250])
     var
-        tempBlob: codeunit "Temp Blob";
-        InStr: InStream;
+        InStream: InStream;
     begin
-        if AttachmentFilePath = '' then
+        if not TempBlob.HasValue() then
             exit;
-        if BooGAutoSend then begin
-            tempBlob.CreateInStream(InStr);
-            CduGSMTPMail.AddAttachment(AttachmentFileName, 'SendMail', InStr);
-        end
-        // ELSE
-        // Mail.AttachFile(AttachmentFilePath); TODO
 
+        TempBlob.CreateInStream(InStream);
+        EmailMessage.AddAttachment(AttachmentFileName, 'SendMail', InStream);
     end;
 
-    procedure AddMailList(mail: Text) RecipientsList: List of [Text]
-    var
-        textList: List of [Text];
+    local procedure AddMailList(_Mail: Text) _MailList: List of [Text]
     begin
-        mail += ';';
-        while STRPOS(mail, ';') > 1 do begin
-            textList.Add(COPYSTR(mail, 1, STRPOS(mail, ';') - 1));
-            mail := COPYSTR(mail, STRPOS(mail, ';') + 1);
-        end;
-        RecipientsList := textList;
-
+        if _Mail.Contains(';') then
+            _MailList := _Mail.Split(';')
+        else
+            if _Mail <> '' then
+                _MailList.Add(_Mail);
     end;
 }
 

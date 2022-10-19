@@ -65,6 +65,9 @@ End Function
         <Field Name="Today_Date">
           <DataField>Today_Date</DataField>
         </Field>
+        <Field Name="Customer_SIREN_SIRET">
+          <DataField>Customer_SIREN_SIRET</DataField>
+        </Field>
         <Field Name="Customer_GTIN">
           <DataField>Customer_GTIN</DataField>
         </Field>
@@ -106,6 +109,12 @@ End Function
         </Field>
         <Field Name="Contact_Country">
           <DataField>Contact_Country</DataField>
+        </Field>
+        <Field Name="GS1BarCode_Prefix_StartCode">
+          <DataField>GS1BarCode_Prefix_StartCode</DataField>
+        </Field>
+        <Field Name="GS1BarCode_Prefix_EndCode">
+          <DataField>GS1BarCode_Prefix_EndCode</DataField>
         </Field>
         <Field Name="CompanyInformation_Name">
           <DataField>CompanyInformation_Name</DataField>

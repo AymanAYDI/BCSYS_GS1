@@ -11,12 +11,12 @@ table 50045 "BC6_Email Recipient"
             DataClassification = CustomerContent;
             TableRelation = "BC6_Email Model";
         }
-        field(2; "Email Type"; enum "Email Type")
+        field(2; "Email Type"; enum "BC6_Email Type")
         {
             Caption = 'Email Type';
             DataClassification = CustomerContent;
         }
-        field(3; "Recipient Type"; enum "Recipient Type")
+        field(3; "Recipient Type"; enum "BC6_Recipient Type")
         {
             Caption = 'Recipient Type';
             DataClassification = CustomerContent;

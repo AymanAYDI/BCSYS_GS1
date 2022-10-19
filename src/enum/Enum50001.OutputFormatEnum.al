@@ -1,4 +1,4 @@
-enum 50001 "Output Format.Enum"
+enum 50001 "BC6_Output Format.Enum"
 {
     Extensible = true;
 
