@@ -125,7 +125,7 @@
         </trans-unit>
         <trans-unit id="Table 2222146255 - Field 4101026147 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Report Name</source>
-          <note from="Developer" annotates="general" priority="2">FRA="Nom de l'éta"</note>
+          <note from="Developer" annotates="general" priority="2">FRA="Nom de l'état"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Attach. Type Trans. - Field Report Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2271888375 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -893,26 +893,6 @@
           <note from="Developer" annotates="general" priority="2">FRA="Date Compta YOOZ"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field YOOZ Posting Date - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Codeunit 658266025 - NamedType 60349763" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Automatic Application - Processing ...\  \</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_Automatic Application - NamedType CstGAutoAppl</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 658266025 - NamedType 3485671525" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Customer no.        :</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_Automatic Application - NamedType CstGCustNo</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 658266025 - NamedType 123678810" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Entry No.          :</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_Automatic Application - NamedType CstGEntryNo</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 658266025 - NamedType 1590244570" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Operation finished.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_Automatic Application - NamedType CstGOpFinished</note>
-        </trans-unit>
         <trans-unit id="Codeunit 3574608501 - NamedType 4080124969" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sent already.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -922,6 +902,11 @@
           <source>Le modèle email %1 est bloqué</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_GS1 : DMS Managment - NamedType ConstEmailModelBlocked</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3574608501 - NamedType 3318425255" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The document has been edited in Word.\\Do you want to import the changes?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_GS1 : DMS Managment - NamedType ConstLoadDocQuestion</note>
         </trans-unit>
         <trans-unit id="Codeunit 3574608501 - NamedType 931543817" size-unit="char" translate="yes" xml:space="preserve">
           <source>they are no email in Contact for the bill to customer %1 for Sales Credit Memo %2</source>
@@ -1262,6 +1247,11 @@
           <source>Type pièces jointes email</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_mail Attachments Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 946054962 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Test</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BC6_Test - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1126179625 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>YOOZ Error Log</source>

@@ -19,17 +19,17 @@ tableextension 50004 "BC6_Customer" extends Customer
         RecLContBusRel: Record "Contact Business Relation";
     begin
         //>>DSM-Distribution.TFS2543
-        IF "No." <> '' THEN BEGIN
+        if "No." <> '' then begin
             RecLContBusRel.SETCURRENTKEY("Link to Table", "No.");
             RecLContBusRel.SETRANGE("Link to Table", RecLContBusRel."Link to Table"::Customer);
             RecLContBusRel.SETRANGE("No.", "No.");
-            IF NOT RecLContBusRel.ISEMPTY THEN BEGIN
+            if not RecLContBusRel.ISEMPTY then begin
                 RecLContBusRel.FINDFIRST();
-                EXIT(RecLContBusRel."Contact No.");
-            END;
-        END;
+                exit(RecLContBusRel."Contact No.");
+            end;
+        end;
 
-        EXIT('');
+        exit('');
         //<<DSM-Distribution.TFS2543
     end;
 
@@ -37,17 +37,17 @@ tableextension 50004 "BC6_Customer" extends Customer
     var
         RecLContBusRel: Record "Contact Business Relation";
     begin
-        IF CodPCustomerNo <> '' THEN BEGIN
+        if CodPCustomerNo <> '' then begin
             RecLContBusRel.SETCURRENTKEY("Link to Table", "No.");
             RecLContBusRel.SETRANGE("Link to Table", RecLContBusRel."Link to Table"::Customer);
             RecLContBusRel.SETRANGE("No.", CodPCustomerNo);
-            IF NOT RecLContBusRel.ISEMPTY THEN BEGIN
-                IF RecLContBusRel.FINDFIRST() THEN
+            if not RecLContBusRel.ISEMPTY then begin
+                if RecLContBusRel.FINDFIRST() then
                     RetContactNo := RecLContBusRel."Contact No.";
-                EXIT(RecLContBusRel."Contact No.");
-            END;
-        END;
-        EXIT('');
+                exit(RecLContBusRel."Contact No.");
+            end;
+        end;
+        exit('');
     end;
 
 }

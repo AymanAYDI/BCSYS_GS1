@@ -42,9 +42,9 @@ report 50057 "BC6_Word Template - Assignment"
             }
             dataitem(Contact; Contact)
             {
-                DataItemLink = "No." = FIELD("Sell-to Contact No.");
-                DataItemTableView = SORTING("No.")
-                                    WHERE("Organizational Level Code" = CONST('PRINCIPAL'));
+                DataItemLink = "No." = field("Sell-to Contact No.");
+                DataItemTableView = sorting("No.")
+                                    where("Organizational Level Code" = const('PRINCIPAL'));
                 column(Contact_Name; Contact.Name)
                 {
                 }
@@ -66,15 +66,15 @@ report 50057 "BC6_Word Template - Assignment"
 
                 trigger OnAfterGetRecord()
                 begin
-                    IF CountryRegion.GET(Contact."Country/Region Code") THEN
+                    if CountryRegion.GET(Contact."Country/Region Code") then
                         Contact_Country := CountryRegion.Name
-                    ELSE
+                    else
                         Contact_Country := '';
                 end;
             }
             dataitem(Customer; Customer)
             {
-                DataItemLink = "No." = FIELD("Sell-to Customer No.");
+                DataItemLink = "No." = field("Sell-to Customer No.");
                 column(Customer_SIREN_SIRET; Customer."BC6_SIREN/SIRET")
                 {
                 }
@@ -111,20 +111,20 @@ report 50057 "BC6_Word Template - Assignment"
 
                 trigger OnAfterGetRecord()
                 begin
-                    IF CountryRegion.GET(Customer."Country/Region Code") THEN
+                    if CountryRegion.GET(Customer."Country/Region Code") then
                         Customer_Country := CountryRegion.Name
-                    ELSE
+                    else
                         Customer_Country := ''
                 end;
             }
             dataitem("Sales Invoice Line"; "Sales Invoice Line")
             {
-                DataItemLink = "Document No." = FIELD("No.");
-                DataItemTableView = SORTING("Document No.", "Line No.");
+                DataItemLink = "Document No." = field("No.");
+                DataItemTableView = sorting("Document No.", "Line No.");
                 dataitem(GS1BarCode; "BC6_GS1 Bar Code")
                 {
                     // DataItemLink = "Subscription No." = FIELD("Subscription No."), "Subscription Line No." = FIELD("Subscription Source Line No."); TODO:
-                    DataItemTableView = SORTING("Entry No.");
+                    DataItemTableView = sorting("Entry No.");
                     column(GS1BarCode_Item_Code; GS1BarCode_Item_Code)
                     {
                     }
@@ -152,19 +152,19 @@ report 50057 "BC6_Word Template - Assignment"
 
                     trigger OnAfterGetRecord()
                     begin
-                        IF (STRLEN(GS1BarCode."Num_Code F") > 2) AND (STRLEN(GS1BarCode.Num_Code) > 2) THEN BEGIN
+                        if (STRLEN(GS1BarCode."Num_Code F") > 2) and (STRLEN(GS1BarCode.Num_Code) > 2) then begin
                             GS1BarCode_Item_Code := STRSUBSTNO('%1 %2', COPYSTR(GS1BarCode.Num_Code, 3, STRLEN(GS1BarCode.Num_Code) - 2), COPYSTR(GS1BarCode."Num_Code F", 3, STRLEN(GS1BarCode."Num_Code F") - 2));
                             GS1BarCode_Prefix_StartCode_pvar := COPYSTR(GS1BarCode.Num_Code, 3, STRLEN(GS1BarCode.Num_Code) - 2);
                             GS1BarCode_Prefix_EndCode_pvar := COPYSTR(GS1BarCode."Num_Code F", 3, STRLEN(GS1BarCode."Num_Code F") - 2);
-                        END ELSE BEGIN
+                        end else begin
                             GS1BarCode_Item_Code := '';
                             GS1BarCode_Prefix_StartCode_pvar := '';
                             GS1BarCode_Prefix_EndCode_pvar := '';
-                        END;
+                        end;
 
                         GS1BarCode_Prefix_Price := COPYSTR(GS1BarCode.Num_Code, 1, 2);
 
-                        CASE GS1BarCode_Prefix_Price OF
+                        case GS1BarCode_Prefix_Price of
                             '02':
                                 GS1BarCode_Prefix_Wight := '29';
                             '24':
@@ -175,9 +175,9 @@ report 50057 "BC6_Word Template - Assignment"
                                 GS1BarCode_Prefix_Wight := '27';
                             '22':
                                 GS1BarCode_Prefix_Wight := '21';
-                            ELSE
+                            else
                                 GS1BarCode_Prefix_Wight := '';
-                        END;
+                        end;
                     end;
                 }
 
@@ -213,18 +213,18 @@ report 50057 "BC6_Word Template - Assignment"
 
                 trigger OnAfterGetRecord()
                 begin
-                    IF CountryRegion.GET(CompanyInformation."Country/Region Code") THEN
+                    if CountryRegion.GET(CompanyInformation."Country/Region Code") then
                         CompanyInformation_Country := CountryRegion.Name
-                    ELSE
+                    else
                         CompanyInformation_Country := '';
                 end;
             }
 
             trigger OnAfterGetRecord()
             begin
-                IF CountryRegion.GET("Sales Invoice Header"."Bill-to Country/Region Code") THEN
+                if CountryRegion.GET("Sales Invoice Header"."Bill-to Country/Region Code") then
                     SalesInvoiceHeader_Country := CountryRegion.Name
-                ELSE
+                else
                     SalesInvoiceHeader_Country := '';
             end;
         }

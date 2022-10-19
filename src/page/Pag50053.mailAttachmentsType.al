@@ -4,6 +4,8 @@ page 50053 "BC6_mail Attachments Type"
     Caption = 'Type pièces jointes email';
     PageType = List;
     SourceTable = "BC6_Email Attachment Type";
+    ApplicationArea = all;
+    UsageCategory = Lists;
 
     layout
     {
@@ -44,8 +46,8 @@ page 50053 "BC6_mail Attachments Type"
                 PromotedCategory = Process;
                 PromotedIsBig = true;
                 PromotedOnly = true;
-                RunObject = Page "BC6_Email Attach Type Transl.";
-                RunPageLink = "Attachment Type Code" = FIELD(Code);
+                RunObject = page "BC6_Email Attach Type Transl.";
+                RunPageLink = "Attachment Type Code" = field(Code);
             }
         }
     }

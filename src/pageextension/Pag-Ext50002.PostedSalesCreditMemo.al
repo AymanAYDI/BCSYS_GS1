@@ -17,7 +17,7 @@ pageextension 50002 "BC6_PostedSalesCreditMemo" extends "Posted Sales Credit Mem
 
                 trigger OnAction()
                 var
-                    GS1DMSManagment: Codeunit "BC6_GS1 : DMS Managment";
+                    GS1DMSManagment: codeunit "BC6_GS1 : DMS Managment";
                 begin
                     GS1DMSManagment.Send(Rec.RECORDID, '');
                 end;

@@ -13,7 +13,7 @@ pageextension 50000 "BC6_CustomerCard" extends "Customer Card"
 
                 trigger OnAction()
                 var
-                    GS1DMSManagment: Codeunit "BC6_GS1 : DMS Managment";
+                    GS1DMSManagment: codeunit "BC6_GS1 : DMS Managment";
                 begin
                     GS1DMSManagment.SelectModelAndSendlEmail(Rec.RECORDID);
                 end;

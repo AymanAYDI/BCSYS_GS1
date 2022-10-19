@@ -7,6 +7,8 @@ page 50051 "BC6_Email Log"
     ModifyAllowed = false;
     PageType = List;
     SourceTable = "BC6_Email Log";
+    ApplicationArea = all;
+    UsageCategory = Lists;
 
     layout
     {
@@ -32,9 +34,9 @@ page 50051 "BC6_Email Log"
                 field("Message"; Rec.Message)
                 {
                 }
-                // field("Created Date-Time"; "Created Date-Time") TODO: The name 'Created Date-Time' does not exist in the current context
-                // {
-                // }
+                field("Created Date-Time"; Rec."Create Date-Time")
+                {
+                }
                 field("Created by User ID"; Rec."Created by User ID")
                 {
                 }
@@ -57,23 +59,23 @@ page 50051 "BC6_Email Log"
 
                 trigger OnAction()
                 var
-                    GS1DMSManagment: Codeunit "BC6_GS1 : DMS Managment";
+                    GS1DMSManagment: codeunit "BC6_GS1 : DMS Managment";
                     RecID: RecordID;
-                    ConstErasureLog: Label 'Erasure Log';
+                    ConstErasureLog: label 'Erasure Log';
                     EmailSetupCode: Code[50];
                 begin
-                    IF Rec.ISEMPTY() THEN
-                        EXIT;
+                    if Rec.ISEMPTY() then
+                        exit;
 
-                    IF Rec.GETFILTER("Email Model Code") <> '' THEN
+                    if Rec.GETFILTER("Email Model Code") <> '' then
                         EmailSetupCode := Rec."Email Model Code";
 
-                    IF Rec.GETFILTER("Record Identifier") <> '' THEN
+                    if Rec.GETFILTER("Record Identifier") <> '' then
                         RecID := Rec."Record Identifier";
 
-                    Rec.DELETEALL(TRUE);
+                    Rec.DELETEALL(true);
 
-                    GS1DMSManagment.InsertLog(EmailSetupCode, RecID, Rec."Message Status"::Information, ConstErasureLog);
+                    GS1DMSManagment.InsertLog(EmailSetupCode, RecID, Rec."Message Status"::Information.AsInteger(), ConstErasureLog);
                 end;
             }
         }

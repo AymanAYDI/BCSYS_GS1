@@ -42,8 +42,8 @@ report 50056 "BC6_Word Template - Membership"
             }
             dataitem(Contact; Contact)
             {
-                DataItemTableView = SORTING("No.")
-                                    WHERE("Organizational Level Code" = CONST('PRINCIPAL'));
+                DataItemTableView = sorting("No.")
+                                    where("Organizational Level Code" = const('PRINCIPAL'));
                 column(Contact_Name; Contact.Name)
                 {
                 }
@@ -65,9 +65,9 @@ report 50056 "BC6_Word Template - Membership"
 
                 trigger OnAfterGetRecord()
                 begin
-                    IF CountryRegion.GET(Contact."Country/Region Code") THEN
+                    if CountryRegion.GET(Contact."Country/Region Code") then
                         Contact_Country := CountryRegion.Name
-                    ELSE
+                    else
                         Contact_Country := '';
                 end;
 
@@ -78,9 +78,9 @@ report 50056 "BC6_Word Template - Membership"
             }
             dataitem(GS1BarCode; "BC6_GS1 Bar Code")
             {
-                DataItemLink = "Customer No." = FIELD("No.");
-                DataItemTableView = SORTING("Entry No.")
-                                        WHERE(B_CnufPrincipal = CONST(true));
+                DataItemLink = "Customer No." = field("No.");
+                DataItemTableView = sorting("Entry No.")
+                                        where(B_CnufPrincipal = const(true));
                 column(GS1BarCode_Prefix_StartCode; GS1BarCode.Num_Code)
                 {
                 }
@@ -111,9 +111,9 @@ report 50056 "BC6_Word Template - Membership"
 
                 trigger OnAfterGetRecord()
                 begin
-                    IF CountryRegion.GET(CompanyInformation."Country/Region Code") THEN
+                    if CountryRegion.GET(CompanyInformation."Country/Region Code") then
                         CompanyInformation_Country := CountryRegion.Name
-                    ELSE
+                    else
                         CompanyInformation_Country := '';
                 end;
             }

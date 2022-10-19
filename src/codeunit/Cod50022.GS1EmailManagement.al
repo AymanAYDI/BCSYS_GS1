@@ -1,13 +1,13 @@
 codeunit 50022 "BC6_GS1 : Email Management"
 {
-    Permissions = TableData 99008535 = rimd;
+    Permissions = tabledata 99008535 = rimd;
 
 
     var
         // CstGText001: Label 'Automatic batch doesn''t exist.';
         // CstGText002: Label 'Order Tracking - %1 - %2';
         // IntGLanguage: Integer;
-        Mail: Codeunit Email;
+        Mail: codeunit Email;
         BooGAutoSend: Boolean;
         // CumuledAdresse: Text;
         // CstGText003: Label 'No Reply';
@@ -40,32 +40,32 @@ codeunit 50022 "BC6_GS1 : Email Management"
         // MyFilterPageBuilder: FilterPageBuilder;
         // CstGText017: Label 'Discount Type';
         TxtGCreditorName: Text[50];
-        CduGSMTPMail: Codeunit "Email Message";
+        CduGSMTPMail: codeunit "Email Message";
 
 
     procedure FctSendMail(BooPHideSmtpError: Boolean)
     var
         MailSent: Boolean;
     begin
-        IF BooGAutoSend THEN
+        if BooGAutoSend then
             // CduGSMTPMail.Send TODO
             // ELSE
             MailSent := Mail.Send(CduGSMTPMail, Enum::"Email Scenario"::Default);
     end;
 
 
-    procedure FctGetTemplateWithLanguage(TxtPParameterString: Text[250]; CodPLanguage: Code[10]; var RecPBLOBRef: Codeunit "Temp Blob")
+    procedure FctGetTemplateWithLanguage(TxtPParameterString: Text[250]; CodPLanguage: Code[10]; var RecPBLOBRef: codeunit "Temp Blob")
     var
         RecLLanguageTemplateMail: Record "BC6_Language Template Mail";
     begin
-        IF NOT RecLLanguageTemplateMail.GET(TxtPParameterString, CodPLanguage) THEN
+        if not RecLLanguageTemplateMail.GET(TxtPParameterString, CodPLanguage) then
             RecLLanguageTemplateMail.GET(TxtPParameterString, 'FRA');
         RecLLanguageTemplateMail.CALCFIELDS("Template mail");
         RecPBLOBRef.FromRecord(RecLLanguageTemplateMail, RecLLanguageTemplateMail.FieldNo("Template mail"));
     end;
 
 
-    procedure FctLoadMailBody(var RefPRecordRef: RecordRef; var RecPBLOBRef: Codeunit "Temp Blob"; TxtPSpecialText1: Text; TxtPSpecialText2: Text; var TxtPEmailBodyText: Text) Error: Text[1024]
+    procedure FctLoadMailBody(var RefPRecordRef: RecordRef; var RecPBLOBRef: codeunit "Temp Blob"; TxtPSpecialText1: Text; TxtPSpecialText2: Text; var TxtPEmailBodyText: Text) Error: Text[1024]
     var
         BooLSkip: Boolean;
         BooLStop: Boolean;
@@ -79,105 +79,105 @@ codeunit 50022 "BC6_GS1 : Email Management"
         CharNo: Text[30];
         TxtLRepeatLine: Text[1024];
     begin
-        IF NOT RefPRecordRef.ISEMPTY THEN BEGIN
+        if not RefPRecordRef.ISEMPTY then begin
             // TxtLTempPath := TEMPORARYPATH + 'TempTemplate.HTM';
             RecPBLOBRef.CREATEINSTREAM(InStreamTemplate, TEXTENCODING::Windows);
             TxtPEmailBodyText := '';
 
-            WHILE InStreamTemplate.READ(InSReadChar, 1) <> 0 DO
-                IF InSReadChar = '%' THEN BEGIN
+            while InStreamTemplate.READ(InSReadChar, 1) <> 0 do
+                if InSReadChar = '%' then begin
                     TxtPEmailBodyText += Body;
                     Body := InSReadChar;
 
-                    IF InStreamTemplate.READ(InSReadChar, 1) <> 0 THEN;
+                    if InStreamTemplate.READ(InSReadChar, 1) <> 0 then;
 
-                    IF InSReadChar = 'n' THEN BEGIN
+                    if InSReadChar = 'n' then begin
                         TxtLRepeatLine := '';
-                        BooLStop := FALSE;
+                        BooLStop := false;
                         y := 1;
 
-                        WHILE (NOT BooLStop) DO BEGIN
-                            IF InStreamTemplate.READ(InSReadChar, 1) <> 0 THEN;
+                        while (not BooLStop) do begin
+                            if InStreamTemplate.READ(InSReadChar, 1) <> 0 then;
                             TxtLRepeatLine += InSReadChar;
 
-                            IF y > 1 THEN
-                                IF (FORMAT(TxtLRepeatLine[y - 1]) + FORMAT(TxtLRepeatLine[y])) = '%n' THEN BEGIN
+                            if y > 1 then
+                                if (FORMAT(TxtLRepeatLine[y - 1]) + FORMAT(TxtLRepeatLine[y])) = '%n' then begin
                                     TxtLRepeatLine := DELSTR(TxtLRepeatLine, STRPOS(TxtLRepeatLine, '%n'), 2);
-                                    BooLStop := TRUE;
-                                END;
+                                    BooLStop := true;
+                                end;
                             y += 1;
-                        END;
+                        end;
 
-                        WHILE (NOT BooLSkip) DO BEGIN
+                        while (not BooLSkip) do begin
                             Body := '';
-                            FOR y := 1 TO STRLEN(TxtLRepeatLine) DO
-                                IF TxtLRepeatLine[y] = '%' THEN BEGIN
+                            for y := 1 to STRLEN(TxtLRepeatLine) do
+                                if TxtLRepeatLine[y] = '%' then begin
                                     Body += '%';
 
                                     y += 1;
-                                    IF (TxtLRepeatLine[y] >= '0') AND (TxtLRepeatLine[y] <= '9') THEN BEGIN
+                                    if (TxtLRepeatLine[y] >= '0') and (TxtLRepeatLine[y] <= '9') then begin
                                         Body := Body + '1';
                                         CharNo := FORMAT(TxtLRepeatLine[y]);
                                         y += 1;
-                                        WHILE ((TxtLRepeatLine[y] >= '0') AND (TxtLRepeatLine[y] <= '9')) OR (TxtLRepeatLine[y] = '/') DO BEGIN
+                                        while ((TxtLRepeatLine[y] >= '0') and (TxtLRepeatLine[y] <= '9')) or (TxtLRepeatLine[y] = '/') do begin
                                             CharNo := CharNo + FORMAT(TxtLRepeatLine[y]);
                                             y += 1;
-                                        END;
+                                        end;
                                         Body += FORMAT(TxtLRepeatLine[y]);
                                         FctFillTemplate(Body, CharNo, RefPRecordRef, TxtPSpecialText1, TxtPSpecialText2);
                                         TxtPEmailBodyText += (CONVERTSTR(Body, '|', '%'));
                                         Body := '';
 
-                                    END ELSE
+                                    end else
                                         Body += FORMAT(TxtLRepeatLine[y]);
-                                END ELSE
+                                end else
                                     Body += FORMAT(TxtLRepeatLine[y]);
 
 
                             TxtPEmailBodyText += (CONVERTSTR(Body, '|', '%'));
                             Body := '';
                             BooLSkip := RefPRecordRef.NEXT() = 0;
-                        END;
-                    END ELSE BEGIN
-                        IF (InSReadChar >= '0') AND (InSReadChar <= '9') THEN BEGIN
+                        end;
+                    end else begin
+                        if (InSReadChar >= '0') and (InSReadChar <= '9') then begin
                             Body := Body + '1';
                             CharNo := InSReadChar;
-                            WHILE (InSReadChar >= '0') AND (InSReadChar <= '9') DO BEGIN
-                                IF InStreamTemplate.READ(InSReadChar, 1) <> 0 THEN;
-                                IF (InSReadChar >= '0') AND (InSReadChar <= '9') THEN
+                            while (InSReadChar >= '0') and (InSReadChar <= '9') do begin
+                                if InStreamTemplate.READ(InSReadChar, 1) <> 0 then;
+                                if (InSReadChar >= '0') and (InSReadChar <= '9') then
                                     CharNo := CopyStr(CharNo + InSReadChar, 1, MaxStrLen(CharNo));
-                            END;
-                        END ELSE
+                            end;
+                        end else
                             Body := Body + InSReadChar;
 
                         FctFillTemplate(Body, CharNo, RefPRecordRef, TxtPSpecialText1, TxtPSpecialText2);
                         TxtPEmailBodyText += (CONVERTSTR(Body, '|', '%'));
                         Body := InSReadChar;
-                    END;
+                    end;
 
-                END ELSE BEGIN
+                end else begin
                     Body := Body + InSReadChar;
                     I := I + 1;
-                    IF I = 500 THEN BEGIN
+                    if I = 500 then begin
                         TxtPEmailBodyText += (CONVERTSTR(Body, '|', '%'));
                         Body := '';
                         I := 0;
-                    END;
-                END;
+                    end;
+                end;
 
 
-            IF (STRLEN(Body) > 0) THEN BEGIN
-                BooWrongEnd := TRUE;
-                FOR z := 0 TO 5 DO
-                    IF Body[STRLEN(Body) - z] = '>' THEN
-                        BooWrongEnd := FALSE;
+            if (STRLEN(Body) > 0) then begin
+                BooWrongEnd := true;
+                for z := 0 to 5 do
+                    if Body[STRLEN(Body) - z] = '>' then
+                        BooWrongEnd := false;
 
-                IF BooWrongEnd THEN
+                if BooWrongEnd then
                     Body := Body + '>';
-            END;
+            end;
 
             TxtPEmailBodyText += (CONVERTSTR(Body, '|', '%'));
-        END;
+        end;
     end;
 
 
@@ -191,11 +191,11 @@ codeunit 50022 "BC6_GS1 : Email Management"
         IntLFieldNumber2: Integer;
         RecLActiveSession: Record "Active Session";
     begin
-        IF TextNo = '' THEN
-            EXIT;
-        IF STRPOS(TextNo, '/') = 0 THEN BEGIN
+        if TextNo = '' then
+            exit;
+        if STRPOS(TextNo, '/') = 0 then begin
             EVALUATE(IntLFieldNumber, TextNo);
-            CASE IntLFieldNumber OF
+            case IntLFieldNumber of
                 10000:
                     Body := STRSUBSTNO(Body, TxtPSpecialText1);
                 10001:
@@ -211,27 +211,27 @@ codeunit 50022 "BC6_GS1 : Email Management"
                 10011:
                     Body := STRSUBSTNO(Body, FORMAT(TxtGCreditorName));
                 200000001:
-                    BEGIN
+                    begin
                         RecLActiveSession.SETRANGE("Server Instance ID", SERVICEINSTANCEID());
                         RecLActiveSession.SETRANGE("Session ID", SESSIONID());
                         RecLActiveSession.FINDFIRST();
                         Body := STRSUBSTNO(Body, FctConvertStr(RecLActiveSession."Server Computer Name"));
-                    END;
+                    end;
                 200000002:
-                    BEGIN
+                    begin
                         RecLActiveSession.SETRANGE("Server Instance ID", SERVICEINSTANCEID());
                         RecLActiveSession.SETRANGE("Session ID", SESSIONID());
                         RecLActiveSession.FINDFIRST;
                         Body := STRSUBSTNO(Body, FctConvertStr(RecLActiveSession."Database Name"));
-                    END;
+                    end;
                 200000003:
                     Body := STRSUBSTNO(Body, FctConvertStr(CopyStr(COMPANYNAME, 1, 1024)));
 
-                ELSE BEGIN
+                else begin
                     FldLRef := Header.FIELD(IntLFieldNumber);
-                    IF FORMAT(FldLRef.CLASS) = 'FlowField' THEN
+                    if FORMAT(FldLRef.CLASS) = 'FlowField' then
                         FldLRef.CALCFIELD();
-                    CASE FORMAT(FldLRef.TYPE) OF
+                    case FORMAT(FldLRef.TYPE) of
                         /*
                         'Option':BEGIN
                           EVALUATE(IntLOptionValue, FORMAT(FldLRef.VALUE));
@@ -245,33 +245,33 @@ codeunit 50022 "BC6_GS1 : Email Management"
                         END;
                         */
                         'Decimal':
-                            BEGIN
+                            begin
                                 EVALUATE(DecLValue1, FORMAT(FldLRef.VALUE));
                                 Body := STRSUBSTNO(Body, FORMAT(ROUND(DecLValue1, 0.01)));
-                            END ELSE
+                            end else
                                     Body := STRSUBSTNO(Body, FldLRef.VALUE);
-                    END;
-                END;
-            END;
-        END ELSE BEGIN
+                    end;
+                end;
+            end;
+        end else begin
             EVALUATE(IntLFieldNumber, COPYSTR(TextNo, 1, STRPOS(TextNo, '/') - 1));
             EVALUATE(IntLFieldNumber2, COPYSTR(TextNo, STRPOS(TextNo, '/') + 1, STRLEN(TextNo)));
             FldLRef := Header.FIELD(IntLFieldNumber);
-            IF FORMAT(FldLRef.CLASS) = 'FlowField' THEN
+            if FORMAT(FldLRef.CLASS) = 'FlowField' then
                 FldLRef.CALCFIELD();
 
             FldLRef2 := Header.FIELD(IntLFieldNumber2);
-            IF FORMAT(FldLRef2.CLASS) = 'FlowField' THEN
+            if FORMAT(FldLRef2.CLASS) = 'FlowField' then
                 FldLRef2.CALCFIELD();
 
             EVALUATE(DecLValue1, FORMAT(FldLRef.VALUE));
             EVALUATE(DecLValue2, FORMAT(FldLRef2.VALUE));
-            IF DecLValue2 <> 0 THEN
+            if DecLValue2 <> 0 then
                 Body := STRSUBSTNO(Body, FORMAT(ROUND((DecLValue1 / DecLValue2), 0.01)))
-            ELSE
+            else
                 Body := STRSUBSTNO(Body, FORMAT(ROUND(DecLValue1, 0.01)))
 
-        END;
+        end;
 
     end;
 
@@ -280,20 +280,20 @@ codeunit 50022 "BC6_GS1 : Email Management"
     var
         BooLFirst: Boolean;
     begin
-        BooLFirst := TRUE;
+        BooLFirst := true;
         TxtRStringToConvert := '';
-        IF STRPOS(TxtPStringToConvert, ' ') <> 0 THEN BEGIN
-            WHILE (STRPOS(TxtPStringToConvert, ' ') <> 0) DO BEGIN
-                IF BooLFirst THEN
+        if STRPOS(TxtPStringToConvert, ' ') <> 0 then begin
+            while (STRPOS(TxtPStringToConvert, ' ') <> 0) do begin
+                if BooLFirst then
                     TxtRStringToConvert += COPYSTR(TxtPStringToConvert, 1, STRPOS(TxtPStringToConvert, ' ') - 1)
-                ELSE
+                else
                     TxtRStringToConvert += '%20' + COPYSTR(TxtPStringToConvert, 1, STRPOS(TxtPStringToConvert, ' ') - 1);
-                BooLFirst := FALSE;
+                BooLFirst := false;
 
                 TxtPStringToConvert := COPYSTR(TxtPStringToConvert, STRPOS(TxtPStringToConvert, ' ') + 1, STRLEN(TxtPStringToConvert));
-            END;
+            end;
             TxtRStringToConvert += '%20' + TxtPStringToConvert;
-        END ELSE
+        end else
             TxtRStringToConvert := TxtPStringToConvert;
     end;
 
@@ -304,11 +304,11 @@ codeunit 50022 "BC6_GS1 : Email Management"
         TxtPCCList: List of [Text];
         TxtPBCCList: List of [Text];
     begin
-        IF BooPAutoSend THEN BEGIN
+        if BooPAutoSend then begin
             TxtPSendToList := AddMailList(TxtPSendTo);
             TxtPCCList := AddMailList(TxtPCC);
             TxtPBCCList := AddMailList(TxtPBCC);
-            CduGSMTPMail.Create(TxtPSendToList, TxtPSubject, TxtPBodyText, TRUE, TxtPCCList, TxtPBCCList);
+            CduGSMTPMail.Create(TxtPSendToList, TxtPSubject, TxtPBodyText, true, TxtPCCList, TxtPBCCList);
         end;
         BooGAutoSend := BooPAutoSend;
     end;
@@ -316,12 +316,12 @@ codeunit 50022 "BC6_GS1 : Email Management"
 
     procedure FctAddMailAttachment(AttachmentFilePath: Text; AttachmentFileName: Text)
     var
-        tempBlob: Codeunit "Temp Blob";
+        tempBlob: codeunit "Temp Blob";
         InStr: InStream;
     begin
-        IF AttachmentFilePath = '' THEN
-            EXIT;
-        IF BooGAutoSend THEN begin
+        if AttachmentFilePath = '' then
+            exit;
+        if BooGAutoSend then begin
             tempBlob.CreateInStream(InStr);
             CduGSMTPMail.AddAttachment(AttachmentFileName, 'SendMail', InStr);
         end
@@ -335,7 +335,7 @@ codeunit 50022 "BC6_GS1 : Email Management"
         textList: List of [Text];
     begin
         mail += ';';
-        WHILE STRPOS(mail, ';') > 1 DO BEGIN
+        while STRPOS(mail, ';') > 1 do begin
             textList.Add(COPYSTR(mail, 1, STRPOS(mail, ';') - 1));
             mail := COPYSTR(mail, STRPOS(mail, ';') + 1);
         end;

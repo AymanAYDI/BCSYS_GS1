@@ -19,7 +19,7 @@ table 50031 "BC6_Email Attachment"
         }
         field(3; "Attachment Description"; Text[50])
         {
-            CalcFormula = Lookup("BC6_Email Attachment Type".Description WHERE(Code = FIELD("Attachment Type Code")));
+            CalcFormula = lookup("BC6_Email Attachment Type".Description where(Code = field("Attachment Type Code")));
             Caption = 'Attachment Description', Comment = 'FRA="Désignation pièce jointe"';
             Editable = false;
             FieldClass = FlowField;

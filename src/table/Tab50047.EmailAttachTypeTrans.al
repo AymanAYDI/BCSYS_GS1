@@ -26,26 +26,26 @@ table 50047 "BC6_Email Attach. Type Trans."
         {
             Caption = 'Report ID', Comment = 'FRA="ID état"';
             DataClassification = CustomerContent;
-            TableRelation = AllObjWithCaption."Object ID" WHERE("Object Type" = CONST(Report));
+            TableRelation = AllObjWithCaption."Object ID" where("Object Type" = const(Report));
         }
         field(5; "Report Name"; Text[50])
         {
-            Caption = 'Report Name', Comment = 'FRA="Nom de l''éta"';
+            Caption = 'Report Name', Comment = 'FRA="Nom de l''état"';
             FieldClass = FlowField;
-            CalcFormula = Lookup(AllObjWithCaption."Object Name" WHERE("Object Type" = CONST(Report), "Object ID" = FIELD("Report ID")));
+            CalcFormula = lookup(AllObjWithCaption."Object Name" where("Object Type" = const(Report), "Object ID" = field("Report ID")));
             Editable = false;
         }
         field(6; "Custom Report Layout Code"; Code[20])
         {
             Caption = 'Custom Report Layout Code', Comment = 'FRA="Code présentation état personnalisé"';
             DataClassification = CustomerContent;
-            TableRelation = "Custom Report Layout".Code WHERE("Report ID" = FIELD("Report ID"), Code = FIELD("Custom Report Layout Code"));
+            TableRelation = "Custom Report Layout".Code where("Report ID" = field("Report ID"), Code = field("Custom Report Layout Code"));
         }
         field(7; "Custom Report Layout Name"; Text[250])
         {
             Caption = 'Custom Report Layout Name', Comment = 'FRA="Nom présentation état personnalisé"';
             FieldClass = FlowField;
-            CalcFormula = Lookup("Custom Report Layout".Description WHERE("Report ID" = FIELD("Report ID"), Code = FIELD("Custom Report Layout Code")));
+            CalcFormula = lookup("Custom Report Layout".Description where("Report ID" = field("Report ID"), Code = field("Custom Report Layout Code")));
             Editable = false;
         }
     }

@@ -49,10 +49,10 @@ table 50008 "BC6_GS1 Bar Code"
             var
                 RecLCodeType: Record "Bc6_Code Type";
             begin
-                IF RecLCodeType.GET(IDTypeCodes) THEN
+                if RecLCodeType.GET(IDTypeCodes) then
                     "Is Editable" := RecLCodeType."Is Editable"
-                ELSE
-                    "Is Editable" := FALSE;
+                else
+                    "Is Editable" := false;
             end;
         }
         field(10; LIB_Description; Text[50])
@@ -69,10 +69,10 @@ table 50008 "BC6_GS1 Bar Code"
         }
         field(13; Date_Payant; Date)
         {
-            CalcFormula = Max("Item Ledger Entry"."Posting Date" WHERE("Entry Type" = CONST("Sale"),
-                                                                        "Document Type" = CONST("Sales Invoice"),
-                                                                        "Item No." = FIELD("Item No."),
-                                                                        "Source No." = FIELD("Customer No.")));
+            CalcFormula = max("Item Ledger Entry"."Posting Date" where("Entry Type" = const("Sale"),
+                                                                        "Document Type" = const("Sales Invoice"),
+                                                                        "Item No." = field("Item No."),
+                                                                        "Source No." = field("Customer No.")));
             Caption = 'Last Invoice Date';
             Editable = false;
             FieldClass = FlowField;
@@ -188,7 +188,7 @@ table 50008 "BC6_GS1 Bar Code"
 
     trigger OnInsert()
     begin
-        IF "Entry No." = 0 THEN
+        if "Entry No." = 0 then
             "Entry No." := GetNextEntryNo();
     end;
 
@@ -197,21 +197,21 @@ table 50008 "BC6_GS1 Bar Code"
         RecLGS1BarCode: Record "BC6_GS1 Bar Code";
     begin
         RecLGS1BarCode.LOCKTABLE();
-        IF RecLGS1BarCode.FINDLAST() THEN
-            EXIT(RecLGS1BarCode."Entry No." + 1)
-        ELSE
-            EXIT(1);
+        if RecLGS1BarCode.FINDLAST() then
+            exit(RecLGS1BarCode."Entry No." + 1)
+        else
+            exit(1);
     end;
 
     local procedure UpdateGLN()
     var
         RecLCustomer: Record Customer;
     begin
-        IF ("Customer No." <> '') THEN BEGIN
+        if ("Customer No." <> '') then begin
             RecLCustomer.GET("Customer No.");
-            IF RecLCustomer.GLN <> '' THEN
+            if RecLCustomer.GLN <> '' then
                 GLN := RecLCustomer.GLN;
-        END;
+        end;
     end;
 }
 

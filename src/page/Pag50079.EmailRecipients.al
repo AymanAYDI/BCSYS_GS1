@@ -3,6 +3,9 @@ page 50079 "BC6_Email Recipients"
     Caption = 'Destinataires email';
     PageType = List;
     SourceTable = "BC6_Email Recipient";
+    ApplicationArea = all;
+    UsageCategory = Lists;
+
 
     layout
     {

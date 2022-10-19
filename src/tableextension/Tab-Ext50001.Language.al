@@ -8,18 +8,18 @@ tableextension 50001 "BC6_Language" extends Language
     begin
         CLEAR(Rec);
         SETRANGE("Windows Language ID", GLOBALLANGUAGE);
-        IF FINDFIRST() THEN;
+        if FINDFIRST() then;
         SETRANGE("Windows Language ID");
-        EXIT(Code);
+        exit(Code);
     end;
 
     procedure GetLanguageID(LanguageCode: Code[10]): Integer
     begin
         CLEAR(Rec);
-        IF LanguageCode <> '' THEN
-            IF GET(LanguageCode) THEN
-                EXIT("Windows Language ID");
+        if LanguageCode <> '' then
+            if GET(LanguageCode) then
+                exit("Windows Language ID");
         "Windows Language ID" := GLOBALLANGUAGE;
-        EXIT("Windows Language ID");
+        exit("Windows Language ID");
     end;
 }

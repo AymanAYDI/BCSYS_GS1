@@ -6,7 +6,7 @@ tableextension 50000 "BC6_Sales Invoice Header" extends "Sales Invoice Header"
         {
             TableRelation = "Standard Text".Code;
         }
-        field(50001; "BC6_Send Status"; Enum "Send Status")
+        field(50001; "BC6_Send Status"; enum "Send Status")
         {
             Caption = 'Send Status';
         }

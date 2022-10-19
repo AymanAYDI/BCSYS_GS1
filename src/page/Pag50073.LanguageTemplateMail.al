@@ -3,6 +3,9 @@ page 50073 "BC6_Language Template Mail"
     Caption = 'Language Template Mail';
     PageType = List;
     SourceTable = "BC6_Language Template Mail";
+    ApplicationArea = all;
+    UsageCategory = Lists;
+
 
     layout
     {
@@ -86,9 +89,10 @@ page 50073 "BC6_Language Template Mail"
 
                 trigger OnAction()
                 var
-                    GS1DMSManagment: Codeunit "BC6_GS1 : DMS Managment";
+                    GS1DMSManagment: codeunit "BC6_GS1 : DMS Managment";
                 begin
-                    GS1DMSManagment.OpenWordDocument(Rec);
+
+                    //    GS1DMSManagment.OpenWordDocument(Rec);
                 end;
             }
         }

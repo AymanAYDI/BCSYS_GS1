@@ -11,12 +11,12 @@ table 50045 "BC6_Email Recipient"
             DataClassification = CustomerContent;
             TableRelation = "BC6_Email Model";
         }
-        field(2; "Email Type"; Enum "Email Type")
+        field(2; "Email Type"; enum "Email Type")
         {
             Caption = 'Email Type';
             DataClassification = CustomerContent;
         }
-        field(3; "Recipient Type"; Enum "Recipient Type")
+        field(3; "Recipient Type"; enum "Recipient Type")
         {
             Caption = 'Recipient Type';
             DataClassification = CustomerContent;
@@ -30,7 +30,7 @@ table 50045 "BC6_Email Recipient"
         {
             Caption = 'Recipient Type Code', Comment = 'FRA="Code type destinataire"';
             DataClassification = CustomerContent;
-            TableRelation = IF ("Recipient Type" = CONST(Contact)) "Organizational Level".Code;
+            TableRelation = if ("Recipient Type" = const(Contact)) "Organizational Level".Code;
         }
     }
     keys

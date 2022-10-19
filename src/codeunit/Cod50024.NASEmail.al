@@ -1,9 +1,9 @@
 codeunit 50024 "BC6_NAS Email"
 {
-
-    Permissions = TableData 112 = rm,
-                  TableData 114 = rm;
+    Permissions = tabledata 112 = rm,
+                  tabledata 114 = rm;
     TableNo = 472;
+
 
     trigger OnRun()
     var
@@ -11,7 +11,7 @@ codeunit 50024 "BC6_NAS Email"
     begin
         ParameterStringToArray(Rec."Parameter String", ParameterArray);
         //>>INC-04533-N2L0S9
-        CASE UPPERCASE(ParameterArray[1]) OF
+        case UPPERCASE(ParameterArray[1]) of
             'INVOICE':
                 OnAfterPostSalesDoc(ParameterArray[2]);
             'CREDITMEMO':
@@ -20,7 +20,7 @@ codeunit 50024 "BC6_NAS Email"
             'PURGE':
                 PurgeLog();
         //<<REQ-02761-L6P2W4
-        END;
+        end;
         //<<INC-04533-N2L0S9
     end;
 
@@ -28,7 +28,7 @@ codeunit 50024 "BC6_NAS Email"
     procedure OnAfterPostSalesDoc(StatusFilter: Text)
     var
         SalesInvoiceHeader: Record "Sales Invoice Header";
-        GS1DMSManagment: Codeunit "BC6_GS1 : DMS Managment";
+        GS1DMSManagment: codeunit "BC6_GS1 : DMS Managment";
     begin
         //>>INC-04533-N2L0S9
         SalesInvoiceHeader.SETRANGE("BC6_Send Status", GetStatus(CopyStr(StatusFilter, 1, 10)));
@@ -39,20 +39,20 @@ codeunit 50024 "BC6_NAS Email"
         //>>REQ-02588-N1D4R9 Only for UAT environment
         SalesInvoiceHeader.SETFILTER("Sell-to Customer No.", '%1|%2', 'CLT-0021862', 'CLT-0021861');
         //<<REQ-02588-N1D4R9
-        IF NOT SalesInvoiceHeader.ISEMPTY THEN BEGIN
+        if not SalesInvoiceHeader.ISEMPTY then begin
             SalesInvoiceHeader.FINDSET();
-            REPEAT
+            repeat
                 COMMIT();
                 GS1DMSManagment.Send(SalesInvoiceHeader.RECORDID, '');
-            UNTIL SalesInvoiceHeader.NEXT() = 0;
-        END;
+            until SalesInvoiceHeader.NEXT() = 0;
+        end;
     end;
 
 
     procedure OnAfterPostCreditMemo(StatusFilter: Text)
     var
         SalesCrMemoHeader: Record "Sales Cr.Memo Header";
-        GS1DMSManagment: Codeunit "BC6_GS1 : DMS Managment";
+        GS1DMSManagment: codeunit "BC6_GS1 : DMS Managment";
     begin
         //>>INC-04533-N2L0S9
         SalesCrMemoHeader.SETRANGE("BC6_Send Status", GetStatus(CopyStr(StatusFilter, 1, 10)));
@@ -63,13 +63,13 @@ codeunit 50024 "BC6_NAS Email"
         //>>REQ-02588-N1D4R9 Only for UAT environment
         SalesCrMemoHeader.SETFILTER("Sell-to Customer No.", '%1|%2', 'CLT-0021862', 'CLT-0021861');
         //<<REQ-02588-N1D4R9
-        IF NOT SalesCrMemoHeader.ISEMPTY THEN BEGIN
+        if not SalesCrMemoHeader.ISEMPTY then begin
             SalesCrMemoHeader.FINDSET();
-            REPEAT
+            repeat
                 COMMIT();
                 GS1DMSManagment.Send(SalesCrMemoHeader.RECORDID, '');
-            UNTIL SalesCrMemoHeader.NEXT() = 0;
-        END;
+            until SalesCrMemoHeader.NEXT() = 0;
+        end;
     end;
 
     local procedure ParameterStringToArray(ParameterString: Text; var ParameterArray: array[5] of Text)
@@ -82,7 +82,7 @@ codeunit 50024 "BC6_NAS Email"
 
         CLEAR(ParameterArray);
 
-        FOR I := 1 TO STRLEN(ParameterString) - STRLEN(DELCHR(ParameterString, '=', ',')) + 1 DO
+        for I := 1 to STRLEN(ParameterString) - STRLEN(DELCHR(ParameterString, '=', ',')) + 1 do
 
             ParameterArray[I] := SELECTSTR(I, ParameterString);
 
@@ -94,10 +94,10 @@ codeunit 50024 "BC6_NAS Email"
         SalesInvoiceHeader: Record "Sales Invoice Header";
     begin
         //>>REQ-02761-L6P2W4
-        IF StatusFilter = 'NOTSENT' THEN
-            EXIT(SalesInvoiceHeader."BC6_Send Status"::"Not Sent".AsInteger());
+        if StatusFilter = 'NOTSENT' then
+            exit(SalesInvoiceHeader."BC6_Send Status"::"Not Sent".AsInteger());
 
-        EXIT(SalesInvoiceHeader."BC6_Send Status"::" ".AsInteger());
+        exit(SalesInvoiceHeader."BC6_Send Status"::" ".AsInteger());
         //<<REQ-02761-L6P2W4
     end;
 

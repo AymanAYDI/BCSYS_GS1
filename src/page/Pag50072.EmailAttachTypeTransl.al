@@ -4,6 +4,9 @@ page 50072 "BC6_Email Attach Type Transl."
     Caption = 'Email Translation Attachment Type';
     PageType = List;
     SourceTable = "BC6_Email Attach. Type Trans.";
+    ApplicationArea = all;
+    UsageCategory = Lists;
+
 
     layout
     {

@@ -3,6 +3,8 @@ page 50050 "BC6_Email Models"
     Caption = 'Email models';
     PageType = List;
     SourceTable = "BC6_Email Model";
+    ApplicationArea = all;
+    UsageCategory = Lists;
 
     layout
     {
@@ -48,7 +50,7 @@ page 50050 "BC6_Email Models"
                 PromotedCategory = Process;
                 PromotedIsBig = true;
                 PromotedOnly = true;
-                RunObject = Page "BC6_Email Log";
+                RunObject = page "BC6_Email Log";
                 RunPageLink = "Email Model Code" = field("Code");
                 RunPageMode = View;
             }
@@ -68,17 +70,16 @@ page 50050 "BC6_Email Models"
                     Language: Record Language;
                 begin
                     LanguageTemplateMail.SETRANGE("Parameter String", Rec.Code);
-                    IF LanguageTemplateMail.ISEMPTY THEN BEGIN
+                    if LanguageTemplateMail.ISEMPTY then begin
                         LanguageTemplateMail.INIT();
                         LanguageTemplateMail."Parameter String" := Rec.Code;
                         LanguageTemplateMail."Language Code" := Language.GetUserLanguage();
                         LanguageTemplateMail.INSERT();
                         COMMIT();
-                    END;
+                    end;
                     PAGE.RUNMODAL(PAGE::"BC6_Language Template Mail", LanguageTemplateMail);
                 end;
             }
-            // ****
             action(Recipients)
             {
                 Caption = 'Recipients';
@@ -87,8 +88,8 @@ page 50050 "BC6_Email Models"
                 PromotedCategory = Process;
                 PromotedIsBig = true;
                 PromotedOnly = true;
-                RunObject = Page 50079;
-                RunPageLink = "Email Setup Code" = FIELD(Code);
+                RunObject = page 50079;
+                RunPageLink = "Email Setup Code" = field(Code);
             }
             action(Attachments)
             {
@@ -98,20 +99,20 @@ page 50050 "BC6_Email Models"
                 PromotedCategory = Process;
                 PromotedIsBig = true;
                 PromotedOnly = true;
-                RunObject = Page "BC6_Email Recipients";
-                RunPageLink = "Email Setup Code" = FIELD(Code);
+                RunObject = page "BC6_Email Attachments";
+                RunPageLink = "Email Setup Code" = field(Code);
             }
         }
     }
 
     trigger OnOpenPage()
     begin
-        IF CurrPage.LOOKUPMODE THEN
+        if CurrPage.LOOKUPMODE then
             CurrPage.CAPTION(ConstLookupModeCaption);
     end;
 
     var
-        ConstLookupModeCaption: Label 'Selecting an email template';
+        ConstLookupModeCaption: label 'Selecting an email template';
 }
 
 
