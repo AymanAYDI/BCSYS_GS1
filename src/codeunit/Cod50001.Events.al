@@ -34,17 +34,14 @@ codeunit 50001 "BC6_Events"
         // END;
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Post Line", 'OnPostDtldVendLedgEntriesOnAfterCreateGLEntriesForTotalAmounts', '', false, false)]
-    local procedure CDU12_OnPostDtldVendLedgEntriesOnAfterCreateGLEntriesForTotalAmounts(var TempGLEntryBuf: Record "G/L Entry" temporary; var GlobalGLEntry: Record "G/L Entry"; NextTransactionNo: Integer);
-    var
-        DtldCVLedgEntryBuf: Record 383;
-        DtldCustLedgEntryNoOffset: Integer;
-
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Post Line", 'OnAfterInsertDtldVendLedgEntry', '', false, false)]
+    local procedure CDU12_OnAfterInsertDtldVendLedgEntry(var DtldVendLedgEntry: Record "Detailed Vendor Ledg. Entry"; DtldCVLedgEntryBuffer: Record "Detailed CV Ledg. Entry Buffer"; GenJournalLine: Record "Gen. Journal Line"; Offset: Integer);
     begin
         //IF CduGPDWConfigMgt.AccountingBasicPerm(FALSE) THEN BEGIN
-        if not (TempGLEntryBuf.IsEmpty() and not DtldCVLedgEntryBuf.ISEMPTY) then begin
-            CduGApplyIDMgt.FctSetCVLedgEntryBuff(DtldCVLedgEntryBuf, DtldCustLedgEntryNoOffset);
-            CduGApplyIDMgt.FctApplyIDCust(NextTransactionNo, DtldCVLedgEntryBuf."CV No.");
+        if not (//TODOIsTempGLEntryBufEmpty() and 
+        not DtldCVLedgEntryBuffer.ISEMPTY) then begin
+            CduGApplyIDMgt.FctSetCVLedgEntryBuff(DtldCVLedgEntryBuffer, Offset);
+            CduGApplyIDMgt.FctApplyIDCust(DtldVendLedgEntry."Transaction No.", DtldCVLedgEntryBuffer."CV No.");
         end;
         //  END;
     end;

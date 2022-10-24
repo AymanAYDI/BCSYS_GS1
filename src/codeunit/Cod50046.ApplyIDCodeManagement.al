@@ -166,46 +166,46 @@ codeunit 50046 "BC6_Apply ID Code Management"
         RecLDetailedCustLedgEntry2.SETCURRENTKEY("Cust. Ledger Entry No.", "Posting Date");
 
         if not RecGDetCVLedgerEntryBuffTMP.ISEMPTY then begin
-            RecGDetCVLedgerEntryBuffTMP.FINDSET();
-            repeat
-                RecLDetailedCustLedgEntry.GET(RecGDetCVLedgerEntryBuffTMP."Entry No.");
-                RecLCustLedgerEntry.GET(RecLDetailedCustLedgEntry."Cust. Ledger Entry No.");
-                if RecLCustLedgerEntry.Open then
-                    BooLOpen := true;
-                if RecLCustLedgerEntry."BC6_Applies-to ID Code" = '' then begin
-                    if BooLOpen then begin
-                        RecLDetailedCustLedgEntry."BC6_Applies-to ID Code" := TxtLCodApply;
-                        RecLCustLedgerEntry."BC6_Applies-to ID Code" := TxtLCodApply;
-                    end
-                    else begin
-                        RecLDetailedCustLedgEntry."BC6_Applies-to ID Code" := UPPERCASE(TxtLCodApply);
-                        RecLCustLedgerEntry."BC6_Applies-to ID Code" := UPPERCASE(TxtLCodApply);
-                    end;
-                    RecLCustLedgerEntry.MODIFY();
-                    RecLDetailedCustLedgEntry.MODIFY();
+            // RecGDetCVLedgerEntryBuffTMP.FINDSET();
+            // repeat
+            RecLDetailedCustLedgEntry.GET(RecGDetCVLedgerEntryBuffTMP."Entry No.");
+            RecLCustLedgerEntry.GET(RecLDetailedCustLedgEntry."Cust. Ledger Entry No.");
+            if RecLCustLedgerEntry.Open then
+                BooLOpen := true;
+            if RecLCustLedgerEntry."BC6_Applies-to ID Code" = '' then begin
+                if BooLOpen then begin
+                    RecLDetailedCustLedgEntry."BC6_Applies-to ID Code" := TxtLCodApply;
+                    RecLCustLedgerEntry."BC6_Applies-to ID Code" := TxtLCodApply;
                 end
                 else begin
-                    RecLCustLedgerEntry2.SETRANGE("Customer No.", CodPCustomer);
-                    RecLCustLedgerEntry2.SETRANGE("BC6_Applies-to ID Code", RecLCustLedgerEntry."BC6_Applies-to ID Code");
-                    if not RecLCustLedgerEntry2.ISEMPTY then begin
-                        RecLCustLedgerEntry2.FINDSET();
-                        repeat
-                            RecLCustLedgerEntry3.GET(RecLCustLedgerEntry2."Entry No.");
-                            if BooLOpen then
-                                RecLCustLedgerEntry3.VALIDATE("BC6_Applies-to ID Code", TxtLCodApply)
-                            else
-                                RecLCustLedgerEntry3.VALIDATE("BC6_Applies-to ID Code", UPPERCASE(TxtLCodApply));
-                            RecLCustLedgerEntry3.MODIFY();
-
-                            RecLDetailedCustLedgEntry2.SETRANGE("Cust. Ledger Entry No.", RecLCustLedgerEntry."Entry No.");
-                            if BooLOpen then
-                                RecLDetailedCustLedgEntry2.MODIFYALL("BC6_Applies-to ID Code", TxtLCodApply)
-                            else
-                                RecLDetailedCustLedgEntry2.MODIFYALL("BC6_Applies-to ID Code", UPPERCASE(TxtLCodApply));
-                        until RecLCustLedgerEntry2.NEXT() = 0;
-                    end;
+                    RecLDetailedCustLedgEntry."BC6_Applies-to ID Code" := UPPERCASE(TxtLCodApply);
+                    RecLCustLedgerEntry."BC6_Applies-to ID Code" := UPPERCASE(TxtLCodApply);
                 end;
-            until RecGDetCVLedgerEntryBuffTMP.NEXT() = 0;
+                RecLCustLedgerEntry.MODIFY();
+                RecLDetailedCustLedgEntry.MODIFY();
+            end
+            else begin
+                RecLCustLedgerEntry2.SETRANGE("Customer No.", CodPCustomer);
+                RecLCustLedgerEntry2.SETRANGE("BC6_Applies-to ID Code", RecLCustLedgerEntry."BC6_Applies-to ID Code");
+                if not RecLCustLedgerEntry2.ISEMPTY then begin
+                    RecLCustLedgerEntry2.FINDSET();
+                    repeat
+                        RecLCustLedgerEntry3.GET(RecLCustLedgerEntry2."Entry No.");
+                        if BooLOpen then
+                            RecLCustLedgerEntry3.VALIDATE("BC6_Applies-to ID Code", TxtLCodApply)
+                        else
+                            RecLCustLedgerEntry3.VALIDATE("BC6_Applies-to ID Code", UPPERCASE(TxtLCodApply));
+                        RecLCustLedgerEntry3.MODIFY();
+
+                        RecLDetailedCustLedgEntry2.SETRANGE("Cust. Ledger Entry No.", RecLCustLedgerEntry."Entry No.");
+                        if BooLOpen then
+                            RecLDetailedCustLedgEntry2.MODIFYALL("BC6_Applies-to ID Code", TxtLCodApply)
+                        else
+                            RecLDetailedCustLedgEntry2.MODIFYALL("BC6_Applies-to ID Code", UPPERCASE(TxtLCodApply));
+                    until RecLCustLedgerEntry2.NEXT() = 0;
+                end;
+            end;
+            // until RecGDetCVLedgerEntryBuffTMP.NEXT() = 0;
         end
         else begin
             RecLDetailedCustLedgEntry.SETCURRENTKEY("Transaction No.", "Customer No.", "Entry Type");
@@ -759,17 +759,17 @@ codeunit 50046 "BC6_Apply ID Code Management"
     procedure FctSetCVLedgEntryBuff(var RecPDetCVLedgerEntryBuff: Record "Detailed CV Ledg. Entry Buffer"; IntPOffset: Integer)
     begin
         RecGDetCVLedgerEntryBuffTMP.DELETEALL();
-        if not RecPDetCVLedgerEntryBuff.ISEMPTY then begin
-            RecPDetCVLedgerEntryBuff.FINDSET();
-            repeat
-                if RecPDetCVLedgerEntryBuff."Entry Type" = RecPDetCVLedgerEntryBuff."Entry Type"::Application then begin
-                    RecGDetCVLedgerEntryBuffTMP.INIT();
-                    RecGDetCVLedgerEntryBuffTMP.TRANSFERFIELDS(RecPDetCVLedgerEntryBuff);
-                    RecGDetCVLedgerEntryBuffTMP."Entry No." := RecPDetCVLedgerEntryBuff."Entry No." + IntPOffset;
-                    RecGDetCVLedgerEntryBuffTMP.INSERT();
-                end;
-            until RecPDetCVLedgerEntryBuff.NEXT() = 0;
-        end;
+        if not RecPDetCVLedgerEntryBuff.ISEMPTY then //begin
+            //   RecPDetCVLedgerEntryBuff.FINDSET();
+            //repeat
+            if RecPDetCVLedgerEntryBuff."Entry Type" = RecPDetCVLedgerEntryBuff."Entry Type"::Application then begin
+                RecGDetCVLedgerEntryBuffTMP.INIT();
+                RecGDetCVLedgerEntryBuffTMP.TRANSFERFIELDS(RecPDetCVLedgerEntryBuff);
+                RecGDetCVLedgerEntryBuffTMP."Entry No." := RecPDetCVLedgerEntryBuff."Entry No." + IntPOffset;
+                RecGDetCVLedgerEntryBuffTMP.INSERT();
+            end;
+        //until RecPDetCVLedgerEntryBuff.NEXT() = 0;
+        //end;
     end;
 }
 
