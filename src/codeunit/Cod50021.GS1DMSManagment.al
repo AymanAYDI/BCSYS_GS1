@@ -12,16 +12,16 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
         _RecordID: RecordID;
         _EmailModelCode: Code[20];
         _LastEmailModelCode: Code[20];
-        ConstAlreadySent: label 'Sent already.';
-        ConstEmailModelBlocked: label 'Le modèle email %1 est bloqué';
-        ConstLoadDocQuestion: label 'The document has been edited in Word.\\Do you want to import the changes?';
-        ConstNoContactCrMemo: label 'they are no email in Contact for the bill to customer %1 for Sales Credit Memo %2';
-        ConstNoContactCustomer: label 'they are no email in Contact for the bill to customer %1 for Sales Credit Memo %2';
-        ConstNoContactInvoice: label 'they are no email in Contact for the bill to customer %1 for Sales Invoice %2';
-        ConstNoCustGLN: label 'Customer %1 haven''t GLN.';
-        ConstNoEmailModelCode: label 'Aucun code modèle email n''est défini.';
-        ConstSendCanceled: label 'Send canceled';
-        ConstSendSuccess: label 'Sending successful';
+        ConstAlreadySent: label 'Sent already.', Comment = 'FRA="L''envoi a déjà été effectué. Etes-vous sûr de vouloir continuer ?"';
+        ConstEmailModelBlocked: label 'Email template %1 is blocked', Comment = 'FRA="Le modèle email %1 est bloqué"';
+        ConstLoadDocQuestion: label 'The document has been edited in Word.\\Do you want to import the changes?', Comment = 'FRA="Le document a été modifié dans Word.\\Voulez-vous importer les modifications ?"';
+        ConstNoContactCrMemo: label 'they are no email in Contact for the bill to customer %1 for Sales Credit Memo %2', Comment = 'FRA="Il n''y a pas d''email dans le(s) contact(s) du client facturé %1 pour l''avoir %2"';
+        ConstNoContactCustomer: label 'they are no email in Contact for the bill to customer %1 for Sales Credit Memo %2', Comment = 'FRA="Il n''y a pas d''email dans le(s) contact(s) du client %1"';
+        ConstNoContactInvoice: label 'they are no email in Contact for the bill to customer %1 for Sales Invoice %2', Comment = 'FRA="Il n''y a pas d''email dans le(s) contact(s) du client facturé %1 pour la facture %2"';
+        ConstNoCustGLN: label 'Customer %1 haven''t GLN.', Comment = 'FRA="Le client %1 ne possède pas de GLN."';
+        ConstNoEmailModelCode: label 'No email model code is defined.', Comment = 'FRA="Aucun code modèle email n''est défini."';
+        ConstSendCanceled: label 'Send canceled', Comment = 'FRA="Envoi annulé"';
+        ConstSendSuccess: label 'Sending successful', Comment = 'FRA="Envoi réalisé avec succès"';
 
 
     procedure Send(RecordIdentifier: RecordID; EmailModelCode: Code[20])
@@ -370,83 +370,6 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
         if PAGE.RUNMODAL(PAGE::"BC6_Email Models", EmailModel) = ACTION::LookupOK then
             Send(RecordIdentifier, EmailModel.Code);
     end;
-
-
-    //TODO procedure OpenWordDocument(LanguageTemplateMail: Record "BC6_Language Template Mail")
-    // var
-    //     EmailModel: Record "BC6_Email Model";
-    //     FileManagement: Codeunit "File Management";
-    //     TempBlob: Codeunit "Temp Blob";
-    //     RecRef: RecordRef;
-    //     [RunOnClient]
-    //     WordApplication: DotNet ApplicationClass;
-    //     [RunOnClient]
-    //     WordDocument: DotNet Document;
-    //     [RunOnClient]
-    //     WdSaveFormat: DotNet WdSaveFormat;
-    //     [RunOnClient]
-    //     WdWindowState: DotNet WdWindowState;
-    //     [RunOnClient]
-    //     WordHandler: DotNet WordHandler;
-    //     [RunOnClient]
-    //     WordHelper: DotNet WordHelper;
-    //     ErrorMessage: Text;
-    //     FilePath: Text;
-    //     NewFilePath: Text;
-    // begin
-    //     EmailModel.GET(LanguageTemplateMail."Parameter String");
-
-    //     // WordApplication := WordHelper.GetApplication(ErrorMessage);
-    //     // IF ISNULL(WordApplication) THEN
-    //     //     ERROR(ErrorMessage);
-
-    //     LanguageTemplateMail.CALCFIELDS("Template mail");
-    //     IF LanguageTemplateMail."Template mail".HASVALUE THEN BEGIN
-    //         TempBlob.FromRecord(LanguageTemplateMail, LanguageTemplateMail.FieldNo("Template mail"));
-
-    //         FilePath := FileManagement.BLOBExport(TempBlob, 'Temp.htm', FALSE);
-    //     END ELSE BEGIN
-    //         FilePath := FileManagement.ClientTempFileName('htm');
-    //         WordDocument := WordHelper.AddDocument(WordApplication);
-    //         WordHelper.CallSaveAsFormat(WordDocument, FilePath, WdSaveFormat.wdFormatFilteredHTML);
-    //     END;
-
-    //     // Open word and wait for the document to be closed
-    //     WordHandler := WordHandler.WordHandler;
-    //     WordDocument := WordHelper.CallOpen(WordApplication, FilePath, FALSE, FALSE);
-    //     WordDocument.ActiveWindow.Caption := EmailModel.Description;
-    //     WordDocument.Application.Visible := TRUE; // Visible before WindowState KB176866 - http://support.microsoft.com/kb/176866
-    //     WordDocument.ActiveWindow.WindowState := WdWindowState.wdWindowStateNormal;
-
-    //     // Push the word app to foreground
-    //     WordApplication.WindowState := WdWindowState.wdWindowStateMinimize;
-    //     WordApplication.Visible := TRUE;
-    //     WordApplication.Activate;
-    //     WordApplication.WindowState := WdWindowState.wdWindowStateNormal;
-    //     WordDocument.Saved := TRUE;
-    //     WordDocument.Application.Activate;
-
-    //     NewFilePath := WordHandler.WaitForDocument(WordDocument);
-    //     CLEAR(WordApplication);
-
-    //     IF CONFIRM(ConstLoadDocQuestion) THEN BEGIN
-    //         FileManagement.BLOBImport(TempBlob, NewFilePath);
-
-    //         // LanguageTemplateMail."Template mail" := TempBlob.Blob;
-    //         RecRef.GetTable(LanguageTemplateMail);
-    //         TempBlob.ToRecordRef(RecRef, LanguageTemplateMail.FieldNo("Template mail"));
-    //         RecRef.SetTable(LanguageTemplateMail);
-
-    //         LanguageTemplateMail.MODIFY();
-    //     END;
-
-    //     FileManagement.DeleteClientFile(FilePath);
-    //     IF FilePath <> NewFilePath THEN
-    //         FileManagement.DeleteClientFile(NewFilePath);
-
-    //     WordHandler.Dispose;
-    //     CLEAR(WordHandler);
-    // end;
 
 }
 

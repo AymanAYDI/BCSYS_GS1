@@ -1,6 +1,6 @@
 table 50067 "BC6_Language Template Mail"
 {
-    Caption = 'Language Template Mail';
+    Caption = 'Language Template Mail', Comment = 'FRA="Code Langue Modèle Mail"';
     LookupPageID = "BC6_Language Template Mail";
     DataClassification = CustomerContent;
 
@@ -38,8 +38,8 @@ table 50067 "BC6_Language Template Mail"
     }
 
     var
-        CstG009: label 'Do you want to replace the existing template %1 %2?';
-        CstG010: label 'Do you want to delete the template %1?';
+        CstG009: label 'Do you want to replace the existing template %1 ?', Comment = 'FRA="Voulez-vous remplacer le modèle existant %1 ?"';
+        CstG010: label 'Do you want to delete the template %1?', Comment = 'FRA="Voulez vous supprimer le modèle %1 ?"';
 
 
     procedure Fct_SetHtmlTemplate() TxtRRecupients: Text[1024]

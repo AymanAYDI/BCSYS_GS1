@@ -1,6 +1,6 @@
 table 50045 "BC6_Email Recipient"
 {
-    Caption = 'Email Recipient';
+    Caption = 'Email Recipient', Comment = 'FRA="Destinataire du courriel"';
     DataClassification = CustomerContent;
 
     fields
@@ -13,12 +13,12 @@ table 50045 "BC6_Email Recipient"
         }
         field(2; "Email Type"; enum "BC6_Email Type")
         {
-            Caption = 'Email Type';
+            Caption = 'Email Type', Comment = 'FRA="Type email"';
             DataClassification = CustomerContent;
         }
         field(3; "Recipient Type"; enum "BC6_Recipient Type")
         {
-            Caption = 'Recipient Type';
+            Caption = 'Recipient Type', Comment = 'FRA="Type destinataire"';
             DataClassification = CustomerContent;
         }
         field(4; Email; Text[80])

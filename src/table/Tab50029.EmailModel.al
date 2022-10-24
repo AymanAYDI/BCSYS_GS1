@@ -1,32 +1,38 @@
 table 50029 "BC6_Email Model"
 {
 
-    Caption = 'Email model';
+    Caption = 'Email model', Comment = 'FRA="Modèle email"';
     DrillDownPageID = "BC6_Email Models";
     LookupPageID = "BC6_Email Models";
+    DataClassification = CustomerContent;
 
     fields
     {
         field(1; "Code"; Code[20])
         {
             Caption = 'Code', Comment = 'FRA="Code"';
+            DataClassification = CustomerContent;
         }
         field(10; Description; Text[250])
         {
             Caption = 'Object', Comment = 'FRA="Désignation"';
+            DataClassification = CustomerContent;
         }
         field(22; Inactive; Boolean)
         {
             Caption = 'Inactive', Comment = 'FRA="Inactif"';
+            DataClassification = CustomerContent;
         }
         field(24; "Document Title"; Code[20])
         {
             Caption = 'Document Titel', Comment = 'FRA="Titre document"';
             TableRelation = "Standard Text";
+            DataClassification = CustomerContent;
         }
         field(50000; "Not Show Empty Lines"; Boolean)
         {
             Caption = 'Not Show Empty Lines', Comment = 'FRA="Ne pas afficher les lignes vides"';
+            DataClassification = CustomerContent;
         }
         field(50001; "No. Attachments"; Integer)
         {

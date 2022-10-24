@@ -1,6 +1,6 @@
 table 50030 "BC6_Email Log"
 {
-    Caption = 'Email Log';
+    Caption = 'Email Log', Comment = 'FRA="Journal email"';
     DataClassification = CustomerContent;
 
     fields
@@ -31,7 +31,7 @@ table 50030 "BC6_Email Log"
         }
         field(5; "Message Status"; enum "BC6_Message Status.Enum")
         {
-            Caption = 'Message Status';
+            Caption = 'Message Status', Comment = 'FRA="État des messages"';
             DataClassification = CustomerContent;
         }
         field(6; "Message"; Text[250])
