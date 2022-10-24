@@ -77,24 +77,6 @@ page 50073 "BC6_Language Template Mail"
                     Rec.Fct_DeleteHtmlTemplate();
                 end;
             }
-            action(UpdateModel)
-            {
-                Caption = 'Modifier modèle';
-                Description = 'EMA1.00';
-                Image = EditReminder;
-                Promoted = true;
-                PromotedCategory = Process;
-                PromotedIsBig = true;
-                PromotedOnly = true;
-
-                trigger OnAction()
-                var
-                    GS1DMSManagment: codeunit "BC6_GS1 : DMS Managment";
-                begin
-
-                    //    GS1DMSManagment.OpenWordDocument(Rec);
-                end;
-            }
         }
     }
 

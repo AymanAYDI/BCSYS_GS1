@@ -1,4 +1,3 @@
-#pragma implicitwith disable
 page 50072 "BC6_Email Attach Type Transl."
 {
     Caption = 'Email Translation Attachment Type';
@@ -43,6 +42,4 @@ page 50072 "BC6_Email Attach Type Transl."
     {
     }
 }
-
-#pragma implicitwith restore
 

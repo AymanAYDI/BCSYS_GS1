@@ -1,6 +1,6 @@
 table 50031 "BC6_Email Attachment"
 {
-    Caption = 'Email Attachment';
+    Caption = 'Email Attachment', Comment = 'FRA="Pièce jointe email"';
     DataClassification = CustomerContent;
 
     fields

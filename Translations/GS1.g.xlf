@@ -5,57 +5,57 @@
       <group id="body">
         <trans-unit id="Table 171048423 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Code Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Type de code"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Code Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 171048423 - Field 3543129988 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bloqué</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Bloqué"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Code Type - Field Blocked - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 171048423 - Field 1790512604 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Code Type ID</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="ID type code"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Code Type - Field Code Type ID - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 171048423 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Description</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Désignation"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Code Type - Field Description - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 171048423 - Field 2243268650 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Facturation au renouvellement</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Facturation au renouvellement"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Code Type - Field Invoice On Renewal - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 171048423 - Field 2528408635 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Invoice Title</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Titre facture"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Code Type - Field Invoice Title - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 171048423 - Field 1736455332 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Invoicing Proportion</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Prorata facturation"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Code Type - Field Invoicing Proportion - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 171048423 - Field 1570317152 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Editable</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Editable"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Code Type - Field Is Editable - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 171048423 - Field 568743302 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Item No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="N° article"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Code Type - Field Item No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 171048423 - Field 7443795 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prefix Required</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Préfixe requis"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Code Type - Field Prefix Required - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 171048423 - Field 862053812 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Product Count</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Nombre de produits"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Code Type - Field Product Count - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 171048423 - Field 862053812 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
@@ -65,32 +65,32 @@
         </trans-unit>
         <trans-unit id="Table 171048423 - Field 737630729 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Quantity Alert</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Alerte quantité sur existant"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Code Type - Field Quantity Alert On Existing - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 171048423 - Field 2825306894 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Quantity Alert On Line</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Alerte quantité sur attribution"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Code Type - Field Quantity Alert On Line - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 171048423 - Field 1080137410 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Quantity Factor</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Multiple quantité"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Code Type - Field Quantity Factor - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 171048423 - Field 1996078238 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>To Invoice</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Payant"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Code Type - Field To Invoice - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 171048423 - Field 4049289910 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>UPC Code Required</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Code UPC requis"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Code Type - Field UPC Code Required - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2222146255 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Email Attach. Type Translation</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Traduction type pièce jointe email"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Attach. Type Trans. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2222146255 - Field 2089741720 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -130,7 +130,7 @@
         </trans-unit>
         <trans-unit id="Table 2271888375 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Email Attachment</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Pièce jointe email"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Attachment - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2271888375 - Field 2496422137 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -150,7 +150,7 @@
         </trans-unit>
         <trans-unit id="Table 3076950415 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Email Attachment Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Type pièce jointe email"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Attachment Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3076950415 - Field 3004954119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -165,7 +165,7 @@
         </trans-unit>
         <trans-unit id="Table 3076950415 - Field 3724314464 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>File Naming</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Nommage du fichier"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Attachment Type - Field File Naming - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3076950415 - Field 689635933 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -175,7 +175,7 @@
         </trans-unit>
         <trans-unit id="Table 3076950415 - Field 3740851728 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Output Format</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Format de sortie"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Attachment Type - Field Output Format - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3076950415 - Field 3113016088 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -190,7 +190,7 @@
         </trans-unit>
         <trans-unit id="Table 4018106244 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Email Log</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Journal email"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Log - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4018106244 - Field 2154449076 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -220,7 +220,7 @@
         </trans-unit>
         <trans-unit id="Table 4018106244 - Field 3696383513 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Message Status</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="État des messages"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Log - Field Message Status - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4018106244 - Field 2416180794 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -235,7 +235,7 @@
         </trans-unit>
         <trans-unit id="Table 3127024141 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Email model</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Modèle email"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Model - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3127024141 - Field 3004954119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -280,7 +280,7 @@
         </trans-unit>
         <trans-unit id="Table 3206619409 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Email Recipient</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Destinataire du courriel"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Recipient - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3206619409 - Field 1285973296 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -295,12 +295,12 @@
         </trans-unit>
         <trans-unit id="Table 3206619409 - Field 2937173312 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Email Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Type email"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Recipient - Field Email Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3206619409 - Field 3490560541 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Recipient Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Type destinataire"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Email Recipient - Field Recipient Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3206619409 - Field 960490002 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -335,142 +335,142 @@
         </trans-unit>
         <trans-unit id="Table 563271971 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>GS1 Bar Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Code barres GS1"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 4241120113 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Blocked</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Code santé"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field BFlagSanté - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 2239447483 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Main Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Code principal"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field B_CnufPrincipal - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 3648826722 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Inactive</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Inactif"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field B_Inactive - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 613153186 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Buyer</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Payant"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field B_Payant - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 2790486453 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Comment</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Commentaires"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field Comment - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="N° client"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field Customer No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 2316472364 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Last Invoice Date</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Dernière date de facturation"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field Date_Payant - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 2536083372 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Last Date Modified</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Date dern. modification"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field DAT_CODES - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 2258118348 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Inactive Date</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Date inactif"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field DAT_Inactif - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 883711285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Entry No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="N° séquence"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field Entry No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 389645823 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>GLN</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="GLN"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field GLN - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 4018206005 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>ID Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="ID code"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field IDCodes - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 2572674830 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>ID Document</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="ID Document"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field IDDocument - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 641132604 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>ID Entreprise</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="ID entreprise"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field IDEntreprise - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 3040415741 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>ID Type Codes</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="ID type code"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field IDTypeCodes - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 1570317152 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Editable</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Editable"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field Is Editable - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 568743302 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Item No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="N° article"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field Item No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 613046242 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Description</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Description"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field LIB_Description - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 2119552768 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Start Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Code début"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field Num_Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 3490011366 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>End Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Code de fin"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field Num_Code F - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 2857886333 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Quantity</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Quantité"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field NUM_NBCodes - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 4258326409 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Request Code Entry No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="N° séquence demande de code"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field Request Code Entry No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 90423963 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sélectionné</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Sélectionné"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field Selected - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 761192430 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>N° ligne abonnement</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="N° ligne abonnement"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field Subscription Line No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 3142330800 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>N° abonnement</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="N° abonnement"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field Subscription No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 4170536669 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Transfer-From Entry No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="N° séquence origine transfert"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field Transfer-From Entry No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 563271971 - Field 1008965730 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Transfer-To Entry No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="N° séquence transféré"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_GS1 Bar Code - Field Transfer-To Entry No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1963206222 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -580,17 +580,17 @@
         </trans-unit>
         <trans-unit id="Table 3760374709 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Language Template Mail</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Code Langue Modèle Mail"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Language Template Mail - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3760374709 - NamedType 314276614" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Do you want to replace the existing template %1 %2?</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <source>Do you want to replace the existing template %1 ?</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Voulez-vous remplacer le modèle existant %1 ?"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Language Template Mail - NamedType CstG009</note>
         </trans-unit>
         <trans-unit id="Table 3760374709 - NamedType 2352140838" size-unit="char" translate="yes" xml:space="preserve">
           <source>Do you want to delete the template %1?</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Voulez vous supprimer le modèle %1 ?"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_Language Template Mail - NamedType CstG010</note>
         </trans-unit>
         <trans-unit id="Table 3760374709 - Field 2273653569 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -910,52 +910,52 @@
         </trans-unit>
         <trans-unit id="Codeunit 3574608501 - NamedType 4080124969" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sent already.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="L'envoi a déjà été effectué. Etes-vous sûr de vouloir continuer ?"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_GS1 : DMS Managment - NamedType ConstAlreadySent</note>
         </trans-unit>
         <trans-unit id="Codeunit 3574608501 - NamedType 3439366442" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Le modèle email %1 est bloqué</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <source>Email template %1 is blocked</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Le modèle email %1 est bloqué"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_GS1 : DMS Managment - NamedType ConstEmailModelBlocked</note>
         </trans-unit>
         <trans-unit id="Codeunit 3574608501 - NamedType 3318425255" size-unit="char" translate="yes" xml:space="preserve">
           <source>The document has been edited in Word.\\Do you want to import the changes?</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Le document a été modifié dans Word.\\Voulez-vous importer les modifications ?"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_GS1 : DMS Managment - NamedType ConstLoadDocQuestion</note>
         </trans-unit>
         <trans-unit id="Codeunit 3574608501 - NamedType 931543817" size-unit="char" translate="yes" xml:space="preserve">
           <source>they are no email in Contact for the bill to customer %1 for Sales Credit Memo %2</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Il n'y a pas d'email dans le(s) contact(s) du client facturé %1 pour l'avoir %2"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_GS1 : DMS Managment - NamedType ConstNoContactCrMemo</note>
         </trans-unit>
         <trans-unit id="Codeunit 3574608501 - NamedType 729297812" size-unit="char" translate="yes" xml:space="preserve">
           <source>they are no email in Contact for the bill to customer %1 for Sales Credit Memo %2</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Il n'y a pas d'email dans le(s) contact(s) du client %1"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_GS1 : DMS Managment - NamedType ConstNoContactCustomer</note>
         </trans-unit>
         <trans-unit id="Codeunit 3574608501 - NamedType 3382683151" size-unit="char" translate="yes" xml:space="preserve">
           <source>they are no email in Contact for the bill to customer %1 for Sales Invoice %2</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Il n'y a pas d'email dans le(s) contact(s) du client facturé %1 pour la facture %2"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_GS1 : DMS Managment - NamedType ConstNoContactInvoice</note>
         </trans-unit>
         <trans-unit id="Codeunit 3574608501 - NamedType 78364188" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer %1 haven't GLN.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Le client %1 ne possède pas de GLN."</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_GS1 : DMS Managment - NamedType ConstNoCustGLN</note>
         </trans-unit>
         <trans-unit id="Codeunit 3574608501 - NamedType 4271115806" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Aucun code modèle email n'est défini.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <source>No email model code is defined.</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Aucun code modèle email n'est défini."</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_GS1 : DMS Managment - NamedType ConstNoEmailModelCode</note>
         </trans-unit>
         <trans-unit id="Codeunit 3574608501 - NamedType 736954034" size-unit="char" translate="yes" xml:space="preserve">
           <source>Send canceled</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Envoi annulé"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_GS1 : DMS Managment - NamedType ConstSendCanceled</note>
         </trans-unit>
         <trans-unit id="Codeunit 3574608501 - NamedType 647660198" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sending successful</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Envoi réalisé avec succès"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_GS1 : DMS Managment - NamedType ConstSendSuccess</note>
         </trans-unit>
         <trans-unit id="Codeunit 3574608501 - Method 2898505110 - NamedType 2289776534" size-unit="char" translate="yes" xml:space="preserve">
@@ -1262,11 +1262,6 @@
           <source>Delete template</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page BC6_Language Template Mail - Action &lt;Action1100267019&gt; - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3760374709 - Action 302709042 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Modifier modèle</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page BC6_Language Template Mail - Action UpdateModel - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3240552765 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Type pièces jointes email</source>
@@ -1850,52 +1845,52 @@
         </trans-unit>
         <trans-unit id="Enum 3470327827 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Account Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Type compte"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Account Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3470327827 - EnumValue 1994964448 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Client"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Account Type - EnumValue Customer - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3470327827 - EnumValue 881177948 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Dimension</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Analytique"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Account Type - EnumValue Dimension - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3470327827 - EnumValue 4274826855 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>G/L Account</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Général"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Account Type - EnumValue G/L Account - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3470327827 - EnumValue 1936001480 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Vendor</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Fournisseur"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Account Type - EnumValue Vendor - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 1604678641 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Document Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Type document"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Document Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 1604678641 - EnumValue 1371923692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>None</source>
+          <source> </source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Document Type - EnumValue   - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 1604678641 - EnumValue 2004364593 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Credit Memo</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Avoir"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Document Type - EnumValue Credit Memo - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 1604678641 - EnumValue 821689635 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Invoice</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Facture"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Document Type - EnumValue Invoice - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 1604678641 - EnumValue 3346365350 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Paiement"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Document Type - EnumValue Payment - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 2413935496 - EnumValue 2676895894 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -1940,7 +1935,7 @@
         </trans-unit>
         <trans-unit id="Enum 3860901911 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Import Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Type import"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Import Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3860901911 - EnumValue 1377949133 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -1950,7 +1945,7 @@
         </trans-unit>
         <trans-unit id="Enum 4023174893 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>ImportTypeNDF/Paie</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Type d'import"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_ImportTypeNDF/Paie - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 4023174893 - EnumValue 3794360524 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -2003,6 +1998,11 @@
           <note from="Developer" annotates="general" priority="2">FRA="Mél"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Recipient Type - EnumValue Email - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Enum 300792892 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send Status</source>
+          <note from="Developer" annotates="general" priority="2">FRA=="Statut d'envoi"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Send Status - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Enum 300792892 - EnumValue 1371923692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source> </source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2010,37 +2010,37 @@
         </trans-unit>
         <trans-unit id="Enum 300792892 - EnumValue 3923323563 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Not Sent</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Non Envoyé"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Send Status - EnumValue Not Sent - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 300792892 - EnumValue 2561328176 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sent</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Envoyé"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Send Status - EnumValue Sent - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3358074112 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Status</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Statut"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Status - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3358074112 - EnumValue 1417232546 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Check</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Prêt"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Status - EnumValue Check - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3358074112 - EnumValue 2248886284 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Error</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Erreur"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Status - EnumValue Error - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3358074112 - EnumValue 926489874 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>On Hold</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="En attente"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Status - EnumValue On Hold - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3358074112 - EnumValue 2282416948 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Post</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">FRA="Traité"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum BC6_Status - EnumValue Post - Property Caption</note>
         </trans-unit>
       </group>

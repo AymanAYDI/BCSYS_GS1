@@ -1,6 +1,6 @@
 table 50047 "BC6_Email Attach. Type Trans."
 {
-    Caption = 'Email Attach. Type Translation';
+    Caption = 'Email Attach. Type Translation', Comment = 'FRA="Traduction type pièce jointe email"';
     DataClassification = CustomerContent;
 
     fields
