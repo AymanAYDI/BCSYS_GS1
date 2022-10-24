@@ -75,7 +75,7 @@ page 50115 "BC6_Import/Export GS1"
 
     var
 
+        ReportLbl: label 'ECF Sage Export...', Comment = 'FRA="Export vers ECF Sage"';
         XmlPort1Lbl: label 'Expense Import...', Comment = 'FRA="Import note de frais"';
         XmlPort2Lbl: label 'Payroll Import...', Comment = 'FRA="Import paie"';
-        ReportLbl: label 'ECF Sage Export...', Comment = 'FRA="Export vers ECF Sage"';
 }

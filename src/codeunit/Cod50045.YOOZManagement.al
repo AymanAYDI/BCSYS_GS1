@@ -493,7 +493,6 @@ codeunit 50045 "BC6_YOOZ Management"
         YOOZimportBuffer."YOOZ No." := DataArray[5]; //N° doc YOOZ
         YOOZimportBuffer."Debit Amount" := CToDecimal(DataArray[17], 'fr-FR');
         YOOZimportBuffer."Credit Amount" := CToDecimal(DataArray[18], 'fr-FR');
-        //YOOZimportBuffer.Description:='YOOZ_'+DataArray[6]+'_'+DataArray[8];
         YOOZimportBuffer.Description := DataArray[11];
         YOOZimportBuffer."VAT Identifier" := DataArray[16];
         case DataArray[4] of

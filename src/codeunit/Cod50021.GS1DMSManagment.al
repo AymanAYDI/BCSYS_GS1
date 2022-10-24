@@ -211,11 +211,11 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
         EmailAttachmentType: Record "BC6_Email Attachment Type";
         SalesCrMemoHeader: Record "Sales Cr.Memo Header";
         SalesInvoiceHeader: Record "Sales Invoice Header";
-        RecRef: RecordRef;
-        FileExtension: Text;
         ExportFormat: ReportFormat;
-        FileNameLbl: Label 'GS1_%1_%2.%3';
+        RecRef: RecordRef;
         FileNameCustLbl: Label '%1 - %2.%3';
+        FileNameLbl: Label 'GS1_%1_%2.%3';
+        FileExtension: Text;
     begin
         EmailAttachmentType.GET(AttachmentTypeCode);
         EmailAttachTypeTranslation.GET(EmailAttachmentType.Code, LanguageCode);

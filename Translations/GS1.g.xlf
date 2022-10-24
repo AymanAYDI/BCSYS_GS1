@@ -893,6 +893,21 @@
           <note from="Developer" annotates="general" priority="2">FRA="Date Compta YOOZ"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BC6_YOOZ import Buffer - Field YOOZ Posting Date - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Codeunit 1659505425 - NamedType 2687597942" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Limit reached</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_Apply ID Code Management - NamedType CstGLimitReached</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1659505425 - NamedType 4217144870" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process Finished.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_Apply ID Code Management - NamedType CstGProcessFinished</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1659505425 - NamedType 3533605446" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Update %1 ?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_Apply ID Code Management - NamedType CstGUpdate</note>
+        </trans-unit>
         <trans-unit id="Codeunit 3574608501 - NamedType 4080124969" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sent already.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -943,15 +958,15 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_GS1 : DMS Managment - NamedType ConstSendSuccess</note>
         </trans-unit>
-        <trans-unit id="Codeunit 3574608501 - Method 2898505110 - NamedType 3415447349" size-unit="char" translate="yes" xml:space="preserve">
-          <source>GS1_%1_%2.%3</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_GS1 : DMS Managment - Method GenerateAttachment - NamedType FileNameLbl</note>
-        </trans-unit>
         <trans-unit id="Codeunit 3574608501 - Method 2898505110 - NamedType 2289776534" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 - %2.%3</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_GS1 : DMS Managment - Method GenerateAttachment - NamedType FileNameCustLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3574608501 - Method 2898505110 - NamedType 3415447349" size-unit="char" translate="yes" xml:space="preserve">
+          <source>GS1_%1_%2.%3</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit BC6_GS1 : DMS Managment - Method GenerateAttachment - NamedType FileNameLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 3316220004 - NamedType 276951208" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 is Mandatory</source>
@@ -1773,10 +1788,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension BC6_PostedSalesInvoice - Action BC6_SendManually - Property Caption</note>
         </trans-unit>
-        <trans-unit id="TableExtension 208956596 - Field 3921909050 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2733917450">
-          <source>letter</source>
-          <note from="Developer" annotates="general" priority="2">"FRA=Lettre"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BC6_CustLedgerEntry - Field BC6_letter - Property Caption</note>
+        <trans-unit id="TableExtension 208956596 - Field 2564786344 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2733917450">
+          <source>Applies-to ID Code</source>
+          <note from="Developer" annotates="general" priority="2">FRA="Code ID lettrage"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BC6_CustLedgerEntry - Field BC6_Applies-to ID Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 834818472 - Field 3586972606 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
           <source>BC6_Company ID</source>
@@ -1787,6 +1802,21 @@
           <source>SIREN/SIRET</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension BC6_Customer - Field BC6_SIREN/SIRET - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2939056937 - Field 2564786344 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 235946633">
+          <source>Applies-to ID Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BC6_DetailedCustLedgEntry - Field BC6_Applies-to ID Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 143794006 - Field 2564786344 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1910049904">
+          <source>Applies-to ID Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BC6_DetailedVendorLedgEntry - Field BC6_Applies-to ID Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3641728269 - Field 1531949834 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
+          <source>Check</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BC6_GenJournalLine - Field BC6_Check - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 3290521200 - Field 2563521347 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 552782286">
           <source>Invoice Title</source>
@@ -1812,6 +1842,11 @@
           <source>Allow Yooz Import</source>
           <note from="Developer" annotates="general" priority="2">FRA="Autoriser l'import Yooz"</note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension BC6_UserSetup - Field BC6_Allow Yooz Import - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2166267863 - Field 2564786344 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 406314583">
+          <source>Applies-to ID Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BC6_VendorLedgerEntry - Field BC6_Applies-to ID Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3470327827 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Account Type</source>

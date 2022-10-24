@@ -88,7 +88,7 @@ page 50050 "BC6_Email Models"
                 PromotedCategory = Process;
                 PromotedIsBig = true;
                 PromotedOnly = true;
-                RunObject = page 50079;
+                RunObject = page "BC6_Email Recipients";
                 RunPageLink = "Email Setup Code" = field(Code);
             }
             action(Attachments)

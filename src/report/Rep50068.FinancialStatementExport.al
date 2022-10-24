@@ -111,22 +111,22 @@ report 50068 "BC6_Financial Statement Export"
 
     var
         TempBlob: codeunit "Temp Blob";
-        CstGCancelledOp: label 'Cancelled Operation !', Comment = 'FRA="Opération annulée !"';
-        CstGLaunch: label 'Do you want to launch the ECF Sage export ?', Comment = 'FRA="Voulez vous lancer l''export vers ECF Sage ?"';
-        CstGExport: label 'Export to Txt File', Comment = 'FRA="Exporter en fichier Txt"';
-        CstGXML: label 'XML Files (*.xml)|*.xml|All Files (*.*)|*.*', Comment = 'FRA="Fichiers XML (*.xml)|*.xml|Tous les fichiers (*.*)|*.*"';
-        CstGFileCreated: label 'Txt File created successfully.', Comment = 'FRA="Fichier Txt correctement créé."';
-        CstGDefault: label 'Default', Comment = 'FRA="Par défaut"';
         BooGUseConvert: Boolean;
-        DatGDateF: Date;
         DatGDateD: Date;
-        DecGMntD: Decimal;
+        DatGDateF: Date;
         DecGMntC: Decimal;
+        DecGMntD: Decimal;
         Win: Dialog;
+        InStr: InStream;
+        CstGCancelledOp: label 'Cancelled Operation !', Comment = 'FRA="Opération annulée !"';
+        CstGDefault: label 'Default', Comment = 'FRA="Par défaut"';
+        CstGExport: label 'Export to Txt File', Comment = 'FRA="Exporter en fichier Txt"';
+        CstGFileCreated: label 'Txt File created successfully.', Comment = 'FRA="Fichier Txt correctement créé."';
+        CstGLaunch: label 'Do you want to launch the ECF Sage export ?', Comment = 'FRA="Voulez vous lancer l''export vers ECF Sage ?"';
+        CstGXML: label 'XML Files (*.xml)|*.xml|All Files (*.*)|*.*', Comment = 'FRA="Fichiers XML (*.xml)|*.xml|Tous les fichiers (*.*)|*.*"';
+        OutStr: OutStream;
         TxtGFichier: Text;
         TxtGFileName: Text;
         TxtGToFile: Text;
-        InStr: InStream;
-        OutStr: OutStream;
         TextFileBuilder: TextBuilder;
 }

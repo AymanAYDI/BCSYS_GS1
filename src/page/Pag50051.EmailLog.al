@@ -61,8 +61,8 @@ page 50051 "BC6_Email Log"
                 var
                     GS1DMSManagment: codeunit "BC6_GS1 : DMS Managment";
                     RecID: RecordID;
-                    ConstErasureLog: label 'Erasure Log';
                     EmailSetupCode: Code[50];
+                    ConstErasureLog: label 'Erasure Log';
                 begin
                     if Rec.ISEMPTY() then
                         exit;

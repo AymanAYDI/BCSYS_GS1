@@ -1,7 +1,7 @@
 report 50101 "BC6_AutomaticApplication"
 {
     Caption = 'Automatic Application', Comment = 'FRA="Application automatique"';
-    Permissions = tabledata 21 = rimd;
+    Permissions = tabledata "Cust. Ledger Entry" = rimd;
     ProcessingOnly = true;
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = all;
