@@ -7,7 +7,7 @@ pageextension 50000 "BC6_CustomerCard" extends "Customer Card"
         {
             action(BC6_SendManually)
             {
-                Caption = 'Send manually';
+                Caption = 'Send manually', comment = 'FRA="Envoyer manuellement"';
                 Ellipsis = true;
                 Image = SendElectronicDocument;
 

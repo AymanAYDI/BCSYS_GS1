@@ -220,23 +220,23 @@ table 50008 "BC6_GS1 Bar Code"
 
     local procedure GetNextEntryNo(): BigInteger
     var
-        RecLGS1BarCode: Record "BC6_GS1 Bar Code";
+        GS1BarCode: Record "BC6_GS1 Bar Code";
     begin
-        RecLGS1BarCode.LOCKTABLE();
-        if RecLGS1BarCode.FINDLAST() then
-            exit(RecLGS1BarCode."Entry No." + 1)
+        GS1BarCode.LOCKTABLE();
+        if GS1BarCode.FINDLAST() then
+            exit(GS1BarCode."Entry No." + 1)
         else
             exit(1);
     end;
 
     local procedure UpdateGLN()
     var
-        RecLCustomer: Record Customer;
+        Customer: Record Customer;
     begin
         if ("Customer No." <> '') then begin
-            RecLCustomer.GET("Customer No.");
-            if RecLCustomer.GLN <> '' then
-                GLN := RecLCustomer.GLN;
+            Customer.GET("Customer No.");
+            if Customer.GLN <> '' then
+                GLN := Customer.GLN;
         end;
     end;
 }

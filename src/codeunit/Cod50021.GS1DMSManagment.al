@@ -14,10 +14,9 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
         _LastEmailModelCode: Code[20];
         ConstAlreadySent: label 'Sent already.', Comment = 'FRA="L''envoi a déjà été effectué. Etes-vous sûr de vouloir continuer ?"';
         ConstEmailModelBlocked: label 'Email template %1 is blocked', Comment = 'FRA="Le modèle email %1 est bloqué"';
-        ConstLoadDocQuestion: label 'The document has been edited in Word.\\Do you want to import the changes?', Comment = 'FRA="Le document a été modifié dans Word.\\Voulez-vous importer les modifications ?"';
-        ConstNoContactCrMemo: label 'they are no email in Contact for the bill to customer %1 for Sales Credit Memo %2', Comment = 'FRA="Il n''y a pas d''email dans le(s) contact(s) du client facturé %1 pour l''avoir %2"';
-        ConstNoContactCustomer: label 'they are no email in Contact for the bill to customer %1 for Sales Credit Memo %2', Comment = 'FRA="Il n''y a pas d''email dans le(s) contact(s) du client %1"';
-        ConstNoContactInvoice: label 'they are no email in Contact for the bill to customer %1 for Sales Invoice %2', Comment = 'FRA="Il n''y a pas d''email dans le(s) contact(s) du client facturé %1 pour la facture %2"';
+        ConstNoContactCrMemo: label 'They are no email in Contact for the bill to customer %1 for Sales Credit Memo %2', Comment = 'FRA="Il n''y a pas d''email dans le(s) contact(s) du client facturé %1 pour l''avoir %2"';
+        ConstNoContactCustomer: label 'They are no email in Contact for the bill to customer %1 for Sales Credit Memo %2', Comment = 'FRA="Il n''y a pas d''email dans le(s) contact(s) du client %1"';
+        ConstNoContactInvoice: label 'They are no email in Contact for the bill to customer %1 for Sales Invoice %2', Comment = 'FRA="Il n''y a pas d''email dans le(s) contact(s) du client facturé %1 pour la facture %2"';
         ConstNoCustGLN: label 'Customer %1 haven''t GLN.', Comment = 'FRA="Le client %1 ne possède pas de GLN."';
         ConstNoEmailModelCode: label 'No email model code is defined.', Comment = 'FRA="Aucun code modèle email n''est défini."';
         ConstSendCanceled: label 'Send canceled', Comment = 'FRA="Envoi annulé"';
@@ -28,18 +27,19 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
     var
         SalesInvoiceHeader: Record "Sales Invoice Header";
         GS1DMSManagment: codeunit "BC6_GS1 : DMS Managment";
+        MessageStatus: enum "BC6_Message Status.Enum";
     begin
         CLEARLASTERROR();
         GS1DMSManagment.SetGlobalParameters(RecordIdentifier, EmailModelCode);
         if GS1DMSManagment.RUN() then begin
             GS1DMSManagment.UpdateStatus(RecordIdentifier, SalesInvoiceHeader."BC6_Send Status"::Sent.AsInteger());
-            GS1DMSManagment.InsertLog(GS1DMSManagment.GetLastEmailModelCode(), RecordIdentifier, 0, ConstSendSuccess);
+            GS1DMSManagment.InsertLog(GS1DMSManagment.GetLastEmailModelCode(), RecordIdentifier, MessageStatus::Error, ConstSendSuccess);
             if GUIALLOWED then
                 MESSAGE(ConstSendSuccess);
         end else begin
             if GETLASTERRORTEXT <> ConstSendCanceled then begin
                 GS1DMSManagment.UpdateStatus(RecordIdentifier, SalesInvoiceHeader."BC6_Send Status"::"Not Sent".AsInteger());
-                GS1DMSManagment.InsertLog(GS1DMSManagment.GetLastEmailModelCode(), RecordIdentifier, 1, GETLASTERRORTEXT);
+                GS1DMSManagment.InsertLog(GS1DMSManagment.GetLastEmailModelCode(), RecordIdentifier, MessageStatus::Information, GETLASTERRORTEXT);
             end;
             if GUIALLOWED then
                 ERROR(GETLASTERRORTEXT);
@@ -58,14 +58,13 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
         SalesInvoiceHeader: Record "Sales Invoice Header";
         GS1EmailManagement: codeunit "BC6_GS1 : Email Management";
         // TDOD: "Codeunit Web Api Documents Mgt." WebApiDocumentsMgt: Codeunit "50042";
-        FileManagement: codeunit "File Management";
-        Language: Codeunit Language;
+        Language: codeunit Language;
         TempBlob: codeunit "Temp Blob";
         RecRef: RecordRef;
         LanguageCode: Code[10];
         CustomerNo: Code[20];
         DocumentNo: Code[20];
-        SendStatus: Enum "BC6_Send Status";
+        SendStatus: enum "BC6_Send Status";
         EmailBodyText: Text;
         ErrorTextNoContact: Text;
         FileName: Text;
@@ -86,7 +85,7 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
                     DocumentNo := Customer."No.";
                     CustomerNo := Customer."No.";
                     LanguageCode := Customer."Language Code";
-                    ErrorTextNoContact := STRSUBSTNO(ConstNoContactCustomer, CustomerNo);
+                    ErrorTextNoContact := STRSUBSTNO(ErrorTextNoContact, ConstNoContactCustomer, CustomerNo);
                 end;
             112:
                 begin
@@ -205,16 +204,16 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
             until EmailRecipient.NEXT() = 0;
     end;
 
-    local procedure GenerateAttachment(AttachmentTypeCode: Code[20]; LanguageCode: Code[10]; RecID: RecordID; DocumentNo: Code[20]; CustomerNo: Code[20]; var TempEmailAttachmentType: Record "BC6_Email Attachment Type" temporary; var _FileName: Text; var TempBlob: Codeunit "Temp Blob")
+    local procedure GenerateAttachment(AttachmentTypeCode: Code[20]; LanguageCode: Code[10]; RecID: RecordID; DocumentNo: Code[20]; CustomerNo: Code[20]; var TempEmailAttachmentType: Record "BC6_Email Attachment Type" temporary; var _FileName: Text; var TempBlob: codeunit "Temp Blob")
     var
         EmailAttachTypeTranslation: Record "BC6_Email Attach. Type Trans.";
         EmailAttachmentType: Record "BC6_Email Attachment Type";
         SalesCrMemoHeader: Record "Sales Cr.Memo Header";
         SalesInvoiceHeader: Record "Sales Invoice Header";
-        ExportFormat: ReportFormat;
         RecRef: RecordRef;
-        FileNameCustLbl: Label '%1 - %2.%3';
-        FileNameLbl: Label 'GS1_%1_%2.%3';
+        ExportFormat: ReportFormat;
+        FileNameCustLbl: label '%1 - %2.%3';
+        FileNameLbl: label 'GS1_%1_%2.%3';
         FileExtension: Text;
     begin
         EmailAttachmentType.GET(AttachmentTypeCode);
@@ -284,7 +283,7 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
         exit(EmailModelCode);
     end;
 
-    local procedure ReportSaveAs(ReportID: Integer; ExportFormat: ReportFormat; RecRef: RecordRef; CustomReportLayoutCode: Code[20]; var TempBlob: Codeunit "Temp Blob") Success: Boolean
+    local procedure ReportSaveAs(ReportID: Integer; ExportFormat: ReportFormat; RecRef: RecordRef; CustomReportLayoutCode: Code[20]; var TempBlob: codeunit "Temp Blob") Success: Boolean
     var
         ReportLayoutSelection: Record "Report Layout Selection";
         OutStream: OutStream;
@@ -322,7 +321,7 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
     end;
 
 
-    procedure InsertLog(EmailModelCode: Code[20]; RecordIdentifier: RecordID; MessageStatus: Option Success,Error,Information,Warning; MessageText: Text)
+    procedure InsertLog(EmailModelCode: Code[20]; RecordIdentifier: RecordID; MessageStatus: enum "BC6_Message Status.Enum"; MessageText: Text)
     var
         EmailLog: Record "BC6_Email Log";
     begin

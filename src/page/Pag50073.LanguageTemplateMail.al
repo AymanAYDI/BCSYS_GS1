@@ -1,6 +1,6 @@
 page 50073 "BC6_Language Template Mail"
 {
-    Caption = 'Language Template Mail';
+    Caption = 'Language Template Mail', comment = 'FRA="Code Langue Modèle Mail"';
     PageType = List;
     SourceTable = "BC6_Language Template Mail";
     ApplicationArea = all;
@@ -40,7 +40,7 @@ page 50073 "BC6_Language Template Mail"
         {
             action("<Action1100267017>")
             {
-                Caption = 'Import template';
+                Caption = 'Import template', comment = 'FRA="Importer modèle"';
                 Image = Import;
                 Promoted = true;
                 PromotedCategory = Process;
@@ -53,7 +53,7 @@ page 50073 "BC6_Language Template Mail"
             }
             action("<Action1100267018>")
             {
-                Caption = 'Export template';
+                Caption = 'Export template', comment = 'FRA="Exporter modèle"';
                 Image = Export;
                 Promoted = true;
                 PromotedCategory = Process;
@@ -66,7 +66,7 @@ page 50073 "BC6_Language Template Mail"
             }
             action("<Action1100267019>")
             {
-                Caption = 'Delete template';
+                Caption = 'Delete template', comment = 'FRA="Supprimer modèle"';
                 Image = Delete;
                 Promoted = true;
                 PromotedCategory = Process;

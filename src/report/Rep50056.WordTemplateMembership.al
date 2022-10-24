@@ -2,7 +2,7 @@ report 50056 "BC6_Word Template - Membership"
 {
     RDLCLayout = './src/Layout/WordTemplateMembership.rdl';
 
-    Caption = 'Modèle Word - Adhésion';
+    Caption = 'Modèle Word - Adhésion', comment = 'FRA="Word Template - Membership"';
     DefaultLayout = Word;
     WordMergeDataItem = Customer;
 
@@ -119,23 +119,6 @@ report 50056 "BC6_Word Template - Membership"
             }
         }
     }
-
-    requestpage
-    {
-
-        layout
-        {
-        }
-
-        actions
-        {
-        }
-    }
-
-    labels
-    {
-    }
-
     var
         CountryRegion: Record "Country/Region";
         CompanyInformation_Country: Text;

@@ -7,7 +7,7 @@ pageextension 50002 "BC6_PostedSalesCreditMemo" extends "Posted Sales Credit Mem
             action(BC6_SendManually)
             {
                 ApplicationArea = Basic, Suite;
-                Caption = 'Send Manually';
+                Caption = 'Send Manually', comment = 'FRA="Envoyer manuellement"';
                 Ellipsis = true;
                 Image = SendElectronicDocument;
                 Promoted = true;

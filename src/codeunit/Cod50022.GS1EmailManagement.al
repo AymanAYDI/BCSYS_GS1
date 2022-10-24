@@ -26,7 +26,7 @@ codeunit 50022 "BC6_GS1 : Email Management"
     end;
 
 
-    procedure FctLoadMailBody(var RefPRecordRef: RecordRef; var RecPBLOBRef: codeunit "Temp Blob"; TxtPSpecialText1: Text; TxtPSpecialText2: Text; var TxtPEmailBodyText: Text) Error: Text[1024]
+    procedure FctLoadMailBody(var RefPRecordRef: RecordRef; var RecPBLOBRef: codeunit "Temp Blob"; TxtSpecialText1: Text; TxtSpecialText2: Text; var TxtEmailBodyText: Text) Error: Text[1024]
     var
         Skip: Boolean;
         Stop: Boolean;
@@ -42,11 +42,11 @@ codeunit 50022 "BC6_GS1 : Email Management"
     begin
         if not RefPRecordRef.ISEMPTY then begin
             RecPBLOBRef.CREATEINSTREAM(InStreamTemplate, TEXTENCODING::Windows);
-            TxtPEmailBodyText := '';
+            TxtEmailBodyText := '';
 
             while InStreamTemplate.READ(InSReadChar, 1) <> 0 do
                 if InSReadChar = '%' then begin
-                    TxtPEmailBodyText += Body;
+                    TxtEmailBodyText += Body;
                     Body := InSReadChar;
 
                     if InStreamTemplate.READ(InSReadChar, 1) <> 0 then;
@@ -84,8 +84,8 @@ codeunit 50022 "BC6_GS1 : Email Management"
                                             y += 1;
                                         end;
                                         Body += FORMAT(RepeatLine[y]);
-                                        FctFillTemplate(Body, CharNo, RefPRecordRef, TxtPSpecialText1, TxtPSpecialText2);
-                                        TxtPEmailBodyText += (CONVERTSTR(Body, '|', '%'));
+                                        FctFillTemplate(Body, CharNo, RefPRecordRef, TxtSpecialText1, TxtSpecialText2);
+                                        TxtEmailBodyText += (CONVERTSTR(Body, '|', '%'));
                                         Body := '';
 
                                     end else
@@ -94,7 +94,7 @@ codeunit 50022 "BC6_GS1 : Email Management"
                                     Body += FORMAT(RepeatLine[y]);
 
 
-                            TxtPEmailBodyText += (CONVERTSTR(Body, '|', '%'));
+                            TxtEmailBodyText += (CONVERTSTR(Body, '|', '%'));
                             Body := '';
                             Skip := RefPRecordRef.NEXT() = 0;
                         end;
@@ -110,8 +110,8 @@ codeunit 50022 "BC6_GS1 : Email Management"
                         end else
                             Body := Body + InSReadChar;
 
-                        FctFillTemplate(Body, CharNo, RefPRecordRef, TxtPSpecialText1, TxtPSpecialText2);
-                        TxtPEmailBodyText += (CONVERTSTR(Body, '|', '%'));
+                        FctFillTemplate(Body, CharNo, RefPRecordRef, TxtSpecialText1, TxtSpecialText2);
+                        TxtEmailBodyText += (CONVERTSTR(Body, '|', '%'));
                         Body := InSReadChar;
                     end;
 
@@ -119,7 +119,7 @@ codeunit 50022 "BC6_GS1 : Email Management"
                     Body := Body + InSReadChar;
                     I := I + 1;
                     if I = 500 then begin
-                        TxtPEmailBodyText += (CONVERTSTR(Body, '|', '%'));
+                        TxtEmailBodyText += (CONVERTSTR(Body, '|', '%'));
                         Body := '';
                         I := 0;
                     end;
@@ -136,29 +136,29 @@ codeunit 50022 "BC6_GS1 : Email Management"
                     Body := Body + '>';
             end;
 
-            TxtPEmailBodyText += (CONVERTSTR(Body, '|', '%'));
+            TxtEmailBodyText += (CONVERTSTR(Body, '|', '%'));
         end;
     end;
 
-    procedure FctFillTemplate(var Body: Text[1024]; TextNo: Text[30]; var Header: RecordRef; TxtPSpecialText1: Text; TxtPSpecialText2: Text)
+    procedure FctFillTemplate(var Body: Text[1024]; TextNo: Text[30]; var Header: RecordRef; TxtSpecialText1: Text; TxtSpecialText2: Text)
     var
-        RecLActiveSession: Record "Active Session";
-        FldLRef: FieldRef;
-        FldLRef2: FieldRef;
-        DecLValue1: Decimal;
-        DecLValue2: Decimal;
-        IntLFieldNumber: Integer;
-        IntLFieldNumber2: Integer;
+        ActiveSession: Record "Active Session";
+        FldRef: FieldRef;
+        FldRef2: FieldRef;
+        DecValue1: Decimal;
+        DecValue2: Decimal;
+        IntFieldNumber: Integer;
+        IntFieldNumber2: Integer;
     begin
         if TextNo = '' then
             exit;
         if STRPOS(TextNo, '/') = 0 then begin
-            EVALUATE(IntLFieldNumber, TextNo);
-            case IntLFieldNumber of
+            EVALUATE(IntFieldNumber, TextNo);
+            case IntFieldNumber of
                 10000:
-                    Body := STRSUBSTNO(Body, TxtPSpecialText1);
+                    Body := STRSUBSTNO(Body, TxtSpecialText1);
                 10001:
-                    Body := STRSUBSTNO(Body, TxtPSpecialText2);
+                    Body := STRSUBSTNO(Body, TxtSpecialText2);
                 10002:
                     Body := STRSUBSTNO(Body, TxtGHtmlTable);
                 10003:
@@ -171,64 +171,52 @@ codeunit 50022 "BC6_GS1 : Email Management"
                     Body := STRSUBSTNO(Body, FORMAT(TxtGCreditorName));
                 200000001:
                     begin
-                        RecLActiveSession.SETRANGE("Server Instance ID", SERVICEINSTANCEID());
-                        RecLActiveSession.SETRANGE("Session ID", SESSIONID());
-                        RecLActiveSession.FINDFIRST();
-                        Body := STRSUBSTNO(Body, FctConvertStr(RecLActiveSession."Server Computer Name"));
+                        ActiveSession.SETRANGE("Server Instance ID", SERVICEINSTANCEID());
+                        ActiveSession.SETRANGE("Session ID", SESSIONID());
+                        ActiveSession.FINDFIRST();
+                        Body := STRSUBSTNO(Body, FctConvertStr(ActiveSession."Server Computer Name"));
                     end;
                 200000002:
                     begin
-                        RecLActiveSession.SETRANGE("Server Instance ID", SERVICEINSTANCEID());
-                        RecLActiveSession.SETRANGE("Session ID", SESSIONID());
-                        RecLActiveSession.FINDFIRST;
-                        Body := STRSUBSTNO(Body, FctConvertStr(RecLActiveSession."Database Name"));
+                        ActiveSession.SETRANGE("Server Instance ID", SERVICEINSTANCEID());
+                        ActiveSession.SETRANGE("Session ID", SESSIONID());
+                        ActiveSession.FINDFIRST();
+                        Body := STRSUBSTNO(Body, FctConvertStr(ActiveSession."Database Name"));
                     end;
                 200000003:
                     Body := STRSUBSTNO(Body, FctConvertStr(CopyStr(COMPANYNAME, 1, 1024)));
 
                 else begin
-                    FldLRef := Header.FIELD(IntLFieldNumber);
-                    if FORMAT(FldLRef.CLASS) = 'FlowField' then
-                        FldLRef.CALCFIELD();
-                    case FORMAT(FldLRef.TYPE) of
-                        /*
-                        'Option':BEGIN
-                          EVALUATE(IntLOptionValue, FORMAT(FldLRef.VALUE));
-                          TxtLOptionString := FldLRef.OPTIONCAPTION;
-                          FOR i:=0 TO IntLOptionValue DO
-                          BEGIN
-                            TxtLMySelectedOptionString := COPYSTR(TxtLOptionString, 1, STRPOS(TxtLOptionString, ',')-1);
-                            TxtLOptionString := COPYSTR(TxtLOptionString, STRPOS(TxtLOptionString, ',')+1, STRLEN(TxtLOptionString));
-                          END;
-                          Body := STRSUBSTNO(Body, TxtLMySelectedOptionString);
-                        END;
-                        */
+                    FldRef := Header.FIELD(IntFieldNumber);
+                    if FORMAT(FldRef.CLASS) = 'FlowField' then
+                        FldRef.CALCFIELD();
+                    case FORMAT(FldRef.TYPE) of
                         'Decimal':
                             begin
-                                EVALUATE(DecLValue1, FORMAT(FldLRef.VALUE));
-                                Body := STRSUBSTNO(Body, FORMAT(ROUND(DecLValue1, 0.01)));
+                                EVALUATE(DecValue1, FORMAT(FldRef.VALUE));
+                                Body := STRSUBSTNO(Body, FORMAT(ROUND(DecValue1, 0.01)));
                             end else
-                                    Body := STRSUBSTNO(Body, FldLRef.VALUE);
+                                    Body := STRSUBSTNO(Body, FldRef.VALUE);
                     end;
                 end;
             end;
         end else begin
-            EVALUATE(IntLFieldNumber, COPYSTR(TextNo, 1, STRPOS(TextNo, '/') - 1));
-            EVALUATE(IntLFieldNumber2, COPYSTR(TextNo, STRPOS(TextNo, '/') + 1, STRLEN(TextNo)));
-            FldLRef := Header.FIELD(IntLFieldNumber);
-            if FORMAT(FldLRef.CLASS) = 'FlowField' then
-                FldLRef.CALCFIELD();
+            EVALUATE(IntFieldNumber, COPYSTR(TextNo, 1, STRPOS(TextNo, '/') - 1));
+            EVALUATE(IntFieldNumber2, COPYSTR(TextNo, STRPOS(TextNo, '/') + 1, STRLEN(TextNo)));
+            FldRef := Header.FIELD(IntFieldNumber);
+            if FORMAT(FldRef.CLASS) = 'FlowField' then
+                FldRef.CALCFIELD();
 
-            FldLRef2 := Header.FIELD(IntLFieldNumber2);
-            if FORMAT(FldLRef2.CLASS) = 'FlowField' then
-                FldLRef2.CALCFIELD();
+            FldRef2 := Header.FIELD(IntFieldNumber2);
+            if FORMAT(FldRef2.CLASS) = 'FlowField' then
+                FldRef2.CALCFIELD();
 
-            EVALUATE(DecLValue1, FORMAT(FldLRef.VALUE));
-            EVALUATE(DecLValue2, FORMAT(FldLRef2.VALUE));
-            if DecLValue2 <> 0 then
-                Body := STRSUBSTNO(Body, FORMAT(ROUND((DecLValue1 / DecLValue2), 0.01)))
+            EVALUATE(DecValue1, FORMAT(FldRef.VALUE));
+            EVALUATE(DecValue2, FORMAT(FldRef2.VALUE));
+            if DecValue2 <> 0 then
+                Body := STRSUBSTNO(Body, FORMAT(ROUND((DecValue1 / DecValue2), 0.01)))
             else
-                Body := STRSUBSTNO(Body, FORMAT(ROUND(DecLValue1, 0.01)))
+                Body := STRSUBSTNO(Body, FORMAT(ROUND(DecValue1, 0.01)))
 
         end;
 

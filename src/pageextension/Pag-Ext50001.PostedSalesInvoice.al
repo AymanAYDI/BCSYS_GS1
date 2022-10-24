@@ -6,7 +6,7 @@ pageextension 50001 "BC6_PostedSalesInvoice" extends "Posted Sales Invoice"
         {
             action(BC6_SendManually)
             {
-                Caption = 'Send manually';
+                Caption = 'Send manually', comment = 'FRA="Envoyer manuellement"';
                 Ellipsis = true;
                 Image = SendElectronicDocument;
 

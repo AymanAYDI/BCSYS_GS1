@@ -1,7 +1,7 @@
 page 50053 "BC6_mail Attachments Type"
 {
 
-    Caption = 'Type pièces jointes email';
+    Caption = 'Email Attachments Type', Comment = 'FRA="Type pièces jointes email"';
     PageType = List;
     SourceTable = "BC6_Email Attachment Type";
     ApplicationArea = all;

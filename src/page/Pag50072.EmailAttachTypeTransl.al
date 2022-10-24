@@ -1,6 +1,6 @@
 page 50072 "BC6_Email Attach Type Transl."
 {
-    Caption = 'Email Translation Attachment Type';
+    Caption = 'Email Translation Attachment Type', comment = 'FRA="Traductions type pièces jointes email"';
     PageType = List;
     SourceTable = "BC6_Email Attach. Type Trans.";
     ApplicationArea = all;
@@ -38,8 +38,5 @@ page 50072 "BC6_Email Attach Type Transl."
         }
     }
 
-    actions
-    {
-    }
 }
 

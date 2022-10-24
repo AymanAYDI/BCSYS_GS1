@@ -2,7 +2,7 @@ report 50057 "BC6_Word Template - Assignment"
 {
     RDLCLayout = './src/Layout//WordTemplateAssignment.rdl';
 
-    Caption = 'Modèle Word - Attribution de code';
+    Caption = 'Word Template - Assignment', Comment = 'FRA="Modèle Word - Attribution de code"';
     DefaultLayout = Word;
     WordMergeDataItem = "Sales Invoice Header";
 
@@ -153,7 +153,7 @@ report 50057 "BC6_Word Template - Assignment"
                     trigger OnAfterGetRecord()
                     begin
                         if (STRLEN(GS1BarCode."Num_Code F") > 2) and (STRLEN(GS1BarCode.Num_Code) > 2) then begin
-                            GS1BarCode_Item_Code := STRSUBSTNO('%1 %2', COPYSTR(GS1BarCode.Num_Code, 3, STRLEN(GS1BarCode.Num_Code) - 2), COPYSTR(GS1BarCode."Num_Code F", 3, STRLEN(GS1BarCode."Num_Code F") - 2));
+                            GS1BarCode_Item_Code := STRSUBSTNO(Lbl, COPYSTR(GS1BarCode.Num_Code, 3, STRLEN(GS1BarCode.Num_Code) - 2), COPYSTR(GS1BarCode."Num_Code F", 3, STRLEN(GS1BarCode."Num_Code F") - 2));
                             GS1BarCode_Prefix_StartCode_pvar := COPYSTR(GS1BarCode.Num_Code, 3, STRLEN(GS1BarCode.Num_Code) - 2);
                             GS1BarCode_Prefix_EndCode_pvar := COPYSTR(GS1BarCode."Num_Code F", 3, STRLEN(GS1BarCode."Num_Code F") - 2);
                         end else begin
@@ -230,21 +230,6 @@ report 50057 "BC6_Word Template - Assignment"
         }
     }
 
-    requestpage
-    {
-
-        layout
-        {
-        }
-
-        actions
-        {
-        }
-    }
-
-    labels
-    {
-    }
 
     var
         CountryRegion: Record "Country/Region";
@@ -257,5 +242,6 @@ report 50057 "BC6_Word Template - Assignment"
         GS1BarCode_Prefix_StartCode_pvar: Text;
         GS1BarCode_Prefix_Wight: Text;
         SalesInvoiceHeader_Country: Text;
+        Lbl: Label '%1 %2';
 }
 

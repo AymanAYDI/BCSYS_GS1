@@ -1,7 +1,7 @@
 page 50052 "BC6_Email Attachments"
 {
 
-    Caption = 'Pièces jointes email';
+    Caption = 'Email Attachments', comment = 'FRA="Pièces jointes email"';
     PageType = List;
     SourceTable = "BC6_Email Attachment";
     ApplicationArea = all;
@@ -28,8 +28,5 @@ page 50052 "BC6_Email Attachments"
         }
     }
 
-    actions
-    {
-    }
 }
 

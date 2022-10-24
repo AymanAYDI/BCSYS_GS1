@@ -1,6 +1,6 @@
 page 50050 "BC6_Email Models"
 {
-    Caption = 'Email models';
+    Caption = 'Email models', Comment = 'FRA="Modèles email"';
     PageType = List;
     SourceTable = "BC6_Email Model";
     ApplicationArea = all;
@@ -44,7 +44,7 @@ page 50050 "BC6_Email Models"
         {
             action(ViewLog)
             {
-                Caption = 'View Log';
+                Caption = 'View Log', Comment = 'FRA="Voir le journal"';
                 Image = Log;
                 Promoted = true;
                 PromotedCategory = Process;
@@ -57,7 +57,7 @@ page 50050 "BC6_Email Models"
 
             action(Translations)
             {
-                Caption = 'Translations';
+                Caption = 'Translations', Comment = 'FRA="Traductions"';
                 Image = Translations;
                 Promoted = true;
                 PromotedCategory = Process;
@@ -67,7 +67,7 @@ page 50050 "BC6_Email Models"
                 trigger OnAction()
                 var
                     LanguageTemplateMail: Record "BC6_Language Template Mail";
-                    Language: Codeunit Language;
+                    Language: codeunit Language;
                 begin
                     LanguageTemplateMail.SETRANGE("Parameter String", Rec.Code);
                     if LanguageTemplateMail.ISEMPTY then begin
@@ -82,7 +82,7 @@ page 50050 "BC6_Email Models"
             }
             action(Recipients)
             {
-                Caption = 'Recipients';
+                Caption = 'Recipients', Comment = 'FRA="Destinataires"';
                 Image = ContactPerson;
                 Promoted = true;
                 PromotedCategory = Process;
@@ -93,7 +93,7 @@ page 50050 "BC6_Email Models"
             }
             action(Attachments)
             {
-                Caption = 'Pièces jointes';
+                Caption = 'Attachments', Comment = 'FRA="Pièces jointes"';
                 Image = Attach;
                 Promoted = true;
                 PromotedCategory = Process;
@@ -112,7 +112,7 @@ page 50050 "BC6_Email Models"
     end;
 
     var
-        ConstLookupModeCaption: label 'Selecting an email template';
+        ConstLookupModeCaption: label 'Selecting an email template', comment = 'FRA="Sélection d''un modèle email"';
 }
 
 

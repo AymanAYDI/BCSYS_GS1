@@ -1,7 +1,7 @@
 page 50051 "BC6_Email Log"
 {
 
-    Caption = 'Email log';
+    Caption = 'Email log', comment = 'FRA="Journal email"';
     DeleteAllowed = false;
     InsertAllowed = false;
     ModifyAllowed = false;
@@ -50,7 +50,7 @@ page 50051 "BC6_Email Log"
         {
             action(ClearLog)
             {
-                Caption = 'Clear Log';
+                Caption = 'Clear Log', Comment = 'FRA="Effacer le journal"';
                 Image = ClearLog;
                 Promoted = true;
                 PromotedCategory = Process;
@@ -62,7 +62,7 @@ page 50051 "BC6_Email Log"
                     GS1DMSManagment: codeunit "BC6_GS1 : DMS Managment";
                     RecID: RecordID;
                     EmailSetupCode: Code[50];
-                    ConstErasureLog: label 'Erasure Log';
+                    ConstErasureLog: label 'Erasure Log', Comment = 'FRA="Effacement du journal"';
                 begin
                     if Rec.ISEMPTY() then
                         exit;
@@ -75,7 +75,7 @@ page 50051 "BC6_Email Log"
 
                     Rec.DELETEALL(true);
 
-                    GS1DMSManagment.InsertLog(EmailSetupCode, RecID, Rec."Message Status"::Information.AsInteger(), ConstErasureLog);
+                    GS1DMSManagment.InsertLog(EmailSetupCode, RecID, Rec."Message Status"::Information, ConstErasureLog);
                 end;
             }
         }

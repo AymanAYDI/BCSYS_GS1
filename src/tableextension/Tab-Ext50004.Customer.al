@@ -4,13 +4,13 @@ tableextension 50004 "BC6_Customer" extends Customer
     {
         field(50017; "BC6_Company ID"; Code[20])
         {
-            DataClassification = ToBeClassified;
-            Description = 'GS110.00';
+            Caption = 'Company ID', Comment = 'FRA="ID entreprise"';
+            DataClassification = CustomerContent;
         }
-        field(8034656; "BC6_SIREN/SIRET"; Text[50])
+        field(50004; "BC6_SIREN/SIRET"; Text[50])
         {
-            Caption = 'SIREN/SIRET';
-            DataClassification = ToBeClassified;
+            Caption = 'SIREN/SIRET', comment = 'FRA="SIREN/SIRET"';
+            DataClassification = CustomerContent;
         }
 
     }

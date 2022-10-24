@@ -1,6 +1,6 @@
 page 50079 "BC6_Email Recipients"
 {
-    Caption = 'Destinataires email';
+    Caption = 'Email Recipients', comment = 'FRA="Destinataires email"';
     PageType = List;
     SourceTable = "BC6_Email Recipient";
     ApplicationArea = all;
@@ -35,8 +35,5 @@ page 50079 "BC6_Email Recipients"
         }
     }
 
-    actions
-    {
-    }
 }
 
