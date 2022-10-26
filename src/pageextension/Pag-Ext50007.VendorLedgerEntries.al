@@ -1,4 +1,4 @@
-pageextension 50006 "BC6_Det. Cust. Ledg. Entries" extends "Detailed Cust. Ledg. Entries"
+pageextension 50007 "BC6_VendorLedgerEntries" extends "Vendor Ledger Entries"
 {
     layout
     {
@@ -7,5 +7,4 @@ pageextension 50006 "BC6_Det. Cust. Ledg. Entries" extends "Detailed Cust. Ledg.
             field("BC6_Applies-to ID Code"; Rec."BC6_Applies-to ID Code") { }
         }
     }
-
 }

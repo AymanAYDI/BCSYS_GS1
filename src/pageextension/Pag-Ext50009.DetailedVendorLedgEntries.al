@@ -1,4 +1,4 @@
-pageextension 50004 "BC6_CustomerLedgerEntries" extends "Customer Ledger Entries"
+pageextension 50009 "BC6_DetailedVendorLedgEntries" extends "Detailed Vendor Ledg. Entries"
 {
     layout
     {

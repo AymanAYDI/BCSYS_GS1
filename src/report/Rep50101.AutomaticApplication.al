@@ -150,11 +150,11 @@ report 50101 "BC6_AutomaticApplication"
                 CustLedgEntry2.CALCFIELDS("Remaining Amt. (LCY)");
 
                 CustLedgEntry2.SetCurrentKey("Remaining Amt. (LCY)");
-                CustLedgEntry2.SetFilter("Remaining Amt. (LCY)", '..%1', abs(CustLedgEntry1."Remaining Amt. (LCY)"));
+                CustLedgEntry2.SetFilter("Remaining Amt. (LCY)", '0..%1', abs(CustLedgEntry1."Remaining Amt. (LCY)"));
                 CustLedgEntry2.Ascending(false);
                 CLEAR(DecAmountToApply);
                 if CustLedgEntry2.FindSET() then begin
-                    if CustLedgEntry1."Remaining Amt. (LCY)" <> CustLedgEntry2."Remaining Amt. (LCY)" then begin
+                    if abs(CustLedgEntry1."Remaining Amt. (LCY)") <> CustLedgEntry2."Remaining Amt. (LCY)" then begin
                         CustLedgEntry2.SetCurrentKey("Posting Date");
                         CustLedgEntry2.Ascending(false);
                         CustLedgEntry2.FindSET();
