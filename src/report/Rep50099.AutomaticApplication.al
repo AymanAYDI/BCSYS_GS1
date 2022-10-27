@@ -1,4 +1,4 @@
-report 50101 "BC6_AutomaticApplication"
+report 50099 "BC6_AutomaticApplication"
 {
     Caption = 'Automatic Application', Comment = 'FRA="Application automatique"';
     Permissions = tabledata "Cust. Ledger Entry" = rimd;
@@ -162,10 +162,10 @@ report 50101 "BC6_AutomaticApplication"
                     repeat
                         CustLedgEntry2.CALCFIELDS("Remaining Amt. (LCY)");
                         DecAmountToApply := DecAmountToApply + CustLedgEntry2."Remaining Amt. (LCY)";
-                        CustLedgEntry2."Applies-to ID" := UserId();
+                        CustLedgEntry2."Applies-to ID" := CopyStr(UserId(), 1, MaxStrLen(CustLedgEntry2."Applies-to ID"));
                         CustLedgEntry2.Modify();
                     until (CustLedgEntry2.Next() = 0) or (DecAmountToApply >= abs(CustLedgEntry1."Remaining Amt. (LCY)"));
-                    CustLedgEntry1."Applies-to ID" := UserId();
+                    CustLedgEntry1."Applies-to ID" := CopyStr(UserId(), 1, MaxStrLen(CustLedgEntry1."Applies-to ID"));
                     CustLedgEntry1.Modify();
                     NewApplyUnapplyParameters."Posting Date" := WorkDate();
                     CustEntryApplyPostedEntries.Apply(CustLedgEntry1, NewApplyUnapplyParameters);

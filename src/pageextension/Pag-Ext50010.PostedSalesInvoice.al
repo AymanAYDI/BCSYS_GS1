@@ -1,4 +1,4 @@
-pageextension 50001 "BC6_PostedSalesInvoice" extends "Posted Sales Invoice"
+pageextension 50010 "BC6_PostedSalesInvoice" extends "Posted Sales Invoice"
 {
     actions
     {
@@ -17,7 +17,6 @@ pageextension 50001 "BC6_PostedSalesInvoice" extends "Posted Sales Invoice"
                     GS1DMSManagment.SelectModelAndSendlEmail(Rec.RECORDID);
                 end;
             }
-
         }
     }
 }

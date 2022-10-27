@@ -41,7 +41,6 @@ table 50067 "BC6_Language Template Mail"
         CstG009: label 'Do you want to replace the existing template %1 ?', Comment = 'FRA="Voulez-vous remplacer le modèle existant %1 ?"';
         CstG010: label 'Do you want to delete the template %1?', Comment = 'FRA="Voulez vous supprimer le modèle %1 ?"';
 
-
     procedure Fct_SetHtmlTemplate() TxtRRecupients: Text[1024]
     var
         RBAutoMgt: codeunit "File Management";
@@ -65,7 +64,6 @@ table 50067 "BC6_Language Template Mail"
         MODIFY();
     end;
 
-
     procedure Fct_DeleteHtmlTemplate() TxtRRecupients: Text[1024]
     begin
         CALCFIELDS("Template mail");
@@ -75,7 +73,6 @@ table 50067 "BC6_Language Template Mail"
                 MODIFY();
             end;
     end;
-
 
     procedure Fct_ExportHtmlTemplate() TxtRRecupients: Text[1024]
     var
@@ -89,4 +86,3 @@ table 50067 "BC6_Language Template Mail"
         end;
     end;
 }
-

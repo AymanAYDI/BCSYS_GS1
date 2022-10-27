@@ -1,11 +1,10 @@
-page 50073 "BC6_Language Template Mail"
+page 50109 "BC6_Language Template Mail"
 {
     Caption = 'Language Template Mail', comment = 'FRA="Code Langue Modèle Mail"';
     PageType = List;
     SourceTable = "BC6_Language Template Mail";
     ApplicationArea = all;
     UsageCategory = Lists;
-
 
     layout
     {
@@ -26,7 +25,7 @@ page 50073 "BC6_Language Template Mail"
         }
         area(factboxes)
         {
-            // part(MessageDetail; 8073322) TODO: "Language Template Mail Detail" page 
+            // part(MessageDetail; 8073322) TODO: "Language Template Mail Detail" page
             // {
             //     SubPageLink = "Parameter String"=FIELD("Parameter String"),
             //                   "Language Code"=FIELD("Language Code");
@@ -90,4 +89,3 @@ page 50073 "BC6_Language Template Mail"
         //CurrPage.MessageDetail.PAGE.FctInitAddin(InsLInStream, Rec."Parameter String" + ' ' + Rec."Language Code"); TODO: => TDOD ligne 26
     end;
 }
-

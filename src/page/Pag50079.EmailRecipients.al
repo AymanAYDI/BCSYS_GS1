@@ -6,7 +6,6 @@ page 50079 "BC6_Email Recipients"
     ApplicationArea = all;
     UsageCategory = Lists;
 
-
     layout
     {
         area(content)
@@ -34,6 +33,4 @@ page 50079 "BC6_Email Recipients"
             }
         }
     }
-
 }
-

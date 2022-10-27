@@ -240,7 +240,6 @@ table 50065 "BC6_YOOZ import Buffer"
         }
         key(Pk1; "Import Type", Status)
         {
-
         }
     }
     trigger OnDelete()

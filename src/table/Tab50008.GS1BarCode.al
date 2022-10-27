@@ -240,4 +240,3 @@ table 50008 "BC6_GS1 Bar Code"
         end;
     end;
 }
-

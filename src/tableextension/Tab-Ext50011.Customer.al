@@ -1,4 +1,4 @@
-tableextension 50004 "BC6_Customer" extends Customer
+tableextension 50011 "BC6_Customer" extends Customer
 {
     fields
     {
@@ -12,7 +12,6 @@ tableextension 50004 "BC6_Customer" extends Customer
             Caption = 'SIREN/SIRET', comment = 'FRA="SIREN/SIRET"';
             DataClassification = CustomerContent;
         }
-
     }
     procedure GetContact(): Code[20]
     var

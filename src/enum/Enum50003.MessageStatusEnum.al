@@ -1,4 +1,4 @@
-enum 50000 "BC6_Message Status.Enum"
+enum 50003 "BC6_Message Status.Enum"
 {
     Extensible = true;
 

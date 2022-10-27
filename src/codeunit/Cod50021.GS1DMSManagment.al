@@ -22,7 +22,6 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
         ConstSendCanceled: label 'Send canceled', Comment = 'FRA="Envoi annulé"';
         ConstSendSuccess: label 'Sending successful', Comment = 'FRA="Envoi réalisé avec succès"';
 
-
     procedure Send(RecordIdentifier: RecordID; EmailModelCode: Code[20])
     var
         SalesInvoiceHeader: Record "Sales Invoice Header";
@@ -240,7 +239,6 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
                     begin
                         RecRef.SETTABLE(SalesCrMemoHeader);
                         _FileName := STRSUBSTNO(FileNameLbl, FORMAT(SalesCrMemoHeader."Posting Date", 0, '<Day,2>-<Month,2>-<Year4>'), SalesCrMemoHeader."No.", FileExtension);
-
                     end;
                 EmailAttachmentType."File Naming"::Customer:
                     _FileName := STRSUBSTNO(FileNameCustLbl, EmailAttachTypeTranslation.Description, CustomerNo, FileExtension);
@@ -278,7 +276,6 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
             114:
 
                 EmailModelCode := GS1Setup."Sales Credit Memo Model Code";
-
         end;
         exit(EmailModelCode);
     end;
@@ -302,7 +299,6 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
         _EmailModelCode := EmailModelCode;
     end;
 
-
     procedure UpdateStatus(RecordIdentifier: RecordID; NewStatus: Integer)
     var
         RecRef: RecordRef;
@@ -320,7 +316,6 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
         COMMIT();
     end;
 
-
     procedure InsertLog(EmailModelCode: Code[20]; RecordIdentifier: RecordID; MessageStatus: enum "BC6_Message Status.Enum"; MessageText: Text)
     var
         EmailLog: Record "BC6_Email Log";
@@ -335,12 +330,10 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
         COMMIT();
     end;
 
-
     procedure GetLastEmailModelCode(): Code[20]
     begin
         exit(_LastEmailModelCode);
     end;
-
 
     procedure ViewLog(RecordIdentifier: RecordID)
     var
@@ -349,7 +342,6 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
         EmailLog.SETRANGE("Record Identifier", RecordIdentifier);
         PAGE.RUNMODAL(PAGE::"BC6_Email Log", EmailLog);
     end;
-
 
     procedure SelectModelAndSendlEmail(RecordIdentifier: RecordID): Code[20]
     var
@@ -369,6 +361,4 @@ codeunit 50021 "BC6_GS1 : DMS Managment"
         if PAGE.RUNMODAL(PAGE::"BC6_Email Models", EmailModel) = ACTION::LookupOK then
             Send(RecordIdentifier, EmailModel.Code);
     end;
-
 }
-

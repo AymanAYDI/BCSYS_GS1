@@ -1,4 +1,4 @@
-pageextension 50002 "BC6_PostedSalesCreditMemo" extends "Posted Sales Credit Memo"
+pageextension 50011 "BC6_PostedSalesCreditMemo" extends "Posted Sales Credit Memo"
 {
     actions
     {
@@ -22,7 +22,6 @@ pageextension 50002 "BC6_PostedSalesCreditMemo" extends "Posted Sales Credit Mem
                     GS1DMSManagment.Send(Rec.RECORDID, '');
                 end;
             }
-
         }
     }
 }

@@ -8,12 +8,10 @@ codeunit 50022 "BC6_GS1 : Email Management"
         TxtGPeriod: Text;
         TxtGCreditorName: Text[50];
 
-
     procedure SendMail(BooPHideSmtpError: Boolean)
     begin
         Mail.Send(EmailMessage, Enum::"Email Scenario"::Default);
     end;
-
 
     procedure FctGetTemplateWithLanguage(TxtPParameterString: Text[250]; _Language: Code[10]; var _BLOBRef: codeunit "Temp Blob")
     var
@@ -24,7 +22,6 @@ codeunit 50022 "BC6_GS1 : Email Management"
         LanguageTemplateMail.CALCFIELDS("Template mail");
         _BLOBRef.FromRecord(LanguageTemplateMail, LanguageTemplateMail.FieldNo("Template mail"));
     end;
-
 
     procedure FctLoadMailBody(var RefPRecordRef: RecordRef; var RecPBLOBRef: codeunit "Temp Blob"; TxtSpecialText1: Text; TxtSpecialText2: Text; var TxtEmailBodyText: Text) Error: Text[1024]
     var
@@ -93,7 +90,6 @@ codeunit 50022 "BC6_GS1 : Email Management"
                                 end else
                                     Body += FORMAT(RepeatLine[y]);
 
-
                             TxtEmailBodyText += (CONVERTSTR(Body, '|', '%'));
                             Body := '';
                             Skip := RefPRecordRef.NEXT() = 0;
@@ -124,7 +120,6 @@ codeunit 50022 "BC6_GS1 : Email Management"
                         I := 0;
                     end;
                 end;
-
 
             if (STRLEN(Body) > 0) then begin
                 WrongEnd := true;
@@ -217,9 +212,7 @@ codeunit 50022 "BC6_GS1 : Email Management"
                 Body := STRSUBSTNO(Body, FORMAT(ROUND((DecValue1 / DecValue2), 0.01)))
             else
                 Body := STRSUBSTNO(Body, FORMAT(ROUND(DecValue1, 0.01)))
-
         end;
-
     end;
 
     procedure FctConvertStr(TxtPStringToConvert: Text[1024]) TxtRStringToConvert: Text[1024]
@@ -275,4 +268,3 @@ codeunit 50022 "BC6_GS1 : Email Management"
                 _MailList.Add(_Mail);
     end;
 }
-

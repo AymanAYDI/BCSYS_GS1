@@ -1,4 +1,4 @@
-enum 50005 "BC6_Send Status"
+enum 50011 "BC6_Send Status"
 {
     Extensible = true;
     Caption = 'Send Status', Comment = 'FRA=="Statut d''envoi"';

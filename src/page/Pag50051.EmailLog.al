@@ -1,6 +1,5 @@
 page 50051 "BC6_Email Log"
 {
-
     Caption = 'Email log', comment = 'FRA="Journal email"';
     DeleteAllowed = false;
     InsertAllowed = false;
@@ -61,7 +60,7 @@ page 50051 "BC6_Email Log"
                 var
                     GS1DMSManagment: codeunit "BC6_GS1 : DMS Managment";
                     RecID: RecordID;
-                    EmailSetupCode: Code[50];
+                    EmailSetupCode: Code[20];
                     ConstErasureLog: label 'Erasure Log', Comment = 'FRA="Effacement du journal"';
                 begin
                     if Rec.ISEMPTY() then
@@ -81,6 +80,3 @@ page 50051 "BC6_Email Log"
         }
     }
 }
-
-
-

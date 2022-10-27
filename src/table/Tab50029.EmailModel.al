@@ -1,6 +1,5 @@
 table 50029 "BC6_Email Model"
 {
-
     Caption = 'Email model', Comment = 'FRA="Modèle email"';
     DrillDownPageID = "BC6_Email Models";
     LookupPageID = "BC6_Email Models";
@@ -68,10 +67,6 @@ table 50029 "BC6_Email Model"
         }
     }
 
-    fieldgroups
-    {
-    }
-
     trigger OnRename()
     var
         LanguageTemplateMail: Record "BC6_Language Template Mail";
@@ -83,6 +78,4 @@ table 50029 "BC6_Email Model"
                 LanguageTemplateMail.RENAME(Code, LanguageTemplateMail."Language Code");
             until LanguageTemplateMail.NEXT() = 0;
     end;
-
 }
-

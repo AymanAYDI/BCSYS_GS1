@@ -1,4 +1,4 @@
-tableextension 50000 "BC6_SalesInvoiceHeader" extends "Sales Invoice Header"
+tableextension 50010 "BC6_SalesCrMemoHeader" extends "Sales Cr.Memo Header"
 {
     fields
     {

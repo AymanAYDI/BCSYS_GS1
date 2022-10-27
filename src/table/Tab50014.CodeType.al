@@ -105,4 +105,3 @@ table 50014 "BC6_Code Type"
         }
     }
 }
-

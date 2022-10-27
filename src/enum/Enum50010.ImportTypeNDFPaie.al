@@ -1,6 +1,5 @@
 enum 50010 "BC6_ImportTypeNDF/Paie"
 {
-
     Extensible = true;
     Caption = 'ImportTypeNDF/Paie', Comment = 'FRA="Type d''import"';
 

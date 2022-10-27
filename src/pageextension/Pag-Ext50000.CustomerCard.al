@@ -1,6 +1,5 @@
 pageextension 50000 "BC6_CustomerCard" extends "Customer Card"
 {
-
     actions
     {
         addlast(navigation)
@@ -18,9 +17,6 @@ pageextension 50000 "BC6_CustomerCard" extends "Customer Card"
                     GS1DMSManagment.SelectModelAndSendlEmail(Rec.RECORDID);
                 end;
             }
-
         }
     }
-
-
 }

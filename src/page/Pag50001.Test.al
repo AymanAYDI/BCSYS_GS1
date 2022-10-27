@@ -5,7 +5,6 @@ page 50001 "BC6_Test"
     ApplicationArea = all;
     UsageCategory = Lists;
 
-
     layout
     {
         area(content)
@@ -29,9 +28,7 @@ page 50001 "BC6_Test"
                 // begin
                 //     "NAS Email".Run;
                 // end;
-
             }
-
         }
     }
 }

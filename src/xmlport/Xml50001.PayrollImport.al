@@ -164,7 +164,6 @@ xmlport 50001 "BC6_Payroll Import"
 
         end else
             MESSAGE(CstG006);
-
     end;
 
     trigger OnPreXmlPort()

@@ -1,7 +1,6 @@
 report 50057 "BC6_Word Template - Assignment"
 {
     RDLCLayout = './src/Layout//WordTemplateAssignment.rdl';
-
     Caption = 'Word Template - Assignment', Comment = 'FRA="Modèle Word - Attribution de code"';
     DefaultLayout = Word;
     WordMergeDataItem = "Sales Invoice Header";
@@ -230,7 +229,6 @@ report 50057 "BC6_Word Template - Assignment"
         }
     }
 
-
     var
         CountryRegion: Record "Country/Region";
         CompanyInformation_Country: Text;
@@ -244,4 +242,3 @@ report 50057 "BC6_Word Template - Assignment"
         SalesInvoiceHeader_Country: Text;
         Lbl: Label '%1 %2';
 }
-

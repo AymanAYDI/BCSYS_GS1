@@ -108,7 +108,6 @@ table 50006 "BC6_GS1 Setup"
             DataClassification = CustomerContent;
             Editable = true;
         }
-
         field(50012; "Default Model Code Untitl. Inv"; Code[20])
         {
             Caption = 'Default code for untitled invoices', Comment = 'FRA="Code modèle par défaut pour facture sans titre"';

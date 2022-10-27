@@ -114,5 +114,3 @@ page 50050 "BC6_Email Models"
     var
         ConstLookupModeCaption: label 'Selecting an email template', comment = 'FRA="Sélection d''un modèle email"';
 }
-
-

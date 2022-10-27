@@ -1,4 +1,4 @@
-enum 50004 "BC6_Recipient Type"
+enum 50005 "BC6_Recipient Type"
 {
     Extensible = true;
 

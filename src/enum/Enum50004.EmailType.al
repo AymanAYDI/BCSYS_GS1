@@ -1,4 +1,4 @@
-enum 50003 "BC6_Email Type"
+enum 50004 "BC6_Email Type"
 {
     Extensible = true;
 

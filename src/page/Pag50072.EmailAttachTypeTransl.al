@@ -6,7 +6,6 @@ page 50072 "BC6_Email Attach Type Transl."
     ApplicationArea = all;
     UsageCategory = Lists;
 
-
     layout
     {
         area(content)
@@ -37,6 +36,4 @@ page 50072 "BC6_Email Attach Type Transl."
             }
         }
     }
-
 }
-
